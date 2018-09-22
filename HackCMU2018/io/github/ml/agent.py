@@ -14,8 +14,6 @@ class Agent:
             self.model = keras.models.load_model(self.src)
         else:
             # Generate model
-            # agent_init[0] = number of input nodes for first layer : int
-            # agent_init[1] = list of outputs for all layers : int list
             for i in range(6):
                 if i == 0:
                     self.model.add(keras.layers.Dense(1000, 
@@ -37,32 +35,36 @@ class Agent:
             self.model = keras.models.load_model(self.src)
         
     def run_model(self, data, epochs, save=False):
+        print ("Training")
         num_of_files = len(data)
-        for file_num in range(num_of_files):
-            num_of_errors = data[file_num][0]
-            lines = tf.reshape(np.asarray(data[file_num][2]), [1, 2500])
-            lines = tf.strings.to_number(lines, out_type=tf.float64)
-            errors = data[file_num][1]
-            line_errors = [0 for i in range(2500)]
-            for i in range(len(errors)):
-                line_errors[errors[i]] = 1
-
-            line_errors = tf.reshape(line_errors, [1, 2500])
+        all_lines = []
+        all_line_errors = []
+        all_num_errors = []
+        for i in range(num_of_files):
+            all_lines.extend(data[i][2])
+            all_num_errors.extend(data[i][0])
+            errors = data[i][1]
+            line_errors = [0 for j in range(2500)]
+            for j in range(len(errors)):
+                line_errors[errors[j]] = 1
+                
+            all_line_errors.extend(line_errors)
             
+        all_lines = np.reshape(all_lines, (num_of_files, 2500, 80))
+        all_line_errors = np.reshape(all_line_errors, (num_of_files, 2500))
         
-            self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.2), 
-                                loss="mse", 
-                                metrics=["mae"])
+        self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.2), 
+                            loss="mse", 
+                            metrics=["mae"])
         
-            self.model.fit(lines,
-                           line_errors,
-                           epochs=epochs,
-                           steps_per_epoch=50)
+        self.model.fit(all_lines,
+                        all_line_errors,
+                        epochs=epochs,
+                        steps_per_epoch=50,
+                        batch_size=50)
             
-            if save:
-                self.save_model()
-    
-            print ("File " + str(file_num))
+        if save:
+            self.save_model()
         
         return 1
     
@@ -74,16 +76,22 @@ class Agent:
             
     def run_prediction(self, data):
         print ("Predicting")
-        num_of_errors = data[0][0]
-        lines = tf.reshape(np.asarray(data[0][2]), [1, 2500])
-        lines = tf.strings.to_hash_bucket(lines, num_buckets=98317)
+        all_lines = data[0][2]
+        all_line_errors = []
+        # all_num_errors = data[0][0]
+
         errors = data[0][1]
-        line_errors = [0 for i in range(2500)]
-        for i in range(len(errors)):
-            line_errors[errors[i]] = 1
+        line_errors = [0 for j in range(2500)]
+        for j in range(len(errors)):
+            line_errors[errors[j]] = 1
+                
+        all_line_errors.extend(line_errors)
         
-        outputs = self.model.predict(lines, steps=50).tolist()
-        sum = 0
+        all_lines = np.reshape(all_lines, (1, 2500, 80))
+        all_line_errors = np.reshape(all_line_errors, (1, 2500))
+        
+        outputs = self.model.predict(all_lines, steps=50).tolist()
+        val_sum = 0
         correct_counter = 0
         incorrect_counter = 0
         no_op_counter = 0
@@ -102,9 +110,9 @@ class Agent:
                 incorrect_counter += 1
             else:
                 no_op_counter += 1
-            sum = sum + outputs[49][i] if outputs[49][i] > .1 else sum
+            val_sum = sum + outputs[49][i] if outputs[49][i] > .1 else sum
                 
         print ("Correct: " + str(correct_counter))
         print ("Incorrect: " + str(incorrect_counter))
         print ("No operation: " + str(no_op_counter))
-        print ("sum: " + str(sum))
+        print ("sum: " + str(val_sum))
