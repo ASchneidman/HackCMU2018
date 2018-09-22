@@ -16,7 +16,7 @@ def runML(agent_src, data = '../../linter/outputfiles'):
         #fitness.append((ml_agent.get_model(), ml_agent.run_model(data, 100)))
     #(model, score) = reduce (lambda t1, t2: t1[0] if t1[1] >= t2[1] else t2[1], fitness)
     #ml_agent.set_model(model)
-    fitness = ml_agent.run_model(data, 25, save=True)
+    fitness = ml_agent.run_model(data, 50, save=True)
     print ("Fitness: " + str(fitness))
 
 

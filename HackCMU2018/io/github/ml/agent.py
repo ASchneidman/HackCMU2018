@@ -20,7 +20,7 @@ class Agent:
                                                       input_shape=(80000, ),
                                                       activation="sigmoid"))
                 elif i == 5:
-                    self.model.add(keras.layers.Dense(2500,
+                    self.model.add(keras.layers.Dense(1000,
                                                       activation="sigmoid"))
                 else:
                     self.model.add(keras.layers.Dense(1000,
@@ -47,7 +47,8 @@ class Agent:
             errors = data[i][1]
             line_errors = [0 for j in range(1000)]
             for j in range(len(errors)):
-                line_errors[errors[j]] = 1
+                if errors[j] < 1000:
+                    line_errors[errors[j]] = 1
                 
             all_line_errors.append(line_errors)
             
