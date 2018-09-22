@@ -1,5 +1,5 @@
-12
-4, 7, 13, 13, 23, 26, 28, 29, 38, 40, 40, 44
+11
+4, 13, 13, 23, 26, 28, 29, 38, 40, 40, 44
 #include<cstdio>
 #include<cstring>
 #include<iostream>

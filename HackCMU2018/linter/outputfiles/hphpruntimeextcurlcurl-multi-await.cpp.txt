@@ -1,5 +1,5 @@
-6
-47, 60, 109, 137, 152, 72
+5
+47, 60, 137, 152, 72
 #include "hphp/runtime/ext/curl/curl-multi-await.h"
 #include "hphp/runtime/ext/curl/curl-resource.h"
 #include "hphp/runtime/ext/asio/socket-event.h"

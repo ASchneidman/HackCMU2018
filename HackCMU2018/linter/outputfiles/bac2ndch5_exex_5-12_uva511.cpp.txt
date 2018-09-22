@@ -1,5 +1,5 @@
-7
-9, 42, 65, 77, 80, 80, 96
+5
+9, 42, 65, 80, 96
 #include<cstdio>
 #include<cstdlib>
 #include<cmath>

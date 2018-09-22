@@ -1,5 +1,5 @@
-17
-6, 11, 26, 34, 45, 48, 71, 103, 119, 171, 193, 268, 278, 327, 462, 462, 462
+15
+6, 11, 26, 34, 71, 103, 119, 171, 193, 268, 278, 327, 462, 462, 462
 #include "hphp/runtime/ext/icu/icu.h"
 #include "hphp/runtime/base/builtin-functions.h"
 #include "hphp/runtime/base/tv-refcount.h"

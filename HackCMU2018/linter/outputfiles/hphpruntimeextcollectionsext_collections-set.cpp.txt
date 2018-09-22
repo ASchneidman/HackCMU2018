@@ -1,5 +1,5 @@
-16
-24, 41, 68, 77, 270, 291, 415, 418, 427, 451, 497, 801, 891, 891, 728, 683
+13
+24, 41, 68, 77, 270, 291, 415, 427, 801, 891, 891, 728, 683
 #include "hphp/runtime/ext/collections/ext_collections-set.h"
 
 #include "hphp/runtime/ext/collections/ext_collections.h"

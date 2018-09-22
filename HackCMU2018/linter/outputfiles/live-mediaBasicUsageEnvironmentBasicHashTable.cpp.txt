@@ -1,5 +1,5 @@
-18
-79, 89, 111, 130, 149, 150, 153, 178, 199, 201, 202, 217, 235, 241, 262, 266, 268, 269
+17
+79, 89, 111, 130, 149, 150, 153, 178, 199, 201, 202, 217, 235, 262, 266, 268, 269
 /**********
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the

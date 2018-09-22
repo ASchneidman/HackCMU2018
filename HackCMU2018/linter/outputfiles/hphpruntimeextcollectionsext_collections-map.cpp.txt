@@ -1,5 +1,5 @@
-12
-24, 77, 138, 166, 184, 321, 445, 820, 901, 901, 757, 639
+11
+24, 77, 138, 166, 184, 321, 820, 901, 901, 757, 639
 #include "hphp/runtime/ext/collections/ext_collections-map.h"
 
 #include "hphp/runtime/ext/collections/ext_collections.h"

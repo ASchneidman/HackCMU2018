@@ -1,5 +1,5 @@
-9
-7, 19, 27, 27, 28, 31, 36, 40, 79
+8
+7, 19, 27, 27, 28, 31, 36, 40
 #include<cstdio>
 #include<iostream>
 #include<string>

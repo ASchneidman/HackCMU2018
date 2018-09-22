@@ -1,5 +1,5 @@
-13
-5, 6, 50, 87, 100, 101, 127, 128, 157, 164, 240, 240, 240
+12
+5, 6, 50, 87, 101, 127, 128, 157, 164, 240, 240, 240
 #include "hphp/runtime/ext/icu/icu.h"
 
 #include "hphp/runtime/base/array-init.h"

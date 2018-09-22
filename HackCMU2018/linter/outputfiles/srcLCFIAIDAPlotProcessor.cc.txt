@@ -1,0 +1,1978 @@
+2165
+7, 8, 9, 10, 16, 17, 18, 24, 26, 34, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 52, 52, 53, 54, 56, 56, 56, 57, 57, 58, 59, 59, 60, 61, 62, 66, 69, 70, 72, 73, 74, 75, 76, 78, 80, 82, 84, 84, 86, 87, 88, 90, 92, 94, 96, 96, 97, 98, 102, 106, 109, 110, 112, 114, 115, 119, 120, 122, 124, 125, 127, 127, 128, 128, 129, 130, 132, 132, 135, 137, 137, 138, 138, 139, 140, 142, 142, 144, 145, 147, 149, 149, 150, 152, 154, 155, 157, 159, 162, 164, 167, 169, 170, 172, 173, 174, 176, 177, 177, 178, 181, 182, 183, 184, 184, 185, 191, 202, 210, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 221, 222, 222, 223, 223, 224, 225, 226, 227, 229, 229, 230, 231, 232, 232, 233, 233, 233, 234, 234, 235, 236, 237, 238, 238, 239, 240, 241, 242, 242, 243, 243, 244, 244, 245, 246, 246, 247, 247, 248, 248, 252, 252, 254, 254, 254, 254, 255, 255, 255, 256, 256, 256, 256, 258, 258, 259, 260, 261, 262, 263, 263, 264, 266, 267, 267, 268, 271, 273, 274, 274, 274, 275, 275, 275, 276, 277, 277, 277, 278, 278, 278, 279, 280, 280, 281, 281, 282, 283, 284, 285, 286, 286, 287, 287, 287, 288, 288, 290, 291, 291, 292, 292, 293, 293, 295, 296, 296, 296, 296, 297, 297, 297, 298, 298, 298, 299, 299, 299, 299, 300, 300, 300, 300, 301, 301, 301, 302, 302, 302, 302, 303, 303, 303, 304, 304, 304, 304, 305, 305, 307, 309, 310, 311, 312, 312, 313, 313, 314, 315, 315, 316, 316, 317, 317, 317, 317, 318, 318, 320, 321, 321, 321, 321, 323, 323, 325, 326, 327, 327, 328, 330, 331, 331, 331, 332, 332, 332, 333, 333, 334, 334, 335, 336, 336, 337, 337, 338, 338, 339, 339, 340, 340, 341, 341, 342, 343, 344, 345, 346, 346, 346, 347, 347, 347, 349, 353, 354, 354, 355, 356, 356, 359, 360, 361, 363, 364, 365, 366, 367, 368, 369, 371, 371, 372, 372, 373, 373, 374, 377, 377, 380, 380, 381, 382, 383, 384, 385, 386, 388, 394, 394, 395, 395, 397, 397, 398, 399, 400, 402, 403, 404, 405, 409, 410, 412, 413, 418, 419, 419, 420, 421, 422, 423, 424, 427, 428, 429, 430, 430, 430, 430, 431, 431, 431, 432, 433, 434, 435, 435, 438, 438, 439, 440, 441, 442, 443, 444, 444, 446, 448, 449, 450, 450, 451, 452, 452, 452, 452, 452, 453, 453, 453, 453, 455, 456, 457, 458, 459, 460, 460, 461, 461, 462, 463, 464, 465, 467, 467, 467, 468, 469, 470, 471, 473, 473, 473, 474, 475, 476, 477, 479, 479, 479, 480, 481, 482, 483, 485, 485, 485, 486, 487, 488, 489, 491, 491, 491, 492, 493, 494, 495, 497, 497, 497, 497, 498, 499, 500, 501, 503, 503, 503, 503, 504, 505, 506, 507, 509, 509, 509, 509, 510, 511, 512, 513, 515, 515, 515, 516, 517, 518, 519, 521, 522, 522, 523, 524, 524, 524, 524, 524, 525, 525, 525, 525, 527, 528, 528, 528, 528, 529, 530, 530, 531, 532, 532, 532, 532, 532, 533, 533, 533, 533, 535, 535, 535, 535, 536, 537, 538, 538, 539, 540, 540, 540, 540, 540, 541, 541, 541, 541, 543, 543, 543, 543, 544, 544, 545, 545, 547, 549, 552, 552, 553, 554, 554, 556, 557, 558, 559, 559, 559, 559, 559, 560, 560, 560, 560, 561, 561, 562, 563, 563, 564, 565, 566, 567, 567, 567, 567, 567, 568, 568, 568, 568, 570, 571, 571, 572, 573, 574, 575, 576, 576, 576, 576, 576, 577, 577, 577, 577, 579, 579, 585, 585, 586, 586, 587, 587, 588, 588, 589, 590, 590, 591, 592, 593, 594, 595, 595, 596, 597, 599, 600, 602, 604, 605, 606, 607, 608, 611, 611, 611, 612, 612, 613, 614, 615, 616, 617, 618, 619, 621, 622, 622, 622, 622, 623, 623, 624, 625, 626, 627, 628, 629, 629, 630, 630, 633, 633, 634, 638, 640, 641, 641, 644, 644, 645, 654, 655, 659, 660, 661, 662, 662, 663, 664, 664, 666, 667, 667, 668, 669, 669, 670, 675, 676, 676, 677, 677, 686, 688, 692, 692, 693, 693, 694, 694, 695, 698, 699, 700, 700, 701, 701, 701, 701, 702, 702, 703, 703, 703, 704, 705, 705, 706, 706, 707, 707, 708, 708, 709, 709, 710, 710, 711, 711, 712, 712, 713, 714, 716, 717, 718, 719, 719, 720, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 734, 734, 735, 737, 737, 738, 739, 739, 740, 740, 740, 741, 741, 743, 743, 745, 747, 748, 749, 750, 750, 751, 751, 752, 753, 753, 753, 754, 757, 757, 757, 758, 758, 758, 759, 759, 759, 760, 761, 762, 763, 764, 764, 765, 766, 766, 767, 768, 769, 769, 770, 771, 771, 772, 773, 774, 774, 775, 776, 776, 777, 778, 779, 779, 780, 781, 781, 782, 783, 784, 784, 785, 786, 786, 788, 789, 789, 790, 791, 791, 792, 793, 794, 794, 795, 796, 796, 798, 799, 799, 800, 801, 801, 802, 803, 804, 804, 805, 806, 806, 807, 808, 808, 809, 810, 810, 811, 811, 812, 812, 813, 813, 814, 814, 815, 815, 816, 816, 817, 817, 818, 818, 819, 819, 820, 820, 821, 821, 822, 822, 823, 823, 824, 824, 825, 825, 826, 826, 827, 827, 828, 830, 830, 830, 831, 831, 831, 832, 832, 832, 832, 833, 834, 834, 834, 835, 835, 835, 836, 836, 836, 837, 837, 837, 838, 838, 838, 839, 839, 839, 839, 840, 840, 840, 841, 841, 841, 842, 842, 842, 843, 844, 844, 845, 845, 846, 846, 847, 848, 848, 849, 849, 850, 850, 851, 852, 852, 853, 853, 854, 854, 855, 855, 856, 856, 857, 857, 858, 858, 861, 862, 863, 863, 863, 864, 864, 865, 867, 868, 870, 873, 875, 876, 880, 882, 884, 886, 887, 898, 899, 900, 900, 901, 902, 902, 905, 905, 906, 907, 909, 914, 914, 915, 916, 916, 916, 917, 917, 917, 918, 923, 924, 924, 925, 925, 925, 926, 927, 928, 930, 931, 932, 933, 933, 933, 934, 935, 935, 937, 938, 938, 939, 939, 940, 942, 943, 943, 944, 945, 946, 946, 947, 947, 948, 948, 949, 949, 950, 950, 951, 951, 952, 952, 953, 953, 954, 954, 955, 955, 956, 956, 957, 957, 958, 958, 959, 959, 960, 960, 961, 961, 962, 963, 963, 964, 964, 965, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 979, 981, 981, 982, 982, 983, 986, 987, 988, 988, 988, 988, 988, 989, 990, 991, 991, 993, 993, 993, 994, 994, 995, 996, 997, 998, 998, 999, 999, 999, 1000, 1000, 1000, 1001, 1001, 1003, 1004, 1005, 1005, 1008, 1008, 1009, 1009, 1009, 1010, 1010, 1011, 1011, 1014, 1014, 1016, 1016, 1022, 1022, 1023, 1024, 1024, 1024, 1025, 1025, 1026, 1027, 1027, 1027, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1035, 1035, 1036, 1037, 1037, 1039, 1040, 1040, 1041, 1041, 1041, 1042, 1043, 1045, 1046, 1047, 1047, 1049, 1049, 1050, 1051, 1051, 1052, 1052, 1053, 1053, 1054, 1057, 1057, 1058, 1059, 1059, 1060, 1061, 1061, 1062, 1063, 1064, 1065, 1065, 1066, 1067, 1067, 1068, 1069, 1069, 1071, 1072, 1072, 1073, 1074, 1074, 1076, 1076, 1077, 1078, 1078, 1080, 1080, 1080, 1081, 1082, 1082, 1084, 1084, 1085, 1086, 1086, 1088, 1089, 1089, 1090, 1090, 1091, 1092, 1093, 1093, 1094, 1095, 1095, 1096, 1097, 1097, 1099, 1100, 1101, 1102, 1102, 1104, 1104, 1105, 1106, 1106, 1108, 1109, 1109, 1110, 1111, 1111, 1113, 1113, 1114, 1115, 1115, 1118, 1119, 1120, 1120, 1121, 1122, 1122, 1123, 1124, 1124, 1126, 1127, 1128, 1129, 1129, 1131, 1131, 1132, 1133, 1133, 1134, 1135, 1136, 1136, 1137, 1138, 1138, 1140, 1140, 1141, 1142, 1142, 1145, 1147, 1148, 1149, 1149, 1150, 1150, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1159, 1159, 1160, 1160, 1160, 1161, 1161, 1162, 1162, 1164, 1164, 1164, 1165, 1165, 1165, 1166, 1166, 1167, 1167, 1169, 1169, 1170, 1170, 1170, 1171, 1171, 1172, 1172, 1174, 1174, 1175, 1175, 1175, 1176, 1176, 1177, 1177, 1179, 1179, 1180, 1180, 1180, 1181, 1181, 1182, 1182, 1184, 1186, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1194, 1194, 1195, 1195, 1195, 1196, 1196, 1197, 1197, 1199, 1199, 1199, 1200, 1200, 1200, 1201, 1201, 1202, 1202, 1204, 1204, 1205, 1205, 1205, 1206, 1206, 1207, 1207, 1209, 1209, 1210, 1210, 1210, 1211, 1211, 1212, 1212, 1214, 1214, 1215, 1215, 1215, 1216, 1216, 1217, 1217, 1218, 1219, 1220, 1220, 1221, 1221, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1230, 1230, 1231, 1231, 1231, 1232, 1232, 1233, 1233, 1235, 1235, 1235, 1236, 1236, 1236, 1237, 1237, 1238, 1238, 1240, 1240, 1241, 1241, 1241, 1242, 1242, 1243, 1243, 1245, 1245, 1246, 1246, 1246, 1247, 1247, 1248, 1248, 1250, 1250, 1251, 1251, 1251, 1252, 1252, 1253, 1253, 1255, 1256, 1257, 1258, 1258, 1259, 1259, 1260, 1260, 1261, 1262, 1263, 1263, 1263, 1264, 1264, 1264, 1265, 1265, 1266, 1266, 1268, 1268, 1268, 1269, 1269, 1269, 1270, 1270, 1271, 1271, 1273, 1273, 1274, 1274, 1274, 1275, 1275, 1276, 1276, 1278, 1278, 1279, 1279, 1279, 1280, 1280, 1281, 1281, 1283, 1283, 1284, 1284, 1284, 1285, 1285, 1286, 1286, 1288, 1290, 1302, 1302, 1303, 1304, 1304, 1304, 1306, 1306, 1307, 1308, 1308, 1312, 1312, 1312, 1312, 1314, 1314, 1315, 1317, 1317, 1318, 1319, 1321, 1321, 1324, 1325, 1325, 1326, 1327, 1328, 1328, 1334, 1334, 1335, 1336, 1336, 1336, 1338, 1338, 1339, 1340, 1340, 1344, 1344, 1344, 1344, 1346, 1346, 1347, 1347, 1349, 1349, 1350, 1351, 1353, 1353, 1356, 1357, 1357, 1358, 1359, 1360, 1360, 1367, 1367, 1368, 1369, 1369, 1369, 1371, 1372, 1373, 1373, 1377, 1377, 1377, 1377, 1379, 1379, 1380, 1382, 1382, 1383, 1384, 1386, 1386, 1389, 1390, 1390, 1391, 1392, 1393, 1393, 1399, 1399, 1400, 1401, 1401, 1401, 1402, 1403, 1404, 1405, 1405, 1409, 1409, 1409, 1409, 1411, 1411, 1412, 1412, 1414, 1414, 1415, 1416, 1418, 1421, 1422, 1422, 1423, 1424, 1425, 1425, 1431, 1431, 1432, 1433, 1434, 1434, 1434, 1435, 1436, 1437, 1438, 1438, 1438, 1440, 1441, 1442, 1443, 1443, 1443, 1444, 1445, 1445, 1447, 1448, 1448, 1449, 1451, 1451, 1456, 1456, 1457, 1458, 1458, 1459, 1459, 1460, 1461, 1462, 1462, 1463, 1465, 1466, 1466, 1466, 1467, 1467, 1469, 1469, 1469, 1469, 1470, 1471, 1472, 1472, 1473, 1473, 1475, 1477, 1477, 1478, 1481, 1482, 1484, 1489, 1489, 1490, 1491, 1491, 1492, 1492, 1493, 1494, 1495, 1495, 1496, 1498, 1499, 1499, 1499, 1500, 1500, 1502, 1502, 1502, 1502, 1503, 1504, 1505, 1505, 1506, 1506, 1508, 1510, 1510, 1511, 1514, 1515, 1517, 1523, 1524, 1525, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1532, 1533, 1534, 1534, 1535, 1537, 1539, 1540, 1541, 1543, 1544, 1544, 1545, 1546, 1548, 1550, 1553, 1554, 1555, 1556, 1557, 1559, 1560, 1560, 1561, 1562, 1562, 1563, 1564, 1564, 1565, 1565, 1565, 1567, 1569, 1569, 1576, 1577, 1578, 1578, 1580, 1582, 1582, 1583, 1584, 1585, 1586, 1586, 1587, 1587, 1589, 1591, 1592, 1597, 1597, 1598, 1599, 1600, 1601, 1602, 1603, 1605, 1605, 1606, 1607, 1607, 1608, 1608, 1609, 1609, 1610, 1612, 1613, 1614, 1614, 1615, 1617, 1622, 1622, 1623, 1628, 1629, 1630, 1630, 1632, 1633, 1634, 1635, 1636, 1637, 1637, 1638, 1639, 1640, 1640, 1641, 1643, 1644, 1645, 1646, 1649, 1651, 1652, 1654, 1660, 1661, 1662, 1662, 1663, 1665, 1666, 1667, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1677, 1677, 1678, 1683, 1684, 1685, 1685, 1687, 1687, 1688, 1690, 1690, 1692, 1693, 1695, 1695, 1697, 1700, 1701, 1701, 1702, 1702, 1703, 1704, 1706, 1710, 1711, 1713, 1717, 1718, 1718, 1718, 1719, 1719, 1724, 1724, 1725, 1725, 1730, 1731, 1731, 1732, 1732, 1733, 1734, 1735, 1735, 1735, 1737, 1741, 1743, 1747, 1747, 1748, 1749, 1750, 1751, 1752, 1754, 1755, 1757, 1760, 1762, 1763, 1764, 1765, 1765, 1767, 1768, 1768, 1769, 1769, 1771, 1772, 1773, 1778, 1779, 1780, 1781, 1782, 1783, 1783, 1786, 1788, 1790, 1792, 1794, 1796, 1798, 1800, 1804, 1806, 1807, 1808, 1808, 1809, 1810, 1811, 1811, 1814, 1816, 1818, 1820, 1822, 1824, 1826, 1827, 1828, 1831, 1831, 1836, 1837, 1844, 1845, 1848, 1851, 1854, 1857, 1860, 1862, 1863, 1864, 1866, 1869, 1872, 1875, 1878, 1881, 1881, 1884, 1884, 1885, 1885, 1886, 1886, 1887, 1887, 1888, 1888, 1889, 1890, 1890, 1891, 1891, 1892, 1892, 1893, 1893, 1894, 1894, 1895, 1895, 1896, 1896, 1897, 1897, 1898, 1898, 1899, 1899, 1900, 1900, 1901, 1901, 1902, 1902, 1903, 1903, 1904, 1905, 1906, 1906, 1907, 1907, 1908, 1908, 1909, 1909, 1910, 1910, 1911, 1911, 1912, 1912, 1913, 1913, 1914, 1914, 1915, 1915, 1916, 1916, 1917, 1917, 1918, 1918, 1919, 1919, 1920, 1920, 1921, 1921, 1922, 1922, 1923, 1923, 1924, 1924, 1925, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1934, 1935, 1936, 1937, 1937, 1938, 1939, 1940, 1940, 1941, 1942, 1943, 1943, 1944, 1945, 1946, 1946, 1947, 1948, 1949, 1950, 1951, 1951, 1952, 1952, 1953, 1953, 1954, 1955, 1955, 1956, 1957, 1958, 1958, 1959, 1960, 1961, 1961, 1962, 1963, 1964, 1964, 1965, 1966, 1967, 1967, 1968, 1969, 1970, 1976, 988
+// First of all, make sure that AIDA was enabled by setting the environment
+// variable MARLIN_USE_AIDA when Marlin was compiled. The makefile will then
+// have done the setup and defined this macro.
+
+#ifndef MARLIN_USE_AIDA
+
+#warning "--------------------------------------------------------------------------------"
+#warning "- LCFIAIDAPlotProcessor requires MARLIN_USE_AIDA to be defined. Did you enable -"
+#warning "- AIDA when compiling Marlin? LCFIAIDAPlotProcessor will not be compiled.      -"
+#warning "--------------------------------------------------------------------------------"
+
+// Can't do anything else.
+#else
+
+
+#include "LCFIAIDAPlotProcessor.h" 
+ 
+// standard library includes 
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+#include <set>
+#include <math.h>
+
+// LCIO includes... 
+#include "EVENT/LCCollection.h"
+#include "EVENT/LCParameters.h"
+#include "EVENT/LCIntVec.h"
+#include "EVENT/LCFloatVec.h"
+#include "EVENT/Vertex.h"
+
+// Marlin includes
+#include <marlin/Exceptions.h>
+
+// AIDA includes...
+#include <marlin/AIDAProcessor.h>
+#include <AIDA/IDataPointSet.h>
+#include <AIDA/IDataPointSetFactory.h>
+#include <AIDA/IDataPoint.h>
+#include <AIDA/IMeasurement.h>
+#include <AIDA/IHistogramFactory.h>
+#include <AIDA/IHistogram1D.h>
+#include <AIDA/IHistogram2D.h>
+#include <AIDA/IAxis.h>
+#include <AIDA/ITree.h>
+#include <AIDA/ITupleFactory.h>
+#include <AIDA/ICloud2D.h>
+
+#include "TypesafeCollection.h"
+
+// There needs to be at least one instantiation for the base constructor to register the processor with 
+// the Marlin processor manager. This is it. 
+LCFIAIDAPlotProcessor aLCFIAIDAPlotProcessor; 
+
+LCFIAIDAPlotProcessor::LCFIAIDAPlotProcessor() : marlin::Processor( "LCFIAIDAPlotProcessor" ) 
+{ 
+
+  _description="Creates an AIDA plot of the LCFIVertex tagging efficiency-purity values and various other things.  Make sure that MarlinAIDAProcessor is run before this.";
+  
+  registerInputCollection( LCIO::RECONSTRUCTEDPARTICLE,
+			   "JetCollectionName" , 
+			   "Name of the collection of ReconstructedParticles that is the jet"  ,
+			   _JetCollectionName ,
+			   std::string("FTSelectedJets") );
+  
+  std::vector<std::string> FlavourTagCollectionNamesDefault;
+  FlavourTagCollectionNamesDefault.push_back("FlavourTag");
+  registerProcessorParameter("FlavourTagCollections" , 
+			     "Names of the LCFloatVec Collections that contain the flavour tags (one purity efficiency plot per tag) (in same order as jet collection)"  ,
+			     _FlavourTagCollectionNames,
+			     FlavourTagCollectionNamesDefault) ;
+  
+  registerInputCollection( LCIO::LCINTVEC,
+			   "TrueJetFlavourCollection" , 
+			   "Name of the LCIntVec collection containing the true flavour of the jets (same order as jets)"  ,
+			   _TrueJetFlavourColName ,
+			   std::string("TrueJetFlavour") ) ;
+
+  registerInputCollection( LCIO::LCFLOATVEC,
+			   "TrueJetHadronChargeCollection",
+			   "Name of the LCFloatVec collection containing the true hadron charge of the jets (same order as jets)"  ,
+			   _TrueJetHadronChargeColName ,
+			   std::string("TrueJetHadronCharge") ) ;  
+
+  registerInputCollection( LCIO::LCINTVEC,
+			   "TrueJetPDGCodeCollection" , 
+			   "Name of the LCIntVec collection containing the true PDG code of the jets (same order as jets)"  ,
+			   _TrueJetPDGCodeColName,
+			   std::string("TrueJetPDGCode") ) ;
+
+  registerInputCollection( LCIO::LCFLOATVEC,
+			   "TrueJetPartonChargeCollection",
+			   "Name of the LCFloatVec collection containing the true parton charge of the jets (same order as jets)"  ,
+			   _TrueJetPartonChargeColName ,
+			   std::string("TrueJetPartonCharge") ) ;    
+  
+  registerInputCollection( lcio::LCIO::VERTEX,
+			   "VertexCollectionName",
+			   "Name of the collection that holds the Vertices",
+			   _VertexColName,
+			   std::string("ZVRESVertices") ) ;
+
+  registerInputCollection(LCIO::LCFLOATVEC,
+			  "CVertexChargeCollection",
+			  "Name of collection containing the vertex charge of the jets, assuming they are C-jets",
+			  _CVertexChargeCollection,
+			  std::string("CCharge") );
+  
+  registerInputCollection( LCIO::LCFLOATVEC,
+			   "BVertexChargeCollection",
+			   "Name of collection containing the vertex charge of the jets, assuming they are B-jets",
+			   _BVertexChargeCollection,
+			   std::string("BCharge") ) ;
+  
+
+  FlavourTagCollectionNamesDefault.clear();
+  FlavourTagCollectionNamesDefault.push_back("FlavourTagInputs");
+  registerProcessorParameter("TagInputsCollections" , 
+			     "Names of the LCFloatVec Collections that contain the flavour tag inputs (in same order as jet collection)"  ,
+			     _FlavourTagInputsCollectionNames,
+			     FlavourTagCollectionNamesDefault) ;
+
+  registerOptionalParameter( "CosThetaJetMax",
+			     "Cut determining the maximum cos(theta) of the jet.  Default: |cos(theta)|<0.9"  ,
+			     _CosThetaJetMax,
+			     double(0.9)) ;
+   
+  registerOptionalParameter( "CosThetaJetMin",
+			     "Cut determining the minimum cos(theta) of the jet.  Default: no lower cut."  ,
+			     _CosThetaJetMin,
+			     double(0.0)) ;
+
+  registerOptionalParameter("PJetMax",
+			    "Cut determining the maximum momentum of the jet.  Default: 10000 GeV/c"  ,
+			    _PJetMax,
+			    double(10000.)) ;
+   
+  registerOptionalParameter( "PJetMin",
+			     "Cut determining the minimum momentum of the jet.  Default: no lower cut."  ,
+			     _PJetMin,
+			     double(0.0)) ;
+
+  registerOptionalParameter( "PrintNeuralNetOutput",
+			     "Set true if you want a print-out of the NN values (output) for the various flavour tags",
+			     _PrintNeuralNetOutput,
+			     bool(false));
+
+  registerOptionalParameter( "NeuralNetOutputFile" , 
+			     "Output filename for the NN values (output).  Only used if PrintNeuralNetOutput parameter is true.  If left blank, output will be directed to standard out.",
+			     _NeuralNetOutputFile,
+			     std::string("") ) ;
+
+  registerOptionalParameter( "MakeTuple",
+			     "Set true to make a tuple of the flavour tag input variables.  Default is true.",
+			     _MakeTuple,
+			     bool(true));
+
+  registerOptionalParameter( "CTagNNCut",
+			     "Cut determining the Neural Net cut used to select C-Jets",
+			     _CTagNNCut,
+			     double(0.7));
+
+  registerOptionalParameter( "BTagNNCut",
+			     "Cut determining the Neural Net cut used to select B-Jets",
+			     _BTagNNCut,
+			     double(0.7));
+
+  registerOptionalParameter( "UseFlavourTagCollectionForVertexCharge",
+			     "Integer parameter determing which FlavourTag Collection to use the determine C-Jets and B-Jets in Vertex Charge Plots",
+			     _iVertexChargeTagCollection,
+			     int(0));
+
+} 
+
+LCFIAIDAPlotProcessor::~LCFIAIDAPlotProcessor() 
+{ 
+} 
+
+void LCFIAIDAPlotProcessor::init()
+{
+
+  
+  if (_iVertexChargeTagCollection >=  int(_FlavourTagCollectionNames.size()) || _iVertexChargeTagCollection < 0) {
+    std::cerr << " In " << __FILE__ << "(" << __LINE__ << "): Invalid parameter for UseFlavourTagCollectionForVertexCharge.  Setting to 0." << std::endl;
+    _myVertexChargeTagCollection = 0;
+  } else {
+    _myVertexChargeTagCollection = uint(_iVertexChargeTagCollection);
+  }
+
+  _ZoomedVarNames.push_back("D0Significance1"); 
+  _ZoomedVarNames.push_back("D0Significance2");
+  _ZoomedVarNames.push_back("Z0Significance1");
+  _ZoomedVarNames.push_back("Z0Significance2");
+
+  _VertexCatNames.resize(N_VERTEX_CATEGORIES+1);
+  _VertexCatNames[0]="AnyNumberOfVertices";
+  _VertexCatNames[1]="OneVertex";
+  _VertexCatNames[2]="TwoVertices";
+  _VertexCatNames[3]="ThreeOrMoreVertices";
+
+  
+  _NumVertexCatDir.resize(N_VERTEX_CATEGORIES+1);
+  _NumVertexCatDir[1]="OneVertex";
+  _NumVertexCatDir[2]="TwoVertices";
+  _NumVertexCatDir[3]="ThreeOrMoreVertices";
+  _NumVertexCatDir[0]="AnyNumberOfVertices";
+
+
+  _numberOfPoints=100;
+
+  
+  _pBJetBTag.resize( _FlavourTagCollectionNames.size() );
+  _pBJetCTag.resize( _FlavourTagCollectionNames.size() );
+  _pBJetBCTag.resize( _FlavourTagCollectionNames.size() );
+  
+  _pCJetCTag.resize( _FlavourTagCollectionNames.size() );
+  _pCJetBTag.resize( _FlavourTagCollectionNames.size() );
+  _pCJetBCTag.resize( _FlavourTagCollectionNames.size() );
+  
+  _pLightJetBTag.resize( _FlavourTagCollectionNames.size() ); 
+  _pLightJetCTag.resize( _FlavourTagCollectionNames.size() ); 
+  _pLightJetBCTag.resize( _FlavourTagCollectionNames.size() ); 
+  
+  _pBTagBackgroundValues.resize( _FlavourTagCollectionNames.size() );
+  _pCTagBackgroundValues.resize( _FlavourTagCollectionNames.size() );
+  _pBCTagBackgroundValues.resize( _FlavourTagCollectionNames.size() );
+
+ 
+  
+  for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection )
+    { 
+      for (unsigned int iVertexCat=0;  iVertexCat <  N_VERTEX_CATEGORIES+1; ++iVertexCat ){
+	_pLightJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]=0; 
+	_pLightJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;
+	_pLightJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;
+	
+	_pBJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;	 
+	_pBJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;
+	_pBJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;
+	
+	_pCJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;	 
+	_pCJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;  
+	_pCJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]=0;  
+	
+	_pBTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]]=0; 
+	_pCTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]]=0; 
+	_pBCTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]]=0; 
+      }
+    }
+
+ 
+
+  AIDA::IHistogramFactory* pHistogramFactory=marlin::AIDAProcessor::histogramFactory( this );
+  AIDA::ITree* pTree=marlin::AIDAProcessor::tree( this );
+  AIDA::ITupleFactory* pTupleFactory=marlin::AIDAProcessor::tupleFactory( this );
+
+  if(  pHistogramFactory!=0 )
+    {
+      bool ableToMakeAllHistograms=true;
+      
+      if (!(pTree->cd( "/" + name() + "/"))) {
+	pTree->mkdir( "/" + name() + "/" );
+	pTree->cd( "/" + name() + "/");
+      }
+      
+ 
+      //some plots of vertex charge
+      if (!pTree->cd("/" + name() + "/VertexChargePlots/")) {
+	pTree->mkdirs("/" + name() + "/VertexChargePlots/");
+	pTree->cd( "/" + name() + "/VertexChargePlots/");
+      }
+      
+      _pBJetCharge2D = pHistogramFactory->createHistogram2D( "B Jets: Reconstructed Vertex Charge vs True Jet Charge",7,-3.5,+3.5,7,-3.5,+3.5);
+      _pCJetCharge2D = pHistogramFactory->createHistogram2D( "C Jets: Reconstructed Vertex Charge vs True Jet Charge",7,-3.5,+3.5,7,-3.5,+3.5);
+      
+      _pBJetVertexCharge = pHistogramFactory->createHistogram1D( "B Jets: Reconstructed Vertex Charge",9,-4.5,+4.5);
+      _pCJetVertexCharge = pHistogramFactory->createHistogram1D( "C Jets: Reconstructed Vertex Charge",9,-4.5,+4.5);
+      
+      _pCJetLeakageRate = pHistogramFactory->createHistogram1D("C Jets: Charged Leakage Rate  (DON'T TRUST ERRORS)", N_JETANGLE_BINS,0.,1.);
+      _pBJetLeakageRate = pHistogramFactory->createHistogram1D("B Jets: Charged Leakage Rate  (DON'T TRUST ERRORS)", N_JETANGLE_BINS,0.,1.);
+      
+      
+      
+      for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection )
+	{
+	  for (unsigned int iVertexCat=0;  iVertexCat <=  N_VERTEX_CATEGORIES; ++iVertexCat ){
+	    
+	    std::string nvname = _VertexCatNames[iVertexCat];
+	    
+	    if (!pTree->cd( "/" + name() + "/" + _FlavourTagCollectionNames[iTagCollection] + "/" + _NumVertexCatDir[iVertexCat])) {
+	      pTree->mkdirs( "/" + name() + "/" + _FlavourTagCollectionNames[iTagCollection] + "/" + _NumVertexCatDir[iVertexCat]);
+	      pTree->cd( "/" + name() + "/" + _FlavourTagCollectionNames[iTagCollection] + "/" + _NumVertexCatDir[iVertexCat]);
+	    }
+	    
+	    _pLightJetBTag[iTagCollection][nvname] = pHistogramFactory->createHistogram1D( "Numbers of light jets by B-tag NN value. ("+ nvname +")",_numberOfPoints , 0, 1.0 );
+	    _pLightJetCTag[iTagCollection][nvname] = pHistogramFactory->createHistogram1D( "Numbers of light jets by C-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 );
+	    _pLightJetBCTag[iTagCollection][nvname] = pHistogramFactory->createHistogram1D( "Numbers of light jets by BC-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 );
+	    _pBJetBTag[iTagCollection][nvname]     = pHistogramFactory->createHistogram1D( "Numbers of B jets by B-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 ); 
+	    _pBJetCTag[iTagCollection][nvname]     = pHistogramFactory->createHistogram1D( "Numbers of B jets by C-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 ); 
+	    _pBJetBCTag[iTagCollection][nvname]    = pHistogramFactory->createHistogram1D( "Numbers of B jets by BC-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 );
+	    _pCJetBTag[iTagCollection][nvname]     = pHistogramFactory->createHistogram1D( "Numbers of C jets by B-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 ); 
+	    _pCJetCTag[iTagCollection][nvname]     = pHistogramFactory->createHistogram1D( "Numbers of C jets by C-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 );
+	    _pCJetBCTag[iTagCollection][nvname]    = pHistogramFactory->createHistogram1D( "Numbers of C jets by BC-tag NN value. ("+ nvname +")", _numberOfPoints, 0, 1.0 );    
+	
+	  }
+	  
+	  if (_MakeTuple) {
+	    pTree->cd( "/" + name());
+	    
+	    //make the ntuple
+	    //this breaks the paradigm of reading these in from the flavour tag collections themselves
+	    std::string columnNames="int TrueJetFlavour=-1,  int NumberOfVertices=-1, int NumberOfTracksInVertices=-1, float D0Significance1 = -999., float D0Significance2 = -999., float DecayLength = -999., float DecayLength_SeedToIP= -999., float DecayLengthSignificance= -999., float JointProbRPhi= -999., float JointProbZ= -999., float Momentum1= -999.,float Momentum2= -999., float PTCorrectedMass= -999., float RawMomentum= -999., float SecondaryVertexProbability= -999., float Z0Significance1= -999., float Z0Significance2= -999., int BQVtx=-10, int CQVtx=-10";
+	    
+	    if( !pTree->cd(  "/"  + name() + "/" + _FlavourTagInputsCollectionNames[iTagCollection]  + "/TupleDir/"))
+	      {	 
+		pTree->mkdirs( "/"  + name() + "/" + _FlavourTagInputsCollectionNames[iTagCollection]  + "/TupleDir/" ) ;
+		pTree->cd(  "/"  + name() + "/" + _FlavourTagInputsCollectionNames[iTagCollection]  + "/TupleDir/");
+	      }
+	    
+	    _pMyTuple=pTupleFactory->create( "FlavourTagInputsTuple","FlavourTagInputsTuple", columnNames);
+	  }
+	  
+	}
+      
+      if (!pTree->cd( "/"  + name() + "/VertexPlots/")) {
+ 	pTree->mkdirs( "/"  + name() + "/VertexPlots/");
+	pTree->cd( "/"  + name() + "/VertexPlots/");
+      }
+      
+      _pVertexDistanceFromIP = pHistogramFactory->createHistogram1D( "Reconstructed Vertex distance from IP",100, 0., 10.);
+      _pVertexPositionX = pHistogramFactory->createHistogram1D( "Non-primary vertex: x-position", 100, -10., 10.) ;
+      _pVertexPositionY = pHistogramFactory->createHistogram1D( "Non-primary vertex: y-position", 100, -10., 10.);
+      _pVertexPositionZ = pHistogramFactory->createHistogram1D( "Non-primary vertex: z-position", 100, -10., 10.);
+      
+      _pPrimaryVertexPullX = pHistogramFactory->createHistogram1D( "Non-primary vertex: x-pull", 100, -10., 10.);
+      _pPrimaryVertexPullY = pHistogramFactory->createHistogram1D( "Non-primary vertex: y-pull", 100, -10., 10.);
+      _pPrimaryVertexPullZ = pHistogramFactory->createHistogram1D( "Non-primary vertex: z-pull", 100, -10., 10.);
+      _pPrimaryVertexPositionX = pHistogramFactory->createHistogram1D( "Primary vertex: x-position", 100, -10., 10.);
+      _pPrimaryVertexPositionY = pHistogramFactory->createHistogram1D( "Primary vertex: y-position", 100, -10., 10.);
+      _pPrimaryVertexPositionZ = pHistogramFactory->createHistogram1D( "Primary vertex: z-position", 100, -10., 10.);
+    
+      
+      pTree->cd(  "/"  + name() + "/");
+      if (!pTree->cd( "ZVRESInputPlots" )) {
+	pTree->mkdir( "ZVRESInputPlots/" ) ;
+	pTree->cd(  "ZVRESInputPlots/" ) ;
+      }
+      
+
+
+
+      if( !ableToMakeAllHistograms )
+	{
+	  std::cerr << "### " << __FILE__ << "(" << __LINE__ << "): Unable to create some or all of the histograms for the flavour tag values!" << std::endl;
+	 
+	}
+    }
+  else
+    {
+      std::cerr  << "### " << __FILE__ << "(" << __LINE__ << "): Unable to get the histogram factory! No histograms will be made."<< std::endl;
+    }
+  
+  _lastRunHeaderProcessed=-1;
+  _suppressOutputForRun=-1;
+  
+  _inputsHistogramsBJets.resize( _FlavourTagInputsCollectionNames.size() );
+  _inputsHistogramsCJets.resize( _FlavourTagInputsCollectionNames.size() );
+  _inputsHistogramsUDSJets.resize( _FlavourTagInputsCollectionNames.size() );
+
+  _zoomedInputsHistogramsBJets.resize( _FlavourTagInputsCollectionNames.size() );
+  _zoomedInputsHistogramsCJets.resize( _FlavourTagInputsCollectionNames.size() );
+  _zoomedInputsHistogramsUDSJets.resize( _FlavourTagInputsCollectionNames.size() );
+  
+
+  InternalVectorInitialisation();
+  
+}
+
+void LCFIAIDAPlotProcessor::processRunHeader( LCRunHeader* pRun ) 
+{
+
+	// Marlin doesn't necessarily process the run header, e.g. if you use the "SkipNEvents"
+	// parameter in the steering file. The flavour tag variable/tag value names are held in
+	// the run header though, so this processor has to have access to it. Set this variable
+	// so that "processEvent" can tell if "processRunHeader" has been called for the run
+	// it's in.
+	_lastRunHeaderProcessed=pRun->getRunNumber();
+
+
+	//
+	// Perform a check to see if the variable names we need are here
+	//
+	for (unsigned int iTag=0; iTag < _FlavourTagCollectionNames.size(); ++iTag) // Loop over the different tag collection names given in the steering
+	{
+	  std::vector<std::string> VarNames;
+	  (pRun->parameters()).getStringVals(_FlavourTagCollectionNames[iTag],VarNames);
+	  
+	  
+	  //Fill a map so that we can get the array index from just the string
+	  std::set<std::string> AvailableNames;
+	  std::map<std::string,unsigned int> IndexOf;
+	  
+	  for (size_t i = 0;i < VarNames.size();++i)
+	    {
+	      AvailableNames.insert(VarNames[i]);
+	      IndexOf[VarNames[i]] = i;
+	    }
+	  
+	  //Add the index to the list
+	  _IndexOfForEachTag.push_back(IndexOf);
+	  
+	  //Check the required information is in the LCFloatVec
+	  std::set<std::string> RequiredNames;
+	  RequiredNames.insert("BTag");
+	  RequiredNames.insert("CTag");
+	  RequiredNames.insert("BCTag");
+	  
+	  if (!std::includes(AvailableNames.begin(),AvailableNames.end(),RequiredNames.begin(),RequiredNames.end()))
+	    {
+	      std::cerr << __FILE__ << "(" << __LINE__ << "): The collection \"" << _FlavourTagCollectionNames[iTag]
+			<< "\" (if it exists) does not contain the tag values required by " << type() << "." << std::endl;
+	      std::cerr <<   __FILE__ << "(" << __LINE__ << "): The collection \"" << _FlavourTagCollectionNames[iTag]
+			<< "\" (if it exists) does not contain the tag values required by " << type() << "." << std::endl;
+	    }
+	}
+	
+	
+	
+	AIDA::IHistogramFactory* pHistogramFactory=marlin::AIDAProcessor::histogramFactory( this );
+	AIDA::ITree* pTree=marlin::AIDAProcessor::tree( this );
+		
+	for (unsigned int iInputCollection=0; iInputCollection < _FlavourTagInputsCollectionNames.size(); ++iInputCollection)
+	  {
+	    	  
+
+	    std::vector<std::string> VarNames;
+	    (pRun->parameters()).getStringVals(_FlavourTagInputsCollectionNames[iInputCollection],VarNames);
+	    
+	    //Fill the map relating names and indexes
+	    std::map<std::string,unsigned int> IndexOf;
+	    for (size_t i = 0;i < VarNames.size();++i)
+	      {
+		
+		IndexOf[VarNames[i]] = i;
+		
+		// If there is no histogram for this name then create one
+		if( _inputsHistogramsBJets[iInputCollection][VarNames[i]]==0 )
+		  {
+		    if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] ) )
+		      {
+			pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] ) ; 
+			pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] ) ;
+		      }
+		    
+		    int numberOfPoints=_numberOfPoints/4;
+		    double lowerBin=-1;
+		    double higerBin=1;
+		   
+		    //binning variables: if the name is not listed here it will use the default above
+		    if( VarNames[i]=="BQVtx" || VarNames[i]=="CQVtx" )
+		      {
+			numberOfPoints=9;
+			lowerBin=-4.5;
+			higerBin=4.5;
+		      }
+		    else if( VarNames[i]=="NumVertices" )
+		      {
+			numberOfPoints=5;
+			lowerBin=0.5;
+			higerBin=5.5;
+		      }
+		    else if( VarNames[i]=="NumTracksInVertices" )
+		      {
+			numberOfPoints=16;
+			lowerBin=-0.5;
+			higerBin=15.5;
+		      }
+		    else if ( VarNames[i]=="D0Significance1" || VarNames[i]=="D0Significance2" )
+		      {
+			numberOfPoints=120;
+			lowerBin=-20.;
+			higerBin=100.;
+		      }
+		    else if ( VarNames[i]=="Z0Significance1" || VarNames[i]=="Z0Significance2")
+		      {
+			numberOfPoints=100;
+			lowerBin=-50.;
+			higerBin=50.;
+		      }
+		    else if (VarNames[i]=="DecayLengthSignificance") 
+		      {
+			numberOfPoints=100;
+			lowerBin=0.;
+			higerBin=100.;
+		      }
+		    else if (VarNames[i]=="DecayLength" || VarNames[i]=="DecayLength(SeedToIP)" ) 
+		      {
+			numberOfPoints=100;
+			lowerBin=0.;
+			higerBin=10.;
+		      }
+		    else if (VarNames[i]=="JointProbRPhi" || VarNames[i]=="JointProbZ"|| VarNames[i]=="SecondaryVertexProbability") 
+		      {
+			numberOfPoints=100;
+			lowerBin=0.;
+			higerBin=1.0;
+		      }
+		    else if (VarNames[i]=="Momentum1" || VarNames[i]=="Momentum2" ||  VarNames[i]=="RawMomentum" ) 
+		      {
+			numberOfPoints=100;
+			lowerBin=0.;
+			higerBin=50.;
+		      }
+		    else if (VarNames[i]=="PTCorrectedMass" ) 
+		      {
+			numberOfPoints=100;
+			lowerBin=0.;
+			higerBin=10.;
+		      }
+		    
+		    if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) )
+		      {
+			pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) ; 
+			pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) ;
+		      }
+		    
+		    _inputsHistogramsBJets[iInputCollection][VarNames[i]]=pHistogramFactory->createHistogram1D( VarNames[i], numberOfPoints, lowerBin, higerBin );
+		    
+		    if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) )
+		      {
+			pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) ; 
+			pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) ;
+		      }
+		    _inputsHistogramsCJets[iInputCollection][VarNames[i]]=pHistogramFactory->createHistogram1D( VarNames[i], numberOfPoints, lowerBin, higerBin );
+		    
+		    
+		    if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) )
+		      {
+			pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) ; 
+			pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) ;
+		      }
+		    _inputsHistogramsUDSJets[iInputCollection][VarNames[i]]=pHistogramFactory->createHistogram1D( VarNames[i], numberOfPoints, lowerBin, higerBin );
+		  
+		  }//end of histogram creation
+	      }
+	    
+	    _InputsIndex.push_back(IndexOf);
+	    
+
+	    if (isFirstEvent()) {
+	      //We'd like to make zoomed histograms of some of the flavour tag inputs too
+	      for (size_t i = 0;i < _ZoomedVarNames.size();++i) {
+		
+		std::string zoomed_name = _ZoomedVarNames[i] + " (zoomed)";
+		
+		if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) )
+		  {
+		    pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) ; 
+		    pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/bJets" ) ;
+		    
+		  }			 			  
+		_zoomedInputsHistogramsBJets[iInputCollection][zoomed_name] = pHistogramFactory->createHistogram1D( zoomed_name, 100, -10., 20.);
+		
+		if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) )
+		  {
+		    pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) ; 
+		    pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/cJets" ) ;
+		  }
+		
+		_zoomedInputsHistogramsCJets[iInputCollection][zoomed_name] = pHistogramFactory->createHistogram1D( zoomed_name, 100, -10., 20.);
+		
+		
+		if( !pTree->cd( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) )
+		  {
+		    pTree->mkdirs( "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) ; 
+		    pTree->cd(    "/" + name() + "/" + _FlavourTagInputsCollectionNames[iInputCollection] + "/udsJets" ) ;
+		  }
+		_zoomedInputsHistogramsUDSJets[iInputCollection][zoomed_name] = pHistogramFactory->createHistogram1D( zoomed_name, 100, -10., 20.);
+	      }
+	    }
+	  }
+}
+
+ 
+void LCFIAIDAPlotProcessor::processEvent( LCEvent* pEvent ) 
+{ 
+  
+  // Make sure that "processRunHeader" has been called for this run (see the comment in that method).
+  if( (_lastRunHeaderProcessed != pEvent->getRunNumber()) && (_suppressOutputForRun != pEvent->getRunNumber()) )
+    {
+      std::cerr << __FILE__ << "(" << __LINE__ << "): processRunHeader() was not called for run " << pEvent->getRunNumber()
+		<< " (did you use \"SkipNEvents\"?). The order of the information in the flavour tag collection(s) is going to be guessed." << std::endl;
+      
+      //Only want to do this once for this run, so set a marker that this run has been done
+      _suppressOutputForRun=pEvent->getRunNumber();
+      
+      // Just assume that the elements are in the order "BTag", "CTag", "BCTag"
+      std::map<std::string,unsigned int> guessedOrder;
+      guessedOrder["BTag"]=0; guessedOrder["CTag"]=1; guessedOrder["BCTag"]=2;
+      _IndexOfForEachTag.clear();
+      for (unsigned int iTag=0; iTag < _FlavourTagCollectionNames.size(); ++iTag) _IndexOfForEachTag.push_back( guessedOrder );
+    }
+  
+  
+  // Try and get the jet collection. If unable, show why. No need to worry about quitting
+  // because getNumberOfElements will return zero, so flow will never go into the loop.
+  // TypesafeCollection is just a wrapper around LCCollection with more error checking and
+  // things. Just makes the code a bit easier to read (in my opinion).
+
+  TypesafeCollection<lcio::ReconstructedParticle> jetCollection( pEvent, _JetCollectionName );
+  //	if( !jetCollection.is_valid() ) _log->message<marlin::ERROR>( jetCollection.last_error() );
+  
+  
+  
+  //apply any cuts on the event here
+  if( PassesEventCuts(pEvent) )
+    {
+
+      ReconstructedParticle* pJet;
+      //loop over the jets
+      for( int jetNumber=0; jetNumber<jetCollection.getNumberOfElements(); ++jetNumber )
+	{
+	  pJet=jetCollection.getElementAt(jetNumber);
+	  
+	  //only do anything if the jet passes the jet cuts
+	  if( PassesJetCuts(pJet) )
+	    {
+	      FillTagPlots( pEvent, jetNumber );
+	      FillInputsPlots( pEvent, jetNumber );
+	    }
+	}
+   
+      
+
+      LCCollection* vertexCol = pEvent->getCollection(_VertexColName);
+
+      float primaryVertexPostion[] = {0.,0.,0.};
+
+      for (int ii=0 ; ii < vertexCol->getNumberOfElements() ; ii++){
+	
+	Vertex* myVertex =  dynamic_cast<Vertex*>(vertexCol->getElementAt(ii));
+
+	//	std::cout << "vertex is primary: " << myVertex->isPrimary() << " asoc particle: " << myVertex->getAssociatedParticle() << std::endl;
+	
+	const float* vertexPosition = myVertex->getPosition();
+	if (myVertex->isPrimary()) {
+	  primaryVertexPostion[0] = vertexPosition[0];
+	  primaryVertexPostion[1] = vertexPosition[1];
+	  primaryVertexPostion[2] = vertexPosition[2];
+	}
+      }
+
+      for (int ii=0 ; ii < vertexCol->getNumberOfElements() ; ii++){
+
+	Vertex* myVertex =  dynamic_cast<Vertex*>(vertexCol->getElementAt(ii));
+	const float* vertexPosition = myVertex->getPosition();
+
+	double px =  double(vertexPosition[0]);
+	double py =  double(vertexPosition[1]);
+	double pz =  double(vertexPosition[2]);
+	double ex = sqrt((double)myVertex->getCovMatrix()[0]);	  
+	double ey = sqrt((double)myVertex->getCovMatrix()[2]);
+	double ez = sqrt((double)myVertex->getCovMatrix()[5]);     
+
+	
+	if (! myVertex->isPrimary() ) {
+
+	  double distanceIP = sqrt(pow(px-primaryVertexPostion[0],2)+pow(py-primaryVertexPostion[1],2)+pow(pz-primaryVertexPostion[1],2));
+	  	  
+	  _pVertexDistanceFromIP->fill(distanceIP);
+	  _pVertexPositionX->fill(px);
+	  _pVertexPositionY->fill(py);
+	  _pVertexPositionZ->fill(pz);
+	  
+	} else { //it is the primary vertex
+	  
+	  _pPrimaryVertexPositionX->fill(px);
+	  _pPrimaryVertexPositionY->fill(py);
+	  _pPrimaryVertexPositionZ->fill(pz);
+
+	  _pPrimaryVertexPullX->fill(px/ex);
+	  _pPrimaryVertexPullY->fill(py/ey);
+	  _pPrimaryVertexPullZ->fill(pz/ez);
+	}
+
+      }
+
+    }
+}
+
+ 
+ 
+void LCFIAIDAPlotProcessor::check( LCEvent* pEvent ) 
+{
+}
+
+void LCFIAIDAPlotProcessor::end() 
+{
+  
+  AIDA::IHistogramFactory* pHistogramFactory=marlin::AIDAProcessor::histogramFactory( this );
+  AIDA::IDataPointSetFactory* pDataPointSetFactory=marlin::AIDAProcessor::dataPointSetFactory(this);
+  AIDA::ITree* pTree=marlin::AIDAProcessor::tree( this );
+  
+  _pBJetBTagIntegral.resize( _FlavourTagCollectionNames.size() );     
+  _pCJetBTagIntegral.resize( _FlavourTagCollectionNames.size() );	  
+  _pLightJetBTagIntegral.resize( _FlavourTagCollectionNames.size() ); 
+  _pBJetCTagIntegral.resize( _FlavourTagCollectionNames.size() );  	  
+  _pCJetCTagIntegral.resize( _FlavourTagCollectionNames.size() );	  
+  _pLightJetCTagIntegral.resize( _FlavourTagCollectionNames.size() ); 
+  _pBJetBCTagIntegral.resize( _FlavourTagCollectionNames.size() ); 	  
+  _pCJetBCTagIntegral.resize( _FlavourTagCollectionNames.size() );	  
+  _pLightJetBCTagIntegral.resize( _FlavourTagCollectionNames.size() );
+  
+
+  for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection )
+    {
+
+      for (unsigned int iVertexCat=1;  iVertexCat <=  N_VERTEX_CATEGORIES; ++iVertexCat ) {
+	//sum over the different vertex catagories, this information goes into the "AnyNumberOfVertices" directory
+      
+	_pBJetBTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pBJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pBJetCTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pBJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pBJetBCTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pBJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pCJetBTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pCJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pCJetCTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pCJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pCJetBCTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pCJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pLightJetBTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pLightJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pLightJetCTag[iTagCollection][_VertexCatNames[0]] -> 	add(*_pLightJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pLightJetBCTag[iTagCollection][_VertexCatNames[0]] -> add(*_pLightJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+      }
+
+
+      for (unsigned int iVertexCat=0;  iVertexCat <=  N_VERTEX_CATEGORIES; ++iVertexCat ) {
+	//add up all the background values
+
+	pTree->cd( "/" + name() + "/" + _FlavourTagCollectionNames[iTagCollection]+ "/" +_NumVertexCatDir[iVertexCat]);
+	
+	_pBTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]] = pHistogramFactory->add("Numbers of non-B jets by B-tag NN value.  ("+ _VertexCatNames[iVertexCat]+")",*_pLightJetBTag[iTagCollection][_VertexCatNames[iVertexCat]],*_pCJetBTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+	_pCTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]] = pHistogramFactory->add("Numbers of non-C jets by C-tag NN value.  ("+ _VertexCatNames[iVertexCat]+")",*_pLightJetCTag[iTagCollection][_VertexCatNames[iVertexCat]],*_pBJetCTag[iTagCollection][_VertexCatNames[iVertexCat]]); 
+	_pBCTagBackgroundValues[iTagCollection][_VertexCatNames[iVertexCat]] = pHistogramFactory->add("Numbers of non-C jets by BC-tag NN value.  ("+ _VertexCatNames[iVertexCat]+")",*_pLightJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]],*_pBJetBCTag[iTagCollection][_VertexCatNames[iVertexCat]]);
+      }
+       
+    }
+      
+
+  //now calculate the efficiencies, leakage rate and purity
+  for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection )
+    {
+      
+      for (unsigned int iVertexCat=0;  iVertexCat <=  N_VERTEX_CATEGORIES; ++iVertexCat ) {
+
+	pTree->cd( "/" + name() + "/" + _FlavourTagCollectionNames[iTagCollection]+ "/" +_NumVertexCatDir[iVertexCat] );
+	
+	std::string nvname = _VertexCatNames[iVertexCat];
+
+	AIDA::IDataPointSet* _pBJetBTagEfficiency = CreateEfficiencyPlot( _pBJetBTag[iTagCollection][nvname] , pDataPointSetFactory->create("B-Tag efficiency  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pCJetCTagEfficiency = CreateEfficiencyPlot( _pCJetCTag[iTagCollection][nvname] , pDataPointSetFactory->create("C-Tag efficiency  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pCJetBCTagEfficiency = CreateEfficiencyPlot( _pCJetBCTag[iTagCollection][nvname] , pDataPointSetFactory->create("BC-Tag efficiency  ("+ nvname +")",2));
+	
+  
+	
+	_pBJetBTagIntegral[iTagCollection][nvname] =   	
+	  CreateIntegralHistogram( _pBJetBTag[iTagCollection][nvname], 
+				   pHistogramFactory->createHistogram1D("B-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+									_pBJetBTag[iTagCollection][nvname]->axis().bins(),_pBJetBTag[iTagCollection][nvname]->axis().lowerEdge(),_pBJetBTag[iTagCollection][nvname]->axis().upperEdge()));
+	
+	_pCJetBTagIntegral[iTagCollection][nvname] =     
+	  CreateIntegralHistogram( _pCJetBTag[iTagCollection][nvname], 
+				   pHistogramFactory->createHistogram1D("C-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+									_pCJetBTag[iTagCollection][nvname]->axis().bins(),_pCJetBTag[iTagCollection][nvname]->axis().lowerEdge(),_pCJetBTag[iTagCollection][nvname]->axis().upperEdge()));
+	
+	_pLightJetBTagIntegral[iTagCollection][nvname] = 
+	  CreateIntegralHistogram( _pLightJetBTag[iTagCollection][nvname], 
+				   pHistogramFactory->createHistogram1D("Light-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+									_pLightJetBTag[iTagCollection][nvname]->axis().bins(),_pLightJetBTag[iTagCollection][nvname]->axis().lowerEdge(),_pLightJetBTag[iTagCollection][nvname]->axis().upperEdge()));
+	
+	_pBJetCTagIntegral[iTagCollection][nvname] = 
+	CreateIntegralHistogram( _pBJetCTag[iTagCollection][nvname], 
+			       pHistogramFactory->createHistogram1D("B-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+								    _pBJetCTag[iTagCollection][nvname]->axis().bins(),_pBJetCTag[iTagCollection][nvname]->axis().lowerEdge(),_pBJetCTag[iTagCollection][nvname]->axis().upperEdge()));
+      
+	_pCJetCTagIntegral[iTagCollection][nvname] =     
+	CreateIntegralHistogram( _pCJetCTag[iTagCollection][nvname], 
+			       pHistogramFactory->createHistogram1D("C-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+								    _pCJetCTag[iTagCollection][nvname]->axis().bins(),_pCJetCTag[iTagCollection][nvname]->axis().lowerEdge(),_pCJetCTag[iTagCollection][nvname]->axis().upperEdge()));
+
+	_pLightJetCTagIntegral[iTagCollection][nvname] = 
+      CreateIntegralHistogram( _pLightJetCTag[iTagCollection][nvname], 
+			       pHistogramFactory->createHistogram1D("Light-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+								    _pLightJetCTag[iTagCollection][nvname]->axis().bins(),_pLightJetCTag[iTagCollection][nvname]->axis().lowerEdge(),_pLightJetCTag[iTagCollection][nvname]->axis().upperEdge()));
+  
+	_pBJetBCTagIntegral[iTagCollection][nvname] =    
+	  CreateIntegralHistogram( _pBJetBCTag[iTagCollection][nvname], 
+				   pHistogramFactory->createHistogram1D("B-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+									_pBJetBCTag[iTagCollection][nvname]->axis().bins(),_pBJetBCTag[iTagCollection][nvname]->axis().lowerEdge(),_pBJetBCTag[iTagCollection][nvname]->axis().upperEdge()));
+
+	_pCJetBCTagIntegral[iTagCollection][nvname] =   
+	  CreateIntegralHistogram( _pCJetBCTag[iTagCollection][nvname], 
+				   pHistogramFactory->createHistogram1D("C-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +") (DON'T TRUST ERRORS!)",
+									_pCJetBCTag[iTagCollection][nvname]->axis().bins(),_pCJetBCTag[iTagCollection][nvname]->axis().lowerEdge(),_pCJetBCTag[iTagCollection][nvname]->axis().upperEdge()));
+	
+	_pLightJetBCTagIntegral[iTagCollection][nvname] = 
+	  CreateIntegralHistogram( _pLightJetBCTag[iTagCollection][nvname], 
+			       pHistogramFactory->createHistogram1D("Light-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +")",
+								    _pLightJetBCTag[iTagCollection][nvname]->axis().bins(),_pLightJetBCTag[iTagCollection][nvname]->axis().lowerEdge(),_pLightJetBCTag[iTagCollection][nvname]->axis().upperEdge()));
+	
+	//Examples of the integral plots - instead of histograms - the histogram calculate the errors wrongly
+	
+	//integralplots	_pBJetBTagIntegral[iTagCollection][nvname] =     
+	//integralplots//	  CreateIntegralPlot( _pBJetBTag[iTagCollection][nvname], pDataPointSetFactory->create("B-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pCJetBTagIntegral[iTagCollection][nvname] =     
+	//integralplots//	  CreateIntegralPlot( _pCJetBTag[iTagCollection][nvname], pDataPointSetFactory->create("C-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pLightJetBTagIntegral[iTagCollection][nvname] = 
+	//integralplots//	  CreateIntegralPlot( _pLightJetBTag[iTagCollection][nvname], pDataPointSetFactory->create("Light-Jets: Numbers of events passing B-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pBJetCTagIntegral[iTagCollection][nvname] =     
+	//integralplots//	  CreateIntegralPlot( _pBJetCTag[iTagCollection][nvname], pDataPointSetFactory->create("B-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pCJetCTagIntegral[iTagCollection][nvname] =     
+	//integralplots//	  CreateIntegralPlot( _pCJetCTag[iTagCollection][nvname], pDataPointSetFactory->create("C-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pLightJetCTagIntegral[iTagCollection][nvname] = 
+	//integralplots//	  CreateIntegralPlot( _pLightJetCTag[iTagCollection][nvname], pDataPointSetFactory->create("Light-Jets: Numbers of events passing C-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pBJetBCTagIntegral[iTagCollection][nvname] =    
+	//integralplots//	  CreateIntegralPlot( _pBJetBCTag[iTagCollection][nvname], pDataPointSetFactory->create("B-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pCJetBCTagIntegral[iTagCollection][nvname] =    
+	//integralplots//	  CreateIntegralPlot( _pCJetBCTag[iTagCollection][nvname], pDataPointSetFactory->create("C-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +")",2));
+	//integralplots//	_pLightJetBCTagIntegral[iTagCollection][nvname] = 
+	//integralplots//	  CreateIntegralPlot( _pLightJetBCTag[iTagCollection][nvname], pDataPointSetFactory->create("Light-Jets: Numbers of events passing BC-Tag NN Cut  ("+ nvname +")",2));
+	
+
+	AIDA::IDataPointSet* _pBJetBTagPurity =  CreatePurityPlot( _pBJetBTag[iTagCollection][nvname],  _pBTagBackgroundValues[iTagCollection][nvname] , pDataPointSetFactory->create("B-Jet purity for B-Tag  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pCJetCTagPurity =  CreatePurityPlot( _pCJetCTag[iTagCollection][nvname],  _pCTagBackgroundValues[iTagCollection][nvname] , pDataPointSetFactory->create("C-Jet purity for C-Tag  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pCJetBCTagPurity = CreatePurityPlot( _pCJetBCTag[iTagCollection][nvname], _pBJetBCTag[iTagCollection][nvname], pDataPointSetFactory->create("C-Jet purity for BC-Tag  ("+ nvname +")",2));      
+	
+	AIDA::IDataPointSet* _pCJetBTagLeakage =      CreateLeakageRatePlot( _pCJetBTag[iTagCollection][nvname],      pDataPointSetFactory->create("C-Jets: Leakage Rate into B-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pLightJetBTagLeakage =  CreateLeakageRatePlot( _pLightJetBTag[iTagCollection][nvname],  pDataPointSetFactory->create("Light-Jets: Leakage Rate into B-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pBJetCTagLeakage =      CreateLeakageRatePlot( _pBJetCTag[iTagCollection][nvname],      pDataPointSetFactory->create("B-Jets: Leakage Rate into C-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pLightJetCTagLeakage =  CreateLeakageRatePlot( _pLightJetCTag[iTagCollection][nvname],  pDataPointSetFactory->create("Light-Jets: Leakage Rate into C-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pBJetBCTagLeakage =     CreateLeakageRatePlot( _pBJetBCTag[iTagCollection][nvname],     pDataPointSetFactory->create("B-Jets: Leakage Rate into BC-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pLightJetBCTagLeakage = CreateLeakageRatePlot( _pLightJetBCTag[iTagCollection][nvname], pDataPointSetFactory->create("Light-Jets: Leakage Rate into BC-Tag Sample  ("+ nvname +")",2));     
+	AIDA::IDataPointSet* _pNonBJetBTagLeakage =   CreateLeakageRatePlot( _pBTagBackgroundValues[iTagCollection][nvname],      pDataPointSetFactory->create("C-Jets: Leakage Rate into B-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pNonCJetCTagLeakage =   CreateLeakageRatePlot( _pCTagBackgroundValues[iTagCollection][nvname],  pDataPointSetFactory->create("Light-Jets: Leakage Rate into B-Tag Sample  ("+ nvname +")",2));
+	AIDA::IDataPointSet* _pNonCJetBCTagLeakage =  CreateLeakageRatePlot( _pBCTagBackgroundValues[iTagCollection][nvname],      pDataPointSetFactory->create("B-Jets: Leakage Rate into C-Tag Sample  ("+ nvname +")",2));
+	
+	CreateXYPlot(_pBJetBTagEfficiency, _pBJetBTagPurity, pDataPointSetFactory->create("Purity-Efficiency for B-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetCTagEfficiency, _pCJetCTagPurity, pDataPointSetFactory->create("Purity-Efficiency for C-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetBCTagEfficiency, _pCJetBCTagPurity, pDataPointSetFactory->create("Purity-Efficiency for BC-Tag  ("+ nvname +")",2), 1, 1);
+	
+	CreateXYPlot(_pBJetBTagEfficiency, _pNonBJetBTagLeakage,  pDataPointSetFactory->create("Leakage Rate-Efficiency for B-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetCTagEfficiency, _pNonCJetCTagLeakage,  pDataPointSetFactory->create("Leakage Rate-Efficiency for C-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetBCTagEfficiency,_pNonCJetBCTagLeakage, pDataPointSetFactory->create("Leakage Rate-Efficiency for BC-Tag  ("+ nvname +")",2), 1, 1);
+	
+	CreateXYPlot(_pBJetBTagEfficiency, _pCJetBTagLeakage,  pDataPointSetFactory->create("Leakage Rate (C into B) vs Efficiency for B-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pBJetBTagEfficiency, _pLightJetBTagLeakage,  pDataPointSetFactory->create("Leakage Rate (Light into B) Efficiency for B-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetCTagEfficiency, _pBJetCTagLeakage,  pDataPointSetFactory->create("Leakage Rate (B into C) vs Efficiency for C-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetCTagEfficiency, _pLightJetCTagLeakage,  pDataPointSetFactory->create("Leakage Rate (Light into C) Efficiency for C-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetBCTagEfficiency, _pBJetBCTagLeakage,  pDataPointSetFactory->create("Leakage Rate (B into BC) vs Efficiency for BC-Tag  ("+ nvname +")",2), 1, 1);
+	CreateXYPlot(_pCJetCTagEfficiency, _pLightJetBCTagLeakage,  pDataPointSetFactory->create("Leakage Rate (Light into BC) Efficiency for BC-Tag  ("+ nvname +")",2), 1, 1);
+	
+      }
+    }
+      //create vertex charge leakage rate plots
+  pTree->cd( "/" + name() + "/VertexChargePlots/");
+  AIDA::IDataPointSet* pBJetVtxChargeDPS = pDataPointSetFactory->create("B-Jets: Vertex Charge Leakage",2);	
+  AIDA::IDataPointSet* pCJetVtxChargeDPS = pDataPointSetFactory->create("C-Jets: Vertex Charge Leakage",2);
+  
+  CreateVertexChargeLeakagePlot(pBJetVtxChargeDPS, pCJetVtxChargeDPS);
+  
+  
+  if (_PrintNeuralNetOutput) PrintNNOutput();
+
+}
+
+// IMPORTANT - If you change the cuts make sure you change the line below to show the changes in the docs
+/*! Currently applies no cuts at all*/
+bool LCFIAIDAPlotProcessor::PassesEventCuts( LCEvent* pEvent )
+{
+  //
+  // No event cuts at present
+  //
+  
+  return true;
+
+}
+// IMPORTANT - If you change the cuts make sure you change the line below to show the changes in the docs
+
+bool LCFIAIDAPlotProcessor::PassesJetCuts( ReconstructedParticle* pJet )
+{
+  //
+  // This cut added on the suggestion of Sonja Hillert 12/Jan/07.
+  //
+  // Selects jets for which the cosine of the jet polar
+  // angle theta for all jets is not too large.
+  //
+  // Make something that's easy to search for to track down erroneous cuts:
+  // (too many bad experiences of long forgotten about cuts hiding somewhere)
+  // GREPTAG_CUT : Jet cut on abs(cos(theta)) of jet axis
+  //
+  
+  
+  const double* jetMomentum=pJet->getMomentum(); 
+  
+  double momentumMagnitude = sqrt(pow(jetMomentum[0],2)+pow(jetMomentum[1],2)+pow(jetMomentum[2],2));
+
+  double cosTheta = jetMomentum[2] / momentumMagnitude;
+  if( fabs(cosTheta) < _CosThetaJetMin || fabs(cosTheta) > _CosThetaJetMax ) return false;
+  
+  if (momentumMagnitude > _PJetMax ||  momentumMagnitude < _PJetMin) return false;
+
+  
+  // If control gets to this point then the jet has passed
+  return true;
+}
+
+void LCFIAIDAPlotProcessor::FillInputsPlots( LCEvent* pEvent, unsigned int jetNumber )
+{
+   
+	int jetType=FindJetType( pEvent, jetNumber );
+	if( jetType==0 ) return;
+
+	int CQVtx =  FindCQVtx(pEvent, jetNumber);
+	int BQVtx =  FindBQVtx(pEvent, jetNumber);
+
+	for (unsigned int iInputsCollection=0; iInputsCollection < _FlavourTagInputsCollectionNames.size(); ++iInputsCollection )
+	{
+	  TypesafeCollection<lcio::LCFloatVec> inputsCollection( pEvent, _FlavourTagInputsCollectionNames[iInputsCollection] );
+	  if( !inputsCollection.is_valid() )
+	    {
+	      //should send out an error here
+	    }
+	  else
+	    {
+	      //Do stuff...
+	      lcio::LCFloatVec* pInputs=inputsCollection.getElementAt( jetNumber );
+	      if( !pInputs )
+		{
+		}
+	      else
+		{
+		  
+		  //ok everything is okay with the data
+
+		  if (_MakeTuple && iInputsCollection==0) {
+		    
+		    //this could probably be done automatically
+		    
+		    int  NumVertices = int((*pInputs)[_InputsIndex[iInputsCollection]["NumVertices"]]);
+		    int  NumTracksInVertices = int((*pInputs)[_InputsIndex[iInputsCollection] ["NumTracksInVertices"]]);
+		    float D0Significance1=(*pInputs)[_InputsIndex[iInputsCollection]     ["D0Significance1"]];
+		    float D0Significance2=(*pInputs)[_InputsIndex[iInputsCollection]     ["D0Significance2"]];
+		    float DecayLength=(*pInputs)[_InputsIndex[iInputsCollection]	       ["DecayLength"]];
+		    float DecayLength_SeedToIP=(*pInputs)[_InputsIndex[iInputsCollection]["DecayLength(SeedToIP)"]];
+		    float DecayLengthSignificance=(*pInputs)[_InputsIndex[iInputsCollection]  ["DecayLengthSignificance"]];
+		    float JointProbRPhi=(*pInputs)[_InputsIndex[iInputsCollection]	    ["JointProbRPhi"]];
+		    float JointProbZ=(*pInputs)[_InputsIndex[iInputsCollection]	       ["JointProbZ"]];
+		    float Momentum1=(*pInputs)[_InputsIndex[iInputsCollection]	       ["Momentum1"]];
+		    float Momentum2=(*pInputs)[_InputsIndex[iInputsCollection]	       ["Momentum2"]];
+		    float PTCorrectedMass=(*pInputs)[_InputsIndex[iInputsCollection]    ["PTCorrectedMass"]];
+		    float RawMomentum=(*pInputs)[_InputsIndex[iInputsCollection]	       ["RawMomentum"]];
+		    float SecondaryVertexProbability=(*pInputs)[_InputsIndex[iInputsCollection]["SecondaryVertexProbability"]];
+		    float Z0Significance1=(*pInputs)[_InputsIndex[iInputsCollection]     ["Z0Significance1"]];
+		    float Z0Significance2=(*pInputs)[_InputsIndex[iInputsCollection]     ["Z0Significance2"]];
+		    
+		    _pMyTuple->fill( 0, jetType );
+		    _pMyTuple->fill( 1, NumVertices );
+		    _pMyTuple->fill( 2, NumTracksInVertices );
+		    _pMyTuple->fill( 3, D0Significance1);
+		    _pMyTuple->fill( 4, D0Significance2);
+		    _pMyTuple->fill( 5, DecayLength);
+		    _pMyTuple->fill( 6, DecayLength_SeedToIP);
+		    _pMyTuple->fill( 7, DecayLengthSignificance);
+		    _pMyTuple->fill( 8, JointProbRPhi);
+		    _pMyTuple->fill( 9, JointProbZ);
+		    _pMyTuple->fill( 10, Momentum1);
+		    _pMyTuple->fill( 11, Momentum2);
+		    _pMyTuple->fill( 12, PTCorrectedMass);
+		    _pMyTuple->fill( 13, RawMomentum);
+		    _pMyTuple->fill( 14, SecondaryVertexProbability);
+		    _pMyTuple->fill( 15, Z0Significance1);
+		    _pMyTuple->fill( 16 ,Z0Significance2);
+
+		    _pMyTuple->fill( 17, BQVtx );
+		    _pMyTuple->fill( 18, CQVtx );
+		    
+		    _pMyTuple->addRow();
+		  }
+		  
+		  
+		  for( std::map<std::string,unsigned int>::iterator iTagNames=_InputsIndex[iInputsCollection].begin(); 
+		       iTagNames!=_InputsIndex[iInputsCollection].end(); ++iTagNames ) {
+
+		    double input=(*pInputs)[(*iTagNames).second]; 
+
+		    //if the quantity relates to the second vertex, and there is no second vertex, then don't plot it		    
+		    if (! ((*pInputs)[_InputsIndex[iInputsCollection]["NumVertices"]] < 2 && 
+			((*iTagNames).first == "DecayLength" || (*iTagNames).first == "RawMomentum"  ||
+			 (*iTagNames).first == "SecondaryVertexProbability" || (*iTagNames).first == "PTCorrectedMass" ||
+			 (*iTagNames).first == "DecayLength(SeedToIP)" || (*iTagNames).first == "DecayLengthSignificance") )) {
+		      
+		      if( jetType==B_JET ) _inputsHistogramsBJets[iInputsCollection][(*iTagNames).first]->fill(input);
+		      else if( jetType==C_JET ) _inputsHistogramsCJets[iInputsCollection][(*iTagNames).first]->fill(input);
+		      else _inputsHistogramsUDSJets[iInputsCollection][(*iTagNames).first]->fill(input);
+		    }
+		    
+		    //fill a few extra histograms created by hand
+		    for (std::vector<std::string>::const_iterator iter = _ZoomedVarNames.begin() ; iter != _ZoomedVarNames.end(); iter++){
+		      if ((*iTagNames).first == *iter) {
+			std::string zoomed_name = (*iTagNames).first + " (zoomed)";
+			if( jetType==B_JET ) _zoomedInputsHistogramsBJets[iInputsCollection][zoomed_name]->fill(input);
+			else if( jetType==C_JET ) _zoomedInputsHistogramsCJets[iInputsCollection][zoomed_name]->fill(input);
+			else _zoomedInputsHistogramsUDSJets[iInputsCollection][zoomed_name]->fill(input);
+			
+		      }
+		    }
+		    
+		  }
+		  
+		}
+	    }
+	}
+}
+
+void LCFIAIDAPlotProcessor::FillTagPlots( LCEvent* pEvent, unsigned int jetNumber)
+{
+  int jetType=FindJetType( pEvent, jetNumber );
+  if( jetType==0 ) return;
+  
+  TypesafeCollection<lcio::ReconstructedParticle> jetCollection( pEvent, _JetCollectionName );
+  ReconstructedParticle* pJet;
+  pJet=jetCollection.getElementAt(jetNumber);
+  
+  
+  
+  for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection)
+    {
+      TypesafeCollection<lcio::LCFloatVec> tagCollection( pEvent, _FlavourTagCollectionNames[iTagCollection] );
+      if( !tagCollection.is_valid() )
+	{
+	}
+      else
+	{
+	  lcio::LCFloatVec* pJetFlavourTags=tagCollection.getElementAt( jetNumber );
+	  if( !pJetFlavourTags )
+	    {
+	    }
+	  else
+	    {
+	      
+	      const double* jetMomentum = pJet->getMomentum();
+	      double cosTheta = jetMomentum[2] / sqrt(pow(jetMomentum[0],2)+pow(jetMomentum[1],2)+pow(jetMomentum[2],2));
+	      
+	      double bTag= (*pJetFlavourTags)[_IndexOfForEachTag[iTagCollection]["BTag"]];
+	      double cTag= (*pJetFlavourTags)[_IndexOfForEachTag[iTagCollection]["CTag"]];
+	      double cTagBBack= (*pJetFlavourTags)[_IndexOfForEachTag[iTagCollection]["BCTag"]];
+	      unsigned int NumVertices = FindNumVertex(pEvent, jetNumber, iTagCollection);
+	      int CQVtx =  FindCQVtx(pEvent, jetNumber);
+	      int BQVtx =  FindBQVtx(pEvent, jetNumber);
+	      int trueJetCharge = int(FindJetHadronCharge(pEvent,jetNumber));
+	      
+	      std::string nvname = _VertexCatNames[ (NumVertices>=N_VERTEX_CATEGORIES) ? (N_VERTEX_CATEGORIES) : (NumVertices)];
+	      
+	      if( jetType==B_JET )  {
+
+		if( bTag<=1 && bTag>=0 )
+		  {
+		      _pBJetBTag[iTagCollection][nvname]->fill( bTag );
+		    } 
+		  else 
+		    {
+		      _pBJetBTag[iTagCollection][nvname]->fill( -0.005 );
+		    }
+		  
+		  if( cTag<=1 && cTag>=0 )
+		    {
+		      _pBJetCTag[iTagCollection][nvname]->fill( cTag );
+		    }
+		  else 
+		    {
+		      _pBJetCTag[iTagCollection][nvname]->fill( -0.005 );
+		    }
+		  if( cTagBBack<=1 && cTagBBack>=0 ) 
+		    {
+		      _pBJetBCTag[iTagCollection][nvname]->fill( cTagBBack );
+		    }
+		  else 
+		    {
+		      _pBJetBCTag[iTagCollection][nvname]->fill( -0.005 );
+		    }
+		
+	      } else if( jetType==C_JET ) {
+		
+		if( bTag<=1 && bTag>=0 )
+		  {
+		    _pCJetBTag[iTagCollection][nvname]->fill( bTag );
+		  } 
+		else 
+		  {
+		    _pCJetBTag[iTagCollection][nvname]->fill( -0.005 );
+		  }
+		
+		if( cTag<=1 && cTag>=0 )
+		  {
+		      _pCJetCTag[iTagCollection][nvname]->fill( cTag );
+		  }
+		else 
+		  {
+		    _pCJetCTag[iTagCollection][nvname]->fill( -0.005 );
+		  }
+		
+		if( cTagBBack<=1 && cTagBBack>=0 ) 
+		  {
+		    _pCJetBCTag[iTagCollection][nvname]->fill( cTagBBack );
+		  }
+		else 
+		  {
+		    _pCJetBCTag[iTagCollection][nvname]->fill( -0.005 );
+		  }
+	      } else {
+		if( bTag<=1 && bTag>=0 )
+		  {
+		    _pLightJetBTag[iTagCollection][nvname]->fill( bTag );
+		  } 
+		else 
+		  {
+		    _pLightJetBTag[iTagCollection][nvname]->fill( -0.005 );
+		  }
+		
+		if( cTag<=1 && cTag>=0 )
+		  {
+		    _pLightJetCTag[iTagCollection][nvname]->fill( cTag );
+		  }
+		else 
+		  {
+		    _pLightJetCTag[iTagCollection][nvname]->fill( -0.005 );
+		  } 
+		
+		if( cTagBBack<=1 && cTagBBack>=0 ) 
+		  {
+		    _pLightJetBCTag[iTagCollection][nvname]->fill( cTagBBack );
+		  }
+		else 
+		  {
+		    _pLightJetBCTag[iTagCollection][nvname]->fill( -0.005 );
+		  }
+	      }
+	      
+	      if (iTagCollection == _myVertexChargeTagCollection) {
+
+		//vertex charge plots
+		if( jetType==C_JET && cTag > _CTagNNCut) {
+		  
+		  int bin = _pCJetLeakageRate->coordToIndex(fabs(cosTheta));
+		  
+		  if (trueJetCharge==+2)   _cJet_truePlus2++;
+		  if (trueJetCharge==+1)   _cJet_truePlus++;
+		  if (trueJetCharge==0)    _cJet_trueNeut++;
+		  if (trueJetCharge==-1)   _cJet_trueMinus++;
+		  if (trueJetCharge==-2)   _cJet_trueMinus2++;
+		  
+		  if (trueJetCharge==+2){ 
+		    if(CQVtx>0)  _cJet_truePlus2_recoPlus++; 
+		    if(CQVtx==0) _cJet_truePlus2_recoNeut++;
+		    if(CQVtx<0)  _cJet_truePlus2_recoMinus++;
+		  }
+		  if (trueJetCharge==+1){ 
+		    if(CQVtx>0)  _cJet_truePlus_recoPlus++; 
+		    if(CQVtx==0) _cJet_truePlus_recoNeut++;
+		    if(CQVtx<0)  _cJet_truePlus_recoMinus++;
+		  }
+		  if (trueJetCharge==0) { 
+		    if(CQVtx>0)  _cJet_trueNeut_recoPlus++; 
+		    if(CQVtx==0) _cJet_trueNeut_recoNeut++;
+		    if(CQVtx<0)  _cJet_trueNeut_recoMinus++;
+		  }
+		  if (trueJetCharge==-1)  { 
+		    if(CQVtx>0)  _cJet_trueMinus_recoPlus++; 
+		    if(CQVtx==0) _cJet_trueMinus_recoNeut++;
+		    if(CQVtx<0)  _cJet_trueMinus_recoMinus++;
+		  }
+		  if (trueJetCharge==-2) { 
+		    if(CQVtx>0)  _cJet_trueMinus2_recoPlus++; 
+		    if(CQVtx==0) _cJet_trueMinus2_recoNeut++;
+		    if(CQVtx<0)  _cJet_trueMinus2_recoMinus++;
+		  }
+		  
+		  _pCJetVertexCharge->fill(CQVtx);
+		  _pCJetCharge2D->fill(trueJetCharge,CQVtx);
+
+		  if (trueJetCharge==+2)   _cJet_truePlus2_angle[bin]++;
+		  if (trueJetCharge==+1)   _cJet_truePlus_angle[bin]++;
+		  if (trueJetCharge==0)    _cJet_trueNeut_angle[bin]++;
+		  if (trueJetCharge==-1)   _cJet_trueMinus_angle[bin]++;
+		  if (trueJetCharge==-2)   _cJet_trueMinus2_angle[bin]++;
+		  
+		  if (trueJetCharge==+2){ 
+		    if(CQVtx>0)  _cJet_truePlus2_recoPlus_angle[bin]++; 
+		    if(CQVtx==0) _cJet_truePlus2_recoNeut_angle[bin]++;
+		    if(CQVtx<0)  _cJet_truePlus2_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==+1){ 
+		    if(CQVtx>0)  _cJet_truePlus_recoPlus_angle[bin]++; 
+		    if(CQVtx==0) _cJet_truePlus_recoNeut_angle[bin]++;
+		    if(CQVtx<0)  _cJet_truePlus_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==0) { 
+		    if(CQVtx>0)  _cJet_trueNeut_recoPlus_angle[bin]++; 
+		    if(CQVtx==0) _cJet_trueNeut_recoNeut_angle[bin]++;
+		    if(CQVtx<0)  _cJet_trueNeut_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==-1)  { 
+		    if(CQVtx>0)  _cJet_trueMinus_recoPlus_angle[bin]++; 
+		    if(CQVtx==0) _cJet_trueMinus_recoNeut_angle[bin]++;
+		    if(CQVtx<0)  _cJet_trueMinus_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==-2) { 
+		    if(CQVtx>0)  _cJet_trueMinus2_recoPlus_angle[bin]++; 
+		    if(CQVtx==0) _cJet_trueMinus2_recoNeut_angle[bin]++;
+		    if(CQVtx<0)  _cJet_trueMinus2_recoMinus_angle[bin]++;
+		  }    
+		  
+		} else if ( jetType==B_JET && bTag > _BTagNNCut) {
+		  
+		  int bin = _pBJetLeakageRate->coordToIndex(fabs(cosTheta));
+		  
+		  if (trueJetCharge==+2)   _bJet_truePlus2++;
+		  if (trueJetCharge==+1)   _bJet_truePlus++;
+		  if (trueJetCharge==0)    _bJet_trueNeut++;
+		  if (trueJetCharge==-1)   _bJet_trueMinus++;
+		  if (trueJetCharge==-2)   _bJet_trueMinus2++;
+		  
+		  if (trueJetCharge==+2){ 
+		    if(BQVtx>0)  _bJet_truePlus2_recoPlus++; 
+		    if(BQVtx==0) _bJet_truePlus2_recoNeut++;
+		    if(BQVtx<0)  _bJet_truePlus2_recoMinus++;
+		  }
+		  if (trueJetCharge==+1){ 
+		    if(BQVtx>0)  _bJet_truePlus_recoPlus++; 
+		    if(BQVtx==0) _bJet_truePlus_recoNeut++;
+		    if(BQVtx<0)  _bJet_truePlus_recoMinus++;
+		  }
+		  if (trueJetCharge==0) { 
+		    if(BQVtx>0)  _bJet_trueNeut_recoPlus++; 
+		    if(BQVtx==0) _bJet_trueNeut_recoNeut++;
+		    if(BQVtx<0)  _bJet_trueNeut_recoMinus++;
+		  }
+		  if (trueJetCharge==-1)  { 
+		    if(BQVtx>0)  _bJet_trueMinus_recoPlus++; 
+		    if(BQVtx==0) _bJet_trueMinus_recoNeut++;
+		    if(BQVtx<0)  _bJet_trueMinus_recoMinus++;
+		  }
+		  if (trueJetCharge==-2) { 
+		    if(BQVtx>0)  _bJet_trueMinus2_recoPlus++; 
+		    if(BQVtx==0) _bJet_trueMinus2_recoNeut++;
+		    if(BQVtx<0)  _bJet_trueMinus2_recoMinus++;
+		  }
+		  
+		  
+		  if (trueJetCharge==+2) _bJet_truePlus2_angle[bin]++;
+		  if (trueJetCharge==+1) _bJet_truePlus_angle[bin]++;	
+		  if (trueJetCharge==0)  _bJet_trueNeut_angle[bin]++;	
+		  if (trueJetCharge==-1) _bJet_trueMinus_angle[bin]++;	
+		  if (trueJetCharge==-2) _bJet_trueMinus2_angle[bin]++;
+		  
+		  if (trueJetCharge==+2){ 
+		    if(BQVtx>0)  _bJet_truePlus2_recoPlus_angle[bin]++; 
+		    if(BQVtx==0) _bJet_truePlus2_recoNeut_angle[bin]++;
+		    if(BQVtx<0)  _bJet_truePlus2_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==+1){ 
+		    if(BQVtx>0)  _bJet_truePlus_recoPlus_angle[bin]++; 
+		    if(BQVtx==0) _bJet_truePlus_recoNeut_angle[bin]++;
+		    if(BQVtx<0)  _bJet_truePlus_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==0) { 
+		    if(BQVtx>0) _bJet_trueNeut_recoPlus_angle[bin]++; 
+		    if(BQVtx==0) _bJet_trueNeut_recoNeut_angle[bin]++;
+		    if(BQVtx<0) _bJet_trueNeut_recoMinus_angle[bin]++;
+		}
+		  if (trueJetCharge==-1)  { 
+		    if(BQVtx>0) _bJet_trueMinus_recoPlus_angle[bin]++; 
+		    if(BQVtx==0) _bJet_trueMinus_recoNeut_angle[bin]++;
+		    if(BQVtx<0) _bJet_trueMinus_recoMinus_angle[bin]++;
+		  }
+		  if (trueJetCharge==-2) { 
+		    if(BQVtx>0) _bJet_trueMinus2_recoPlus_angle[bin]++; 
+		    if(BQVtx==0) _bJet_trueMinus2_recoNeut_angle[bin]++;
+		    if(BQVtx<0) _bJet_trueMinus2_recoMinus_angle[bin]++;
+		  }
+		  
+		  _pBJetVertexCharge->fill(BQVtx);
+		  _pBJetCharge2D->fill(trueJetCharge,BQVtx);
+		}
+	      }
+	    }
+	}
+    }
+}
+
+
+
+
+
+int LCFIAIDAPlotProcessor::FindJetPDGCode( LCEvent* pEvent, unsigned int jetNumber )
+{
+	TypesafeCollection<lcio::LCIntVec> trueJetPDGCodeCollection( pEvent, _TrueJetPDGCodeColName );
+	if( !trueJetPDGCodeCollection.is_valid() )
+	{
+	  std::cerr << " In " << __FILE__ << "(" << __LINE__ << "):  Collection " <<  _TrueJetPDGCodeColName << " is not valid " << std::endl;
+	  return 0; //can't do anything without this collection
+	}
+
+	int pdgCode;
+	lcio::LCIntVec* pTruePDGCodeVector=trueJetPDGCodeCollection.getElementAt( jetNumber );
+	if( pTruePDGCodeVector )
+	{
+		if( pTruePDGCodeVector->size()==1 ) pdgCode=pTruePDGCodeVector->back();
+		else
+		{
+		  std::cerr << __FILE__ << "(" << __LINE__ << "): The LCIntVec for jet " << jetNumber << " from the collection "
+			    << _TrueJetFlavourColName << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber()
+			    << " is not of size 1." << std::endl;
+		  return 0; //can't fill any plots if we don't know the true flavour
+		}
+	}
+	else
+	{
+		std::cerr << __FILE__ << "(" << __LINE__ << "): Unable to get the LCIntVec for jet " << jetNumber << " from the collection " << _TrueJetFlavourColName
+				<< " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << "." << std::endl;
+		return 0; //can't fill any plots if we don't know the true flavour
+	}
+
+	return pdgCode;
+}
+
+float LCFIAIDAPlotProcessor::FindJetPartonCharge( LCEvent* pEvent, unsigned int jetNumber )
+{
+	TypesafeCollection<lcio::LCFloatVec> trueJetPartonChargeCollection( pEvent, _TrueJetPartonChargeColName );
+	if( !trueJetPartonChargeCollection.is_valid() )
+	{
+	  std::cerr << " In " << __FILE__ << "(" << __LINE__ << "):  Collection " <<  _TrueJetPartonChargeColName << " is not valid " << std::endl;
+		return 0; //can't do anything without this collection
+	}
+
+	float partonCharge;
+	lcio::LCFloatVec* pTruePartonChargeVector=trueJetPartonChargeCollection.getElementAt( jetNumber );
+	if( pTruePartonChargeVector )
+	{
+		if( pTruePartonChargeVector->size()==1 ) partonCharge=pTruePartonChargeVector->back();
+		else
+		{
+			std::cerr << __FILE__ << "(" << __LINE__ << "): The LCFloatVec for jet " << jetNumber << " from the collection "
+					<< _TrueJetPartonChargeColName << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber()
+					<< " is not of size 1." << std::endl;
+			return 0; //can't fill any plots if we don't know the true flavour
+		}
+	}
+	else
+	{
+		std::cerr << __FILE__ << "(" << __LINE__ << "): Unable to get the LCFloatVec for jet " << jetNumber << " from the collection " << _TrueJetPartonChargeColName
+				<< " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << "." << std::endl;
+		return 0; //can't fill any plots if we don't know the true flavour
+	}
+
+	return partonCharge;
+}
+
+
+int LCFIAIDAPlotProcessor::FindJetType( LCEvent* pEvent, unsigned int jetNumber )
+{
+	TypesafeCollection<lcio::LCIntVec> trueJetFlavourCollection( pEvent, _TrueJetFlavourColName );
+	if( !trueJetFlavourCollection.is_valid() )
+	  {
+	    std::cerr << " In " << __FILE__ << "(" << __LINE__ << "):  Collection " <<  _TrueJetFlavourColName << " is not valid " << std::endl;
+		return 0; //can't do anything without this collection
+	}
+
+	int jetType;
+	lcio::LCIntVec* pTrueJetTypeVector=trueJetFlavourCollection.getElementAt( jetNumber );
+	if( pTrueJetTypeVector )
+	{
+		if( pTrueJetTypeVector->size()==1 ) jetType=pTrueJetTypeVector->back();
+		else
+		{
+			std::cerr << __FILE__ << "(" << __LINE__ << "): The LCIntVec for jet " << jetNumber << " from the collection "
+					<< _TrueJetFlavourColName << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber()
+					<< " is not of size 1." << std::endl;
+			return 0; //can't fill any plots if we don't know the true flavour
+		}
+	}
+	else
+	{
+		std::cerr << __FILE__ << "(" << __LINE__ << "): Unable to get the LCIntVec for jet " << jetNumber << " from the collection " << _TrueJetFlavourColName
+				<< " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << "." << std::endl;
+		return 0; //can't fill any plots if we don't know the true flavour
+	}
+
+	return jetType;
+}
+
+float LCFIAIDAPlotProcessor::FindJetHadronCharge( LCEvent* pEvent, unsigned int jetNumber )
+{
+  TypesafeCollection<lcio::LCFloatVec> trueJetHadronChargeCollection( pEvent, _TrueJetHadronChargeColName );
+  if( !trueJetHadronChargeCollection.is_valid() )
+    {
+      std::cerr << " In " << __FILE__ << "(" << __LINE__ << "):  Collection " << _TrueJetHadronChargeColName << " is not valid " << std::endl;
+      return -99; //can't do anything without this collection
+    }
+
+	float hadronCharge;
+	lcio::LCFloatVec* pTrueJetChargeVector=trueJetHadronChargeCollection.getElementAt( jetNumber );
+	if( pTrueJetChargeVector )
+	{
+		if( pTrueJetChargeVector->size()==1 ) hadronCharge=pTrueJetChargeVector->back();
+		else
+		{
+			std::cerr << __FILE__ << "(" << __LINE__ << "): The LCFloatVec for jet " << jetNumber << " from the collection "
+					<< _TrueJetHadronChargeColName << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber()
+					<< " is not of size 1." << std::endl;
+			return -99; 
+		}
+	}
+	else
+	{
+		std::cerr << __FILE__ << "(" << __LINE__ << "): Unable to get the LCFloatVec for jet " << jetNumber << " from the collection " << _TrueJetHadronChargeColName
+				<< " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << "." << std::endl;
+		return 0; //can't fill any plots if we don't know the true flavour
+	}
+
+	return hadronCharge;
+}
+
+int LCFIAIDAPlotProcessor::FindNumVertex( LCEvent* pEvent, unsigned int jetNumber, unsigned int iInputsCollection)
+{
+
+  TypesafeCollection<lcio::LCFloatVec> inputsCollection( pEvent, _FlavourTagInputsCollectionNames[iInputsCollection] );
+  if( !inputsCollection.is_valid() )
+    {
+      //		_log->message<marlin::ERROR>( trueJetFlavourCollection.last_error() );
+      return 0; //can't do anything without this collection 
+    }
+  else
+    {
+      //Do stuff...
+      lcio::LCFloatVec* pInputs=inputsCollection.getElementAt( jetNumber );
+      if( !pInputs )
+	{
+	}
+      else
+	{
+	 return  int((*pInputs)[_InputsIndex[iInputsCollection]["NumVertices"]]);
+	}
+      
+    }
+  return 0;
+}
+
+int LCFIAIDAPlotProcessor::FindBQVtx( LCEvent* pEvent, unsigned int jetNumber) 
+{
+  
+  TypesafeCollection<lcio::LCFloatVec> inputsCollection( pEvent, _BVertexChargeCollection);
+  
+  if( !inputsCollection.is_valid() )  {
+    
+    std::cerr << "In " << __FILE__ << "(" << __LINE__ << "): Cannot find collection " << _BVertexChargeCollection << "  for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << " BQVtx will be invalid" << std::endl;
+    return -99;
+    
+  } else { //inputsCollection.is_valid() 
+    
+    float bqvtx;
+    lcio::LCFloatVec* pBVtxChargeVector =inputsCollection.getElementAt( jetNumber );
+    
+    //bool evaluation is done left to right...
+    if( pBVtxChargeVector && pBVtxChargeVector->size() == 1) {
+      
+      bqvtx = pBVtxChargeVector->back();
+      
+    } else {
+      
+      std::cerr << "In " << __FILE__ << "(" << __LINE__ << "): Cannot find collection element in  " << _BVertexChargeCollection << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << " corresponding to jet number: " << jetNumber << " BQVtx will be invalid" << std::endl;
+      return -99;
+    }
+    
+    return int(bqvtx);
+  }
+  //should never get here
+  return -99;
+}
+
+
+int LCFIAIDAPlotProcessor::FindCQVtx( LCEvent* pEvent, unsigned int jetNumber) 
+{
+  
+  TypesafeCollection<lcio::LCFloatVec> inputsCollection( pEvent, _CVertexChargeCollection);
+  
+  if( !inputsCollection.is_valid() )  {
+    
+    std::cerr << "In " << __FILE__ << "(" << __LINE__ << "): Cannot find collection " << _CVertexChargeCollection << "  for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << " CQVtx will be invalid" << std::endl;
+    return -99;
+    
+  } else { //inputsCollection.is_valid() 
+    
+    float cqvtx;
+    lcio::LCFloatVec* pCVtxChargeVector =inputsCollection.getElementAt( jetNumber );
+    
+    //bool evaluation is done left to right...
+    if( pCVtxChargeVector && pCVtxChargeVector->size() == 1) {
+      
+      cqvtx = pCVtxChargeVector->back();
+      
+    } else {
+      
+      std::cerr << "In " << __FILE__ << "(" << __LINE__ << "): Cannot find collection element in  " << _CVertexChargeCollection << " for event " << pEvent->getEventNumber() << " in run " << pEvent->getRunNumber() << " corresponding to jet number: " << jetNumber << " CQVtx will be invalid" << std::endl;
+      return -99;
+    }
+    
+    return int(cqvtx);
+  }
+  //should never get here
+  return -99;
+}
+
+
+
+AIDA::IDataPointSet* LCFIAIDAPlotProcessor::CreateEfficiencyPlot(const AIDA::IHistogram1D* pSignal, AIDA::IDataPointSet* pDataPointSet)
+{
+  
+  double totalSignal=pSignal->sumBinHeights();
+  double signalPassedCut=0;
+    
+  const int numberOfBins=pSignal->axis().bins();
+  int iPoint=0;
+  
+  for( int binNumber=numberOfBins-1; binNumber>=0; --binNumber, iPoint++ )
+    {
+      signalPassedCut+=pSignal->binHeight( binNumber );
+      
+      double efficiency = signalPassedCut/totalSignal;
+      
+      double efficiencyError = efficiency * (1. - efficiency) / totalSignal;
+      if (efficiencyError>0) efficiencyError = sqrt(efficiencyError);
+      
+      
+      pDataPointSet->addPoint();
+      pDataPointSet->point(iPoint)->coordinate(0)->setValue(pSignal->axis().binLowerEdge(binNumber)+pSignal->axis().binWidth(binNumber)/2.);
+      pDataPointSet->point(iPoint)->coordinate(1)->setValue( efficiency );
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorPlus(efficiencyError);
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorMinus(efficiencyError);
+    }
+  
+  return pDataPointSet;
+}  
+
+
+AIDA::IHistogram1D* LCFIAIDAPlotProcessor::CreateIntegralHistogram(const AIDA::IHistogram1D* pNN, AIDA::IHistogram1D* pIntegral)
+{
+  //the errors on these entries are wrong...
+  
+  const int numberOfBins=pNN->axis().bins();
+
+  double integral=pNN->binHeight(AIDA::IAxis::OVERFLOW_BIN);
+  pIntegral->fill(pNN->axis().binLowerEdge(AIDA::IAxis::OVERFLOW_BIN)+pNN->axis().binWidth(numberOfBins-1)/2.,integral);
+  
+  for( int binNumber=numberOfBins-1; binNumber>=0; --binNumber )
+    {
+      integral+= pNN->binHeight( binNumber );
+      pIntegral->fill( pNN->axis().binLowerEdge(binNumber)+pNN->axis().binWidth(binNumber)/2.,integral);
+    }
+  
+  integral+= pNN->binHeight(AIDA::IAxis::UNDERFLOW_BIN);
+  pIntegral->fill(pNN->axis().binUpperEdge(AIDA::IAxis::UNDERFLOW_BIN)-pNN->axis().binWidth(0)/2.,integral);
+
+  return pIntegral;
+}
+
+
+
+AIDA::IDataPointSet* LCFIAIDAPlotProcessor::CreateIntegralPlot(const AIDA::IHistogram1D* pNN, AIDA::IDataPointSet* pDataPointSet )
+{
+  //it might make more sense to make this a histogram, but then the error on the entries are wrong
+
+  const int numberOfBins=pNN->axis().bins();
+
+  double integral=0; 
+  
+  for (int binNumber = 0; binNumber < numberOfBins ; binNumber++ )  
+    {
+      
+      integral+= pNN->binHeight( binNumber );
+      pDataPointSet->addPoint();
+      pDataPointSet->point(binNumber)->coordinate(0)->setValue(pNN->axis().binLowerEdge(binNumber)+pNN->axis().binWidth(binNumber)/2.);
+      pDataPointSet->point(binNumber)->coordinate(1)->setValue(integral);
+      pDataPointSet->point(binNumber)->coordinate(1)->setErrorPlus(sqrt(integral));
+      pDataPointSet->point(binNumber)->coordinate(1)->setErrorMinus(sqrt(integral));
+    }
+  return pDataPointSet;
+}
+
+AIDA::IDataPointSet* LCFIAIDAPlotProcessor::CreatePurityPlot(const AIDA::IHistogram1D* pSignal, const AIDA::IHistogram1D* pBackground, AIDA::IDataPointSet* pDataPointSet)  
+{
+  const int numberOfBins=pSignal->axis().bins();
+  int iPoint=0;
+  
+  double signalPassedCut=0;
+  double backgroundPassedCut=0;
+
+  for (int binNumber = numberOfBins-1; binNumber >= 0 ; --binNumber, iPoint++ )  
+    {
+      
+      signalPassedCut+=pSignal->binHeight( binNumber );
+      backgroundPassedCut+=pBackground->binHeight( binNumber );
+      
+      double purity = signalPassedCut/(signalPassedCut+backgroundPassedCut);
+      double purityError = purity * (1. - purity) / (signalPassedCut+backgroundPassedCut);
+      if (purityError>0) purityError = sqrt(purityError);
+ 
+      
+      pDataPointSet->addPoint();
+      pDataPointSet->point(iPoint)->coordinate(0)->setValue(pSignal->axis().binLowerEdge(binNumber)+pSignal->axis().binWidth(binNumber)/2.);
+      pDataPointSet->point(iPoint)->coordinate(1)->setValue(purity);
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorPlus(purityError);
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorMinus(purityError);
+
+      
+    }  
+
+  return pDataPointSet;
+}
+
+AIDA::IDataPointSet* LCFIAIDAPlotProcessor::CreateLeakageRatePlot(const AIDA::IHistogram1D* pBackground, AIDA::IDataPointSet* pDataPointSet)
+{
+  
+  double totalBackground = pBackground->sumBinHeights();
+  double backgroundPassedCut=0;
+  
+  const int numberOfBins=pBackground->axis().bins();
+  int iPoint=0;
+  
+  for( int binNumber=numberOfBins-1; binNumber>=0; --binNumber , iPoint++ )
+    {
+
+      backgroundPassedCut+=pBackground->binHeight( binNumber );
+          
+      double leakageRate = backgroundPassedCut/totalBackground;
+    
+      double leakageRateError = leakageRate * (1. - leakageRate) / totalBackground;
+      if (leakageRateError>0) leakageRateError = sqrt(leakageRateError);
+    
+
+      pDataPointSet->addPoint();
+      pDataPointSet->point(iPoint)->coordinate(0)->setValue(pBackground->axis().binLowerEdge(binNumber)+pBackground->axis().binWidth(binNumber)/2.);
+      pDataPointSet->point(iPoint)->coordinate(1)->setValue(leakageRate);
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorPlus(leakageRateError);
+      pDataPointSet->point(iPoint)->coordinate(1)->setErrorMinus(leakageRateError);
+    }
+  
+  return pDataPointSet;
+}
+
+
+
+AIDA::IDataPointSet* LCFIAIDAPlotProcessor::CreateXYPlot(const AIDA::IDataPointSet* pDataPointSet0, const AIDA::IDataPointSet* pDataPointSet1, AIDA::IDataPointSet* xyPointSet, const int dim0, const int dim1 )
+{
+  
+  //need to do some comparision here
+  if (pDataPointSet0->size() == pDataPointSet1->size()) {
+
+    for (int iPoint = 0 ; iPoint != pDataPointSet1->size(); iPoint++) 
+      {
+	xyPointSet->addPoint();
+	xyPointSet->point(iPoint)->coordinate(0)->setValue(pDataPointSet0->point(iPoint)->coordinate(dim0)->value());
+	xyPointSet->point(iPoint)->coordinate(1)->setValue(pDataPointSet1->point(iPoint)->coordinate(dim1)->value());
+	xyPointSet->point(iPoint)->coordinate(0)->setErrorPlus(pDataPointSet0->point(iPoint)->coordinate(dim0)->errorPlus());
+	xyPointSet->point(iPoint)->coordinate(1)->setErrorPlus(pDataPointSet1->point(iPoint)->coordinate(dim1)->errorPlus());
+	xyPointSet->point(iPoint)->coordinate(0)->setErrorMinus(pDataPointSet0->point(iPoint)->coordinate(dim0)->errorMinus());
+	xyPointSet->point(iPoint)->coordinate(1)->setErrorMinus(pDataPointSet1->point(iPoint)->coordinate(dim1)->errorMinus());
+      } 
+  } else {
+    
+    //some error message here!
+  }
+  return xyPointSet;
+}
+
+void LCFIAIDAPlotProcessor::CreateVertexChargeLeakagePlot(AIDA::IDataPointSet* pBJetVtxChargeDPS, AIDA::IDataPointSet* pCJetVtxChargeDPS)
+{
+  
+  for (int j = 0 ; j < N_JETANGLE_BINS ; j++) {
+    
+    double c_numerator   = _cJet_truePlus2_recoPlus_angle[j]+_cJet_truePlus_recoPlus_angle[j]
+      +_cJet_trueMinus2_recoMinus_angle[j]+_cJet_trueMinus_recoMinus_angle[j];
+    double c_domininator = _cJet_truePlus2_angle[j]         +_cJet_truePlus_angle[j]         
+      +_cJet_trueMinus2_angle[j]          +_cJet_trueMinus_angle[j];
+    
+    double b_numerator   = _bJet_truePlus2_recoPlus_angle[j]+_bJet_truePlus_recoPlus_angle[j]
+      +_bJet_trueMinus2_recoMinus_angle[j]+_bJet_trueMinus_recoMinus_angle[j];
+    double b_domininator = _bJet_truePlus2_angle[j]         +_bJet_truePlus_angle[j]         
+      +_bJet_trueMinus2_angle[j]          +_bJet_trueMinus_angle[j];
+    
+    double b_leakage = 1. - b_numerator/b_domininator;
+    double c_leakage = 1. - c_numerator/c_domininator;
+    
+    double b_leakage_error = sqrt( b_leakage * (1. -  b_leakage) / b_domininator);
+    double c_leakage_error = sqrt( c_leakage * (1. -  c_leakage) / c_domininator);
+    
+    
+    pBJetVtxChargeDPS->addPoint();
+    pBJetVtxChargeDPS->point(j)->coordinate(0)->setValue(_pBJetLeakageRate->axis().binLowerEdge(j)+_pBJetLeakageRate->axis().binWidth(j)/2.);
+    pBJetVtxChargeDPS->point(j)->coordinate(1)->setValue(b_leakage);
+    pBJetVtxChargeDPS->point(j)->coordinate(1)->setErrorPlus(b_leakage_error);
+    pBJetVtxChargeDPS->point(j)->coordinate(1)->setErrorMinus(b_leakage_error);
+    
+    
+    pCJetVtxChargeDPS->addPoint();
+    pCJetVtxChargeDPS->point(j)->coordinate(0)->setValue(_pCJetLeakageRate->axis().binLowerEdge(j)+_pCJetLeakageRate->axis().binWidth(j)/2.);
+    pCJetVtxChargeDPS->point(j)->coordinate(1)->setValue(c_leakage);
+    pCJetVtxChargeDPS->point(j)->coordinate(1)->setErrorPlus(c_leakage_error);
+    pCJetVtxChargeDPS->point(j)->coordinate(1)->setErrorMinus(c_leakage_error);
+    
+    _pCJetLeakageRate->fill(_pCJetLeakageRate->axis().binLowerEdge(j)+_pCJetLeakageRate->axis().binWidth(j)/2.,c_leakage); 
+    _pBJetLeakageRate->fill(_pBJetLeakageRate->axis().binLowerEdge(j)+_pBJetLeakageRate->axis().binWidth(j)/2.,b_leakage);
+  }
+}
+
+
+float  LCFIAIDAPlotProcessor::CalculateDistance(const float* pos1, const float* pos2){
+  return sqrt(pow((pos1[0]-pos2[0]),2)+pow((pos1[1]-pos2[1]),2)+pow((pos1[2]-pos2[2]),2));
+}
+
+
+
+void LCFIAIDAPlotProcessor::PrintNNOutput(){
+  
+  //if there is a _NeuralNetOutputFile string defined use that as the output stream, if not use std::cout
+  std::filebuf* fb = new std::filebuf;  
+  
+  std::ostream outputFile( (!_NeuralNetOutputFile.empty()) ?                                  
+		       fb->open(_NeuralNetOutputFile.c_str(),
+				std::ios_base::out|std::ios_base::trunc):  
+			std::cout.rdbuf());
+
+  if (outputFile.rdbuf() != fb)
+      {
+	delete fb;
+	std::cerr << "Unable to open file " <<  _NeuralNetOutputFile << "!  Redirecting output to standard out." << std::endl;
+	outputFile << std::endl;
+      }
+
+ for (unsigned int iTagCollection=0; iTagCollection < _FlavourTagCollectionNames.size(); ++iTagCollection)
+    {
+      outputFile << "\n\nRESULTS for " << iTagCollection << "-th Flavour Tag Collection " << _FlavourTagCollectionNames[iTagCollection] << std::endl;
+      outputFile << "---------------------------------------------------------------------------------------\n\n";
+            
+      outputFile << "1vtx N(b) = " ;
+      outputFile.width(10);
+      outputFile << _pBJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->sumAllBinHeights();
+      outputFile << "   N(c) = " ;
+      outputFile.width(10);
+      outputFile << _pCJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->sumAllBinHeights();
+      outputFile << "   N(light) = ";
+      outputFile.width(10);
+      outputFile << _pLightJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->sumAllBinHeights();
+      outputFile << std::endl << std::endl;
+  
+      
+      outputFile.precision(5);  
+      outputFile.setf(std::ios::fixed,std::ios::floatfield);  
+
+	  
+      for (unsigned int iVertexCat=1;  iVertexCat <=  N_VERTEX_CATEGORIES; ++iVertexCat ) {
+	
+	std::string nvname = _VertexCatNames[iVertexCat];
+	
+	//want to integrate!
+	
+	outputFile << "numbers of jets in cuts for ";
+	outputFile.width(2);
+	outputFile << iVertexCat;
+	outputFile << " ZVTOP vertices found" << std::endl;
+	outputFile << "cut    b-tag b    b-tag other    c-tag c   c-tag other    c-tagbb c   c-tagbb other" << std::endl;
+	
+	int numberOfBins=_pBJetBTagIntegral[iTagCollection][nvname]->axis().bins();
+	
+	for (int binNumber = 0; binNumber < numberOfBins ; binNumber++ ) {
+	  
+	  outputFile.width(5);
+	  outputFile.precision(3);
+	  outputFile << _pBJetBTagIntegral[iTagCollection][nvname]->axis().binUpperEdge(binNumber) << "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pBJetBTagIntegral[iTagCollection][nvname]->binHeight(binNumber))  << "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pCJetBTagIntegral[iTagCollection][nvname]->binHeight(binNumber)+_pLightJetBTagIntegral[iTagCollection][nvname]->binHeight(binNumber))<< "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pCJetCTagIntegral[iTagCollection][nvname]->binHeight(binNumber))  << "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pBJetCTagIntegral[iTagCollection][nvname]->binHeight(binNumber)+_pLightJetCTagIntegral[iTagCollection][nvname]->binHeight(binNumber))<< "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pCJetBCTagIntegral[iTagCollection][nvname]->binHeight(binNumber))  << "   ";
+	  outputFile.width(10);
+	  outputFile << int(_pBJetBCTagIntegral[iTagCollection][nvname]->binHeight(binNumber)+_pLightJetBCTagIntegral[iTagCollection][nvname]->binHeight(binNumber))<< "   ";
+	  outputFile << std::endl;
+
+	}
+	outputFile << std::endl;
+      }
+      
+       outputFile << "numbers of jets in cuts summed" << std::endl;
+       outputFile << "cut    b-tag b    b-tag other    c-tag c   c-tag other    c-tagbb c   c-tagbb other" << std::endl;
+  	
+       int numberOfBins=_pBJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->axis().bins();
+	
+       for (int binNumber = 0; binNumber < numberOfBins ; binNumber++ ) {
+       
+	 outputFile.width(5);
+	 outputFile.precision(3);
+	 outputFile << _pBJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->axis().binUpperEdge(binNumber) << "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pBJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))  << "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pCJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber)+_pLightJetBTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))<< "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pCJetCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))  << "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pBJetCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber)+_pLightJetCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))<< "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pCJetBCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))  << "   ";
+	 outputFile.width(10);
+	 outputFile << int(_pBJetBCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber)+_pLightJetBCTagIntegral[iTagCollection][_VertexCatNames[0]]->binHeight(binNumber))<< "   ";
+	 outputFile << std::endl; 
+       }      
+       outputFile << std::endl;
+       outputFile << std::endl;
+      
+    }
+}
+
+void LCFIAIDAPlotProcessor::InternalVectorInitialisation()
+{
+  //sets the size of some vectors and initialises some counters to zero
+
+  _cJet_truePlus2_angle.resize(N_JETANGLE_BINS);
+  _cJet_truePlus_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus2_angle.resize(N_JETANGLE_BINS);
+  
+  _cJet_truePlus2_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _cJet_truePlus2_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_truePlus2_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _cJet_truePlus_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _cJet_truePlus_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_truePlus_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueNeut_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _cJet_trueNeut_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueNeut_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _cJet_trueMinus_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus2_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _cJet_trueMinus2_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _cJet_trueMinus2_recoMinus_angle.resize(N_JETANGLE_BINS);
+  
+  _bJet_truePlus2_angle.resize(N_JETANGLE_BINS);
+  _bJet_truePlus_angle.resize(N_JETANGLE_BINS);	
+  _bJet_trueNeut_angle.resize(N_JETANGLE_BINS);	
+  _bJet_trueMinus_angle.resize(N_JETANGLE_BINS);	
+  _bJet_trueMinus2_angle.resize(N_JETANGLE_BINS);
+  _bJet_truePlus2_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _bJet_truePlus2_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _bJet_truePlus2_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _bJet_truePlus_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _bJet_truePlus_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _bJet_truePlus_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueNeut_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _bJet_trueNeut_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueNeut_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueMinus_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _bJet_trueMinus_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueMinus_recoMinus_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueMinus2_recoPlus_angle.resize(N_JETANGLE_BINS); 
+  _bJet_trueMinus2_recoNeut_angle.resize(N_JETANGLE_BINS);
+  _bJet_trueMinus2_recoMinus_angle.resize(N_JETANGLE_BINS);
+ 
+
+  for (int j = 0 ; j < N_JETANGLE_BINS ; j++) {
+    _cJet_truePlus2_angle[j]=0;	       
+    _cJet_truePlus_angle[j]=0;	       
+    _cJet_trueNeut_angle[j]=0;	       
+    _cJet_trueMinus_angle[j]=0;	       
+    _cJet_trueMinus2_angle[j]=0;	       
+    
+    _cJet_truePlus2_recoPlus_angle[j]=0;  
+    _cJet_truePlus2_recoNeut_angle[j]=0;  
+    _cJet_truePlus2_recoMinus_angle[j]=0; 
+    _cJet_truePlus_recoPlus_angle[j]=0;   
+    _cJet_truePlus_recoNeut_angle[j]=0;   
+    _cJet_truePlus_recoMinus_angle[j]=0;  
+    _cJet_trueNeut_recoPlus_angle[j]=0;   
+    _cJet_trueNeut_recoNeut_angle[j]=0;   
+    _cJet_trueNeut_recoMinus_angle[j]=0;  
+    _cJet_trueMinus_recoPlus_angle[j]=0;  
+    _cJet_trueMinus_recoNeut_angle[j]=0;  
+    _cJet_trueMinus_recoMinus_angle[j]=0; 
+    _cJet_trueMinus2_recoPlus_angle[j]=0; 
+    _cJet_trueMinus2_recoNeut_angle[j]=0; 
+    _cJet_trueMinus2_recoMinus_angle[j]=0;
+    
+    _bJet_truePlus2_angle[j]=0;	       
+    _bJet_truePlus_angle[j]=0;	       
+    _bJet_trueNeut_angle[j]=0;	       
+    _bJet_trueMinus_angle[j]=0;	       
+    _bJet_trueMinus2_angle[j]=0;	       
+    _bJet_truePlus2_recoPlus_angle[j]=0;  
+    _bJet_truePlus2_recoNeut_angle[j]=0;  
+    _bJet_truePlus2_recoMinus_angle[j]=0; 
+    _bJet_truePlus_recoPlus_angle[j]=0;   
+    _bJet_truePlus_recoNeut_angle[j]=0;   
+    _bJet_truePlus_recoMinus_angle[j]=0;  
+    _bJet_trueNeut_recoPlus_angle[j]=0;   
+    _bJet_trueNeut_recoNeut_angle[j]=0;   
+    _bJet_trueNeut_recoMinus_angle[j]=0;  
+    _bJet_trueMinus_recoPlus_angle[j]=0;  
+    _bJet_trueMinus_recoNeut_angle[j]=0;  
+    _bJet_trueMinus_recoMinus_angle[j]=0; 
+    _bJet_trueMinus2_recoPlus_angle[j]=0; 
+    _bJet_trueMinus2_recoNeut_angle[j]=0; 
+    _bJet_trueMinus2_recoMinus_angle[j]=0;
+  }
+  
+  _cJet_truePlus2=0;
+  _cJet_truePlus=0;
+  _cJet_trueNeut=0;
+  _cJet_trueMinus=0;
+  _cJet_trueMinus2=0;
+  
+  _cJet_truePlus2_recoPlus=0; 
+  _cJet_truePlus2_recoNeut=0;
+  _cJet_truePlus2_recoMinus=0;
+  _cJet_truePlus_recoPlus=0; 
+  _cJet_truePlus_recoNeut=0;
+  _cJet_truePlus_recoMinus=0;
+  _cJet_trueNeut_recoPlus=0; 
+  _cJet_trueNeut_recoNeut=0;
+  _cJet_trueNeut_recoMinus=0;
+  _cJet_trueMinus_recoPlus=0; 
+  _cJet_trueMinus_recoNeut=0;
+  _cJet_trueMinus_recoMinus=0;
+  _cJet_trueMinus2_recoPlus=0; 
+  _cJet_trueMinus2_recoNeut=0;
+  _cJet_trueMinus2_recoMinus=0;
+  
+  _bJet_truePlus2=0;
+  _bJet_truePlus=0;	
+  _bJet_trueNeut=0;	
+  _bJet_trueMinus=0;	
+  _bJet_trueMinus2=0;
+  _bJet_truePlus2_recoPlus=0; 
+  _bJet_truePlus2_recoNeut=0;
+  _bJet_truePlus2_recoMinus=0;
+  _bJet_truePlus_recoPlus=0; 
+  _bJet_truePlus_recoNeut=0;
+  _bJet_truePlus_recoMinus=0;
+  _bJet_trueNeut_recoPlus=0; 
+  _bJet_trueNeut_recoNeut=0;
+  _bJet_trueNeut_recoMinus=0;
+  _bJet_trueMinus_recoPlus=0; 
+  _bJet_trueMinus_recoNeut=0;
+  _bJet_trueMinus_recoMinus=0;
+  _bJet_trueMinus2_recoPlus=0; 
+  _bJet_trueMinus2_recoNeut=0;
+  _bJet_trueMinus2_recoMinus=0;
+  
+  return;
+}
+
+
+
+#endif // endif of the check to see if MARLIN_USE_AIDA has been defined

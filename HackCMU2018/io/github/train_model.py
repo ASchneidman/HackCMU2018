@@ -8,9 +8,9 @@ MAX = 2500
 def runML(agent_src, data = '../../linter/outputfiles'):
     init_data = [MAX, [0, 0, 0, 0, 0]]
     for i in range(4):
-        init_data[1][i] = 1000
+        init_data[1][i] = 2000
     init_data[1][4] = MAX
-    ml_agent = agent.Agent (agent_src, init_data)
+    ml_agent = agent.Agent (agent_src)
     parser = parse_input.ParseInput(MAX)
     data = parser.parse_data (data)
     fitness = []

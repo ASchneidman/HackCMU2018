@@ -1,5 +1,5 @@
-4
-6, 36, 50, 53
+1
+6
 #include<cstdio>
 #include<cstring>
 #include<cmath>
