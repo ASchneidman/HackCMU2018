@@ -1,5 +1,5 @@
-7
-96, 96, 104, 144, 179, 179, 179
+6
+96, 104, 144, 179, 179, 179
 #include "hphp/runtime/ext/icu/ext_icu_transliterator.h"
 
 namespace HPHP { namespace Intl {

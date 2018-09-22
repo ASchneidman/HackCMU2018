@@ -1,5 +1,5 @@
-16
-4, 58, 79, 80, 87, 92, 93, 105, 106, 122, 123, 126, 127, 132, 133, 182
+13
+4, 58, 79, 87, 92, 105, 122, 123, 126, 127, 132, 133, 182
 #include "hphp/runtime/ext/extension.h"
 #include "hphp/runtime/base/runtime-error.h"
 

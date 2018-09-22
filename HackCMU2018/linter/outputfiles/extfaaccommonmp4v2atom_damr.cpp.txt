@@ -1,5 +1,5 @@
-21
-28, 32, 33, 33, 34, 35, 36, 38, 39, 41, 42, 44, 45, 47, 48, 49, 53, 54, 56, 57, 58
+9
+28, 32, 33, 34, 49, 53, 56, 57, 58
 /*
  * The contents of this file are subject to the Mozilla Public
  * License Version 1.1 (the "License"); you may not use this file

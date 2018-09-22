@@ -1,5 +1,5 @@
-9
-48, 63, 88, 123, 908, 1011, 1011, 879, 855
+7
+48, 63, 908, 1011, 1011, 879, 855
 #include "hphp/runtime/ext/collections/ext_collections-vector.h"
 
 #include "hphp/runtime/ext/collections/ext_collections.h"

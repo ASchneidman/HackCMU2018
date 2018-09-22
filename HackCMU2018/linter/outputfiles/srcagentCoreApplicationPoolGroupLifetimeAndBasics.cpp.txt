@@ -1,5 +1,5 @@
-14
-38, 39, 52, 59, 64, 69, 74, 84, 89, 94, 99, 104, 108, 109
+4
+38, 39, 108, 109
 /*
  *  Phusion Passenger - https://www.phusionpassenger.com/
  *  Copyright (c) 2011-2017 Phusion Holding B.V.

@@ -1,5 +1,5 @@
-8
-4, 15, 21, 35, 107, 115, 116, 30
+7
+4, 15, 21, 35, 115, 116, 30
 #include <atomic>
 #include <cstdio>
 #include <vector>
