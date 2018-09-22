@@ -1,0 +1,62 @@
+40
+4, 5, 6, 9, 10, 11, 12, 12, 13, 14, 18, 19, 20, 21, 21, 22, 23, 27, 28, 29, 30, 30, 31, 32, 36, 37, 38, 39, 39, 40, 41, 46, 47, 48, 50, 51, 53, 54, 56, 57
+// ConstructorChain.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+	A()
+	{
+		cout << "A" << endl;
+	}
+};
+
+class B : public A
+{
+public:
+	B()
+	{
+		cout << "B" << endl;
+	}
+};
+
+class C : public B
+{
+public:
+	C()
+	{
+		cout << "C" << endl;
+	}
+};
+
+class D : public C
+{
+public:
+	D()
+	{
+		cout << "D" << endl;
+	}
+};
+
+
+int main()
+{
+	cout << "Constructing A: " << endl;
+	A cA;
+
+	cout << "Constructing B: " << endl;
+	B cB;
+
+	cout << "Constructing C: " << endl;
+	C cC;
+
+	cout << "Constructing D: " << endl;
+	D cD;
+    return 0;
+}
+

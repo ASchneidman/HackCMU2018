@@ -1,0 +1,88 @@
+130
+2, 4, 4, 5, 6, 7, 18, 19, 20, 20, 21, 21, 22, 22, 22, 22, 23, 23, 23, 24, 24, 25, 28, 29, 30, 30, 30, 31, 31, 32, 32, 33, 34, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 39, 40, 40, 40, 40, 40, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 45, 45, 45, 46, 46, 47, 48, 48, 48, 48, 48, 49, 50, 50, 51, 51, 52, 53, 53, 53, 54, 55, 56, 57, 58, 58, 58, 59, 60, 60, 61, 61, 62, 62, 63, 64, 65, 65, 66, 66, 67, 68, 68, 69, 69, 71, 71, 71, 71, 71, 72, 73, 73, 74, 74, 75, 75, 76, 76, 76, 77, 78, 78, 78, 81, 82, 85, 86
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007
+long long a[100005],c[100005];
+long long degree(long long a, long long k) {
+  long long res = 1;
+  long long cur = a;
+
+  while (k) {
+    if (k % 2) {
+      res = (res * cur) % mod;
+    }
+    k /= 2;
+    cur = (cur * cur) % mod;
+  }
+  return res;
+}
+void nck(long long n)
+{
+	fill(c,c+100005,0);
+	c[0]=1;
+	for(long long i=1;i<=n;++i)
+		{
+			c[i]=(((c[i-1]*(n-i+1))%mod)*degree(i,mod-2))%mod;
+		}
+}
+int main()
+{
+	int t;
+	long long n,k;
+	scanf("%d",&t);
+	
+	while(t--)
+	{
+		scanf(" %lld %lld",&n,&k);
+		
+		//for(long long i=0;i<=n;++i)
+		//	cout<<c[i]<<" ";
+		//cout<<endl;
+		for(long long i=0;i<n;++i)
+			scanf(" %lld",&a[i]);
+		long long z=count(a,a+n,0);
+		long long ans=0,l;
+		if(z!=0)
+		{
+			n=n-z;
+			nck(n);
+			for(long long i=n;i>=0;--i){
+				ans+=c[i];
+				if(ans>=mod)
+					ans=ans%mod;
+			}
+			printf("%lld\n",ans );
+			continue;
+
+		}
+		nck(n);
+		if(k>n){
+			if(n%2 == k%2)
+				k=n;
+			else 
+				k=n-1;
+
+		}
+		if(k%2==0)
+			l=0;
+		else
+			l=1;
+		
+
+		for(long long i=k;i>=l;i-=2){
+			ans+=c[i];
+			//cout<<c[i]<<" "<<i<<endl;
+			if(ans>=mod)
+				ans=ans%mod;
+		
+		}
+		printf("%lld\n",ans );
+
+
+
+	}
+
+
+	return 0;
+}

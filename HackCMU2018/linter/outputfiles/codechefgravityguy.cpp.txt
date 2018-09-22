@@ -1,0 +1,84 @@
+85
+2, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 13, 13, 13, 14, 15, 15, 15, 16, 20, 20, 20, 21, 21, 23, 23, 25, 25, 26, 27, 27, 28, 29, 30, 31, 33, 34, 35, 35, 36, 37, 38, 40, 41, 41, 41, 42, 43, 44, 45, 45, 46, 47, 48, 48, 49, 51, 53, 57, 58, 59, 59, 60, 61, 62, 62, 63, 65, 67, 70, 73, 73, 74, 74, 75, 75, 75, 75, 76, 76, 78, 80, 8
+#include<bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+   long long t;
+   string a,b;
+   scanf("%lld",&t);
+   while(t--)
+   {
+       cin>>a>>b;
+       long long len=a.length(),i;
+       bool dp[len+1];
+       if(a[0]=='#' and b[0]=='#')
+       {
+           printf("No\n");
+           continue;
+       }
+    long long k=0,l=0;
+    while(a[k]=='.')
+        k++;
+    while(b[l]=='.')
+        l++;
+    if(k>l)
+        {
+            long long x=k;
+            i=k;
+            while(x--)
+                dp[x]=true;
+
+        }
+    else
+    {
+        long long x=l;
+        i=k;
+        while(x--)
+            dp[x]=false;
+    }
+        bool flag=true;
+       for(;i<len;++i)
+       {
+           if(dp[i-1])
+           {
+               if(a[i]=='.')
+                    dp[i]=true;
+               else
+                    if(b[i]=='.')
+                        dp[i]=false;
+                    else
+                    {
+                        printf("No\n");
+                        flag=false;
+                        break;
+                    }
+           }
+           else
+           {
+               if(b[i]=='.')
+                    dp[i]=false;
+               else
+                    if(a[i]=='.')
+                        dp[i]=true;
+                    else
+                    {
+                        printf("No\n");
+                        flag=false;
+                        break;
+                    }
+
+           }
+    }
+    if(flag){
+    long long ans=0;
+    for(int i=1;i<len;++i)
+        if(dp[i-1]!=dp[i])
+            ans++;
+    printf("Yes\n%lld\n",ans);
+    }
+   }
+    return 0;
+}

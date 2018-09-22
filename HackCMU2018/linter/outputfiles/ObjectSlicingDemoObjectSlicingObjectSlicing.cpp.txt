@@ -1,0 +1,56 @@
+43
+4, 5, 6, 7, 10, 11, 12, 13, 14, 14, 15, 15, 15, 16, 17, 19, 20, 20, 21, 22, 26, 27, 28, 29, 29, 30, 30, 30, 31, 32, 34, 35, 35, 36, 37, 40, 41, 42, 46, 47, 48, 49, 50
+// ObjectSlicing.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Base
+{
+protected:
+	int i;
+public:
+	Base(int a)
+	{
+		i = a;
+	}
+
+	virtual void Display()
+	{
+		cout << "I am base class object, i = " << i << endl;
+	}
+};
+
+class Derived : public Base
+{
+	int j;
+public:
+	Derived(int a, int b) : Base(a) 
+	{
+		j = b;
+	}
+
+	virtual void Display()
+	{
+		cout << "I am derived class object, i = " << i << ", j = " << j << endl;
+	}
+};
+
+void func1(Base &b)
+{
+	b.Display();
+}
+
+int main()
+{
+	Base b(10);
+	Derived d(20, 30);
+	func1(b);
+	func1(d);
+
+    return 0;
+}
+

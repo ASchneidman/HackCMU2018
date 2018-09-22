@@ -1,0 +1,85 @@
+91
+7, 8, 8, 9, 9, 9, 10, 11, 13, 13, 14, 14, 14, 15, 16, 18, 18, 18, 19, 20, 21, 24, 24, 24, 25, 26, 30, 30, 31, 31, 32, 33, 33, 34, 34, 35, 35, 36, 36, 37, 37, 38, 38, 39, 40, 47, 48, 49, 49, 50, 50, 50, 51, 52, 54, 54, 55, 55, 55, 56, 57, 59, 59, 59, 60, 61, 62, 65, 65, 65, 66, 67, 71, 71, 72, 72, 73, 74, 74, 75, 75, 76, 76, 77, 77, 78, 78, 79, 79, 80, 81
+<<<<<<< HEAD
+/*Print a sequence of numbers starting with N, without using loop, in which  A[i+1] = A[i] - 5,  if  A[i]>0, else A[i+1]=A[i] + 5  repeat it until A[i]=N.
+*/
+
+
+#include <iostream>
+using namespace std;
+void solve(int a,int n,bool flag){
+    if(a==n){
+        cout<<a;
+        return ;
+    }
+    if(flag){
+        if(a>0){
+            cout<<a<<" ";
+            solve(a-5,n,flag);
+        }
+        else{
+            flag=false;
+            cout<<a<<" ";
+            solve(a+5,n,flag);
+        }
+    }
+    else{
+            cout<<a<<" ";
+            solve(a+5,n,flag);
+    }
+}
+int main() {
+	//code
+	int t,n;
+	ios::sync_with_stdio(false);
+	cin>>t;
+	while(t--){
+	    cin>>n;
+	    cout<<n<<" ";
+	    solve(n-5,n,true);
+	    cout<<endl;
+	}
+	return 0;
+}
+=======
+/*Print a sequence of numbers starting with N, without using loop, in which  A[i+1] = A[i] - 5,  if  A[i]>0, else A[i+1]=A[i] + 5  repeat it until A[i]=N.
+*/
+
+
+#include <iostream>
+using namespace std;
+void solve(int a,int n,bool flag){
+    if(a==n){
+        cout<<a;
+        return ;
+    }
+    if(flag){
+        if(a>0){
+            cout<<a<<" ";
+            solve(a-5,n,flag);
+        }
+        else{
+            flag=false;
+            cout<<a<<" ";
+            solve(a+5,n,flag);
+        }
+    }
+    else{
+            cout<<a<<" ";
+            solve(a+5,n,flag);
+    }
+}
+int main() {
+	//code
+	int t,n;
+	ios::sync_with_stdio(false);
+	cin>>t;
+	while(t--){
+	    cin>>n;
+	    cout<<n<<" ";
+	    solve(n-5,n,true);
+	    cout<<endl;
+	}
+	return 0;
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

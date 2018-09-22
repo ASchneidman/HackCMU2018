@@ -1,0 +1,81 @@
+55
+1, 4, 5, 6, 8, 9, 12, 13, 14, 18, 19, 20, 21, 22, 22, 22, 23, 24, 26, 27, 31, 32, 33, 35, 39, 40, 41, 42, 42, 43, 44, 45, 47, 48, 52, 53, 54, 55, 56, 57, 57, 57, 58, 59, 60, 61, 63, 64, 66, 70, 71, 73, 74, 75, 77
+// InternalAndDefaultCntr.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+#include <iostream>
+using namespace std;
+
+class Base
+{
+public:
+	// compiler "declares" constructor
+};
+
+class A
+{
+public:
+	// User defined constructor
+	A()
+	{
+		cout << "A Constructor" << endl;
+	}
+
+	// uninitialized
+	int size;
+};
+
+class B : public A
+{
+	// compiler defines default constructor of B, and
+	// inserts stub to call A constructor
+
+	// compiler won't initialize any data of A
+};
+
+class C : public A
+{
+public:
+	C()
+	{
+		// User defined default constructor of C
+		// Compiler inserts stub to call A's construtor
+		cout << "B Constructor" << endl;
+
+		// compiler won't initialize any data of A
+	}
+};
+
+class D
+{
+private:
+	A a;
+public:
+	D()
+	{
+		// User defined default constructor of D
+		// a - constructor to be called, compiler inserts
+		// stub to call A constructor
+		cout << "D Constructor" << endl;
+
+		// compiler won't initialize any data of 'a'
+	}
+
+
+};
+
+int main()
+{
+	Base base;
+
+	B b;
+	C c;
+	D d;
+
+	return 0;
+}
+

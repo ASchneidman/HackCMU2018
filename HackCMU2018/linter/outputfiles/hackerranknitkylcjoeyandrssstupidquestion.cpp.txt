@@ -1,0 +1,79 @@
+61
+3, 5, 6, 7, 7, 8, 9, 9, 10, 11, 11, 12, 14, 17, 18, 19, 19, 20, 21, 23, 24, 25, 32, 35, 37, 37, 37, 38, 39, 40, 41, 48, 49, 49, 49, 49, 50, 51, 52, 52, 52, 53, 54, 55, 55, 57, 57, 59, 60, 60, 60, 61, 62, 66, 66, 66, 67, 71, 73, 76, 34
+#include<bits/stdc++.h>
+#define mod 1000000007
+using namespace std;
+int lps[1000006];
+void lpsCalc(string pat,int m)
+{
+    int len=0,i=1;
+    lps[0]=0;
+    while(i<m)
+    {
+        if(pat[i]==pat[len])
+        {
+            len++;
+            lps[i]=len;
+            i++;
+        }
+        else
+        {
+            if(len!=0)
+            {
+                len=lps[len-1];
+            }
+            else
+            {
+                lps[i]=0;
+                i++;
+            }
+        }
+    }
+}
+int main()
+{
+    int t;
+    string s;
+    scanf("%d",&t);
+    int len;
+    for(int x=1;x<=t;++x)
+    {
+        cin>>s;
+        len=s.length();
+        lpsCalc(s,len);
+        /*for(int i=0;i<s.length();++i)
+            cout<<lps[i]<<" ";
+        cout<<endl;
+        for(int i=1;i<=s.length();++i)
+            cout<<i<<" ";
+        cout<<endl;*/
+        cout<<"Test Case #"<<x<<endl;
+        for(int i=1;i<len;++i)
+        {
+
+            if(lps[i]==(i+1)/2 and (i+1)%2==0)
+            {
+                printf("%d %d\n",i+1,2);
+                int j=i+lps[i],k=3;
+
+                while(j<len)
+
+                {
+                    if(lps[j]%lps[i]==0 and lps[j]!=0)
+                    {
+                        printf("%d %d\n",j+1,k);
+                        k++;
+                        j+=lps[i];
+                    }
+                    else{
+                        i=j;
+                        break;
+                    }
+                }
+
+            }
+
+        }
+    }
+	return 0;
+}

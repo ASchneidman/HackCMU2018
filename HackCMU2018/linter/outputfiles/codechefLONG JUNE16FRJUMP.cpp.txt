@@ -1,0 +1,311 @@
+272
+5, 6, 7, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 14, 14, 18, 21, 21, 22, 23, 36, 36, 38, 39, 40, 40, 41, 44, 45, 47, 47, 48, 49, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 64, 65, 65, 66, 69, 71, 73, 74, 75, 75, 76, 77, 77, 77, 77, 77, 78, 80, 80, 80, 80, 80, 81, 82, 84, 85, 85, 85, 85, 85, 86, 87, 87, 87, 87, 87, 88, 90, 91, 92, 92, 99, 102, 103, 104, 105, 106, 106, 107, 108, 110, 110, 110, 111, 111, 111, 111, 111, 112, 113, 114, 117, 119, 120, 121, 123, 125, 125, 125, 126, 127, 128, 129, 131, 133, 134, 135, 136, 136, 137, 138, 138, 144, 145, 146, 148, 150, 150, 153, 156, 159, 160, 161, 162, 163, 163, 163, 164, 164, 164, 165, 165, 165, 166, 166, 168, 168, 172, 175, 175, 176, 177, 190, 190, 192, 193, 194, 194, 195, 198, 199, 201, 201, 202, 203, 203, 204, 205, 206, 207, 208, 210, 211, 212, 213, 214, 218, 219, 219, 220, 223, 225, 227, 228, 229, 229, 230, 231, 231, 231, 231, 231, 232, 234, 234, 234, 234, 234, 235, 236, 238, 239, 239, 239, 239, 239, 240, 241, 241, 241, 241, 241, 242, 244, 245, 246, 246, 253, 256, 257, 258, 259, 260, 260, 261, 262, 264, 264, 264, 265, 265, 265, 265, 265, 266, 267, 268, 271, 273, 274, 275, 277, 279, 279, 279, 280, 281, 282, 283, 285, 287, 288, 289, 290, 290, 291, 292, 292, 298, 299, 300, 302, 304, 304, 307, 160
+<<<<<<< HEAD
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define prec 1.0/1000000000
+using namespace std;
+vector<long long>v[100005];
+void calfact(long long n)
+{
+	for(int i=1;i<=n;++i)
+		for(int j=1;j<=sqrt(i);++j)
+			if(i%j==0){
+                if(j*j==i)
+                    v[i].push_back(j);
+                else{
+                    v[i].push_back(j);
+                    v[i].push_back(i/j);
+                }
+			}
+}
+
+long long degree(long long a, long long k,long long m) {
+  long long res = 1;
+  long long cur = a;
+
+  while (k) {
+    if (k % 2) {
+      res = (res * cur) % m;
+    }
+    k /= 2;
+    cur = (cur * cur) % m;
+  }
+  return res;
+}
+
+
+long long F[100005],R[100005];
+class FirstDig
+{
+    public:
+    long long fx;   //floor of x
+    double fractX;  //fractional part of x
+
+    void calFirstDig()
+    {
+        fx=fractX=0;
+    }
+    void calculate(long long a,int ch)
+    {
+        if(ch==0)
+        {
+            double x=fx+fractX+log10(a)+prec;
+            fx=floor(x);
+            fractX=x-fx;
+
+        }
+        else
+        {
+            double x=fx+fractX-log10(a)+prec;
+            fx=floor(x);
+            fractX=x-fx;
+        }
+    }
+    int getFirstDig()
+    {
+        double num=pow(10,fractX);
+        int fdig=floor(num);
+        return fdig;
+    }
+
+};
+FirstDig *fR=new FirstDig[100005];
+int main()
+{
+
+    long long n,q,r,p,f;
+    scanf(" %lld",&n);
+    for(long long i=0;i<n;++i)
+        scanf(" %lld",&F[i]);
+    calfact(n);
+    for(long long i=0;i<n;++i)
+    {   R[i]=1;
+        fR[i].calculate(1,0);
+    }
+    fR[0].calculate(F[0],0);
+    for(long long i=1;i<n;++i)
+    {
+            for(long long j=0;j<v[i].size();++j)
+         {
+             R[v[i][j]]*=F[i];
+             fR[v[i][j]].calculate(F[i],0);
+             //printf("%d\n",fR[1].getFirstDig());
+             if(R[v[i][j]]>=mod)
+                R[v[i][j]]%=mod;
+         }
+    }
+    /*for(long long i=1;i<n;++i)
+        printf("%lld ",R[i]);
+    cout<<endl;*/
+    scanf(" %lld",&q);
+    int ch;
+    int fdigit;
+    double num,fractX,x;
+    while(q--)
+    {
+        scanf(" %d",&ch);
+        if(ch==1)
+        {
+            scanf(" %lld %lld",&p,&f);
+            p--;
+            if(p!=0){
+                for(long long i=0;i<v[p].size();++i)
+                {
+                    R[v[p][i]]=(R[v[p][i]]*degree(F[p],mod-2,mod))%mod;
+                    //if(R[*it]>=mod)
+                      //  R[*it]%=mod;
+                    R[v[p][i]]=(R[v[p][i]]*f)%mod;
+                    //if(R[*it]>=mod)
+                      //  R[*it]%=mod;
+                    fR[v[p][i]].calculate(f,0);
+                    fR[v[p][i]].calculate(F[p],1);
+
+                }
+                F[p]=f;
+            }
+            else{
+                fR[p].calculate(F[p],1);
+                F[p]=f;
+                fR[p].calculate(F[p],0);
+
+            }
+
+        }
+        else
+        {
+            scanf(" %lld",&r);
+            if(r==n)
+                printf("%d %lld\n",fR[0].getFirstDig(),F[0]);
+            else{
+                 /*x=fR[r].fx+fR[r].fractX+log10(F[0]);
+                 fractX=x-floor(x);
+                 num=pow(10,fractX);
+                fdigit=floor(num);*/
+
+                fR[r].calculate(F[0],0);
+                printf("%d %lld\n",fR[r].getFirstDig(),(R[r]*F[0])%mod);
+                fR[r].calculate(F[0],1);
+            }
+
+        }
+        //cout<<fR[2].fx<<" "<<fR[2].fractX<<" "<<fR[2].getNum()<<" "<<fR[2].getFirstDig()<<endl;
+    }
+
+	return 0;
+}
+=======
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define prec 1.0/1000000000
+using namespace std;
+vector<long long>v[100005];
+void calfact(long long n)
+{
+	for(int i=1;i<=n;++i)
+		for(int j=1;j<=sqrt(i);++j)
+			if(i%j==0){
+                if(j*j==i)
+                    v[i].push_back(j);
+                else{
+                    v[i].push_back(j);
+                    v[i].push_back(i/j);
+                }
+			}
+}
+
+long long degree(long long a, long long k,long long m) {
+  long long res = 1;
+  long long cur = a;
+
+  while (k) {
+    if (k % 2) {
+      res = (res * cur) % m;
+    }
+    k /= 2;
+    cur = (cur * cur) % m;
+  }
+  return res;
+}
+
+
+long long F[100005],R[100005];
+class FirstDig
+{
+    public:
+    long long fx;   //floor of x
+    double fractX;  //fractional part of x
+
+    void calFirstDig()
+    {
+        fx=fractX=0;
+    }
+    void calculate(long long a,int ch)
+    {
+        if(ch==0)
+        {
+            double x=fx+fractX+log10(a)+prec;
+            fx=floor(x);
+            fractX=x-fx;
+
+        }
+        else
+        {
+            double x=fx+fractX-log10(a)+prec;
+            fx=floor(x);
+            fractX=x-fx;
+        }
+    }
+    int getFirstDig()
+    {
+        double num=pow(10,fractX);
+        int fdig=floor(num);
+        return fdig;
+    }
+
+};
+FirstDig *fR=new FirstDig[100005];
+int main()
+{
+
+    long long n,q,r,p,f;
+    scanf(" %lld",&n);
+    for(long long i=0;i<n;++i)
+        scanf(" %lld",&F[i]);
+    calfact(n);
+    for(long long i=0;i<n;++i)
+    {   R[i]=1;
+        fR[i].calculate(1,0);
+    }
+    fR[0].calculate(F[0],0);
+    for(long long i=1;i<n;++i)
+    {
+            for(long long j=0;j<v[i].size();++j)
+         {
+             R[v[i][j]]*=F[i];
+             fR[v[i][j]].calculate(F[i],0);
+             //printf("%d\n",fR[1].getFirstDig());
+             if(R[v[i][j]]>=mod)
+                R[v[i][j]]%=mod;
+         }
+    }
+    /*for(long long i=1;i<n;++i)
+        printf("%lld ",R[i]);
+    cout<<endl;*/
+    scanf(" %lld",&q);
+    int ch;
+    int fdigit;
+    double num,fractX,x;
+    while(q--)
+    {
+        scanf(" %d",&ch);
+        if(ch==1)
+        {
+            scanf(" %lld %lld",&p,&f);
+            p--;
+            if(p!=0){
+                for(long long i=0;i<v[p].size();++i)
+                {
+                    R[v[p][i]]=(R[v[p][i]]*degree(F[p],mod-2,mod))%mod;
+                    //if(R[*it]>=mod)
+                      //  R[*it]%=mod;
+                    R[v[p][i]]=(R[v[p][i]]*f)%mod;
+                    //if(R[*it]>=mod)
+                      //  R[*it]%=mod;
+                    fR[v[p][i]].calculate(f,0);
+                    fR[v[p][i]].calculate(F[p],1);
+
+                }
+                F[p]=f;
+            }
+            else{
+                fR[p].calculate(F[p],1);
+                F[p]=f;
+                fR[p].calculate(F[p],0);
+
+            }
+
+        }
+        else
+        {
+            scanf(" %lld",&r);
+            if(r==n)
+                printf("%d %lld\n",fR[0].getFirstDig(),F[0]);
+            else{
+                 /*x=fR[r].fx+fR[r].fractX+log10(F[0]);
+                 fractX=x-floor(x);
+                 num=pow(10,fractX);
+                fdigit=floor(num);*/
+
+                fR[r].calculate(F[0],0);
+                printf("%d %lld\n",fR[r].getFirstDig(),(R[r]*F[0])%mod);
+                fR[r].calculate(F[0],1);
+            }
+
+        }
+        //cout<<fR[2].fx<<" "<<fR[2].fractX<<" "<<fR[2].getNum()<<" "<<fR[2].getFirstDig()<<endl;
+    }
+
+	return 0;
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

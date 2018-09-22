@@ -1,0 +1,100 @@
+4
+5, 9, 78, 77
+#include "Camera.hpp"
+
+Camera::Camera(Vec3Ptr from, Vec3Ptr at, Vec3Ptr up) :
+    from(from), at(at), up(up)
+{
+}
+
+void Camera::setView(int width, int height)
+{
+    int mouseX, mouseY;
+
+    int middleX = width/2;
+    int middleY = height/2;
+
+    SDL_WarpMouse(middleX, middleY);
+
+    // Vector that describes mouseposition - center
+    Vec3 mouseDirection(0, 0, 0);
+
+    // Static variable to store the rotation about the x-axis
+    static float xRot = 0.0;
+
+    // This function gets the position of the mouse
+    SDL_GetMouseState(&mouseX, &mouseY);
+
+    // If the mouse hasn't moved, return without doing anything to our view
+    if (mouseX == middleX && mouseY == middleY) {
+        return;
+    }
+    // Otherwise move the mouse back to the middle of the screen
+    SDL_WarpMouse(middleX, middleY);
+
+    // We have to remember that positive rotation is counter-clockwise.
+    // Moving the mouse down is a negative rotation about the x axis
+    // Moving the mouse right is a negative rotation about the y axis
+    float mouseSensitivity = 1000;
+    mouseDirection.x() = -(middleX - mouseX)/mouseSensitivity;
+    mouseDirection.y() = -(middleY - mouseY)/mouseSensitivity;
+
+    xRot += mouseDirection.y();
+
+    // Get the axis to rotate around the x-axis.
+    Vec3 tmp = *at - *from;
+    tmp.normalize();
+    Vec3 axis = tmp ^ *up;
+
+    // To be able to use the quaternion conjugate, the axis to
+    // rotate around must be normalized.
+    axis.normalize();
+
+    Quat tmp_q, view_q, res;
+    tmp_q.makeRotate(mouseDirection.y(), axis.x(), axis.y(), axis.z());
+    view_q.x() = tmp.x();
+    view_q.y() = tmp.y();
+    view_q.z() = tmp.z();
+    view_q.w() = 0;
+    res = (tmp_q * view_q) * tmp_q.conj();
+    at->x() = from->x() + res.x();
+    at->y() = from->y() + res.y();
+    at->z() = from->z() + res.z();
+
+    tmp = *at - *from;
+    tmp.normalize();
+
+    Quat res2;
+    tmp_q.makeRotate(mouseDirection.x(), 0.0, 1.0, 0.0);
+    view_q.x() = tmp.x();
+    view_q.y() = tmp.y();
+    view_q.z() = tmp.z();
+    view_q.w() = 0;
+    res = (tmp_q * view_q) * tmp_q.conj();
+    at->x() = from->x() + res.x();
+    at->y() = from->y() + res.y();
+    at->z() = from->z() + res.z();
+}
+
+void Camera::move(const enum CameraDirection dir, const float sens)
+{
+    const Vec3 view = *at - *from;
+    switch (dir) {
+        case FORWARD:
+            from->x() += view.x() * sens;
+            from->y() += view.y() * sens;
+            from->z() += view.z() * sens;
+            at->x() += view.x() * sens;
+            at->y() += view.y() * sens;
+            at->z() += view.z() * sens;
+            break;
+        case STRAFE:
+            from->x() += -view.z() * sens;
+            from->z() += view.x() * sens;
+            at->x() += -view.z() * sens;
+            at->z() += view.x() * sens;
+            break;
+        default:
+            break;
+    }
+}

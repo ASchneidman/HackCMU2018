@@ -1,55 +1,16 @@
-// SFVTool2.cpp : Implementation of DLL Exports.
+// sum the numbers from 50 to 100 (use while)
+#include <iostream>
 
-#include "stdafx.h"
-#include "resource.h"
-#include "SFVTool2.h"
-
-HINSTANCE g_hInstance;
-
-class CSFVTool2Module : public CAtlDllModuleT< CSFVTool2Module >
+int main()
 {
-public :
-	DECLARE_LIBID(LIBID_SFVTool2Lib)
-	DECLARE_REGISTRY_APPID_RESOURCEID(IDR_SFVTOOL2, "{99EC7331-345B-4A54-B0A7-D81110BB0DD5}")
-};
+    int sum = 0, val = 50;
+    while (val <= 100) {
+        sum+=val;
+        ++val;
+    }
 
-CSFVTool2Module _AtlModule;
-
-
-// DLL Entry Point
-extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
-{
-    g_hInstance = hInstance;
-    return _AtlModule.DllMain(dwReason, lpReserved); 
+    std::cout << "the sum is: " << sum << std::endl;
+    return 0;
 }
 
-
-// Used to determine whether the DLL can be unloaded by OLE
-STDAPI DllCanUnloadNow(void)
-{
-    return _AtlModule.DllCanUnloadNow();
-}
-
-
-// Returns a class factory to create an object of the requested type
-STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
-{
-    return _AtlModule.DllGetClassObject(rclsid, riid, ppv);
-}
-
-
-// DllRegisterServer - Adds entries to the system registry
-STDAPI DllRegisterServer(void)
-{
-    // registers object, typelib and all interfaces in typelib
-    HRESULT hr = _AtlModule.DllRegisterServer();
-	return hr;
-}
-
-
-// DllUnregisterServer - Removes entries from the system registry
-STDAPI DllUnregisterServer(void)
-{
-	HRESULT hr = _AtlModule.DllUnregisterServer();
-	return hr;
-}
+// output: the sum is: 3825

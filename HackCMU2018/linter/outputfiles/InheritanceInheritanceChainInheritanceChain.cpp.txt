@@ -1,0 +1,57 @@
+39
+4, 5, 8, 9, 10, 11, 11, 12, 13, 17, 18, 19, 20, 20, 21, 22, 26, 27, 28, 29, 29, 30, 31, 35, 36, 37, 38, 38, 39, 40, 44, 45, 46, 47, 48, 49, 50, 51, 52
+// InheritanceChain.cpp : Defines the entry point for the console application.
+// Order of construction of inheritance chains
+
+#include "stdafx.h"
+#include <iostream>
+
+class A
+{
+public:
+	A()
+	{
+		std::cout << "A " << std::endl;
+	}
+};
+
+class B: public A
+{
+public:
+	B()
+	{
+		std::cout << "B " << std::endl;
+	}
+};
+
+class C : public B
+{
+public:
+	C()
+	{
+		std::cout << "C " << std::endl;
+	}
+};
+
+class D : public C
+{
+public:
+	D()
+	{
+		std::cout << "D " << std::endl;
+	}
+};
+
+int main()
+{
+	std::cout << "Constructing A " << std::endl;
+	A cA;
+	std::cout << "Constructing B " << std::endl;
+	B cB;
+	std::cout << "Constructing C " << std::endl;
+	C cC;
+	std::cout << "Constructing D " << std::endl;
+	D cD;
+    return 0;
+}
+

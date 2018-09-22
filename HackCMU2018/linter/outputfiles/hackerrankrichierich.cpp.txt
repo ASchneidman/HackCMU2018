@@ -1,0 +1,89 @@
+76
+3, 9, 10, 11, 12, 13, 14, 16, 16, 16, 17, 18, 18, 18, 19, 20, 20, 21, 21, 21, 22, 23, 26, 27, 27, 27, 28, 28, 29, 30, 33, 34, 35, 35, 35, 36, 38, 45, 46, 52, 53, 54, 55, 56, 57, 59, 59, 59, 60, 61, 61, 61, 62, 63, 63, 64, 64, 64, 65, 66, 69, 70, 70, 70, 71, 71, 72, 73, 76, 77, 78, 78, 78, 79, 81, 65
+<<<<<<< HEAD
+#include<bits/stdc++.h>
+using namespace std;
+
+int a[100005];
+bool flag[100005];
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t,n,k;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d %d",&n,&k);
+        fill(flag,flag+n+1,false);
+
+        for(int i=1;i<=n;++i)
+            a[i]=i;
+        for(int i=1;i<=n;++i)
+        {
+            if(!flag[i]){
+                if(i+k<=n){
+                swap(a[i],a[i+k]);
+                flag[i]=flag[i+k]=true;}
+            }
+        }
+        bool ansFlag=true;
+        for(int i=1;i<=n;++i)
+            if(abs(a[i]-i)!=k)
+        {
+            ansFlag=false;
+            break;
+        }
+        if(ansFlag)
+        {
+            for(int i=1;i<=n;++i)
+                printf("%d ",a[i]);
+        }
+        else
+            printf("-1");
+        printf("\n");
+    }
+    return 0;
+}
+=======
+#include<bits/stdc++.h>
+using namespace std;
+
+int a[100005];
+bool flag[100005];
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t,n,k;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d %d",&n,&k);
+        fill(flag,flag+n+1,false);
+
+        for(int i=1;i<=n;++i)
+            a[i]=i;
+        for(int i=1;i<=n;++i)
+        {
+            if(!flag[i]){
+                if(i+k<=n){
+                swap(a[i],a[i+k]);
+                flag[i]=flag[i+k]=true;}
+            }
+        }
+        bool ansFlag=true;
+        for(int i=1;i<=n;++i)
+            if(abs(a[i]-i)!=k)
+        {
+            ansFlag=false;
+            break;
+        }
+        if(ansFlag)
+        {
+            for(int i=1;i<=n;++i)
+                printf("%d ",a[i]);
+        }
+        else
+            printf("-1");
+        printf("\n");
+    }
+    return 0;
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

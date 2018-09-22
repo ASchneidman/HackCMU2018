@@ -1,0 +1,214 @@
+190
+3, 6, 7, 13, 14, 15, 16, 17, 19, 19, 20, 21, 22, 24, 25, 26, 26, 27, 28, 29, 29, 30, 31, 31, 32, 32, 33, 34, 35, 36, 36, 37, 38, 39, 40, 41, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 54, 54, 59, 60, 61, 62, 63, 65, 66, 67, 68, 69, 70, 71, 72, 73, 75, 76, 76, 77, 78, 78, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 93, 94, 94, 95, 96, 97, 98, 99, 100, 102, 103, 104, 105, 106, 107, 108, 109, 110, 112, 113, 114, 114, 114, 115, 115, 116, 117, 117, 117, 118, 119, 120, 121, 122, 123, 123, 124, 125, 126, 127, 128, 129, 133, 134, 136, 137, 141, 142, 146, 147, 148, 150, 151, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 192, 193, 194, 195, 196, 200, 201, 202, 204, 205, 206, 207, 208, 209, 210, 211, 180, 94
+#include "hashtable.hpp"
+
+hashtable::node::node() : value(std::vector<share_t>(0)), set(false) {};
+
+hashtable::hashtable(void) : size(1621),
+	hsh_vector(std::vector<node>(size)),
+	hsh_name(std::vector<size_t>(size, 0)) {}
+
+hashtable::~hashtable() {}
+
+/*Einen Eintrag in dem hashtable einfügen.*/
+bool hashtable::add(std::vector<share_t> hsh_val)
+{
+	bool result = false;
+	unsigned check = hashString(hsh_val[0].name) % size;
+	unsigned pos = hashString(hsh_val[0].cont) % size;
+	unsigned counter = 1;
+
+	if ((hsh_vector[hsh_name[check]].value.size() > 0) 
+	&& (hsh_vector[hsh_name[check]].value[0].cont != hsh_val[0].cont)) {
+			return result;
+	}
+
+	for (unsigned i = BOUNDARY; i > 0; i--) {
+	 	if (hsh_vector[pos].set) {
+			if ((hsh_vector[pos].value[0].name == hsh_val[0].name) 
+			&& (hsh_vector[pos].value[0].cont == hsh_val[0].cont)) {
+
+				
+				hsh_vector[pos].value.insert(
+					hsh_vector[pos].value.begin(), 
+					hsh_val.begin(), 
+					hsh_val.end());
+				result = true;
+			} else if (
+			(hsh_vector[pos].value[0].name != hsh_val[0].name) 
+			&& (hsh_vector[pos].value[0].cont == hsh_val[0].cont)) {
+				return result;
+			} else {
+		 		pos = collision(pos, counter);
+			//	std::cout << "coll is: " << pos << std::endl;
+			}
+		} else {
+			if(!(n_add(hsh_val[0].name, pos))) {
+				return result;
+			}
+			result = true;
+			hsh_vector[pos].set = true;
+			hsh_vector[pos].value = hsh_val;
+			break;
+		}
+	}
+	return result;
+	
+}
+
+/*Einen Eintrag aus dem hashtable entfernen.*/
+bool hashtable::del(const std::string& in, omode_t mode)
+{
+	bool result = false;
+	unsigned pos;
+	unsigned temp;
+	unsigned counter = 1;
+
+	switch(mode) {
+	case NAME:
+		temp = hashString(in) % size;
+		pos = (unsigned)hsh_name[temp];
+		break;
+	case CONT:
+		pos = hashString(in) % size;
+		break;
+	}
+
+	for (unsigned i = BOUNDARY; i > 0; i--) {
+		if (hsh_vector[pos].set && 
+		((hashString(hsh_vector[pos].value[0].cont) % size) == pos)) {
+			
+			result = true;
+			if(!(n_del(hsh_vector[pos].value[0].name, pos))) {
+				result = false;
+			}
+			hsh_vector[pos].set = false;
+			check_other(pos, counter + 1, i + 1);
+			break;
+		} else {
+			pos = collision(pos, counter);
+		}
+	}
+	return result;
+}
+
+bool hashtable::find(const std::string& in, 
+			std::vector<share_t> &answer, 
+			omode_t mode)
+{
+	bool result = false;
+	unsigned pos = 0;
+	unsigned temp = 0;
+	unsigned counter = 1;
+
+	switch(mode) {
+	case CONT:
+		pos = hashString(in) % size;
+		break;
+	case NAME:
+		temp = hashString(in) % size;
+		pos = (unsigned)hsh_name[temp];
+		break;
+	}
+
+	for (unsigned i = BOUNDARY; i > 0; i--) {
+		if (hsh_vector[pos].set) {
+			
+			if ((hsh_vector[pos].value[0].cont == in) 
+			|| (hsh_vector[pos].value[0].name == in)) {
+				
+			answer = hsh_vector[pos].value;
+			result = true;
+			break;
+			} else {
+				pos = collision(pos, counter);
+			//	std::cout << "coll is: " << pos << std::endl;
+			}
+		} else {
+			pos = collision(pos, counter);
+		}
+	}
+	return result;
+}
+
+unsigned hashtable::collision(unsigned old_pos, unsigned &counter)
+{
+	unsigned new_pos;
+
+	new_pos = ((old_pos + square(counter++)) % size);
+	return new_pos;
+}
+
+unsigned hashtable::square(unsigned num)
+{
+	return (num * num);
+}
+
+void hashtable::check_other(unsigned pos, unsigned counter, unsigned iterator)
+{
+	unsigned l_pos = pos;
+	unsigned n_pos = collision(pos, counter);
+
+	for (unsigned i = iterator; i > 0; i--) {
+		if (hsh_vector[n_pos].set && 
+		(hashString(hsh_vector[n_pos].value[0].cont) % size) == pos) {
+
+			hsh_vector[l_pos].value = hsh_vector[n_pos].value;
+			hsh_vector[l_pos].set = true;
+			hsh_vector[n_pos].set = false;
+			l_pos = n_pos;
+		}
+		n_pos = collision(pos, counter);
+	}
+}
+
+bool hashtable::n_add(const std::string& name, unsigned value)
+{
+	bool result = false;
+	unsigned pos = hashString(name) % size;
+	unsigned counter = 1;
+	for (unsigned i = BOUNDARY; i > 0; i--) {
+		if(hsh_name[pos] == 0) {
+			result = true;
+			hsh_name[pos] = value;
+			break;
+		} else {
+			pos = collision(pos, counter);
+		}
+	}
+	return result;
+}
+
+bool hashtable::n_del(const std::string& name, unsigned value)
+{
+	bool result = false;
+	unsigned pos = hashString(name) % size;
+	unsigned counter = 1;
+	for (unsigned i = BOUNDARY; i > 0; i--) {
+		if (hsh_name[pos] == value) {
+			result = true;
+			hsh_name[pos] = 0;
+			n_check_other(pos, counter + 1, i + 1);
+			break;
+
+		} else {
+			pos = collision(pos, counter);
+		}
+	}
+	return result;
+}
+
+void hashtable::n_check_other(unsigned pos, unsigned counter, unsigned iterator)
+{
+	unsigned l_pos = pos;
+	unsigned n_pos = collision(pos, counter);
+
+	for (unsigned i = iterator; i > 0; i--) {
+		if (hsh_name[n_pos] != 0) {
+			hsh_name[l_pos] = hsh_name[n_pos];
+			hsh_name[n_pos] = 0;
+			l_pos = n_pos;
+		}
+		n_pos = collision(pos, counter);
+	}
+}

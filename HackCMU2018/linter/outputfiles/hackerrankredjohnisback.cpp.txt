@@ -1,0 +1,79 @@
+59
+7, 11, 12, 12, 12, 13, 13, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 29, 29, 30, 31, 32, 32, 32, 33, 35, 40, 41, 42, 43, 44, 45, 49, 50, 50, 50, 51, 51, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 67, 67, 68, 69, 70, 70, 70, 71, 73
+<<<<<<< HEAD
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int dp[100];
+bool isPrime(int n)
+    {
+    for(int i=2;i<=sqrt(n);++i)
+        if(n%i==0)
+            return false;
+     return true;
+}
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t,n;
+    scanf("%d",&t);
+    while(t--)
+        {
+        scanf("%d",&n);
+        dp[1]=dp[2]=dp[3]=1;
+        dp[4]=2;
+        dp[5]=3;
+        dp[6]=4;
+        dp[7]=5;
+        for(int i=8;i<=n;++i)
+            dp[i]=dp[i-1]+dp[i-4];
+        int ans=0;
+        for(int i=2;i<=dp[n];++i)
+            if(isPrime(i))
+                ans++;
+        printf("%d\n",ans);
+    }
+    return 0;
+}
+=======
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int dp[100];
+bool isPrime(int n)
+    {
+    for(int i=2;i<=sqrt(n);++i)
+        if(n%i==0)
+            return false;
+     return true;
+}
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int t,n;
+    scanf("%d",&t);
+    while(t--)
+        {
+        scanf("%d",&n);
+        dp[1]=dp[2]=dp[3]=1;
+        dp[4]=2;
+        dp[5]=3;
+        dp[6]=4;
+        dp[7]=5;
+        for(int i=8;i<=n;++i)
+            dp[i]=dp[i-1]+dp[i-4];
+        int ans=0;
+        for(int i=2;i<=dp[n];++i)
+            if(isPrime(i))
+                ans++;
+        printf("%d\n",ans);
+    }
+    return 0;
+}
+>>>>>>> 137199fba6bf1ae89e1bd0436b0ee31d0e6c270b

@@ -1,0 +1,62 @@
+62
+5, 8, 8, 9, 10, 11, 14, 15, 16, 17, 18, 19, 22, 22, 23, 24, 25, 26, 26, 26, 27, 28, 29, 30, 30, 31, 31, 32, 32, 33, 33, 34, 35, 35, 36, 36, 36, 37, 38, 38, 39, 39, 40, 41, 45, 46, 47, 48, 48, 48, 49, 50, 51, 52, 53, 54, 55, 55, 56, 57, 58, 59
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
+using namespace std;
+
+struct Type {
+	char num; int after, pre;
+	bool operator < (const Type& x) const {
+		return num < x.num;
+	}
+};
+
+void skipSpace(string& s)
+{
+	int i = s.size();
+	while (--i >= 0)
+		if (isspace(s[i]))
+			s.erase(s.begin()+i);
+}
+
+int extract(string& s, int& cnt, Type* v)
+{
+	int i = 0, first = 1, value;
+	while (true)
+	{
+		while (!isalpha(s[i]) && ++i)
+			if (!(i < s.size())) return value;
+		v[cnt].num = s[i];
+		if (i>1 && s[i-1]==s[i-2])
+			v[cnt].pre = (s[i-1]=='+' ? 1 : -1);
+		if (i+2<s.size() && s[i+1] == s[i+2])
+			v[cnt].after = (s[i+1]=='+' ? 1 : -1);
+		int temp = v[cnt].num + v[cnt].pre -'a'+1;
+		if (first) { first = 0; value = temp; }
+		else if(s[s[i-1]==s[i-2]?i-3:i-1] == '+')
+			value += temp;
+		else value -= temp;
+		++cnt; ++i;
+	}
+	return value;
+}
+
+int main()
+{
+	string line;
+	while (getline(cin, line))
+	{
+		int cnt = 0;
+		Type v[60] = {0};
+		cout << "Expression: " << line << endl;
+		skipSpace(line);
+		cout << "    value = " << extract(line, cnt, v) << endl;
+		sort(v, v+cnt);
+		for (int i=0; i<cnt; ++i)
+			cout << "    " << v[i].num << " = "
+			<< v[i].num+v[i].pre+v[i].after-'a'+1 << endl;
+	}
+	return 0;
+}

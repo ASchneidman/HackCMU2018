@@ -1,0 +1,228 @@
+144
+32, 33, 33, 34, 41, 42, 50, 51, 52, 52, 60, 61, 62, 63, 64, 64, 64, 65, 66, 66, 66, 67, 67, 68, 69, 70, 71, 72, 72, 80, 81, 82, 83, 83, 83, 84, 85, 85, 85, 86, 86, 87, 88, 89, 97, 98, 99, 100, 100, 100, 101, 102, 102, 102, 103, 104, 105, 106, 107, 108, 116, 117, 118, 125, 126, 127, 135, 136, 137, 144, 145, 146, 154, 155, 156, 156, 157, 158, 158, 158, 159, 159, 159, 160, 161, 162, 162, 164, 165, 166, 167, 167, 167, 168, 168, 169, 169, 170, 171, 171, 171, 172, 172, 172, 173, 173, 173, 174, 175, 176, 178, 180, 180, 181, 189, 190, 191, 191, 192, 193, 193, 193, 194, 194, 194, 195, 196, 198, 198, 199, 207, 208, 209, 209, 210, 210, 211, 219, 220, 221, 221, 222, 222, 223
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <simon.schaefer@koeln.de> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return Simon Schäfer
+ * ----------------------------------------------------------------------------
+ */
+
+/** @class DLDMap dldMap.h
+ *
+ * @author Simon Schaefer
+ *
+ * @date 16.03.2008
+ *
+ * @version 1.0
+ * <br>map class for loading/saving and viewing
+ */
+#include "dldMap.h"
+
+#include <common/dldLog.h>
+
+#include <QColor>
+#include <QMap>
+#include <QtXml>
+
+Q_LOGGING_CATEGORY(MAP, "dld.map")
+
+/**
+ * @brief constructor for DLDMap class
+ */
+DLDMap::DLDMap ()
+	: mapName ("Unnamed Map")
+{
+}
+/**
+ * @brief destructor for DLDMap class
+ * @return
+ *      void
+ */
+DLDMap::~DLDMap ()
+{
+}
+/**
+ * @brief adds the zone to the zoneInformation list
+ * @param zone	the zone that should be added
+ * @return
+ *      bool
+ */
+void DLDMap::addZone (const DLDZone & zone)
+{
+	changeZone (zone);
+}
+/**
+ * @brief changes the zone in the zoneInformation list, if not in list then it got added
+ * @param zone	the zone that should be changed
+ * @return
+ *      bool
+ */
+void DLDMap::changeZone (const DLDZone & zone)
+{
+	// check if zone already exists:
+	for (int i = 0; i < zoneInformations.size(); ++i)
+	{
+		if (zoneInformations.at(i).id == zone.id)
+		{
+			zoneInformations.replace (i, zone);
+			return;
+		}
+	}
+	// if it comes so far it does not exist so simply add
+	zoneInformations.append (zone);
+}
+/**
+ * @brief removes the zone from the zoneInformation list
+ * @param id	the id of the zone that should be removed
+ * @return
+ *      bool
+ */
+void DLDMap::removeZone (int id)
+{
+	for (int i = 0; i < zoneInformations.size(); ++i)
+	{
+		if (zoneInformations.at(i).id == id)
+		{
+			zoneInformations.removeAt (i);
+			return;
+		}
+	}
+}
+/**
+ * @brief returns the zone information of the requested zone
+ * @param id	id of the zone
+ * @return
+ *      DLDZone	the zone information
+ */
+DLDZone DLDMap::getZoneInfo (int id) const
+{
+	for (int i = 0; i < zoneInformations.size(); ++i)
+	{
+		if (zoneInformations.at(i).id == id)
+		{
+			return (zoneInformations.at (i));
+		}
+	}
+	DLDZone failedZone;
+	failedZone.id = -1;
+	return (failedZone);
+}
+/**
+ * @brief sets the background image
+ * @param image	background image
+ * @return
+ *      void
+ */
+void DLDMap::setMapImage (const QPixmap & image)
+{
+	background = image;
+}
+/**
+ * @brief returns the background image
+ * @return
+ *      QPixmap	the background image
+ */
+QPixmap DLDMap::getMapImage () const
+{
+	return (background);
+}
+/**
+ * @brief set the map name
+ * @param name	map name
+ * @return
+ *      void
+ */
+void DLDMap::setMapName (const QString & name)
+{
+	mapName = name;
+}
+/**
+ * @brief returns the map name
+ * @return
+ *      QString	the map name
+ */
+QString DLDMap::getMapName () const
+{
+	return (mapName);
+}
+/**
+ * @brief writes the zone specification file
+ * @param path	the path were the specification file should be stored
+ * @return
+ *      bool
+ */
+bool DLDMap::writeZoneSpecFile (const QString & path)
+{
+	QFile specFile (path + mapName + ".xml");
+	if (!specFile.open (QIODevice::WriteOnly | QIODevice::Text))
+	{
+		qCWarning(MAP) << QString ("Could not open file: %1.").arg (path + mapName + ".xml");
+		return (false);
+	}
+	QTextStream out (&specFile);
+
+	out << "<Map>" << endl;
+	out << "\t<Name>" << mapName << "</Name>" << endl;
+	for (int i = 0; i < zoneInformations.size(); ++i)
+	{
+		out << "\t<Zone id=" << zoneInformations.at(i).id << " name=\"" << zoneInformations.at(i).name << "\" ";
+		out << "color=" << zoneInformations.at(i).color.name () << ">" << endl;
+		for (int j = 0; j < zoneInformations.at(i).boundings.size (); j++)
+		{
+			out << "\t\t<Point x=" << zoneInformations.at (i).boundings.point (j).x () << " y=";
+			out << zoneInformations.at(i).boundings.point (j).y () << "></Point>" << endl;
+		}
+		out << "\t</Zone>" << endl;
+	}
+
+	out << "</Map>" << endl;
+
+	specFile.close ();
+	return (true);
+}
+/**
+ * @brief read the zone specification file
+ * @param path	the path were the specification file can be found
+ * @return
+ *      bool
+ */
+bool DLDMap::readZoneSpecFile (const QString & path)
+{
+	QFile specFile (path + mapName + ".xml");
+	if (!specFile.open (QIODevice::ReadOnly | QIODevice::Text))
+	{
+		qCWarning(MAP) << QString ("Could not open file: %1.").arg (path + mapName + ".xml");
+		return (false);
+	}
+
+	specFile.close ();
+	return (true);
+}
+/**
+ * @brief load a map
+ * @param path	the path were the map should be loaded from
+ * @return
+ *      bool
+ */
+bool DLDMap::loadMap (const QString & path)
+{
+	background = QPixmap (path + mapName + ".png");
+	readZoneSpecFile (path);
+	return (false);
+}
+/**
+ * @brief save the map
+ * @param path	the path were the map should be saved
+ * @return
+ *      bool
+ */
+bool DLDMap::saveMap (const QString & path)
+{
+	writeZoneSpecFile (path);
+	background.save (path + mapName + ".png");
+	return (false);
+}
+// void DLDMap::addNode (int id, QPoint position);
+// void DLDMap::removeNode (int id);

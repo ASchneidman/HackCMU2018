@@ -1,0 +1,283 @@
+249
+4, 6, 7, 9, 11, 12, 13, 13, 13, 14, 17, 19, 20, 20, 20, 21, 23, 52, 53, 54, 55, 56, 58, 58, 58, 59, 59, 59, 60, 60, 60, 60, 60, 61, 61, 61, 61, 61, 62, 63, 63, 63, 65, 65, 65, 65, 66, 67, 67, 69, 69, 69, 70, 72, 73, 77, 79, 80, 82, 84, 85, 86, 87, 91, 92, 93, 94, 94, 94, 95, 95, 95, 96, 96, 96, 97, 99, 102, 103, 105, 106, 107, 107, 107, 107, 108, 108, 108, 108, 108, 109, 113, 114, 115, 117, 118, 119, 120, 121, 122, 123, 125, 127, 127, 127, 128, 129, 129, 129, 130, 131, 131, 131, 132, 132, 132, 132, 132, 133, 133, 136, 137, 139, 142, 144, 146, 147, 149, 151, 152, 153, 153, 153, 154, 157, 159, 160, 160, 160, 161, 163, 192, 193, 194, 195, 196, 198, 198, 198, 199, 199, 199, 200, 200, 200, 200, 200, 201, 201, 201, 201, 201, 202, 203, 203, 203, 205, 205, 205, 205, 206, 207, 207, 209, 209, 209, 210, 212, 213, 217, 219, 220, 222, 224, 225, 226, 227, 231, 232, 233, 234, 234, 234, 235, 235, 235, 236, 236, 236, 237, 239, 242, 243, 245, 246, 247, 247, 247, 247, 248, 248, 248, 248, 248, 249, 253, 254, 255, 257, 258, 259, 260, 261, 262, 263, 265, 267, 267, 267, 268, 269, 269, 269, 270, 271, 271, 271, 272, 272, 272, 272, 272, 273, 273, 276, 277, 279, 273, 197
+<<<<<<< HEAD
+#include<bits/stdc++.h>
+#define mod 1000000007
+using namespace std;
+int arr[1001][1001];
+int tpow[11],tlog[1001];
+//int tableMax[1001][1001][10][10];
+
+//calculating powers of 2
+void pow2()
+{
+    tpow[0]=1;
+    for(int i=1;i<=10;++i)
+        tpow[i]=2*tpow[i-1];
+}
+
+//calculating log2 of numbers
+void callog()
+{
+    for(int i=0;i<=1000;++i)
+        tlog[i]=log2(i);
+}
+//sparse table storing minimum element in sub matrix info
+/*
+void MaxPreprocess(int n,int m)
+{
+    //long long cnt=0;
+    int ik=tlog[n];
+    int jk=tlog[m];
+    for(int i=0;i<=ik;++i)
+        for(int j=0;j<=jk;++j)
+            for(int x=0;x+tpow[i]-1<n;++x)
+                for(int y=0;y+tpow[j]-1<m;++y){
+                       //cnt++;
+                    if(i==0 and j==0)
+                        tableMax[x][y][i][j]=arr[x][y];
+                    else if(i==0){
+                            //cout<<x<<" "<<y<<" "<<y + (1<<(j-1))<<" "<<i<<" "<<j<<endl;
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i][j-1] , tableMax[x][y + tpow[j-1]][i][j-1]);
+                    }
+                    else if(j==0)
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i-1][j] , tableMax[x + tpow[i-1]][y][i-1][j]);
+                    else
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i-1][j-1] , max(tableMax[x + tpow[i-1]][y][i-1][j-1] , max(tableMax[x][y+tpow[j-1]][i-1][j-1], tableMax[x + tpow[i-1]][y+tpow[j-1]][i-1][j-1])));
+
+                }
+                //cout<<cnt;
+
+}
+*/
+vector<vector<int> > tableMax[10][10];
+void MaxPreprocess(int n,int m)
+{
+    //long long cnt=0;
+    int ik=tlog[n];
+    int jk=tlog[m];
+    vector<int> v;
+    for(int i=0;i<=ik;++i)
+        for(int j=0;j<=jk;++j)
+            for(int x=0;x+tpow[i]-1<n;++x){
+                for(int y=0;y+tpow[j]-1<m;++y){
+                       //cnt++;
+                    if(i==0 and j==0)
+                        v.push_back(arr[x][y]);
+                    else if(i==0){
+                        v.push_back(max(tableMax[i][j-1][x][y] , tableMax[i][j-1][x][y + tpow[j-1]]));
+                            //cout<<x<<" "<<y<<" "<<y + (1<<(j-1))<<" "<<i<<" "<<j<<endl;
+                    }
+                    else if(j==0)
+                        v.push_back(max(tableMax[i-1][j][x][y] , tableMax[i-1][j][x + tpow[i-1]][y]));
+                    else
+                        v.push_back(max(tableMax[i-1][j-1][x][y] , max(tableMax[i-1][j-1][x + tpow[i-1]][y] , max(tableMax[i-1][j-1][x][y + tpow[j-1]], tableMax[i-1][j-1][x + tpow[i-1]][y+tpow[j-1]]))));
+
+                }
+                (tableMax[i][j]).push_back(v);
+                v.clear();
+
+            }
+                //cout<<cnt;
+
+}
+//getting maximum element
+int MaxQuery(int x1, int y1, int x2, int y2)
+{
+    int k= tlog[x2 - x1 +1];
+    int l= tlog[y2 - y1 +1];
+    return max(tableMax[k][l][x1][y1], max(tableMax[k][l][x2 - tpow[k] + 1][y1], max(tableMax[k][l][x1][y2 - tpow[l] + 1], tableMax[k][l][x2 - tpow[k] + 1][y2 - tpow[l] + 1])));
+}
+
+// calculate sum of sub matrix
+long long sat[1001][1001];
+void satInit(int n,int m)
+{
+    for(int i=0;i<=n;++i)
+        for(int j=0;j<=m;++j)
+            if(i==0 or j==0)
+                sat[i][j]=0;
+            else
+                sat[i][j]=arr[i-1][j-1]+sat[i-1][j]+sat[i][j-1]-sat[i-1][j-1];
+}
+int main()
+{
+    int n,m;
+    pow2();
+    scanf(" %d %d",&n,&m);
+    //n=m=1000;
+    for(int i=0;i<n;++i)
+        for(int j=0;j<m;++j){
+        scanf(" %d",&arr[i][j]);
+    //    arr[i][j]=1000;
+        }
+    callog();
+    MaxPreprocess(n,m);
+    //return 0;
+    satInit(n,m);
+
+    long long sum;
+    int a,b,q,maxi;
+    long long ans;
+    scanf(" %d",&q);
+    while(q--)
+    {
+        ans=LONG_LONG_MAX;
+
+        scanf(" %d %d",&a,&b);
+
+        for(int i=0;i<=n-a;++i)
+        {
+            for(int j=0;j<=m-b;++j)
+            {
+                sum=sat[i+a][j+b] + sat[i][j] - sat[i][j+b] - sat[i+a][j];      //sum of elements of sub matrix (i,j) - (i+a,j+b)
+                maxi=MaxQuery(i,j,i+a-1,j+b-1); //getting maximum element of the sub matrix
+                ans=min(a*b*maxi-sum,ans);
+            }
+        }
+           //cout<<sum<<endl;
+        printf("%lld\n",ans);
+    }
+	return 0;
+}
+=======
+#include<bits/stdc++.h>
+#define mod 1000000007
+using namespace std;
+int arr[1001][1001];
+int tpow[11],tlog[1001];
+//int tableMax[1001][1001][10][10];
+
+//calculating powers of 2
+void pow2()
+{
+    tpow[0]=1;
+    for(int i=1;i<=10;++i)
+        tpow[i]=2*tpow[i-1];
+}
+
+//calculating log2 of numbers
+void callog()
+{
+    for(int i=0;i<=1000;++i)
+        tlog[i]=log2(i);
+}
+//sparse table storing minimum element in sub matrix info
+/*
+void MaxPreprocess(int n,int m)
+{
+    //long long cnt=0;
+    int ik=tlog[n];
+    int jk=tlog[m];
+    for(int i=0;i<=ik;++i)
+        for(int j=0;j<=jk;++j)
+            for(int x=0;x+tpow[i]-1<n;++x)
+                for(int y=0;y+tpow[j]-1<m;++y){
+                       //cnt++;
+                    if(i==0 and j==0)
+                        tableMax[x][y][i][j]=arr[x][y];
+                    else if(i==0){
+                            //cout<<x<<" "<<y<<" "<<y + (1<<(j-1))<<" "<<i<<" "<<j<<endl;
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i][j-1] , tableMax[x][y + tpow[j-1]][i][j-1]);
+                    }
+                    else if(j==0)
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i-1][j] , tableMax[x + tpow[i-1]][y][i-1][j]);
+                    else
+                        tableMax[x][y][i][j]=max(tableMax[x][y][i-1][j-1] , max(tableMax[x + tpow[i-1]][y][i-1][j-1] , max(tableMax[x][y+tpow[j-1]][i-1][j-1], tableMax[x + tpow[i-1]][y+tpow[j-1]][i-1][j-1])));
+
+                }
+                //cout<<cnt;
+
+}
+*/
+vector<vector<int> > tableMax[10][10];
+void MaxPreprocess(int n,int m)
+{
+    //long long cnt=0;
+    int ik=tlog[n];
+    int jk=tlog[m];
+    vector<int> v;
+    for(int i=0;i<=ik;++i)
+        for(int j=0;j<=jk;++j)
+            for(int x=0;x+tpow[i]-1<n;++x){
+                for(int y=0;y+tpow[j]-1<m;++y){
+                       //cnt++;
+                    if(i==0 and j==0)
+                        v.push_back(arr[x][y]);
+                    else if(i==0){
+                        v.push_back(max(tableMax[i][j-1][x][y] , tableMax[i][j-1][x][y + tpow[j-1]]));
+                            //cout<<x<<" "<<y<<" "<<y + (1<<(j-1))<<" "<<i<<" "<<j<<endl;
+                    }
+                    else if(j==0)
+                        v.push_back(max(tableMax[i-1][j][x][y] , tableMax[i-1][j][x + tpow[i-1]][y]));
+                    else
+                        v.push_back(max(tableMax[i-1][j-1][x][y] , max(tableMax[i-1][j-1][x + tpow[i-1]][y] , max(tableMax[i-1][j-1][x][y + tpow[j-1]], tableMax[i-1][j-1][x + tpow[i-1]][y+tpow[j-1]]))));
+
+                }
+                (tableMax[i][j]).push_back(v);
+                v.clear();
+
+            }
+                //cout<<cnt;
+
+}
+//getting maximum element
+int MaxQuery(int x1, int y1, int x2, int y2)
+{
+    int k= tlog[x2 - x1 +1];
+    int l= tlog[y2 - y1 +1];
+    return max(tableMax[k][l][x1][y1], max(tableMax[k][l][x2 - tpow[k] + 1][y1], max(tableMax[k][l][x1][y2 - tpow[l] + 1], tableMax[k][l][x2 - tpow[k] + 1][y2 - tpow[l] + 1])));
+}
+
+// calculate sum of sub matrix
+long long sat[1001][1001];
+void satInit(int n,int m)
+{
+    for(int i=0;i<=n;++i)
+        for(int j=0;j<=m;++j)
+            if(i==0 or j==0)
+                sat[i][j]=0;
+            else
+                sat[i][j]=arr[i-1][j-1]+sat[i-1][j]+sat[i][j-1]-sat[i-1][j-1];
+}
+int main()
+{
+    int n,m;
+    pow2();
+    scanf(" %d %d",&n,&m);
+    //n=m=1000;
+    for(int i=0;i<n;++i)
+        for(int j=0;j<m;++j){
+        scanf(" %d",&arr[i][j]);
+    //    arr[i][j]=1000;
+        }
+    callog();
+    MaxPreprocess(n,m);
+    //return 0;
+    satInit(n,m);
+
+    long long sum;
+    int a,b,q,maxi;
+    long long ans;
+    scanf(" %d",&q);
+    while(q--)
+    {
+        ans=LONG_LONG_MAX;
+
+        scanf(" %d %d",&a,&b);
+
+        for(int i=0;i<=n-a;++i)
+        {
+            for(int j=0;j<=m-b;++j)
+            {
+                sum=sat[i+a][j+b] + sat[i][j] - sat[i][j+b] - sat[i+a][j];      //sum of elements of sub matrix (i,j) - (i+a,j+b)
+                maxi=MaxQuery(i,j,i+a-1,j+b-1); //getting maximum element of the sub matrix
+                ans=min(a*b*maxi-sum,ans);
+            }
+        }
+           //cout<<sum<<endl;
+        printf("%lld\n",ans);
+    }
+	return 0;
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

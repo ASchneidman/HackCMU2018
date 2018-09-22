@@ -1,0 +1,98 @@
+29
+3, 6, 10, 14, 15, 21, 21, 22, 34, 35, 41, 57, 66, 67, 73, 78, 84, 84, 85, 86, 87, 88, 90, 90, 91, 92, 93, 94, 80
+#include "Model.hpp"
+#include "Joint.hpp"
+#include <float.h>
+
+Model::Model() : bone(new Bone)
+{
+}
+
+Model::~Model()
+{
+}
+
+void Model::draw(GLuint id)
+{
+
+    GLuint loc1 = glGetAttribLocationARB(id, "weight1");
+    GLuint loc2 = glGetAttribLocationARB(id, "weight2");
+    GLuint loc3 = glGetAttribLocationARB(id, "weight3");
+
+    glBegin(GL_TRIANGLES);
+    for(unsigned int i = 0; i < vertices.size(); ++i) 
+    {
+        glVertexAttrib1fARB(loc1, vertices[i].getWeight1());
+        glVertexAttrib1fARB(loc2, vertices[i].getWeight2());
+        glVertexAttrib1fARB(loc3, vertices[i].getWeight3());
+        glNormal3fv(vertices[i].getNorm().ptr());
+        glVertex3fv(vertices[i].getPos().ptr());
+        glColor3fv(vertices[i].getColor().ptr());
+    }
+    glEnd();
+}
+
+void Model::draw(GLuint id, GLuint tex_id)
+{
+
+    GLuint loc1 = glGetAttribLocationARB(id, "weight1");
+    GLuint loc2 = glGetAttribLocationARB(id, "weight2");
+    GLuint loc3 = glGetAttribLocationARB(id, "weight3");
+
+    glBegin(GL_TRIANGLES);
+    for(unsigned int i = 0; i < vertices.size(); ++i) {
+        glVertexAttrib1fARB(loc1, vertices[i].getWeight1());
+        glVertexAttrib1fARB(loc2, vertices[i].getWeight2());
+        glVertexAttrib1fARB(loc3, vertices[i].getWeight3());
+
+        glMultiTexCoord2fvARB(GL_TEXTURE0_ARB, vertices[i].getTexCoord().ptr());
+        glMultiTexCoord2fvARB(GL_TEXTURE1_ARB, vertices[i].getTexCoord().ptr());
+
+        glNormal3fv(vertices[i].getNorm().ptr());
+        glVertex3fv(vertices[i].getPos().ptr());
+        glColor3fv(vertices[i].getColor().ptr());
+    }
+    glEnd();
+}
+
+void Model::calcWeight()
+{
+    float maxdist1 = FLT_MIN;
+    float maxdist2 = FLT_MIN;
+    float maxdist3 = FLT_MIN;
+
+    float mindist1 = FLT_MAX;
+    float mindist2 = FLT_MAX;
+    float mindist3 = FLT_MAX;
+
+    for(unsigned int i = 0; i < vertices.size(); ++i)
+    {
+        float dist1 = (bone->getPos() - vertices[i].getPos()).length();
+        maxdist1 = std::max(dist1, maxdist1);
+        mindist1 = std::min(dist1, mindist1);
+        vertices[i].setWeight1(dist1);
+
+        float dist2 = (bone->getJoint()->getPos() - vertices[i].getPos()).length();
+        maxdist2 = std::max(dist2, maxdist2);
+        mindist2 = std::min(dist2, mindist2);
+        vertices[i].setWeight2(dist2);
+
+        float dist3 = (bone->getJoint()->getBone()->getJoint()->getPos() - vertices[i].getPos()).length();
+        maxdist3 = std::max(dist3, maxdist3);
+        mindist3 = std::min(dist3, mindist3);
+        vertices[i].setWeight3(dist3);
+    }
+
+    for(unsigned int i = 0; i < vertices.size(); ++i) 
+    {
+        vertices[i].setWeight1(1.0-(vertices[i].getWeight1()-mindist1)/(maxdist1-mindist1));
+        vertices[i].setWeight2(1.0-(vertices[i].getWeight2()-mindist2)/(maxdist2-mindist2));
+        vertices[i].setWeight3(1.0-(vertices[i].getWeight3()-mindist3)/(maxdist3-mindist3));
+
+		Vec3 weight = Vec3(vertices[i].getWeight1(), vertices[i].getWeight2(), vertices[i].getWeight3());
+		weight.normalize();
+		vertices[i].setWeight1(weight.x());
+		vertices[i].setWeight2(weight.y());
+		vertices[i].setWeight3(weight.z());
+    }
+}

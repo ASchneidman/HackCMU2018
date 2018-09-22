@@ -1,0 +1,52 @@
+47
+3, 3, 4, 5, 5, 10, 12, 13, 14, 15, 16, 17, 17, 17, 18, 19, 20, 21, 22, 22, 23, 23, 23, 26, 27, 28, 32, 32, 32, 32, 33, 34, 35, 35, 35, 35, 36, 36, 37, 37, 37, 38, 39, 40, 43, 47, 48
+#include<iostream>
+#include<algorithm>
+long long pos(long long a,long long b)
+{
+    if(a-b>0)
+        return a-b;
+    else
+        return b-a;
+}
+using namespace std;
+int main()
+{
+    long t;
+    cin>>t;
+    while(t--)
+    {
+        long long a,b,days=0,i,j,dif;
+        cin>>a>>b;
+        long long arr[a];
+        arr[0]=a;
+        arr[1]=b;
+        dif=pos(a,b);
+        if(dif==a||dif==b);
+
+        else
+            {
+
+                arr[2]=dif;
+                days++;
+
+
+            for(i=0;i<days+2;++i)
+            {
+
+                    for(j=i+1;j<days+2;++j)
+                        dif=pos(arr[i],arr[j]);
+                        if(arr[i]!=arr[j]&&(count(arr,arr+days+2,dif)==0))
+                    {
+
+                    arr[days+2]=dif;
+                    days++;
+                    }
+
+            }
+            }
+
+        cout<<days<<endl;
+
+    }
+}

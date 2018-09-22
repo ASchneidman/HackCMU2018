@@ -1,0 +1,87 @@
+68
+11, 11, 12, 12, 13, 14, 15, 15, 15, 16, 17, 20, 20, 21, 23, 24, 24, 25, 27, 28, 31, 34, 34, 34, 34, 35, 36, 37, 37, 37, 37, 37, 38, 41, 53, 53, 54, 54, 55, 56, 57, 57, 57, 58, 59, 62, 62, 63, 65, 66, 66, 67, 69, 70, 73, 76, 76, 76, 76, 77, 78, 79, 79, 79, 79, 79, 80, 83
+<<<<<<< HEAD
+/* node structure  used in the program
+ struct Node
+ {
+     int data;
+     struct node* left, *right;
+}; */
+
+/*  Function which returns the  root of
+    the constructed binary tree. */
+void makeTreeNode(Node **root,int i,int parent[],Node *created[]){
+    if(created[i]!=NULL)
+        return ;
+    created[i]=newNode(i);
+    if(parent[i]==-1){
+        *root=created[i];
+        return ;
+    }
+
+    if(created[parent[i]]==NULL)
+        makeTreeNode(root,parent[i],parent,created);
+
+    Node *parentNode=created[parent[i]];
+    if(parentNode->left==NULL)
+        parentNode->left=created[i];
+    else
+        parentNode->right=created[i];
+
+}
+Node *createTree(int parent[], int n)
+{
+// Your code here
+    Node *created[n];
+    for(int i=0;i<n;++i)
+        created[i]=NULL;
+    Node *root=NULL;
+    for(int i=0;i<n;++i){
+        makeTreeNode(&root,i,parent,created);
+    }
+    return root;
+
+}
+=======
+/* node structure  used in the program
+ struct Node
+ {
+     int data;
+     struct node* left, *right;
+}; */
+
+/*  Function which returns the  root of
+    the constructed binary tree. */
+void makeTreeNode(Node **root,int i,int parent[],Node *created[]){
+    if(created[i]!=NULL)
+        return ;
+    created[i]=newNode(i);
+    if(parent[i]==-1){
+        *root=created[i];
+        return ;
+    }
+
+    if(created[parent[i]]==NULL)
+        makeTreeNode(root,parent[i],parent,created);
+
+    Node *parentNode=created[parent[i]];
+    if(parentNode->left==NULL)
+        parentNode->left=created[i];
+    else
+        parentNode->right=created[i];
+
+}
+Node *createTree(int parent[], int n)
+{
+// Your code here
+    Node *created[n];
+    for(int i=0;i<n;++i)
+        created[i]=NULL;
+    Node *root=NULL;
+    for(int i=0;i<n;++i){
+        makeTreeNode(&root,i,parent,created);
+    }
+    return root;
+
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

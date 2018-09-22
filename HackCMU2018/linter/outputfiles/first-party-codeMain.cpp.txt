@@ -1,0 +1,135 @@
+201
+2, 6, 7, 8, 11, 11, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 18, 19, 20, 22, 23, 24, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 38, 39, 40, 40, 40, 41, 42, 42, 42, 43, 44, 46, 47, 48, 48, 48, 49, 50, 51, 51, 51, 52, 53, 53, 53, 54, 55, 55, 55, 56, 57, 58, 58, 58, 59, 60, 61, 61, 61, 62, 62, 63, 63, 64, 64, 65, 65, 66, 66, 67, 68, 68, 68, 69, 69, 69, 70, 71, 71, 71, 71, 72, 73, 73, 74, 75, 76, 76, 76, 77, 77, 77, 77, 78, 79, 79, 79, 80, 80, 80, 81, 82, 83, 83, 83, 84, 84, 84, 85, 85, 85, 85, 86, 87, 87, 88, 88, 88, 89, 89, 89, 90, 91, 92, 92, 93, 93, 93, 94, 95, 96, 97, 98, 98, 99, 99, 99, 100, 101, 101, 101, 102, 103, 104, 104, 105, 105, 105, 106, 107, 108, 108, 108, 108, 109, 110, 110, 110, 112, 112, 112, 113, 114, 115, 116, 118, 119, 121, 121, 121, 122, 123, 123, 124, 124, 124, 125, 126, 126, 126, 127, 128, 129, 131, 131, 131, 131, 132
+#include "WindowsIncludes.h"
+#include "2dpq.h"
+
+#define WM_MOUSEWHEEL                   0x020A
+
+#pragma comment( lib, "opengl32.lib" )
+#pragma comment( lib, "glu32.lib" )
+//#pragma comment( lib, "glaux.lib" )
+
+// Program Entry (WinMain)
+int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )
+{
+	UNREFERENCED_PARAMETER( hPrevInstance );
+	UNREFERENCED_PARAMETER( lpCmdLine );
+	UNREFERENCED_PARAMETER( nCmdShow );
+	C2dpq the2dpq;
+
+	bool               isMessagePumpActive = true;
+	MSG                msg;
+	DWORD              theTickCount;
+
+	// Fill Out Application Data
+	the2dpq.m_Application.className = L"OpenGL";
+	the2dpq.m_Application.hInstance = hInstance;
+
+	// Fill Out Window
+	ZeroMemory( &the2dpq.m_Window, sizeof(CuGL::SGLWindow) );
+	the2dpq.m_Window.keys              = &the2dpq.m_Keys;
+	the2dpq.m_Window.init.application  = &the2dpq.m_Application;
+	the2dpq.m_Window.init.title        = L"2dpq";
+	the2dpq.m_Window.init.width        = 800;
+	the2dpq.m_Window.init.height       = 450;
+	the2dpq.m_Window.init.bitsPerPixel = 32;
+	the2dpq.m_Window.init.isFullScreen = false;
+
+	ZeroMemory( &the2dpq.m_Keys, sizeof(CuGL::SKeys) );
+
+	// Register A Class For Our Window To Use
+	if ( the2dpq.RegisterWindowClass( ) == false )
+	{
+		// Failure
+		MessageBox (HWND_DESKTOP, L"Error Registering Window Class!", L"Error", MB_OK | MB_ICONEXCLAMATION);
+		return -1;
+	}
+
+	the2dpq.m_ProgramLoopingFlag = true;
+	while ( the2dpq.m_ProgramLoopingFlag )
+	{
+		// Create A Window
+		if ( the2dpq.CreateWindowGL() == true )
+		{
+			// At This Point We Should Have A Window That Is Setup To Render OpenGL
+			the2dpq.Initialize( );
+			while ( isMessagePumpActive )
+			{
+				// Success Creating Window.  Check For Window Messages
+				if ( PeekMessage( &msg, the2dpq.m_Window.hWnd, 0, 0, PM_REMOVE ) != 0)
+				{
+					// Check For WM_QUIT Message
+					if ( msg.message != WM_QUIT && msg.message != WM_CLOSE )
+					{
+						if ( 
+							msg.message == WM_MOUSEWHEEL    || 
+							msg.message == WM_LBUTTONDOWN   || 
+							msg.message == WM_LBUTTONUP     || 
+							msg.message == WM_LBUTTONDBLCLK || 
+							msg.message == WM_CAPTURECHANGED )
+						{
+							the2dpq.MouseHandler( msg );
+						}
+						else if( 
+							msg.message == WM_KEYDOWN    ||
+							msg.message == WM_SYSKEYDOWN || 
+							msg.message == WM_KEYUP      ||
+							msg.message == WM_SYSKEYUP )
+						{
+							bool theShouldTranslateFlag = the2dpq.Keyboard( (UINT)msg.wParam, (msg.message == WM_KEYDOWN || msg.message == WM_SYSKEYDOWN) );           
+							if ( theShouldTranslateFlag )
+							{
+								TranslateMessage( &msg );
+							}
+						}
+						else if( msg.message == WM_CHAR || msg.message == WM_SYSCHAR )
+						{
+							the2dpq.HandleChar( (char)msg.wParam );
+						}
+						else
+						{
+							DispatchMessage( &msg );
+						}
+					}
+					else
+					{
+						isMessagePumpActive = false;
+						the2dpq.m_ProgramLoopingFlag = false;
+					}
+				}
+				else
+				{
+					if ( the2dpq.m_Window.isVisible == false )
+					{
+						WaitMessage();
+					}
+					else
+					{
+						// Process Application Loop
+						theTickCount = GetTickCount();
+						the2dpq.Update( theTickCount - the2dpq.m_Window.lastTickCount, the2dpq.m_Window.hWnd );
+						the2dpq.m_Window.lastTickCount = theTickCount;
+						the2dpq.Draw( the2dpq.m_Window.hWnd );
+
+						SwapBuffers( the2dpq.m_Window.hDC );
+						Sleep(1);
+					}
+				}
+			}
+
+			// Application Is Finished
+			the2dpq.Deinitialize();
+
+			the2dpq.DestroyWindowGL( );
+		}
+		else
+		{
+			// Error Creating Window
+			MessageBox (HWND_DESKTOP, L"Error Creating OpenGL Window", L"Error", MB_OK | MB_ICONEXCLAMATION);
+			the2dpq.m_ProgramLoopingFlag = false;
+		}
+	}
+
+	UnregisterClass( the2dpq.m_Application.className, the2dpq.m_Application.hInstance );
+	return 0;
+}

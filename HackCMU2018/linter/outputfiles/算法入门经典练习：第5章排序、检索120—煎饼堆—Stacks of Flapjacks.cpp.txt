@@ -1,0 +1,76 @@
+88
+7, 8, 8, 9, 9, 10, 14, 15, 16, 16, 16, 17, 18, 19, 20, 21, 25, 26, 27, 28, 28, 28, 29, 30, 31, 32, 32, 32, 33, 34, 35, 35, 36, 37, 38, 39, 40, 41, 41, 41, 42, 43, 43, 43, 44, 45, 46, 46, 47, 47, 47, 48, 49, 50, 51, 51, 52, 52, 52, 53, 54, 54, 54, 55, 56, 56, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 66, 67, 67, 67, 68, 69, 70, 71, 72, 73, 74
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+
+int cmp(const void *_a, const void *_b)
+{
+	int *a = (int*)_a;
+	int *b = (int*)_b;
+	return *a - *b;
+}
+
+void reserve(int *pan, int n)
+{
+	for(int i = 0; i < n/2; i++)
+	{
+		int temp = pan[i];
+		pan[i] = pan[n-i-1];
+		pan[n-i-1] = temp;
+	}
+	return;
+}
+
+int main()
+{
+	char s[100];
+	while(gets(s) != NULL)
+	{
+		puts(s);
+		int pan[30] = {0}, sub = 0, done[30] = {0};
+		for(int i = 0; s[i] != '\0'; i++)
+		{
+			if(isdigit(s[i]))
+				pan[sub] = pan[sub]*10 + s[i] - '0';
+			else 
+				sub++;
+		}
+		memcpy(done, pan, sizeof(done));
+		qsort(done, sub+1, sizeof(int), cmp);
+		for(int i = sub; i >= 0; i--)
+		{
+			if(memcmp(pan, done, sizeof(pan)))
+			{
+				if(pan[i] == done[i])
+					continue;
+				else if(pan[0] == done[i])
+				{
+					reserve(pan, i+1);
+					printf("%d ", sub +1 - i);
+				}
+				else
+				{
+					for(int j = 1; j < i; j++)
+					{
+						if(pan[j] == done[i])
+						{
+							reserve(pan, j+1);
+							printf("%d ", sub +1 - j);
+							reserve(pan, i+1);
+							printf("%d ", sub +1 - i);
+							break;
+						}
+					}
+				}
+			}
+			else
+			{
+				printf("0\n");
+				break;
+			}
+		}
+	}
+	return 0;
+}

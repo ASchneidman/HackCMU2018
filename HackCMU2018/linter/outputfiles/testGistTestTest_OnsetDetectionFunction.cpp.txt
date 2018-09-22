@@ -1,0 +1,199 @@
+91
+7, 17, 19, 21, 23, 24, 25, 28, 32, 33, 36, 37, 38, 38, 45, 47, 49, 51, 52, 53, 56, 59, 60, 61, 64, 65, 66, 66, 72, 74, 76, 78, 79, 80, 83, 86, 87, 88, 89, 90, 93, 96, 97, 98, 98, 111, 113, 115, 117, 118, 119, 122, 125, 126, 127, 130, 131, 132, 132, 139, 141, 143, 145, 146, 147, 150, 153, 154, 155, 158, 159, 160, 160, 166, 168, 170, 172, 173, 174, 177, 180, 181, 182, 183, 184, 187, 190, 191, 192, 192, 171
+#ifndef ONSET_DETECTION_FUNCTION_TESTS
+#define ONSET_DETECTION_FUNCTION_TESTS
+
+#include "../../src/Gist.h"
+
+#define BOOST_TEST_DYN_LINK
+#include <boost/test/unit_test.hpp>
+
+//=============================================================
+//=================== SPECTRAL DIFFERENCE =====================
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralDifference)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of zeros returns zero on two occasions
+BOOST_AUTO_TEST_CASE(Zero_Test)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    // first time
+    float r = odf.spectralDifference(testSpectrum);
+
+    BOOST_CHECK_EQUAL(r,0);
+    
+    // second time
+    r = odf.spectralDifference(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+}
+
+// ------------------------------------------------------------
+// 2. Check that a buffer of ones returns the frame size the first time
+// and zero the second time
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    // first time
+    float r = odf.spectralDifference(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,frameSize);
+    
+    // second time
+    r = odf.spectralDifference(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+}
+
+// ------------------------------------------------------------
+// 3. Numerical Test
+BOOST_AUTO_TEST_CASE(NumericalTest)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = i;
+    }
+    
+    // first time
+    float r = odf.spectralDifference(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,130816);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    // second time
+    r = odf.spectralDifference(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,130306);
+    
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+//=============================================================
+//========= SPECTRAL DIFFERENCE (HALF WAVE RECTIFIED) =========
+//=============================================================
+BOOST_AUTO_TEST_SUITE(SpectralDifferenceHWR)
+
+// ------------------------------------------------------------
+// 1. Check that a buffer of zeros returns zero on two occasions
+BOOST_AUTO_TEST_CASE(Zero_Test)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    // first time
+    float r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+    // second time
+    r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+}
+
+// ------------------------------------------------------------
+// 2. Check that a buffer of ones returns the frame size the first time
+// and zero the second time
+BOOST_AUTO_TEST_CASE(Ones_Test)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 1;
+    }
+    
+    // first time
+    float r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,frameSize);
+    
+    // second time
+    r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+}
+
+// ------------------------------------------------------------
+// 3. Numerical Test
+BOOST_AUTO_TEST_CASE(NumericalTest)
+{
+    int frameSize = 512;
+    
+    OnsetDetectionFunction<float> odf(frameSize);
+    
+    std::vector<float> testSpectrum(512);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = i;
+    }
+    
+    // first time
+    float r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,130816);
+    
+    for (int i = 0;i < 512;i++)
+    {
+        testSpectrum[i] = 0;
+    }
+    
+    // second time
+    r = odf.spectralDifferenceHWR(testSpectrum);
+    
+    BOOST_CHECK_EQUAL(r,0);
+    
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+#endif

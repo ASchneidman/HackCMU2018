@@ -1,0 +1,84 @@
+150
+8, 9, 10, 11, 12, 16, 20, 22, 24, 24, 25, 28, 28, 29, 30, 31, 32, 33, 35, 37, 38, 38, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 47, 47, 48, 49, 50, 51, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 62, 62, 64, 66, 66, 67, 68, 68, 68, 70, 72, 73, 74, 75, 76, 77, 78, 79, 79, 80, 81, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81
+
+#include "DataGenerationThread.h"
+#include "ChainWalkContext.h"
+#include <time.h>
+#include <iostream>
+
+CDataGenerationThread::CDataGenerationThread(void)
+{
+	memset(zBuffer, 0x00, sizeof(zBuffer));
+	bDataReady = 0;
+	bShutdown = 0;
+	m_nChainsCalculated = 0;
+}
+
+CDataGenerationThread::~CDataGenerationThread(void)
+{
+}
+
+void CDataGenerationThread::threadProc()
+{
+#ifdef _WIN32
+	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_IDLE);
+#else
+	//child thread nice value
+	nice(16);
+#endif
+
+	const DataGenerationThreadParameters *Parameters = (const DataGenerationThreadParameters *)Params;
+	CChainWalkContext cwc;
+	// Make a pointer to the beginning of the data block
+	unsigned char *ptrCurrent = zBuffer;
+	// Make a pointer to the end of the data block.
+	unsigned char *ptrEnd = zBuffer + DATA_CHUNK_SIZE;
+#ifdef DEBUG
+	std::cout << "Datageneration thread started" << std::endl;
+#endif
+	while(bTerminateThreadFlag != 1)
+	{
+		cwc.GenerateRandomIndex();
+		uint64 nIndex = cwc.GetIndex();
+		// Copy the content over
+		memcpy(ptrCurrent, &nIndex, 8);
+		// Increase the pointer location
+		ptrCurrent += 8;
+		int nPos;
+		for (nPos = 0; nPos < Parameters->nRainbowChainLen - 1; nPos++)
+		{
+			cwc.IndexToPlain();
+			cwc.PlainToHash();
+			cwc.HashToIndex(nPos);
+		}
+
+		nIndex = cwc.GetIndex();
+		// Copy the content over
+		memcpy(ptrCurrent, &nIndex, 8);
+		// Increase the pointer location
+		ptrCurrent += 8;
+		// We counted another chain
+		m_nChainsCalculated++;
+		// The data buffer is full.. Let's swap buffers
+		if(ptrCurrent >= ptrEnd)
+		{
+#ifdef DEBUG
+			std::cout << "Data chunk finished" << std::endl;
+#endif
+			// The old buffer isn't emptied yet. So we have to wait before writing our data
+			while(bDataReady == 1 && bTerminateThreadFlag != 1)
+			{
+#ifdef DEBUG
+				std::cout << "WARNING: Data buffer is not emptied yet!" << std::endl;
+#endif
+				Sleep(10);
+			}
+			// Copy the data over
+			memcpy(zDataChunk, zBuffer, DATA_CHUNK_SIZE);
+			// Mark the buffer as full
+			bDataReady = 1;
+			// Reset the data pointer
+			ptrCurrent = zBuffer;			
+		}
+	}
+}

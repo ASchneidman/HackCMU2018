@@ -1,0 +1,66 @@
+62
+4, 5, 6, 6, 7, 8, 9, 9, 10, 10, 11, 12, 18, 18, 19, 20, 20, 21, 26, 26, 28, 30, 31, 32, 33, 34, 35, 36, 37, 39, 39, 40, 40, 40, 40, 40, 41, 42, 43, 45, 45, 45, 45, 45, 46, 47, 48, 50, 50, 50, 51, 51, 51, 51, 52, 54, 56, 58, 59, 63, 39, 39
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define maxi 30003
+using namespace std;
+long nw;
+long bit[maxi];
+long query(long idx)
+{
+    long sum=0;
+    while(idx>0)
+    {
+
+        sum+=bit[idx];
+        idx-=(idx&-idx);
+    }
+    return sum;
+}
+void update(long idx,long val)
+{
+    while(idx<=nw)
+    {
+        bit[idx]+=val;
+        idx+=(idx&-idx);
+    }
+}
+long v[maxi];
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+
+        long rnk;
+        fill(v,v+maxi,0);
+        fill(bit,bit+maxi,0);
+        scanf("%ld",&nw);
+        string s;
+        map<string,long > m,n;
+        for(long i=0;i<nw;++i)
+        {
+            cin>>s;
+            m[s]=i+1;
+        }
+         for(long i=0;i<nw;++i)
+        {
+            cin>>s;
+            v[i]=m[s];
+        }
+        long inv=0,x;
+        for(long i=nw-1;i>=0;--i)
+        {
+            inv+=query(v[i]-1);
+            update(v[i],1);
+        }
+        printf("%ld\n",inv);
+
+        //cout<<a<<endl<<b;
+
+    }
+
+    return 0;
+
+}

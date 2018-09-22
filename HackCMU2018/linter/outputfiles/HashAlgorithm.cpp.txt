@@ -1,0 +1,297 @@
+566
+11, 11, 20, 24, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 37, 37, 38, 41, 42, 48, 49, 50, 52, 52, 53, 54, 54, 55, 56, 56, 59, 60, 66, 67, 69, 69, 72, 75, 75, 78, 81, 84, 85, 86, 88, 89, 89, 89, 90, 91, 91, 92, 94, 95, 95, 96, 97, 98, 98, 100, 101, 101, 102, 104, 105, 106, 107, 108, 109, 109, 109, 110, 111, 112, 113, 113, 114, 115, 116, 117, 117, 118, 119, 120, 121, 124, 125, 126, 126, 127, 128, 129, 130, 130, 131, 132, 133, 134, 137, 138, 139, 139, 140, 141, 142, 143, 143, 144, 145, 146, 147, 150, 151, 152, 152, 153, 153, 154, 155, 155, 155, 156, 156, 157, 157, 157, 158, 159, 159, 160, 160, 161, 161, 162, 162, 163, 166, 167, 168, 168, 169, 170, 171, 172, 173, 174, 175, 175, 176, 179, 180, 181, 181, 182, 183, 184, 185, 186, 187, 188, 189, 192, 193, 194, 194, 195, 196, 196, 197, 198, 198, 199, 200, 201, 202, 202, 203, 204, 205, 206, 206, 207, 214, 214, 214, 215, 216, 216, 217, 218, 219, 221, 221, 221, 222, 223, 224, 226, 226, 226, 226, 227, 227, 231, 232, 233, 233, 233, 234, 236, 236, 236, 237, 237, 239, 239, 240, 240, 241, 241, 243, 243, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 264, 265, 272, 273, 274, 275, 276, 276, 276, 278, 278, 278, 280, 281, 282, 283, 285, 285, 286, 286, 286, 286, 287, 287, 287, 287, 288, 288, 288, 288, 289, 289, 289, 289, 290, 290, 292, 292, 294, 294, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294
+/*
+   RainbowCrack - a general propose implementation of Philippe Oechslin's faster time-memory trade-off technique.
+
+   Copyright (C) Zhu Shuanglei <shuanglei@hotmail.com>
+*/
+
+#include "HashAlgorithm.h"
+
+#include "Public.h"
+
+#include "MD5new.h" //added by alesc <alexis.dagues@gmail.com>
+
+#include <openssl/des.h>
+#include <openssl/md2.h>
+#include <openssl/md4.h>
+#include <openssl/md5.h>
+#include <openssl/sha.h>
+#include <openssl/ripemd.h>
+#ifdef _WIN32
+	#pragma comment(lib, "libeay32.lib")
+#endif
+#define MSCACHE_HASH_SIZE 16
+
+void setup_des_key(unsigned char key_56[], des_key_schedule &ks)
+{
+	des_cblock key;
+
+	key[0] = key_56[0];
+	key[1] = (key_56[0] << 7) | (key_56[1] >> 1);
+	key[2] = (key_56[1] << 6) | (key_56[2] >> 2);
+	key[3] = (key_56[2] << 5) | (key_56[3] >> 3);
+	key[4] = (key_56[3] << 4) | (key_56[4] >> 4);
+	key[5] = (key_56[4] << 3) | (key_56[5] >> 5);
+	key[6] = (key_56[5] << 2) | (key_56[6] >> 6);
+	key[7] = (key_56[6] << 1);
+
+	//des_set_odd_parity(&key);
+	des_set_key(&key, ks);
+}
+
+void HashLM(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pUsername, int nSaltLength)
+{
+	/*
+	unsigned char data[7] = {0};
+	memcpy(data, pPlain, nPlainLen > 7 ? 7 : nPlainLen);
+	*/
+
+	int i;
+	for (i = nPlainLen; i < 7; i++)
+		pPlain[i] = 0;
+
+	static unsigned char magic[] = {0x4B, 0x47, 0x53, 0x21, 0x40, 0x23, 0x24, 0x25};
+	des_key_schedule ks;
+	//setup_des_key(data, ks);
+	setup_des_key(pPlain, ks);
+	des_ecb_encrypt((des_cblock*)magic, (des_cblock*)pHash, ks, DES_ENCRYPT);
+}
+
+void HashLMCHALL(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char* pSalt, int nSaltLen)
+{
+unsigned char pass[14];
+unsigned char pre_lmresp[21];
+static unsigned char magic[] = {0x4B, 0x47, 0x53, 0x21, 0x40, 0x23, 0x24, 0x25};
+des_key_schedule ks;
+
+memset (pass,0,sizeof(pass));
+memset (pre_lmresp,0,sizeof(pre_lmresp));
+
+memcpy (pass,pPlain, nPlainLen);
+
+setup_des_key(pass, ks);
+des_ecb_encrypt((des_cblock*)magic, (des_cblock*)pre_lmresp, ks, DES_ENCRYPT);
+
+setup_des_key(&pass[7], ks);
+des_ecb_encrypt((des_cblock*)magic, (des_cblock*)&pre_lmresp[8], ks, DES_ENCRYPT);
+
+setup_des_key(pre_lmresp, ks);
+des_ecb_encrypt((des_cblock*)pSalt, (des_cblock*)pHash, ks, DES_ENCRYPT);
+
+setup_des_key(&pre_lmresp[7], ks);
+des_ecb_encrypt((des_cblock*)pSalt, (des_cblock*)&pHash[8], ks, DES_ENCRYPT);
+
+setup_des_key(&pre_lmresp[14], ks);
+des_ecb_encrypt((des_cblock*)pSalt, (des_cblock*)&pHash[16], ks, DES_ENCRYPT);
+
+} 
+
+void HashHALFLMCHALL(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char* pSalt, int nSaltLen)
+{	
+	unsigned char pre_lmresp[8];
+	static unsigned char magic[] = {0x4B, 0x47, 0x53, 0x21, 0x40, 0x23, 0x24, 0x25};
+	static unsigned char salt[] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88};
+
+	des_key_schedule ks;
+	unsigned char plain[8] = {0};	
+	memcpy(plain, pPlain, nPlainLen);
+	setup_des_key(plain, ks);
+	des_ecb_encrypt((des_cblock*)magic, (des_cblock*)pre_lmresp, ks, DES_ENCRYPT);
+
+	setup_des_key(pre_lmresp, ks);
+	des_ecb_encrypt((des_cblock*)salt, (des_cblock*)pHash, ks, DES_ENCRYPT);
+} 
+
+void HashNTLM(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	unsigned char UnicodePlain[MAX_PLAIN_LEN * 2];
+	int i;
+	for (i = 0; i < nPlainLen; i++)
+	{
+		UnicodePlain[i * 2] = pPlain[i];
+		UnicodePlain[i * 2 + 1] = 0x00;
+	}
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		MD4(UnicodePlain, nPlainLen * 2, pHash);
+	#else
+		MD4_CTX ctx;   
+    	MD4_Init(&ctx);
+    	MD4_Update(&ctx, UnicodePlain, nPlainLen * 2);
+    	MD4_Final((unsigned char *) pHash, &ctx);
+	#endif
+}
+
+void HashMD2(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		MD2(pPlain, nPlainLen, pHash);
+	#else
+		MD2_CTX ctx;   
+    	MD2_Init(&ctx);
+    	MD2_Update(&ctx, pPlain, nPlainLen);
+    	MD2_Final((unsigned char *) pHash, &ctx);
+	#endif
+}
+
+void HashMD4(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		MD4(pPlain, nPlainLen, pHash);
+	#else
+		MD4_CTX ctx;   
+    	MD4_Init(&ctx);
+    	MD4_Update(&ctx, pPlain, nPlainLen);
+    	MD4_Final((unsigned char *) pHash, &ctx);
+	#endif
+}
+
+void HashMD5(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+   //mod:alesc
+   	#ifndef _FAST_HASH_
+	    MD5(pPlain, nPlainLen, pHash);
+   		//http://www.freerainbowtables.com/phpBB3/viewtopic.php?f=4&p=916&sid=53804aa79a7bc4bb06cff38481889cf7#p910
+   	#elif _FAST_MD5_
+   		MD5_NEW(pPlain, nPlainLen, pHash); /* seems to be not thread safe ? */	
+	#else
+		MD5_CTX ctx;   
+   		MD5_Init(&ctx);
+   		MD5_Update(&ctx, pPlain, nPlainLen);
+   		MD5_Final((unsigned char *) pHash, &ctx);
+	#endif
+}
+
+void HashSHA1(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		SHA1(pPlain, nPlainLen, pHash);
+	#else
+		SHA_CTX ctx;
+		SHA1_Init(&ctx);
+		SHA1_Update(&ctx, (unsigned char *) pPlain, nPlainLen);
+		SHA1_Final(pHash, &ctx);	
+	#endif
+}
+
+void HashRIPEMD160(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		RIPEMD160(pPlain, nPlainLen, pHash);
+	#else
+		RIPEMD160_CTX ctx;
+		RIPEMD160_Init(&ctx);
+		RIPEMD160_Update(&ctx, (unsigned char *) pPlain, nPlainLen);
+		RIPEMD160_Final(pHash, &ctx);
+	#endif
+}
+
+void HashMSCACHE(unsigned char *pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	unsigned char *buf = (unsigned char*)calloc(MSCACHE_HASH_SIZE + nSaltLength, sizeof(unsigned char));
+	HashNTLM(pPlain, nPlainLen, buf, NULL);
+	//MD4(pPlain, nPlainLen, buf);
+	memcpy(buf + MSCACHE_HASH_SIZE, pSalt, nSaltLength);
+	//mod:alesc
+	#ifndef _FAST_HASH_
+		MD4(buf, MSCACHE_HASH_SIZE + nSaltLength, pHash);
+	#else
+		MD4_CTX ctx;   
+    	MD4_Init(&ctx);
+    	MD4_Update(&ctx, buf, MSCACHE_HASH_SIZE + nSaltLength);
+    	MD4_Final((unsigned char *) pHash, &ctx);
+	#endif	
+	free(buf);
+}
+
+//*********************************************************************************
+// Code for MySQL password hashing
+//*********************************************************************************
+
+inline void mysql_hash_password_323(unsigned long *result, const char *password) 
+{
+  register unsigned long nr=1345345333L, add=7, nr2=0x12345671L;
+  unsigned long tmp;
+  for (; *password ; password++) 
+  {
+    if (*password == ' ' || *password == '\t') continue;
+	tmp= (unsigned long) (unsigned char) *password;
+	nr^= (((nr & 63)+add)*tmp)+ (nr << 8);
+	nr2+=(nr2 << 8) ^ nr;
+	add+=tmp;
+  }
+  result[0]=nr & (((unsigned long) 1L << 31) -1L); /* Don't use sign bit (str2int) */;
+  result[1]=nr2 & (((unsigned long) 1L << 31) -1L);
+  return;
+}
+
+void HashMySQL323(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	unsigned long hash_pass[2];	
+	unsigned char* f = (unsigned char*) hash_pass;
+
+	unsigned char* pass = (unsigned char*) calloc (nPlainLen+4,sizeof(unsigned char));
+	memcpy(pass,pPlain,nPlainLen);
+
+	mysql_hash_password_323(hash_pass, (char*) pass);
+	pHash[0]=*(f+3); pHash[1]=*(f+2); pHash[2]=*(f+1); pHash[3]=*(f+0);
+	pHash[4]=*(f+7); pHash[5]=*(f+6); pHash[6]=*(f+5); pHash[7]=*(f+4);
+
+	free (pass);
+}
+
+void HashMySQLSHA1(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	unsigned char hash_stage1[SHA_DIGEST_LENGTH];
+		SHA_CTX ctx;
+		SHA1_Init(&ctx);
+		SHA1_Update(&ctx, (unsigned char *) pPlain, nPlainLen);
+		SHA1_Final(hash_stage1, &ctx);
+		SHA1_Init(&ctx);
+		SHA1_Update(&ctx, hash_stage1, SHA_DIGEST_LENGTH);
+		SHA1_Final(pHash, &ctx);
+}
+
+//*********************************************************************************
+// Code for PIX password hashing
+//*********************************************************************************
+static char itoa64[] =          /* 0 ... 63 => ascii - 64 */
+        "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+void _crypt_to64(char *s, unsigned long v, int n)
+{
+        while (--n >= 0) {
+                *s++ = itoa64[v&0x3f];
+                v >>= 6;
+        }
+}
+
+void HashPIX(unsigned char* pPlain, int nPlainLen, unsigned char* pHash, const unsigned char *pSalt, int nSaltLength)
+{
+	char temp[MD5_DIGEST_LENGTH+1];
+	unsigned char final[MD5_DIGEST_LENGTH];
+	char* pass = (char*) calloc (nPlainLen+MD5_DIGEST_LENGTH,sizeof(char));
+
+	memcpy (pass,pPlain,nPlainLen);
+
+	MD5_CTX ctx;
+	MD5_Init(&ctx);
+	MD5_Update(&ctx, (unsigned char *) pass, MD5_DIGEST_LENGTH);
+	MD5_Final(final, &ctx);
+
+	char* p = (char*) temp;
+	_crypt_to64(p,*(unsigned long*) (final+0),4); p += 4;
+	_crypt_to64(p,*(unsigned long*) (final+4),4); p += 4;
+	_crypt_to64(p,*(unsigned long*) (final+8),4); p += 4;
+	_crypt_to64(p,*(unsigned long*) (final+12),4); p += 4;
+	*p=0;
+
+	memcpy(pHash,temp,MD5_DIGEST_LENGTH);
+
+	free (pass);
+}

@@ -1,0 +1,235 @@
+283
+4, 5, 6, 6, 7, 7, 8, 9, 9, 9, 9, 10, 10, 11, 15, 15, 16, 16, 18, 18, 20, 20, 22, 22, 23, 25, 25, 25, 25, 25, 26, 27, 27, 28, 28, 29, 30, 31, 31, 33, 33, 34, 34, 35, 35, 37, 37, 38, 38, 40, 40, 41, 41, 44, 44, 45, 45, 46, 47, 49, 49, 49, 50, 50, 51, 51, 52, 52, 54, 54, 55, 55, 57, 57, 58, 58, 61, 61, 62, 62, 63, 66, 66, 66, 66, 66, 67, 67, 69, 69, 69, 71, 71, 74, 74, 74, 74, 74, 77, 77, 80, 80, 80, 80, 80, 82, 82, 85, 85, 85, 86, 86, 91, 93, 93, 95, 96, 97, 100, 101, 101, 102, 102, 102, 102, 102, 102, 103, 106, 106, 106, 106, 106, 106, 107, 110, 110, 111, 113, 115, 118, 120, 121, 122, 122, 123, 123, 124, 125, 125, 125, 125, 126, 126, 127, 131, 131, 132, 132, 134, 134, 136, 136, 138, 138, 139, 141, 141, 141, 141, 141, 142, 143, 143, 144, 144, 145, 146, 147, 147, 149, 149, 150, 150, 151, 151, 153, 153, 154, 154, 156, 156, 157, 157, 160, 160, 161, 161, 162, 163, 165, 165, 165, 166, 166, 167, 167, 168, 168, 170, 170, 171, 171, 173, 173, 174, 174, 177, 177, 178, 178, 179, 182, 182, 182, 182, 182, 183, 183, 185, 185, 185, 187, 187, 190, 190, 190, 190, 190, 193, 193, 196, 196, 196, 196, 196, 198, 198, 201, 201, 201, 202, 202, 207, 209, 209, 211, 212, 213, 216, 217, 217, 218, 218, 218, 218, 218, 218, 219, 222, 222, 222, 222, 222, 222, 223, 226, 226, 227, 229, 231, 179, 122
+<<<<<<< HEAD
+#include <bits/stdc++.h>
+#define mod 786433
+using namespace std;
+long long N;
+vector<long long> a,B;
+long long solve(long long b,int n,bool ab,bool af)
+{
+    if(n==N-1 and n!=0){
+        long long n1,n2,n3,n4;
+        n1=n2=n3=n4=b;
+        n2+=a[n];
+        n3+=a[n-1];
+        n4+=(a[n]+a[n-1]);
+        long long b1,b2,b3,b4;
+        b1=solve(n1,n-1,true,true);
+
+        b2=solve(n2,n-1,true,false);
+
+        b3=solve(n3,n-1,false,true);
+
+        b4=solve(n4,n-1,false,false);
+        return max(b1,max(b2,max(b3,b4)));
+    }
+    else if(n>0){
+            //cout<<b<<endl;
+        long long n1,n2,n3,n4,n5,n6,n7,n8;
+        long long b1,b2,b3,b4;
+        b1=b2=b3=b4=-1;
+        n1=n2=n3=n4=B[n];
+        if(af){
+            n1+=a[n+1];
+            if(n1==b)
+                b1=solve(n1,n-1,true,ab);
+            if(ab){
+                n2+=(a[n+1]+a[n]);
+                if(n2==b)
+                    b2=solve(n2,n-1,true,false);
+                n4+=(a[n+1]+a[n-1]+a[n]);
+                if(n4==b)
+                    b4=solve(n4,n-1,false,false);
+            }
+            n3+=(a[n+1]+a[n-1]);
+            if(n3==b)
+                b3=solve(n3,n-1,false,ab);
+            return max(b1,max(b2,max(b3,b4)));
+
+        }
+        else{
+            if(n1==b)
+                b1=solve(n1,n-1,true,ab);
+            if(ab){
+                n2+=a[n];
+                if(n2==b)
+                    b2=solve(n2,n-1,true,false);
+                n3+=(a[n]+a[n-1]);
+                if(n3==b)
+                    b3=solve(n3,n-1,false,false);
+            }
+            n4+=a[n-1];
+            if(n4==b)
+                b4=solve(n4,n-1,false,ab);
+            return max(b1,max(b2,max(b3,b4)));
+        }
+    }
+    else if(n==0){
+        long long n1=B[n];
+
+        if(ab and af){
+            n1+=(a[n]+a[n+1]);
+            if(n1==b)
+                return b;
+        }
+        else if(ab and !af){
+            n1+=a[n];
+
+            if(n1==b)
+                return b;
+        }
+        else if(!ab and af){
+            n1+=a[n+1];
+            if(n1==b)
+                return b;
+        }
+        else{
+            if(n1==b)
+                return b;
+        }
+    }
+}
+long long dp[10004][10];
+int main() {
+	//code
+    int t;
+    scanf(" %d",&t);
+    while(t--)
+    {
+        a.clear();
+        B.clear();
+        scanf(" %lld",&N);
+        long long A,b;
+        for(long long i=0;i<N;++i){
+            scanf(" %lld",&b);
+            a.push_back(b);
+        }
+        for(long long i=0;i<N;++i){
+            scanf(" %lld",&A);
+            B.push_back(A);
+        }
+        if(N==1)
+            printf("%lld\n",a[0]+B[0]);
+        else
+            printf("%lld\n",solve(B[N-1],N-1,true,true));
+    }
+	return 0;
+}
+=======
+#include <bits/stdc++.h>
+#define mod 786433
+using namespace std;
+long long N;
+vector<long long> a,B;
+long long solve(long long b,int n,bool ab,bool af)
+{
+    if(n==N-1 and n!=0){
+        long long n1,n2,n3,n4;
+        n1=n2=n3=n4=b;
+        n2+=a[n];
+        n3+=a[n-1];
+        n4+=(a[n]+a[n-1]);
+        long long b1,b2,b3,b4;
+        b1=solve(n1,n-1,true,true);
+
+        b2=solve(n2,n-1,true,false);
+
+        b3=solve(n3,n-1,false,true);
+
+        b4=solve(n4,n-1,false,false);
+        return max(b1,max(b2,max(b3,b4)));
+    }
+    else if(n>0){
+            //cout<<b<<endl;
+        long long n1,n2,n3,n4,n5,n6,n7,n8;
+        long long b1,b2,b3,b4;
+        b1=b2=b3=b4=-1;
+        n1=n2=n3=n4=B[n];
+        if(af){
+            n1+=a[n+1];
+            if(n1==b)
+                b1=solve(n1,n-1,true,ab);
+            if(ab){
+                n2+=(a[n+1]+a[n]);
+                if(n2==b)
+                    b2=solve(n2,n-1,true,false);
+                n4+=(a[n+1]+a[n-1]+a[n]);
+                if(n4==b)
+                    b4=solve(n4,n-1,false,false);
+            }
+            n3+=(a[n+1]+a[n-1]);
+            if(n3==b)
+                b3=solve(n3,n-1,false,ab);
+            return max(b1,max(b2,max(b3,b4)));
+
+        }
+        else{
+            if(n1==b)
+                b1=solve(n1,n-1,true,ab);
+            if(ab){
+                n2+=a[n];
+                if(n2==b)
+                    b2=solve(n2,n-1,true,false);
+                n3+=(a[n]+a[n-1]);
+                if(n3==b)
+                    b3=solve(n3,n-1,false,false);
+            }
+            n4+=a[n-1];
+            if(n4==b)
+                b4=solve(n4,n-1,false,ab);
+            return max(b1,max(b2,max(b3,b4)));
+        }
+    }
+    else if(n==0){
+        long long n1=B[n];
+
+        if(ab and af){
+            n1+=(a[n]+a[n+1]);
+            if(n1==b)
+                return b;
+        }
+        else if(ab and !af){
+            n1+=a[n];
+
+            if(n1==b)
+                return b;
+        }
+        else if(!ab and af){
+            n1+=a[n+1];
+            if(n1==b)
+                return b;
+        }
+        else{
+            if(n1==b)
+                return b;
+        }
+    }
+}
+long long dp[10004][10];
+int main() {
+	//code
+    int t;
+    scanf(" %d",&t);
+    while(t--)
+    {
+        a.clear();
+        B.clear();
+        scanf(" %lld",&N);
+        long long A,b;
+        for(long long i=0;i<N;++i){
+            scanf(" %lld",&b);
+            a.push_back(b);
+        }
+        for(long long i=0;i<N;++i){
+            scanf(" %lld",&A);
+            B.push_back(A);
+        }
+        if(N==1)
+            printf("%lld\n",a[0]+B[0]);
+        else
+            printf("%lld\n",solve(B[N-1],N-1,true,true));
+    }
+	return 0;
+}
+>>>>>>> 1cef6792d706b1e8b7eab9954b86478c9c79e871

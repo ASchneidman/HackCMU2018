@@ -1,0 +1,63 @@
+54
+2, 3, 4, 5, 6, 6, 7, 8, 12, 13, 15, 16, 17, 17, 17, 17, 19, 20, 21, 22, 24, 24, 24, 24, 25, 27, 27, 28, 30, 30, 31, 32, 32, 33, 34, 35, 36, 37, 38, 39, 41, 46, 47, 48, 49, 49, 51, 51, 55, 57, 57, 58, 57, 3
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> v,t;
+long long power(int p)
+{
+    long long res=1;
+    while(p--)
+        res=res*16;
+    return res;
+}
+
+int main(){
+    string base,tar;
+    int n;
+    cin>>base;
+    scanf("%d",&n);
+    for(int i=0;i<base.length();++i)
+        v.push_back(base[i]);
+    while(n--)
+    {
+        cin>>tar;
+        int j=0;
+        t.clear();
+        for(int i=0;i<tar.length();++i)
+        {
+            t.push_back(tar[i]^v[j++]);
+            if(j==base.length())
+                j=0;
+        }
+        int cnt=8,ind=0,x,a;
+        j=tar.length()-1;
+        long long num=0;
+        while(cnt--)
+            {
+                    x=t[j];
+                    a=2;
+                    while(a--)
+                    {
+                        num=num+(x%16)*power(ind);
+                        ind++;
+                        x=x/16;
+                    }
+                    j--;
+            }
+            string res;
+            while(num)
+            {
+                x=num%62;
+                if(x<=9)
+                    res.push_back(x+48);
+                else if(x<=35)
+                    res.push_back(x+87);
+                else
+                    res.push_back(x+29);
+                num=num/62;
+            }
+            cout<<base+'/'+string(res.rbegin(),res.rend())<<endl;
+
+    }
+    return 0;
+}

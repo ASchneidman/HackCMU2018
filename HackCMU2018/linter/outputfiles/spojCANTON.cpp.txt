@@ -1,0 +1,55 @@
+37
+4, 6, 8, 10, 11, 12, 13, 14, 16, 16, 16, 17, 17, 18, 19, 22, 22, 23, 23, 24, 25, 26, 27, 28, 28, 29, 35, 36, 37, 38, 39, 39, 40, 46, 49, 52, 6
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define maxi 10000005
+using namespace std;
+
+vector<long long> sum;
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    long long n;
+    while(t--)
+    {
+        scanf("%lld",&n);
+        sum.push_back(1);
+        long long i=1,sum=0,prev=1;
+        while(sum<n)
+        {
+            sum=sum+prev;
+            prev++;
+        }
+        long long dia=(-1+sqrt(1+8*sum))/2;
+        long long num,den;
+        if(dia&1)
+        {
+            num=1;
+            den=dia;
+            while(sum!=n)
+            {
+                sum--;
+                num++;
+                den--;
+            }
+        }
+        else
+        {
+            num=dia;
+            den=1;
+            while(sum!=n)
+            {
+                sum--;
+                num--;
+                den++;
+            }
+        }
+        printf("TERM %lld IS %lld/%lld\n",n,num,den);
+
+
+
+    }
+    return 0;
+
+}

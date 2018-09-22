@@ -1,0 +1,90 @@
+89
+3, 5, 6, 6, 7, 7, 7, 7, 8, 9, 9, 10, 15, 17, 18, 20, 21, 22, 22, 22, 22, 23, 23, 27, 28, 29, 29, 29, 29, 30, 31, 32, 32, 32, 32, 33, 33, 37, 42, 43, 44, 45, 45, 45, 46, 46, 47, 48, 48, 49, 50, 51, 54, 57, 58, 59, 60, 61, 62, 63, 63, 64, 65, 65, 65, 65, 66, 67, 67, 67, 67, 68, 69, 69, 70, 72, 73, 74, 74, 75, 75, 77, 77, 78, 82, 82, 83, 83, 85
+#include<bits/stdc++.h>
+#define mod 1000000007
+using namespace std;
+int convert(char a[])
+{
+    int ind=9,ans=0;
+    for(int i=0;i<10;++i)
+    {
+        if(a[i]=='1')
+            ans+=pow(2,ind);
+        ind--;
+    }
+    return ans;
+}
+int pic,fil[1025];
+int input()
+{
+    int n,m;
+    char s[20];
+    fill(fil,fil+1025,0);
+    scanf(" %s",s);
+    for(int i=0;i<10;++i)
+        if(s[i]=='w')
+            s[i]='1';
+        else
+            s[i]='0';
+    pic=convert(s);
+    scanf("%d",&n);
+    for(int i=0;i<n;++i)
+    {
+        scanf(" %s",s);
+        for(int j=0;j<10;++j)
+            if(s[j]=='+')
+                s[j]='1';
+            else
+                s[j]='0';
+        m=convert(s);
+        fil[m]++;
+    }
+    return n;
+}
+long long dp[1025][1025];
+long long powmod(int ex)
+{
+    long long ans=1,base=2;
+    while(ex>0)
+    {
+        if(ex%2==1)
+            ans=(ans*base)%mod;
+        ex=ex>>1;
+        base=(base*base)%mod;
+    }
+    return ans;
+
+}
+int main()
+{
+    int t,n;
+    scanf("%d",&t);
+    while(t--)
+    {
+        n=input();
+        long long m,z;
+        dp[0][0]=powmod(fil[0])-1;
+        for(int i=1;i<1024;++i)
+        {
+            for(int j=0;j<1024;++j)
+            {
+                if(fil[i]==0)
+                    dp[i][j]=dp[i-1][j];
+                else
+                {
+                    m=powmod(fil[i]-1);
+                    dp[i][j]=m*dp[i-1][j]+((i==j)?m:0) + m*dp[i-1][i xor j];
+                    if(j==0)
+                        dp[i][j]+=(m-1);
+                    if(dp[i][j]>=mod)
+                        dp[i][j]=dp[i][j]% mod;
+                }
+            }
+        }
+        long long ans=dp[1023][pic];
+        if(pic==0)
+            ans+=1;
+        printf("%lld\n",ans% mod);
+    }
+    return 0;
+}

@@ -1,0 +1,104 @@
+86
+4, 5, 7, 8, 12, 13, 14, 14, 15, 16, 17, 17, 17, 18, 18, 19, 19, 20, 22, 23, 23, 24, 25, 26, 30, 31, 32, 33, 34, 35, 35, 35, 36, 37, 37, 38, 38, 39, 41, 42, 42, 43, 44, 45, 46, 49, 50, 51, 52, 53, 54, 54, 54, 55, 56, 56, 57, 58, 59, 59, 60, 61, 62, 66, 70, 71, 72, 73, 74, 75, 76, 78, 79, 81, 82, 84, 85, 87, 88, 90, 91, 93, 94, 96, 97, 99
+// ClassHierarchies.cpp : Employees Database using inheritance
+//
+
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+const int LEN = 80; // Maximum length of names
+///////////////////////////////////////////////////////////////////////
+
+class Employees
+{
+	char name[LEN];
+	unsigned long number;
+public:
+	void getdata()
+	{
+		cout << "\nEnter last Name: "; cin >> name;
+		cout << "\nEnter Number: "; cin >> number;
+	}
+
+	void putdata() const
+	{
+		cout << "\n Name: " << name;
+		cout << "\n Number: " << number;
+	}
+};
+/////////////////////////////////////////////////////////////////////
+class Manager : public Employees
+{
+	char title[LEN];
+	double dues;
+public:
+	void getdata()
+	{
+		Employees::getdata();
+		cout << "Enter the title: "; cin >> title;
+		cout << "Enter the dues: "; cin >> dues;
+	}
+
+	void putdata()
+	{
+		Employees::putdata();
+		cout << "\n Title: " << title;
+		cout << "\n Giolf Club dues: " << dues;
+	}
+};
+/////////////////////////////////////////////////////////////////////
+class Scientist:public Employees 
+{
+	int pubs;
+public:
+	void getdata()
+	{
+		Employees::getdata();
+		cout << "Enter number of pubs:"; cin >> pubs;
+	}
+	void putdata() const
+	{
+		Employees::putdata();
+		cout << "\n Number of publications: " << pubs;
+	}
+};
+///////////////////////////////////////////////////////////////////
+class Laborer :public Employees
+{
+};
+
+int main()
+{
+	Manager m1, m2;
+	Scientist s1;
+	Laborer l1;
+	cout << endl;  // get data for several employees
+	cout << "\n Enter data for Manager1";
+	m1.getdata();
+
+	cout << "\n Enter data for Manager2";
+	m2.getdata();
+
+	cout << "\n Enter data for Scientist 1";
+	s1.getdata();
+
+	cout << "\n Enter data for laborer 1";
+	l1.getdata();
+
+	cout << "\n Data on Manager1";
+	m1.putdata();
+
+	cout << "\n Data on Manager2";
+	m2.putdata();
+
+	cout << "\n Data on Scientist 1";
+	s1.putdata();
+
+	cout << "\n Data on laborer 1";
+	l1.putdata();
+
+	cout << endl;
+    return 0;
+}
+
