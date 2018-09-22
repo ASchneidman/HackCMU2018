@@ -884,7 +884,7 @@ class _CppLintState(object):
     self.output_format = output_format
 
   def AddErrorLine(self, line):
-      self.error_lines.add(line)
+      self.error_lines.append(line)
 
   def SetQuiet(self, quiet):
     """Sets the module's quiet settings, and returns the previous setting."""
@@ -6235,20 +6235,38 @@ def main():
 
   _cpplint_state.ResetErrorCounts()
   for filename in filenames:
-    shortening(filename, 100)
+    shortening(filename, 2000)
     ProcessFile("in.cpp", _cpplint_state.verbose_level)
   # If --quiet is passed, suppress printing error count unless there are errors.
   if not _cpplint_state.quiet or _cpplint_state.error_count > 0:
     _cpplint_state.PrintErrorCounts()
 
+
+  print("MY STUFF\n")
   fin = open("in.cpp", "r")
   contents = fin.readlines()
   fin.close()
-  special = [_cpplint_state.error_count].append(_cpplint_state.error_lines)
+
+  print(contents)
+
+
+  ec = str(_cpplint_state.error_count) + "\n"
+  special = [ec]
+
+  print(special)
+
+  el = str(_cpplint_state.error_lines) + "\n"
+  special.append(el)
+
+  print(special)
+
+  special.extend(contents)
+  print(special)
 
   fout = open("out.txt", "w")
-  write = special.append(contents)
-  fout.writelines(write)
+
+
+  fout.writelines(special)
   fout.close()
 
   print(_cpplint_state.error_count)
