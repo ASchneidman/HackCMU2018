@@ -65,7 +65,7 @@ def download_from_repo(repo_str):
             #If already downloaded, dont download
             if (os.path.exists(output_path)):
                 print("Already downloaded")
-                    continue
+                continue
             print(url)
             r = requests.get(url,stream=True)
             file_length = len([l for l in r.iter_lines()])
