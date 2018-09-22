@@ -6241,31 +6241,18 @@ def main():
   if not _cpplint_state.quiet or _cpplint_state.error_count > 0:
     _cpplint_state.PrintErrorCounts()
 
-
-  print("MY STUFF\n")
   fin = open("in.cpp", "r")
   contents = fin.readlines()
   fin.close()
 
-  print(contents)
-
-
   ec = str(_cpplint_state.error_count) + "\n"
   special = [ec]
-
-  print(special)
-
-  el = str(_cpplint_state.error_lines) + "\n"
+  el = str(_cpplint_state.error_lines).strip("[]") + "\n"
   special.append(el)
-
-  print(special)
-
   special.extend(contents)
-  print(special)
 
-  fout = open("out.txt", "w")
-
-
+  newfilename = "./outputfiles/" + filename + ".txt"
+  fout = open(newfilename, "w")
   fout.writelines(special)
   fout.close()
 
