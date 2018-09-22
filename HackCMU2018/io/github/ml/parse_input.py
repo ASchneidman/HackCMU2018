@@ -38,5 +38,6 @@ class ParseInput:
             error_lines = [int(n) for n in error_lines_str]
             code = f_stream.readlines()
             code.extend(['' for i in range(self.lines_max - len(code))])
+            token_code = [parse_tokens (str) for str in code]
             parsed_files.append((num_errors, error_lines, code))
         return parsed_files
