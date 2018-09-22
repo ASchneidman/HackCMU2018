@@ -575,7 +575,8 @@ def ProcessHppHeadersOption(val):
     # Automatically append to extensions list so it does not have to be set 2 times
     _valid_extensions.update(_hpp_headers)
   except ValueError:
-    PrintUsage('Header extensions must be comma separated list.')
+    #PrintUsage('Header extensions must be comma separated list.')
+    pass
 
 def IsHeaderExtension(file_extension):
   return file_extension in _hpp_headers
@@ -1243,14 +1244,14 @@ def Error(filename, linenum, category, confidence, message):
     _cpplint_state.IncrementErrorCount(category)
     _cpplint_state.AddErrorLine(linenum)
     if _cpplint_state.output_format == 'vs7':
-      sys.stderr.write('%s(%s): error cpplint: [%s] %s [%d]\n' % (
-          filename, linenum, category, message, confidence))
+      """sys.stderr.write('%s(%s): error cpplint: [%s] %s [%d]\n' % (
+            filename, linenum, category, message, confidence))"""
     elif _cpplint_state.output_format == 'eclipse':
-      sys.stderr.write('%s:%s: warning: %s  [%s] [%d]\n' % (
-          filename, linenum, message, category, confidence))
+      """sys.stderr.write('%s:%s: warning: %s  [%s] [%d]\n' % (
+          filename, linenum, message, category, confidence))"""
     else:
-      sys.stderr.write('%s:%s:  %s  [%s] [%d]\n' % (
-          filename, linenum, message, category, confidence))
+      """sys.stderr.write('%s:%s:  %s  [%s] [%d]\n' % (
+          filename, linenum, message, category, confidence))"""
 
 
 # Matches standard C++ escape sequences per 2.13.2.3 of the C++ standard.
@@ -6251,7 +6252,10 @@ def main():
   special.append(el)
   special.extend(contents)
 
-  newfilename = "./outputfiles/" + filename + ".txt"
+  arr = filename.split('/')
+  arrlen = len(arr)
+  actualfilename = arr[arrlen-1]
+  newfilename = "./outputfiles/" + actualfilename + ".txt"
   fout = open(newfilename, "w")
   fout.writelines(special)
   fout.close()
