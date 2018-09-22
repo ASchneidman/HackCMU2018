@@ -1,14 +1,16 @@
 from sys import argv
 from ml import agent
 from ml import parse_input
+import pickle
 
 MAX = 1000
 
-def runML(agent_src, data = '../../linter/outputfiles'):
+def runML(agent_src, data = '../../res/parsed_inputs/parsed_files.bin'):
     ml_agent = agent.Agent (agent_src)
     print ("Starting parser")
     parser = parse_input.ParseInput(MAX)
-    data = parser.parse_data (data)
+    with open(data, "rb") as handle:
+        data = pickle.load(handle)
     print ("Ending parser, starting agent")
     #for i in range(100):
     #    ml_agent.load_model()

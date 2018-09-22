@@ -1,12 +1,16 @@
 from sys import argv
 from ml import parse_input
 import pickle
+import os
 
-def parse_pls(src= '../../linter/outputfiles', dst='../../res/parsed_input'):
+def parse_pls(src= '../../linter/outputfiles', 
+              dst='../../res/parsed_inputs/parsed_files.bin'):
+    if not os.path.isfile(dst):
+        open(dst, 'r+').close()
     parser = parse_input.ParseInput(1000)
     data = parser.parse_data(src)
     with open(dst, "wb") as handle:
-        pickle.dump(files, handle)
+        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 if __name__ == "__main__":
     if (len (argv)) == 1: parse_pls()
