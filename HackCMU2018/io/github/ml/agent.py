@@ -1,5 +1,4 @@
 import tensorflow as tf
-from numpy import random
 import numpy as np
 from tensorflow import keras
 import os
@@ -7,7 +6,7 @@ import os
 
 class Agent:
     
-    def __init__(self, src, agent_init):
+    def __init__(self, src):
         self.src = src
         self.model = keras.Sequential()
         if os.path.isfile(self.src):
@@ -17,13 +16,16 @@ class Agent:
             # Generate model
             # agent_init[0] = number of input nodes for first layer : int
             # agent_init[1] = list of outputs for all layers : int list
-            for i in range(len(agent_init[1])):
+            for i in range(6):
                 if i == 0:
-                    self.model.add(keras.layers.Dense(agent_init[1][i], 
-                                                      input_shape=(2500,),
+                    self.model.add(keras.layers.Dense(1000, 
+                                                      input_shape=(2500, 80, ),
+                                                      activation="sigmoid"))
+                elif i == 5:
+                    self.model.add(keras.layers.Dense(2500,
                                                       activation="sigmoid"))
                 else:
-                    self.model.add(keras.layers.Dense(agent_init[1][i],
+                    self.model.add(keras.layers.Dense(1000,
                                                       activation="sigmoid"))
         
         
@@ -69,12 +71,6 @@ class Agent:
     
     def set_model(self, m):
         self.model = m
-    
-    def mutate_model(self, mutation):
-        weights = self.model.get_weights()
-        for outer_weights in weights:
-            for inner_weight in outer_weights:
-                inner_weight = inner_weight * (1 + (2 * (.5- .5) * mutation))
             
     def run_prediction(self, data):
         print ("Predicting")

@@ -1,5 +1,4 @@
 from sys import argv
-from functools import reduce
 from ml import agent
 from ml import parse_input
 
