@@ -1,4 +1,5 @@
 import tensorflow as tf
+from numpy import random
 from tensorflow import keras
 import os
 
@@ -54,7 +55,11 @@ class Agent:
     def set_model(self, m):
         self.model = m
     
-    def mutate_model(self, mutations):
-        print (mutations)
+    def mutate_model(self, mutation):
+        rand = random()
+        weights = self.model.get_weights()
+        for outer_weights in weights:
+            for inner_weight in outer_weights:
+                inner_weight = inner_weight * (1 + (2 * (rand.ranf() - .5) * mutation))
             
             
