@@ -1,6 +1,13 @@
 from glob import glob
 import code
-import regex
+import re
+
+def parse_tokens (str):
+    regex = re.compile(r"[\w\.]+|.")
+    tokens = re.findall(regex, str)
+    padded = tokens.extend(['' for i in range(80 - len(tokens))])
+    word_adjusted = re.sub(r"[\w\.]+", r"\0", padded)
+    return word_adjusted
 
 class ParseInput:
 
@@ -12,13 +19,6 @@ class ParseInput:
         #print (source)
         return glob ('../../linter/outputfiles/*.txt', recursive=True)
     
-
-    def parse_tokens (str):
-        regex = re.compile(r"[\w\.]+|.")
-        tokens = re.findall(regex, str)
-        padded = tokens.extend(['' for i in range(80 - len(tokens))])
-        word_adjusted = re.sub(r"[\w\.]+", r"\0", padded)
-        return word_adjusted
 
     def parse_data (self, source):
         files = self.get_files(source)
