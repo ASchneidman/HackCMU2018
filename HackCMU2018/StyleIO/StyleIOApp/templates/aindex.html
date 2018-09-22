@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1 0 auto;
-    }
-  </style>
-
-</head>
-
-<body>
-  <nav>
-    <div class="nav-wrapper teal">
-      <a href="{% url 'index' %}" class="brand-logo">StyleIO</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down" </ul>
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'upload' %}">Upload</a></li>
-      </ul>
-    </div>
-  </nav>
+{% extends 'base.html' %}{% block content %}
   <main>
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
@@ -45,7 +11,6 @@
 
       </div>
     </div>
-
 
     <div class="container">
       <div class="section">
@@ -81,44 +46,4 @@
       <br><br>
     </div>
   </main>
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Team Bio</h5>
-          <p class="grey-text text-lighten-4">Info about team</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        Made by Cayden, Liam, Brian, and Alex at HackCMU 2018
-      </div>
-    </div>
-  </footer>
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
-</html>
+  {% endblock %}
