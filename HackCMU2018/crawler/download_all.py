@@ -5,8 +5,8 @@ from datetime import datetime
 def download():
     cwd = os.getcwd()
     sum_lines = 0
-    g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
-    repos = g.get_repos()[500:]
+    g = Github("ASchneidman",'''blahblah8686''')
+    repos = g.get_repos()
     for repo in repos:
         print(g.rate_limiting)
         try:
@@ -36,7 +36,7 @@ def download():
                         r = requests.get(url,stream=True)
                         file_length = len([l for l in r.iter_lines()])
                         if (file_length < 50 or file_length > 2500):
-                            break
+                            continue
                         wget.download(url, out=output_path)
                         sum_lines += file_length
                         num_files += 1
@@ -47,18 +47,16 @@ def download():
     print("\n")
     print("Average file line number: " + str(sum_lines / num_files))
 
-if __name__ == "__main__":
-
-    download()
-
 def download_from_repo(repo_str):
-    g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
+    cwd = os.getcwd()
+    g = Github("ASchneidman",'''blahblah8686''')
     repo = g.get_repo(repo_str)
     sha = repo.get_branch("master").commit.sha
-    tree = repo.get_git_tree(tree,recursive=True)
+    total_tree = repo.get_git_tree(sha,recursive=True).tree
     cpp_files = [c for c in total_tree if ".cpp" in c.path or ".cc" in c.path]
     if (len(cpp_files) > 0):
         for file in cpp_files:
+            #print(file)
             file_name = str(file.path).replace("/","")
             url = "https://raw.githubusercontent.com/" + str(repo.owner.login) + "/" + str(repo.name) + "/master/" + str(file.path)
             output_path = os.path.join(cwd,os.path.join("cpp_files",file_name))
@@ -66,12 +64,16 @@ def download_from_repo(repo_str):
             if (os.path.exists(output_path)):
                 print("Already downloaded")
                 continue
-            print(url)
             r = requests.get(url,stream=True)
             file_length = len([l for l in r.iter_lines()])
             if (file_length < 50 or file_length > 2500):
-                break
+                continue
             wget.download(url, out=output_path)
+            print("downloading")
+
+if __name__ == "__main__":
+    download_from_repo("tensorflow/tensorflow")
+    #download()
 
 def test():
     g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
