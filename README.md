@@ -5,3 +5,7 @@
 ## About
 
 ML algorithm that takes .cpp files as input and determines if it has good style.
+
+Run algo
+
+python3 train_model.py "../../res/models/modelOne"
