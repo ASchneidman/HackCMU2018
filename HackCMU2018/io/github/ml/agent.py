@@ -17,7 +17,7 @@ class Agent:
             for i in range(6):
                 if i == 0:
                     self.model.add(keras.layers.Dense(1000, 
-                                                      input_shape=(2500, 80, ),
+                                                      input_shape=(400000, ),
                                                       activation="sigmoid"))
                 elif i == 5:
                     self.model.add(keras.layers.Dense(2500,
@@ -41,17 +41,22 @@ class Agent:
         all_line_errors = []
         all_num_errors = []
         for i in range(num_of_files):
-            all_lines.extend(data[i][2])
-            all_num_errors.extend(data[i][0])
+            flat_list = [item for sublist in data[i][2] for item in sublist]
+            all_lines.append(flat_list)
+            all_num_errors.append(data[i][0])
             errors = data[i][1]
             line_errors = [0 for j in range(2500)]
             for j in range(len(errors)):
                 line_errors[errors[j]] = 1
                 
-            all_line_errors.extend(line_errors)
+            all_line_errors.append(line_errors)
             
-        all_lines = np.reshape(all_lines, (num_of_files, 2500, 80))
-        all_line_errors = np.reshape(all_line_errors, (num_of_files, 2500))
+        # all_lines = np.reshape(all_lines, (num_of_files, 2500, 80))
+        # all_line_errors = np.reshape(all_line_errors, (num_of_files, 2500))
+        all_lines = np.asarray(all_lines)
+        all_line_errors = np.asarray(all_line_errors)
+        print (np.shape(all_lines))
+        print (np.shape(all_line_errors))
         
         self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.2), 
                             loss="mse", 
@@ -60,8 +65,7 @@ class Agent:
         self.model.fit(all_lines,
                         all_line_errors,
                         epochs=epochs,
-                        steps_per_epoch=50,
-                        batch_size=50)
+                        steps_per_epoch=20)
             
         if save:
             self.save_model()
