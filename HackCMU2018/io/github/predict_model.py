@@ -2,7 +2,7 @@ from sys import argv
 from ml import agent
 from ml import parse_input
 
-MAX = 2500
+MAX = 1000
     
 def runPredictML(agent_src, data):
     print ("Made it here")

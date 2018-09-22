@@ -14,6 +14,8 @@ def parse_pls(src= '../../linter/outputfiles',
 
 if __name__ == "__main__":
     if (len (argv)) == 1: parse_pls()
-    elif (len (argv)) == 2: parse_pls(argv[1])
+    elif (len (argv)) == 2: parse_pls(src = argv[1])
     elif (len (argv)) == 3: parse_pls(argv[1], argv[2])
     else: raise ValueError("too many args")
+
+
