@@ -1,5 +1,5 @@
-23
-17, 17, 31, 35, 43, 55, 69, 72, 76, 81, 91, 126, 128, 137, 143, 150, 158, 165, 165, 177, 178, 183, 198
+18
+17, 55, 69, 72, 76, 91, 126, 128, 137, 143, 150, 158, 165, 165, 177, 178, 183, 198
 /**********
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the

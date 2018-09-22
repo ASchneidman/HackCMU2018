@@ -1,5 +1,5 @@
-17
-3, 4, 10, 11, 12, 13, 13, 20, 21, 23, 29, 36, 43, 46, 52, 53, 54
+12
+3, 4, 10, 11, 13, 20, 21, 23, 29, 36, 43, 52
 // SFVTool2.cpp : Implementation of DLL Exports.
 
 #include "stdafx.h"

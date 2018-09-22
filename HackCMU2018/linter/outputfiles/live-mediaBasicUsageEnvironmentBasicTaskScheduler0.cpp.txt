@@ -1,5 +1,5 @@
-21
-27, 31, 32, 32, 37, 38, 56, 57, 59, 59, 63, 63, 67, 85, 103, 109, 115, 116, 123, 127, 157
+17
+27, 31, 32, 32, 37, 38, 59, 59, 63, 63, 67, 85, 103, 109, 123, 127, 157
 /**********
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the

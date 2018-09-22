@@ -1,5 +1,5 @@
-21
-3, 10, 20, 21, 23, 27, 33, 34, 41, 48, 49, 49, 56, 56, 58, 60, 62, 64, 65, 69, 54
+14
+3, 10, 20, 21, 23, 27, 33, 34, 49, 56, 58, 62, 69, 54
 // WebWatch Core - by DEATH, 2004
 //
 // $Workfile: HttpConnectProxyHttpSocket.cpp $ - HTTP CONNECT Proxy HTTP socket implementation

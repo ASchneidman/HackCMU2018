@@ -1,5 +1,5 @@
-9
-37, 38, 50, 51, 56, 57, 62, 66, 67
+4
+37, 38, 66, 67
 /*
  *  Phusion Passenger - https://www.phusionpassenger.com/
  *  Copyright (c) 2011-2017 Phusion Holding B.V.

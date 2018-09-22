@@ -1,5 +1,5 @@
-5
-261, 325, 427, 427, 427
+4
+261, 427, 427, 427
 #include "hphp/runtime/ext/icu/ext_icu_break_iterator.h"
 
 using icu::BreakIterator;

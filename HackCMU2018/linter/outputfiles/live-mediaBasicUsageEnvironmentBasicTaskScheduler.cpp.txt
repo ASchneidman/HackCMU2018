@@ -1,5 +1,5 @@
-32
-24, 33, 49, 50, 57, 63, 64, 65, 65, 69, 71, 75, 76, 87, 89, 91, 94, 97, 109, 114, 115, 129, 130, 131, 132, 134, 135, 138, 138, 138, 143, 144
+16
+24, 49, 50, 57, 63, 64, 65, 69, 75, 76, 94, 97, 109, 138, 138, 138
 /**********
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by the

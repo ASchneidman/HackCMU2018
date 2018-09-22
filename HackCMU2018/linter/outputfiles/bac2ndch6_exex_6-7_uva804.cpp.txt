@@ -1,5 +1,5 @@
-6
-4, 26, 51, 55, 60, 63
+3
+4, 26, 63
 #include<cstdio>
 #include<iostream>
 #include<vector>
