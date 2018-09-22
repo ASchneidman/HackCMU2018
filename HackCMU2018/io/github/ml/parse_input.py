@@ -6,8 +6,8 @@ import pickle
 def parse_tokens (input_str):
     regex = re.compile(r"[\w\.]+|.")
     tokens = re.findall(regex, input_str)
-    padded = tokens.extend(['' for i in range(80 - len(tokens))])
-    word_adjusted = re.sub(r"[\w\.]+", r"\0", padded)
+    tokens.extend(['' for i in range(80 - len(tokens))])
+    word_adjusted = [re.sub(r"[\w\.]+", r"\0", s) for s in tokens]
     return word_adjusted
 
 def get_token_values (str_list):
