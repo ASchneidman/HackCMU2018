@@ -36,3 +36,6 @@ def upload(request):
     else:
         form = UploadFileForm()
     return render(request, 'aupload.html', {'form': form})
+
+def about(request):
+    return render(request,'about.html')
