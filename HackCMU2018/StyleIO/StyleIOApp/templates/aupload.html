@@ -25,21 +25,17 @@
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text">Results</h1>
+        <h1 class="header center teal-text">Upload a file</h1>
         <br><br>
       </div>
     </div>
     <div class="container">
-
-      <table>
-        {% for error in errors %}
-        <tr>
-          <th>Line</th>
-          <th>{{ error }}</th>
-        </tr>
-        {% endfor %}
-      </table>
-
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form }}
+        <br /><br />
+        <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
       </form>
     </div>
   </center>
