@@ -1,6 +1,7 @@
 from glob import glob
 import code
 import re
+import pickle
 
 def parse_tokens (input_str):
     regex = re.compile(r"[\w\.]+|.")
@@ -8,6 +9,16 @@ def parse_tokens (input_str):
     padded = tokens.extend(['' for i in range(80 - len(tokens))])
     word_adjusted = re.sub(r"[\w\.]+", r"\0", padded)
     return word_adjusted
+
+def get_token_values (str_list):
+    dict = {}
+    with open ('../../../res/dictionaries/dictionary.bin', 'rb') as handle:
+        dict = pickle.load(handle)
+
+    try:
+        return [dict[token] for token in str_list]
+    except:
+        raise ValueError("a character was found that was not in the dictionary")
 
 class ParseInput:
 
@@ -23,7 +34,6 @@ class ParseInput:
             return glob('../../linter/outputfiles/' + source, recursive=False)
         else:
             return glob ('../../linter/outputfiles/*.txt', recursive=True)
-    
 
     def parse_data (self, source):
         files = self.get_files(source)
@@ -38,6 +48,7 @@ class ParseInput:
             error_lines = [int(n) for n in error_lines_str]
             code = f_stream.readlines()
             code.extend(['' for i in range(self.lines_max - len(code))])
-            token_code = [parse_tokens (line_str) for line_str in code]
+            token_code = [get_token_values (parse_tokens (line_str)) 
+                          for line_str in code]
             parsed_files.append((num_errors, error_lines, token_code))
         return parsed_files
