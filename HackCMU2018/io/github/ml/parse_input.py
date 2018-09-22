@@ -10,9 +10,9 @@ def parse_tokens (input_str):
     word_adjusted = [re.sub(r"[\w\.]+", r"\0", s) for s in tokens]
     return word_adjusted
 
-def get_token_values (str_list):
+def get_token_values(str_list,dict_src='../../res/dictionaries/dictionary.bin'):
     dict = {}
-    with open ('../../../res/dictionaries/dictionary.bin', 'rb') as handle:
+    with open (dict_src, 'rb') as handle:
         dict = pickle.load(handle)
 
     try:
