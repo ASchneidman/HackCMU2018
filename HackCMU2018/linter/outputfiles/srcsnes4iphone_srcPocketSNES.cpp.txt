@@ -1,0 +1,2003 @@
+1269
+4, 7, 8, 9, 11, 13, 16, 17, 23, 37, 38, 41, 42, 46, 47, 48, 49, 54, 56, 60, 70, 71, 78, 85, 92, 93, 97, 99, 100, 106, 109, 115, 115, 115, 115, 115, 116, 125, 128, 129, 134, 137, 143, 144, 146, 149, 150, 152, 155, 156, 159, 160, 168, 169, 170, 175, 177, 180, 181, 184, 185, 188, 189, 192, 193, 196, 197, 200, 201, 204, 205, 208, 209, 212, 213, 216, 217, 220, 221, 224, 225, 228, 229, 232, 233, 236, 237, 249, 250, 254, 258, 259, 260, 261, 264, 271, 275, 278, 279, 280, 283, 286, 287, 295, 296, 297, 298, 301, 302, 303, 304, 313, 314, 315, 316, 319, 320, 321, 322, 332, 334, 379, 380, 381, 382, 383, 384, 385, 386, 387, 389, 416, 417, 418, 419, 420, 421, 423, 423, 424, 424, 425, 425, 426, 453, 453, 454, 455, 456, 457, 458, 459, 461, 462, 462, 463, 463, 463, 464, 465, 467, 467, 468, 468, 468, 470, 471, 473, 476, 478, 479, 479, 480, 480, 480, 481, 482, 482, 482, 483, 483, 484, 484, 484, 485, 486, 487, 488, 490, 491, 491, 491, 493, 495, 497, 498, 502, 504, 514, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 532, 546, 547, 548, 549, 551, 553, 554, 555, 557, 557, 558, 558, 559, 559, 560, 560, 560, 561, 561, 561, 562, 563, 563, 565, 566, 566, 567, 568, 569, 569, 570, 571, 573, 574, 574, 574, 574, 576, 577, 579, 579, 579, 580, 580, 581, 582, 582, 583, 584, 585, 586, 587, 588, 590, 591, 592, 594, 595, 596, 597, 598, 598, 600, 601, 602, 604, 605, 606, 608, 609, 610, 611, 611, 614, 614, 615, 624, 626, 628, 629, 631, 633, 641, 642, 643, 647, 648, 650, 650, 651, 651, 651, 652, 653, 653, 654, 654, 655, 657, 658, 659, 659, 659, 659, 660, 661, 661, 662, 663, 663, 664, 664, 664, 665, 666, 667, 668, 669, 671, 672, 673, 673, 673, 674, 675, 676, 677, 678, 680, 681, 681, 682, 685, 686, 687, 690, 691, 692, 696, 700, 704, 704, 708, 709, 710, 710, 711, 712, 716, 716, 718, 721, 724, 727, 730, 733, 736, 739, 742, 749, 752, 755, 758, 761, 764, 767, 770, 773, 777, 778, 779, 780, 782, 783, 784, 785, 786, 788, 789, 790, 793, 794, 796, 797, 798, 800, 802, 802, 802, 803, 803, 804, 805, 807, 808, 810, 810, 813, 816, 818, 819, 820, 821, 822, 822, 823, 824, 825, 826, 828, 829, 830, 831, 832, 833, 834, 834, 835, 835, 835, 836, 837, 838, 840, 842, 843, 844, 845, 845, 847, 848, 849, 852, 854, 856, 857, 859, 860, 860, 861, 864, 865, 866, 866, 867, 868, 870, 871, 871, 872, 872, 873, 875, 876, 876, 877, 878, 879, 880, 881, 884, 895, 899, 905, 906, 909, 910, 914, 915, 916, 917, 919, 923, 925, 927, 928, 929, 931, 935, 936, 938, 939, 940, 941, 942, 943, 944, 946, 946, 947, 949, 953, 954, 955, 956, 956, 956, 957, 959, 960, 961, 962, 963, 964, 967, 967, 968, 969, 970, 971, 972, 972, 973, 977, 978, 979, 980, 981, 981, 982, 982, 983, 985, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 999, 1000, 1001, 1004, 1005, 1006, 1009, 1010, 1021, 1021, 1022, 1023, 1024, 1026, 1027, 1029, 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1039, 1040, 1041, 1043, 1045, 1046, 1046, 1048, 1049, 1052, 1052, 1053, 1054, 1056, 1056, 1057, 1057, 1058, 1059, 1061, 1062, 1063, 1066, 1067, 1073, 1074, 1075, 1076, 1076, 1076, 1077, 1079, 1080, 1080, 1080, 1081, 1082, 1082, 1082, 1083, 1084, 1084, 1084, 1085, 1085, 1086, 1087, 1087, 1088, 1088, 1088, 1089, 1089, 1090, 1091, 1092, 1092, 1093, 1093, 1093, 1094, 1095, 1095, 1095, 1096, 1096, 1097, 1098, 1098, 1099, 1099, 1099, 1100, 1100, 1101, 1102, 1103, 1104, 1104, 1105, 1105, 1105, 1106, 1106, 1107, 1108, 1108, 1110, 1110, 1113, 1114, 1117, 1117, 1118, 1121, 1122, 1123, 1124, 1125, 1125, 1126, 1126, 1127, 1129, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1137, 1138, 1139, 1139, 1139, 1140, 1140, 1141, 1141, 1145, 1145, 1146, 1146, 1146, 1147, 1148, 1148, 1148, 1149, 1150, 1151, 1152, 1154, 1155, 1155, 1155, 1156, 1157, 1158, 1159, 1161, 1162, 1162, 1162, 1163, 1164, 1165, 1166, 1168, 1169, 1169, 1169, 1170, 1171, 1172, 1173, 1175, 1176, 1176, 1176, 1177, 1178, 1179, 1180, 1184, 1185, 1186, 1189, 1190, 1201, 1201, 1202, 1203, 1204, 1206, 1207, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1223, 1225, 1226, 1226, 1228, 1229, 1232, 1232, 1233, 1234, 1236, 1236, 1237, 1237, 1238, 1239, 1239, 1241, 1242, 1242, 1243, 1244, 1245, 1248, 1249, 1255, 1256, 1257, 1258, 1258, 1258, 1259, 1261, 1262, 1263, 1264, 1264, 1265, 1267, 1267, 1268, 1268, 1269, 1269, 1270, 1270, 1271, 1271, 1272, 1272, 1273, 1273, 1274, 1274, 1275, 1275, 1280, 1281, 1282, 1283, 1284, 1284, 1285, 1285, 1286, 1288, 1290, 1291, 1292, 1293, 1293, 1294, 1294, 1295, 1296, 1296, 1297, 1297, 1298, 1298, 1299, 1299, 1300, 1300, 1301, 1301, 1302, 1302, 1303, 1303, 1305, 1305, 1314, 1315, 1316, 1319, 1320, 1331, 1331, 1332, 1333, 1334, 1336, 1337, 1339, 1340, 1341, 1342, 1343, 1344, 1345, 1346, 1347, 1348, 1349, 1350, 1351, 1353, 1355, 1356, 1356, 1358, 1359, 1362, 1362, 1363, 1364, 1366, 1366, 1367, 1367, 1368, 1369, 1369, 1371, 1372, 1372, 1373, 1374, 1375, 1378, 1379, 1385, 1386, 1387, 1388, 1388, 1388, 1389, 1391, 1391, 1392, 1392, 1393, 1393, 1394, 1395, 1396, 1396, 1399, 1399, 1400, 1401, 1402, 1403, 1404, 1404, 1405, 1407, 1407, 1408, 1408, 1409, 1410, 1410, 1414, 1415, 1416, 1417, 1418, 1418, 1419, 1419, 1420, 1422, 1424, 1425, 1426, 1427, 1428, 1429, 1429, 1430, 1430, 1431, 1431, 1432, 1432, 1433, 1433, 1436, 1437, 1438, 1441, 1442, 1453, 1453, 1454, 1455, 1456, 1458, 1459, 1461, 1462, 1463, 1464, 1465, 1466, 1467, 1468, 1469, 1470, 1471, 1472, 1473, 1475, 1477, 1478, 1478, 1480, 1481, 1484, 1484, 1485, 1486, 1488, 1488, 1489, 1489, 1490, 1491, 1491, 1493, 1494, 1494, 1495, 1496, 1497, 1500, 1501, 1509, 1510, 1511, 1512, 1512, 1512, 1513, 1515, 1517, 1518, 1519, 1520, 1521, 1521, 1522, 1522, 1523, 1525, 1527, 1532, 1534, 1535, 1541, 1547, 1550, 1552, 1555, 1555, 1556, 1557, 1558, 1560, 1561, 1563, 1564, 1565, 1566, 1567, 1568, 1569, 1570, 1571, 1572, 1573, 1574, 1575, 1577, 1579, 1580, 1580, 1582, 1583, 1586, 1586, 1587, 1588, 1592, 1592, 1593, 1593, 1594, 1595, 1597, 1599, 1601, 1603, 1604, 1606, 1611, 1614, 1616, 1617, 1618, 1632, 1633, 1638, 1642, 1645, 1650, 1651, 1653, 1659, 1660, 1666, 1728, 1732, 1733, 1734, 1735, 1735, 1735, 1736, 1738, 1739, 1740, 1741, 1742, 1743, 1744, 1745, 1746, 1747, 1748, 1749, 1753, 1754, 1755, 1756, 1757, 1758, 1759, 1760, 1761, 1762, 1763, 1764, 1766, 1768, 1769, 1770, 1771, 1772, 1772, 1773, 1773, 1774, 1776, 1778, 1781, 1783, 1784, 1799, 1801, 1806, 1807, 1814, 1816, 1819, 1819, 1820, 1821, 1822, 1824, 1826, 1828, 1829, 1830, 1831, 1832, 1833, 1834, 1835, 1836, 1837, 1838, 1839, 1840, 1842, 1844, 1846, 1846, 1848, 1848, 1850, 1851, 1854, 1854, 1855, 1856, 1858, 1858, 1859, 1859, 1860, 1861, 1863, 1864, 1865, 1868, 1869, 1877, 1878, 1879, 1880, 1880, 1880, 1881, 1886, 1888, 1890, 1892, 1893, 1897, 1898, 1899, 1900, 1901, 1901, 1902, 1902, 1903, 1905, 1912, 1912, 1914, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1925, 1925, 1926, 1927, 1928, 1930, 1931, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1947, 1949, 1950, 1950, 1952, 1953, 1956, 1956, 1957, 1958, 1960, 1960, 1961, 1961, 1962, 1963, 1965, 1966, 1967, 1970, 1971, 1980, 1987, 1989
+// PocketSNES.cpp : Defines the entry point for the application.
+//
+
+#include "stdafx.h"
+#include "PocketSNES.h"
+
+#include <commctrl.h>
+#include <aygshell.h>
+#include <sipapi.h>
+#ifdef _WIN32_WCE_EMULATION
+//#include "gapi.h"
+#else
+#include "gx.h"
+#endif
+
+#include "snes9x.h"
+#include "pocketpc.h"
+#include "VOIMAGE.H"
+#include "Prof/profiler.h"
+
+#define MAX_LOADSTRING 100
+
+extern bool InitializeEmulation(int,int,int);
+extern bool LoadROM();
+extern bool StartEmulation(HWND, HWND);
+extern bool StopEmulation(HWND, HWND);
+extern bool PauseEmulation(HWND, HWND);
+extern bool ResumeEmulation(HWND, HWND);
+
+extern "C" void S9xReset();
+extern "C" void S9xSetTitle(const char *);
+extern "C" void S9xMainLoop(void);
+
+extern bool g_bResumeAfterLoadState;
+extern bool g_bResumeAfterSaveState;
+
+extern TCHAR		g_szTitle[64];
+extern GXKeyList	g_gxkl;
+
+class Skin
+{
+public:
+    TCHAR            *pszBitmap;
+    TCHAR            *pszName;
+    TCHAR            *pszAuthor;
+    short             iVersion;
+    short             iNumberOfColors;
+    unsigned short    iColor[32];
+    unsigned short    iMask[32];
+    bool              bResource;
+    bool              bLandscape;
+
+    Skin()
+        : pszBitmap(NULL), pszName(NULL), pszAuthor(NULL), iNumberOfColors(0), iVersion(0),
+          bResource(false), bLandscape(false)
+    {
+    }
+
+    ~Skin()
+    {
+        if (pszBitmap)
+            delete [] pszBitmap;
+        if (pszName)
+            delete [] pszName;
+        if (pszAuthor)
+            delete [] pszAuthor;
+    }
+
+    void AddColor(DWORD _dwColor, DWORD _dwMask)
+    {
+        iColor[iNumberOfColors] = ((_dwColor & 0xf80000) >> 8)|((_dwColor & 0xfc00) >> 5)|((_dwColor & 0xf8) >> 3);
+        iMask[iNumberOfColors]  = _dwMask;
+
+        iNumberOfColors++;
+    }
+
+    void AddColor(TCHAR *_pszColor, TCHAR *_pszMask)
+    {
+        DWORD   dwColor = 0;
+        TCHAR  *pszTemp = _pszColor;
+
+        pszTemp += 2;
+
+        dwColor = TextToInt(pszTemp);
+        iColor[iNumberOfColors] = ((dwColor & 0xf80000) >> 8)|((dwColor & 0xfc00) >> 5)|((dwColor & 0xf8) >> 3);
+        iMask[iNumberOfColors]  = DecodeMask(_pszMask);
+
+        iNumberOfColors++;
+    }
+
+    void SetBitmap(TCHAR *_pszBitmap)
+    {
+        pszBitmap = new TCHAR [_tcslen(_pszBitmap) + 1];
+
+        _tcscpy(pszBitmap, _pszBitmap);
+    }
+    
+    void SetName(TCHAR *_pszName)
+    {
+        pszName = new TCHAR [_tcslen(_pszName) + 1];
+
+        _tcscpy(pszName, _pszName);
+    }
+
+    void SetAuthor(TCHAR *_pszAuthor)
+    {
+        static TCHAR *szAuthor = L"Designed by: ";
+
+        pszAuthor = new TCHAR [_tcslen(_pszAuthor) + 1 + _tcslen(szAuthor)];
+
+        _tcscpy(pszAuthor, szAuthor);
+        _tcscat(pszAuthor, _pszAuthor);
+    }
+
+    void LoadBitmap(HBITMAP &_hbmSkin, HDC &_hSkinDC, HINSTANCE &_hInstance, HWND &_hWnd)
+    {
+        if (_hbmSkin)
+            DeleteObject(_hbmSkin);
+        if (_hSkinDC)
+            DeleteObject(_hSkinDC);
+
+        HDC hDC = GetDC(_hWnd);
+
+        if (bResource)
+        {
+            _hbmSkin = ::LoadBitmap(_hInstance, pszBitmap);
+        }
+        else
+        {
+            _hbmSkin = ::SHLoadDIBitmap(pszBitmap);
+        }
+
+        if (_hbmSkin)
+        {
+            _hSkinDC = CreateCompatibleDC(hDC);
+
+	        SelectObject(_hSkinDC, _hbmSkin);
+        }
+
+        ReleaseDC(_hWnd, hDC);
+    }
+
+private:
+
+    DWORD TextToInt(TCHAR *_pszIn)
+    {
+        DWORD dwReturn = 0;
+
+        for (int i = 0; i < (int) _tcslen(_pszIn); i++)
+        {
+            if ((_pszIn[i] >= _T('0')) && (_pszIn[i] <= _T('9')))
+            {
+                dwReturn = (dwReturn * 16) + (_pszIn[i] - _T('0'));
+            }
+            else if ((_pszIn[i] >= _T('A')) && (_pszIn[i] <= _T('F')))
+            {
+                dwReturn = (dwReturn * 16) + (_pszIn[i] - _T('A') + 10);
+            }
+            else if ((_pszIn[i] >= _T('a')) && (_pszIn[i] <= _T('f')))
+            {
+                dwReturn = (dwReturn * 16) + (_pszIn[i] - _T('a') + 10);
+            }
+        }
+
+        return dwReturn;
+    }
+
+    unsigned short DecodeMask(TCHAR *_pszIn)
+    {
+        unsigned short iReturn = 0;
+
+        TCHAR *pszToken = _tcstok(_pszIn, L"+");
+
+        while (pszToken != NULL)
+        {
+            if (_tcsicmp(pszToken, L"n") == 0)
+            {
+                iReturn |= SNES_UP_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"s") == 0)
+            {
+                iReturn |= SNES_DOWN_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"e") == 0)
+            {
+                iReturn |= SNES_RIGHT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"w") == 0)
+            {
+                iReturn |= SNES_LEFT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"ne") == 0)
+            {
+                iReturn |= SNES_UP_MASK|SNES_RIGHT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"se") == 0)
+            {
+                iReturn |= SNES_DOWN_MASK|SNES_RIGHT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"sw") == 0)
+            {
+                iReturn |= SNES_DOWN_MASK|SNES_LEFT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"nw") == 0)
+            {
+                iReturn |= SNES_UP_MASK|SNES_LEFT_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"a") == 0)
+            {
+                iReturn |= SNES_A_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"b") == 0)
+            {
+                iReturn |= SNES_B_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"x") == 0)
+            {
+                iReturn |= SNES_X_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"y") == 0)
+            {
+                iReturn |= SNES_Y_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"l") == 0)
+            {
+                iReturn |= SNES_TL_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"r") == 0)
+            {
+                iReturn |= SNES_TR_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"start") == 0)
+            {
+                iReturn |= SNES_START_MASK;
+            }
+            else if (_tcsicmp(pszToken, L"select") == 0)
+            {
+                iReturn |= SNES_SELECT_MASK;
+            }
+
+            pszToken = _tcstok(NULL, L"+");
+        }
+
+        return iReturn;
+    }
+};
+
+class Keymap
+{
+public:
+    DWORD   dwKeyMask[256];
+
+    Keymap()
+    {
+        memset(dwKeyMask, 0, sizeof(DWORD) * 256);
+    }
+
+    short GetKeyFromMask(DWORD dwMask)
+    {
+        for (short i = 0; i < 256; i++)
+        {
+            if (dwKeyMask[i] == dwMask)
+                return i;
+
+        }
+
+        return 0;
+    }
+
+    LPTSTR GetKeyDisplayFromMask(DWORD dwMask)
+    {
+        static TCHAR szDisplay[10];
+
+        if (dwMask == 0)
+        {
+            _tcscpy(szDisplay, L"...");
+        }
+        else
+        {
+            short   iKey = GetKeyFromMask(dwMask);
+
+            if (iKey == 0)
+            {
+                _tcscpy(szDisplay, L"...");
+            }
+            else
+            {
+                wsprintf(szDisplay, L"0x%2x", iKey);
+            }
+        }
+
+        return szDisplay;
+    }
+
+    void SetLandscape(Keymap &_kmPortrait)
+    {
+        for (short i = 0; i < 256; i++)
+        {
+            dwKeyMask[i] = _kmPortrait.dwKeyMask[i];
+
+            short iUp    = _kmPortrait.GetKeyFromMask(SNES_UP_MASK);
+            short iDown  = _kmPortrait.GetKeyFromMask(SNES_DOWN_MASK);
+            short iLeft  = _kmPortrait.GetKeyFromMask(SNES_LEFT_MASK);
+            short iRight = _kmPortrait.GetKeyFromMask(SNES_RIGHT_MASK);
+
+            dwKeyMask[iUp]    = SNES_RIGHT_MASK;
+            dwKeyMask[iRight] = SNES_DOWN_MASK;
+            dwKeyMask[iDown]  = SNES_LEFT_MASK;
+            dwKeyMask[iLeft]  = SNES_UP_MASK;
+        }
+    }
+
+    void SetLandscapeRight(Keymap &_kmPortrait)
+    {
+        for (short i = 0; i < 256; i++)
+        {
+            dwKeyMask[i] = _kmPortrait.dwKeyMask[i];
+
+            short iUp    = _kmPortrait.GetKeyFromMask(SNES_UP_MASK);
+            short iDown  = _kmPortrait.GetKeyFromMask(SNES_DOWN_MASK);
+            short iLeft  = _kmPortrait.GetKeyFromMask(SNES_LEFT_MASK);
+            short iRight = _kmPortrait.GetKeyFromMask(SNES_RIGHT_MASK);
+
+            dwKeyMask[iUp]    = SNES_LEFT_MASK;
+            dwKeyMask[iRight] = SNES_UP_MASK;
+            dwKeyMask[iDown]  = SNES_RIGHT_MASK;
+            dwKeyMask[iLeft]  = SNES_DOWN_MASK;
+        }
+    }
+
+    DWORD GetStaticIDFromMask(DWORD dwMask)
+    {
+        switch (dwMask)
+        {
+            case SNES_UP_MASK:
+                return IDC_STATIC_UP;
+
+            case SNES_DOWN_MASK:
+                return IDC_STATIC_DOWN;
+
+            case SNES_LEFT_MASK:
+                return IDC_STATIC_LEFT;
+
+            case SNES_RIGHT_MASK:
+                return IDC_STATIC_RIGHT;
+
+            case SNES_A_MASK:
+                return IDC_STATIC_A;
+
+            case SNES_B_MASK:
+                return IDC_STATIC_B;
+
+            case SNES_X_MASK:
+                return IDC_STATIC_X;
+
+            case SNES_Y_MASK:
+                return IDC_STATIC_Y;
+
+            case SNES_START_MASK:
+                return IDC_STATIC_START;
+
+            case SNES_SELECT_MASK:
+                return IDC_STATIC_SELECT;
+
+            case SNES_TL_MASK:
+                return IDC_STATIC_L;
+
+            case SNES_TR_MASK:
+                return IDC_STATIC_R;
+        }
+
+        return 0;
+    }
+};
+
+//------------------------------------------------------------------------------
+// Global Variables
+//------------------------------------------------------------------------------
+bool				g_bLoop			= true;
+HWND				g_hWnd;
+HINSTANCE			g_hInstance;			// The current instance
+HWND				hwndCB;					// The command bar handle
+HFONT				g_hFontBold;
+HFONT				g_hFontNormal;
+HFONT				g_hFontPaused;
+HFONT				g_hFontHyperlink;
+CVOImage			g_pngLogo;
+HDC                 g_hLogoDC;
+static TCHAR		g_sRootKey[256];
+Skin               *g_pSkins        = NULL;
+int                 g_iSkinCount    = 0;
+int                 g_iSelectedSkin = 0;
+HBITMAP             g_hbmSkin       = NULL;
+HDC                 g_hSkinDC       = NULL;
+Keymap              g_kmDefault;
+Keymap              g_kmCurrent;
+Keymap              g_kmLandscape;
+Keymap             *g_pkmInUse;
+GXKeyList           g_gxKeyList;
+bool                g_bSetButtonMode;
+int                 g_iSetButton;
+RECT                g_rtLink;
+HICON               g_hiLeftArrow;
+HICON               g_hiRightArrow;
+uint32              g_iFrameSkip;
+
+//------------------------------------------------------------------------------
+// Function definitions
+//------------------------------------------------------------------------------
+bool                LoadOptions();
+void                SaveOptions();
+bool                LoadSkins();
+void                SaveSkins();
+bool                CheckKeyPad(int, int, bool);
+void                ShowOptions();
+LRESULT CALLBACK	SystemDlgProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	DisplayDlgProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	SoundDlgProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	SkinsDlgProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	KeysDlgProc(HWND, UINT, WPARAM, LPARAM);
+LRESULT CALLBACK	CreditsDlgProc(HWND, UINT, WPARAM, LPARAM);
+
+ATOM				MyRegisterClass	(HINSTANCE, LPTSTR);
+BOOL				InitInstance	(HINSTANCE, int);
+LRESULT CALLBACK	WndProc			(HWND, UINT, WPARAM, LPARAM);
+HWND				CreateRpCommandBar(HWND);
+
+
+//------------------------------------------------------------------------------
+// Joypad definitions
+//      Eight directions
+//      Eight buttons - start, select, A, B, X, Y, L, R
+//------------------------------------------------------------------------------
+#define KP_JOYPAD_N         0
+#define KP_JOYPAD_E         1
+#define KP_JOYPAD_S         2
+#define KP_JOYPAD_W         3
+#define KP_JOYPAD_NE        4
+#define KP_JOYPAD_SE        5
+#define KP_JOYPAD_SW        6
+#define KP_JOYPAD_NW        7
+#define KP_BUTTON_START     8
+#define KP_BUTTON_SELECT    9
+#define KP_BUTTON_A         10
+#define KP_BUTTON_B         11
+#define KP_BUTTON_X         12
+#define KP_BUTTON_Y         13
+#define KP_BUTTON_L         14
+#define KP_BUTTON_R         15
+
+
+
+int WINAPI WinMain(	HINSTANCE hInstance,
+					HINSTANCE hPrevInstance,
+					LPTSTR    lpCmdLine,
+					int       nCmdShow)
+{
+	MSG msg;
+	HACCEL hAccelTable;
+
+	// Perform application initialization:
+	if (!InitInstance (hInstance, nCmdShow)) 
+	{
+		return FALSE;
+	}
+
+	if (!InitializeEmulation(Settings.Transparency, Settings.APUEnabled, Settings.SixteenBitSound))
+	{
+        MessageBox(NULL, L"PocketSNES needs more memory", NULL, MB_OK);
+		return FALSE;
+	}
+
+	S9xSetTitle("");
+    SetKeypad();
+
+	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_POCKETSNES);
+
+	// Main message loop:
+	while (g_bLoop) 
+	{
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+		{
+			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) 
+			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
+			}
+		}
+
+		if (g_emMode == emRunning)
+		{
+#ifdef THREADCPU
+			Sleep(0);
+#else
+			S9xMainLoop();
+#endif
+		}
+	}
+
+    SaveOptions();
+#ifdef __PROFILER
+	__profiler_dump();
+#endif
+	return msg.wParam;
+}
+
+//
+//  FUNCTION: MyRegisterClass()
+//
+//  PURPOSE: Registers the window class.
+//
+//  COMMENTS:
+//
+//    It is important to call this function so that the application 
+//    will get 'well formed' small icons associated with it.
+//
+ATOM MyRegisterClass(HINSTANCE hInstance, LPTSTR szWindowClass)
+{
+	WNDCLASS	wc;
+
+    wc.style			= CS_HREDRAW | CS_VREDRAW;
+    wc.lpfnWndProc		= (WNDPROC) WndProc;
+    wc.cbClsExtra		= 0;
+    wc.cbWndExtra		= 0;
+    wc.hInstance		= hInstance;
+    wc.hIcon			= LoadIcon(hInstance, MAKEINTRESOURCE(IDI_POCKETSNES));
+    wc.hCursor			= 0;
+    wc.hbrBackground	= (HBRUSH) GetStockObject(WHITE_BRUSH);
+    wc.lpszMenuName		= 0;
+    wc.lpszClassName	= szWindowClass;
+
+	return RegisterClass(&wc);
+}
+
+//
+//  FUNCTION: InitInstance(HANDLE, int)
+//
+//  PURPOSE: Saves instance handle and creates main window
+//
+//  COMMENTS:
+//
+//    In this function, we save the instance handle in a global variable and
+//    create and display the main program window.
+//
+BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
+{
+	HWND	hWnd = NULL;
+	TCHAR	szTitle[MAX_LOADSTRING];			// The title bar text
+	TCHAR	szWindowClass[MAX_LOADSTRING];		// The window class name
+
+	g_hInstance = hInstance;		// Store instance handle in our global variable
+
+	// Initialize global strings
+	LoadString(hInstance, IDC_POCKETSNES, szWindowClass, MAX_LOADSTRING);
+	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+
+	//If it is already running, then focus on the window
+	hWnd = FindWindow(szWindowClass, szTitle);	
+	if (hWnd) 
+	{
+		SetForegroundWindow ((HWND) (((DWORD)hWnd) | 0x01));    
+		return FALSE;
+	} 
+
+	MyRegisterClass(hInstance, szWindowClass);
+	
+	RECT	rect;
+	GetClientRect(hWnd, &rect);
+	
+	hWnd = CreateWindow(szWindowClass, szTitle, WS_VISIBLE,
+		                CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+                        NULL, NULL, hInstance, NULL);
+	if (!hWnd)
+	{	
+        MessageBox(NULL, L"PocketSNES failed to initialize", NULL, MB_OK);
+		return FALSE;
+	}
+
+	//When the main window is created using CW_USEDEFAULT the height of the menubar (if one
+	// is created is not taken into account). So we resize the window after creating it
+	// if a menubar is present
+	{
+		RECT rc;
+		GetWindowRect(hWnd, &rc);
+		rc.bottom -= MENU_HEIGHT;
+		if (hwndCB)
+			MoveWindow(hWnd, rc.left, rc.top, rc.right, rc.bottom, FALSE);
+	}
+
+	LOGFONT	lfFont;
+	TCHAR   szFontName[32] = L"Tahoma";
+	HDC		hDC = GetDC(hWnd);
+
+	memset(&lfFont, 0, sizeof(LOGFONT));
+	wcscpy(lfFont.lfFaceName, szFontName);
+	lfFont.lfWeight = FW_BOLD;
+	lfFont.lfHeight = (-12 * GetDeviceCaps(hDC, LOGPIXELSY)) / 72;
+ 	g_hFontBold = CreateFontIndirect(&lfFont);
+
+	lfFont.lfWeight = FW_NORMAL;
+	lfFont.lfHeight = (-10 * GetDeviceCaps(hDC, LOGPIXELSY)) / 72;
+	g_hFontNormal = CreateFontIndirect(&lfFont);
+
+	lfFont.lfUnderline = TRUE;
+	lfFont.lfHeight = (-10 * GetDeviceCaps(hDC, LOGPIXELSY)) / 72;
+	g_hFontHyperlink = CreateFontIndirect(&lfFont);
+
+	lfFont.lfUnderline = FALSE;
+	lfFont.lfWeight = FW_BOLD;
+	g_hFontPaused = CreateFontIndirect(&lfFont);
+	
+    g_hLogoDC = CreateCompatibleDC(hDC);
+
+	g_pngLogo.SetBitmap(g_hLogoDC, IDB_POCKETSNES, TEXT("IMAGE"), GetModuleHandle(NULL));
+	SelectObject(g_hLogoDC, (HBITMAP)g_pngLogo);
+
+    _tcscpy(g_sRootKey, _T("SOFTWARE\\Apps\\PocketSNES"));
+    LoadOptions();
+
+    g_hiLeftArrow  = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_LEFT_ARROW));
+    g_hiRightArrow = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_RIGHT_ARROW));
+
+    LoadSkins();
+    g_pSkins[g_iSelectedSkin].LoadBitmap(g_hbmSkin, g_hSkinDC, g_hInstance, g_hWnd);
+
+	ReleaseDC(hWnd, hDC);
+
+	ShowWindow(hWnd, nCmdShow);
+	UpdateWindow(hWnd);
+
+	g_hWnd = hWnd;
+
+	return TRUE;
+}
+
+//
+//  FUNCTION: WndProc(HWND, unsigned, WORD, LONG)
+//
+//  PURPOSE:  Processes messages for the main window.
+//
+//  WM_COMMAND	- process the application menu
+//  WM_PAINT	- Paint the main window
+//  WM_DESTROY	- post a quit message and return
+//
+//
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	TCHAR szHello[MAX_LOADSTRING];
+
+	switch (message) 
+	{
+		case WM_COMMAND:
+			{
+				int wmId	= LOWORD(wParam); 
+				int	wmEvent = HIWORD(wParam);
+
+					// Parse the menu selections:
+				switch (wmId)
+				{	
+					case IDM_TOOLS_LOAD:
+						//CSNES
+                        //StopEmulation(hWnd, hwndCB);
+						if (LoadROM())  //hack to keep from crashing if no rom
+						{
+							StopEmulation(hWnd, hwndCB);
+							LoadOptions();
+							StartEmulation(hWnd, hwndCB);
+						}
+						break;
+
+					case IDM_OPTIONS_RESET:
+						if(g_emMode != emStopped)
+						{
+							StopEmulation(hWnd, hwndCB);
+							S9xReset();
+							StartEmulation(hWnd, hwndCB);
+						}
+						break;
+
+					case IDM_OPTIONS_DISPLAY:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_DISPLAY, hWnd, (DLGPROC)DisplayDlgProc);
+					    SaveOptions();
+                        break;
+
+					case IDM_OPTIONS_SOUND:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_SOUND, hWnd, (DLGPROC)SoundDlgProc);
+					    SaveOptions();
+                        break;
+
+					case IDM_OPTIONS_SYSTEM:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_SYSTEM, hWnd, (DLGPROC)SystemDlgProc);
+					    SaveOptions();
+                        break;
+
+                    case IDM_OPTIONS_KEYS:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_KEYS, hWnd, (DLGPROC)KeysDlgProc);
+                        break;
+
+                    case IDM_TOOLS_SKINS:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_SKINS, hWnd, (DLGPROC)SkinsDlgProc);
+                        break;
+
+                    case IDM_TOOLS_CREDITS:
+						DialogBox(g_hInstance, (LPCTSTR)IDD_CREDITS, hWnd, (DLGPROC)CreditsDlgProc);
+                        break;
+
+                    case IDM_TOOLS_EXIT:
+						StopEmulation(hWnd, hwndCB);
+                        SendMessage(hWnd, WM_ACTIVATE, MAKEWPARAM(WA_INACTIVE, 0), (LPARAM)hWnd);
+						SendMessage(hWnd, WM_CLOSE, 0, 0);                        
+						g_bLoop = false;
+						break;
+
+                    case IDM_TOOLS_LOADSTATE:
+                        LoadState();
+						//StartEmulation(hWnd, hwndCB);
+                        break;
+					case IDM_TOOLS_LOAD1:
+                        LoadSlot(0);
+                        break;
+					case IDM_TOOLS_LOAD2:
+                        LoadSlot(1);
+                        break;
+					case IDM_TOOLS_LOAD3:
+                        LoadSlot(2);
+                        break;
+					case IDM_TOOLS_LOAD4:
+                        LoadSlot(3);
+                        break;
+					case IDM_TOOLS_LOAD5:
+                        LoadSlot(4);
+                        break;
+					case IDM_TOOLS_LOAD6:
+                        LoadSlot(5);
+                        break;
+					case IDM_TOOLS_LOAD7:
+                        LoadSlot(6);
+                        break;
+					case IDM_TOOLS_LOAD8:
+                        LoadSlot(7);
+                        break;
+					case IDM_TOOLS_LOAD9:
+                        LoadSlot(8);
+                        break;
+
+                    case IDM_TOOLS_SAVESTATE:
+                        SaveState();
+                        break;
+					case IDM_TOOLS_SAVE1:
+                        SaveSlot(0);
+                        break;
+					case IDM_TOOLS_SAVE2:
+                        SaveSlot(1);
+                        break;
+					case IDM_TOOLS_SAVE3:
+                        SaveSlot(2);
+                        break;
+					case IDM_TOOLS_SAVE4:
+                        SaveSlot(3);
+                        break;
+					case IDM_TOOLS_SAVE5:
+                        SaveSlot(4);
+                        break;
+					case IDM_TOOLS_SAVE6:
+                        SaveSlot(5);
+                        break;
+					case IDM_TOOLS_SAVE7:
+                        SaveSlot(6);
+                        break;
+					case IDM_TOOLS_SAVE8:
+                        SaveSlot(7);
+                        break;
+					case IDM_TOOLS_SAVE9:
+                        SaveSlot(8);
+                        break;
+
+					case IDOK:
+						SendMessage(hWnd, WM_ACTIVATE, MAKEWPARAM(WA_INACTIVE, 0), (LPARAM)hWnd);
+						SendMessage(hWnd, WM_CLOSE, 0, 0);
+						break;
+
+					default:
+					   return DefWindowProc(hWnd, message, wParam, lParam);
+				}
+			}
+			break;
+
+		case WM_CREATE:
+			hwndCB = CreateRpCommandBar(hWnd);
+			break;
+
+        case WM_KILLFOCUS:
+			GXSuspend();
+			break;
+
+		case WM_SETFOCUS:
+			GXResume();
+			break;
+
+		case WM_PAINT:
+            if (g_emMode == emStopped)
+			{
+				RECT		rtTop, rtBottom;				
+				PAINTSTRUCT ps;
+				HDC			hDC = BeginPaint(hWnd, &ps);
+
+				GetClientRect(hWnd, &rtTop);
+				rtBottom        = rtTop;
+                g_rtLink        = rtTop;
+				rtBottom.top    = ((rtBottom.bottom - rtBottom.top) / 2) + rtBottom.top + 36;
+                rtBottom.bottom = rtBottom.top + 48;
+                g_rtLink.top    = rtBottom.bottom;
+				rtTop.bottom    = rtBottom.top;
+                rtTop.top       = rtTop.bottom - 36;
+
+				BitBlt(hDC, 0, 8, 240, 113, g_hLogoDC, 0, 0, SRCCOPY);
+
+				LoadString(g_hInstance, IDS_HELLO, szHello, MAX_LOADSTRING);
+				SelectObject(hDC, g_hFontBold);
+				SetTextColor(hDC, COLORREF(0x00ff0000));
+				DrawText(hDC, szHello, _tcslen(szHello), &rtTop, DT_CENTER);
+				
+				LoadString(g_hInstance, IDS_HELLO2, szHello, MAX_LOADSTRING);
+				SelectObject(hDC, g_hFontNormal);
+				SetTextColor(hDC, COLORREF(0x00000000));
+				DrawText(hDC, szHello, _tcslen(szHello), &rtBottom, DT_CENTER);
+
+				LoadString(g_hInstance, IDS_LINK, szHello, MAX_LOADSTRING);
+				SelectObject(hDC, g_hFontHyperlink);
+				SetTextColor(hDC, COLORREF(0x00ff0000));
+				DrawText(hDC, szHello, _tcslen(szHello), &g_rtLink, DT_CENTER);
+				EndPaint(hWnd, &ps);
+			}
+			else if (g_emMode == emPaused)
+			{
+				PAINTSTRUCT ps;
+				HDC			hDC = BeginPaint(hWnd, &ps);
+				RECT		rt  = { 0, 224, 240, 320 - 52 };
+
+				BitBlt(hDC, 0, 0, 240, 224, g_hPausedDC, 0, 0, SRCCOPY);
+
+				LoadString(g_hInstance, IDS_PAUSED, szHello, MAX_LOADSTRING);
+				SelectObject(hDC, g_hFontPaused);
+				SetTextColor(hDC, COLORREF(0x000000ff));
+				DrawText(hDC, szHello, _tcslen(szHello), &rt, DT_CENTER|DT_SINGLELINE|DT_VCENTER);
+
+				EndPaint(hWnd, &ps);
+			}
+			break;
+
+
+		case WM_LBUTTONDOWN:
+            {
+				POINT       ptClick;
+
+				ptClick.x = LOWORD(lParam);
+				ptClick.y = HIWORD(lParam);
+
+			    if (g_emMode == emRunning)
+			    {
+				    static RECT rtScreen = { 0, 0, 240, 180 };
+
+                    if (!CheckKeyPad(ptClick.x, ptClick.y, true))
+                    {
+				        if (PtInRect(&rtScreen, ptClick))
+				        {
+					        PauseEmulation(hWnd, hwndCB);
+				        }
+                    }
+			    }
+			    else if (g_emMode == emPaused)
+			    {
+				    static RECT rtScreen = { 0, 26, 240, 320 - 26 };
+
+				    if (PtInRect(&rtScreen, ptClick))
+				    {
+					    ResumeEmulation(hWnd, hwndCB);
+				    }
+			    }
+                else if (PtInRect(&g_rtLink, ptClick))
+                {
+                    SHELLEXECUTEINFO  seInfo;
+                    TCHAR            *szCommand = _T("\\Windows\\iexplore.exe");
+                    TCHAR            *szURL     = _T("http://www.pocketsnes.com");
+
+                    memset(&seInfo, 0, sizeof(SHELLEXECUTEINFO));
+                    seInfo.cbSize       = sizeof(SHELLEXECUTEINFO);
+                    seInfo.lpFile       = szCommand;
+                    seInfo.lpParameters = szURL;
+                    seInfo.nShow        = SW_SHOW;
+
+                    ShellExecuteEx(&seInfo);
+                }
+            }
+			break;
+
+        case WM_LBUTTONUP:
+            if (g_emMode == emRunning)
+            {
+                CheckKeyPad(LOWORD(lParam), HIWORD(lParam), false);
+            }
+            break;
+
+        case WM_KEYDOWN:
+            g_iJoypadState |= g_pkmInUse->dwKeyMask[(short) wParam];
+			break;
+
+        case WM_KEYUP:
+            g_iJoypadState &= ~(g_pkmInUse->dwKeyMask[(short) wParam]);
+			break;
+
+        case WM_DESTROY:
+            StopEmulation(hWnd, hwndCB);
+			CommandBar_Destroy(hwndCB);
+			PostQuitMessage(0);
+			g_bLoop = false;
+			break;
+
+		case WM_SETTINGCHANGE:
+            {
+                SHACTIVATEINFO  shaInfo;
+
+			    SHHandleWMSettingChange(hWnd, wParam, lParam, &shaInfo);
+            }
+     		break;
+
+		default:
+			return DefWindowProc(hWnd, message, wParam, lParam);
+   }
+
+   return 0;
+}
+
+HWND CreateRpCommandBar(HWND hwnd)
+{
+	SHMENUBARINFO mbi;
+
+	memset(&mbi, 0, sizeof(SHMENUBARINFO));
+	mbi.cbSize     = sizeof(SHMENUBARINFO);
+	mbi.hwndParent = hwnd;
+	mbi.nToolBarId = IDM_MENU;
+	mbi.hInstRes   = g_hInstance;
+	mbi.nBmpId     = 0;
+	mbi.cBmpImages = 0;
+
+	if (!SHCreateMenuBar(&mbi)) 
+		return NULL;
+
+	return mbi.hwndMB;
+}
+
+// Message handler for the options dialog
+LRESULT CALLBACK OptionsDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+                SendMessage(GetDlgItem(hDlg, IDC_TRANSPARENCY), BM_SETCHECK, (WPARAM) (Settings.Transparency == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_LANDSCAPE), BM_SETCHECK, (WPARAM) (g_bLandscape)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_LEFT), BM_SETCHECK, (WPARAM) (g_bLandLeft)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_COMPAT), BM_SETCHECK, (WPARAM) (g_bCompat)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_AUTO), BM_SETCHECK, (WPARAM) (g_bAutoSkip)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SMOOTHSTRETCH), BM_SETCHECK, (WPARAM) (g_bSmoothStretch)?BST_CHECKED:BST_UNCHECKED, 0);
+                SetDlgItemInt(hDlg, IDC_FRAMESKIP, g_iFrameSkip, false);
+                SetDlgItemInt(hDlg, IDC_CYCLES, g_iCycles, false);
+				SendMessage(GetDlgItem(hDlg, IDC_FRAMESKIP), UDM_SETRANGE32, (WPARAM) 1, (LPARAM) 20);
+                SendMessage(GetDlgItem(hDlg, IDC_CYCLES), UDM_SETRANGE32, (WPARAM) 1, (LPARAM) 20);
+                SendMessage(GetDlgItem(hDlg, IDC_SOUND), BM_SETCHECK, (WPARAM) (Settings.APUEnabled == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SIXTEENBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_EIGHTBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == FALSE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETRANGE, (WPARAM)(BOOL) TRUE, (LPARAM) MAKELONG(1,3));
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETPOS, (WPARAM)(BOOL) TRUE, (LPARAM) Settings.SoundPlaybackRate);
+
+                SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+			if (LOWORD(wParam) == IDOK)
+            {
+                Settings.Transparency      = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_TRANSPARENCY), BM_GETCHECK, 0, 0))?TRUE:FALSE;
+                g_bLandscape               = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_LANDSCAPE), BM_GETCHECK, 0, 0))?true:false;
+                g_bLandLeft                = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_LEFT), BM_GETCHECK, 0, 0))?true:false;
+                g_bCompat                  = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_COMPAT), BM_GETCHECK, 0, 0))?true:false;
+                g_bAutoSkip                = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_AUTO), BM_GETCHECK, 0, 0))?true:false;
+                g_bSmoothStretch           = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_SMOOTHSTRETCH), BM_GETCHECK, 0, 0))?true:false;
+                g_iFrameSkip               = GetDlgItemInt(hDlg, IDC_FRAMESKIP, NULL, false);
+                g_iCycles				   = GetDlgItemInt(hDlg, IDC_CYCLES, NULL, false);
+				Settings.CyclesPercentage  = g_iCycles;
+				Settings.APUEnabled        = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_SOUND), BM_GETCHECK, 0, 0))?true:false;
+                Settings.SixteenBitSound   = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_SIXTEENBIT), BM_GETCHECK, 0, 0))?TRUE:FALSE;
+                Settings.SoundPlaybackRate = SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_GETPOS, 0, 0);
+
+                EndDialog(hDlg, LOWORD(wParam));
+				return TRUE;
+			}
+			break;
+
+        case WM_NOTIFY:
+            if ((int) wParam == IDC_SPIN_FRAMESKIP)
+            {
+                LPNMUPDOWN lpnmud = (LPNMUPDOWN) lParam;
+
+                if ((lpnmud->iPos + lpnmud->iDelta) > 20)
+                    return TRUE;
+
+                return FALSE;
+            }
+            break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,153));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(BLACK_BRUSH));
+				Rectangle(hDC, 0, 24, 240, 25);
+
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+// Message handler for the options dialog
+LRESULT CALLBACK DisplayDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+				if(g_bLandscape)
+				{
+					if(g_bSmoothStretch)
+					{
+						if(g_bLandLeft)
+						{
+							SendMessage(GetDlgItem(hDlg, IDC_LANDLEFTSTRETCH), BM_SETCHECK, (WPARAM) (BST_CHECKED), 0);
+						}
+						else
+						{
+							SendMessage(GetDlgItem(hDlg, IDC_LANDRIGHTSTRETCH), BM_SETCHECK, (WPARAM) (BST_CHECKED), 0);
+						}
+					}
+					else
+					{
+						if(g_bLandLeft)
+						{
+							SendMessage(GetDlgItem(hDlg, IDC_LANDLEFT), BM_SETCHECK, (WPARAM) (BST_CHECKED), 0);
+						}
+						else
+						{
+							SendMessage(GetDlgItem(hDlg, IDC_LANDRIGHT), BM_SETCHECK, (WPARAM) (BST_CHECKED), 0);
+						}
+					}
+				}
+				else
+				{
+					SendMessage(GetDlgItem(hDlg, IDC_PORTRAIT), BM_SETCHECK, (WPARAM) (BST_CHECKED), 0);
+				}
+				
+
+				SendMessage(GetDlgItem(hDlg, IDC_DISPLAYFRAMERATE), BM_SETCHECK, (WPARAM) (Settings.DisplayFrameRate == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+
+
+                SendMessage(GetDlgItem(hDlg, IDC_TRANSPARENCY), BM_SETCHECK, (WPARAM) (Settings.Transparency == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_AUTO), BM_SETCHECK, (WPARAM) (g_bAutoSkip)?BST_CHECKED:BST_UNCHECKED, 0);
+                SetDlgItemInt(hDlg, IDC_FRAMESKIP, g_iFrameSkip, false);
+                SetDlgItemInt(hDlg, IDC_CYCLES, g_iCycles, false);
+				SendMessage(GetDlgItem(hDlg, IDC_FRAMESKIP_SLIDER), UDM_SETRANGE32, (WPARAM) 0, (LPARAM) 10);
+                SendMessage(GetDlgItem(hDlg, IDC_CYCLES), UDM_SETRANGE32, (WPARAM) 1, (LPARAM) 20);
+                SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+			if (LOWORD(wParam) == IDOK)
+            {
+                Settings.Transparency      = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_TRANSPARENCY), BM_GETCHECK, 0, 0))?TRUE:FALSE;
+                g_bCompat                  = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_COMPAT), BM_GETCHECK, 0, 0))?true:false;
+                g_bAutoSkip                = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_AUTO), BM_GETCHECK, 0, 0))?true:false;
+                //g_bSmoothStretch           = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_SMOOTHSTRETCH), BM_GETCHECK, 0, 0))?true:false;
+                g_iFrameSkip               = GetDlgItemInt(hDlg, IDC_FRAMESKIP, NULL, false);
+                //g_iCycles				   = GetDlgItemInt(hDlg, IDC_CYCLES, NULL, false);
+				
+				Settings.DisplayFrameRate  = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_DISPLAYFRAMERATE), BM_GETCHECK, 0, 0))?TRUE:FALSE;
+
+
+
+				//Process DisplaySelection
+				//if((BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_PORTRAIT), BM_GETCHECK, 0, 0))?TRUE:FALSE;))
+				if(SendMessage(GetDlgItem(hDlg, IDC_PORTRAIT), BM_GETCHECK, 0, 0))
+				{
+					g_bLandscape = false;
+					g_bLandLeft = false;
+					g_bSmoothStretch = false;
+				}
+
+				if(SendMessage(GetDlgItem(hDlg, IDC_LANDLEFT), BM_GETCHECK, 0, 0))
+				{
+					g_bLandscape = true;
+					g_bLandLeft = true;
+					g_bSmoothStretch = false;
+				}
+
+				if(SendMessage(GetDlgItem(hDlg, IDC_LANDRIGHT), BM_GETCHECK, 0, 0))
+				{
+					g_bLandscape = true;
+					g_bLandLeft = false;
+					g_bSmoothStretch = false;
+				}
+
+				if(SendMessage(GetDlgItem(hDlg, IDC_LANDLEFTSTRETCH), BM_GETCHECK, 0, 0))
+				{
+					g_bLandscape = true;
+					g_bLandLeft = true;
+					g_bSmoothStretch = true;
+				}
+
+				if(SendMessage(GetDlgItem(hDlg, IDC_LANDRIGHTSTRETCH), BM_GETCHECK, 0, 0))
+				{
+					g_bLandscape = true;
+					g_bLandLeft = false;
+					g_bSmoothStretch = true;
+				}
+
+
+                EndDialog(hDlg, LOWORD(wParam));
+				return TRUE;
+			}
+			break;
+
+        case WM_NOTIFY:
+            if ((int) wParam == IDC_SPIN_FRAMESKIP)
+            {
+                LPNMUPDOWN lpnmud = (LPNMUPDOWN) lParam;
+
+                if ((lpnmud->iPos + lpnmud->iDelta) > 20)
+                    return TRUE;
+
+                return FALSE;
+            }
+            break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,0));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(LTGRAY_BRUSH));
+				SelectObject(hDC, CreatePen(PS_NULL,2,RGB(50,50,50)));
+
+				Rectangle(hDC, 5, 20, 235, 21);
+				
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+// Message handler for the options dialog
+LRESULT CALLBACK SoundDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+                SendMessage(GetDlgItem(hDlg, IDC_SOUND), BM_SETCHECK, (WPARAM) (Settings.APUEnabled == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SIXTEENBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_EIGHTBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == FALSE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETRANGE, (WPARAM)(BOOL) TRUE, (LPARAM) MAKELONG(1,7));
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETPOS, (WPARAM)(BOOL) TRUE, (LPARAM) Settings.SoundPlaybackRate);
+
+				//CSNES
+				SendMessage(GetDlgItem(hDlg, IDC_ECHO), BM_SETCHECK, (WPARAM) (Settings.DisableSoundEcho == FALSE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_STEREO), BM_SETCHECK, (WPARAM) (Settings.Stereo == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_REVERSESTEREO), BM_SETCHECK, (WPARAM) (Settings.ReverseStereo == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_SYNCSOUND), BM_SETCHECK, (WPARAM) (Settings.SoundSync == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_INTERPOLATESOUND), BM_SETCHECK, (WPARAM) (Settings.InterpolatedSound == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_ENVELOPEHEIGHT), BM_SETCHECK, (WPARAM) (Settings.SoundEnvelopeHeightReading == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_ALTDECODE), BM_SETCHECK, (WPARAM) (Settings.AltSampleDecode == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_FIXFREQUENCY), BM_SETCHECK, (WPARAM) (Settings.FixFrequency == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+
+
+                SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+			if (LOWORD(wParam) == IDOK)
+            {
+				Settings.APUEnabled = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_SOUND), BM_GETCHECK, 0, 0))?true:false;
+				Settings.SixteenBitSound	= SendMessage(GetDlgItem(hDlg, IDC_SIXTEENBIT), BM_GETCHECK, 0, 0);
+                Settings.SoundPlaybackRate = SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_GETPOS, 0, 0);
+				Settings.Stereo				= SendMessage(GetDlgItem(hDlg, IDC_STEREO)			, BM_GETCHECK, 0, 0);
+				Settings.ReverseStereo		= SendMessage(GetDlgItem(hDlg, IDC_REVERSESTEREO)	, BM_GETCHECK, 0, 0);
+				Settings.DisableSoundEcho	= !(SendMessage(GetDlgItem(hDlg, IDC_ECHO)			, BM_GETCHECK, 0, 0));
+				Settings.InterpolatedSound  = SendMessage(GetDlgItem(hDlg, IDC_INTERPOLATESOUND), BM_GETCHECK, 0, 0);
+				Settings.SoundSync			= SendMessage(GetDlgItem(hDlg, IDC_SYNCSOUND)		, BM_GETCHECK, 0, 0);
+				Settings.FixFrequency		= SendMessage(GetDlgItem(hDlg, IDC_FIXFREQUENCY)		, BM_GETCHECK, 0, 0);
+				Settings.SoundEnvelopeHeightReading		= SendMessage(GetDlgItem(hDlg, IDC_ENVELOPEHEIGHT)		, BM_GETCHECK, 0, 0);
+				Settings.AltSampleDecode	= SendMessage(GetDlgItem(hDlg, IDC_ALTDECODE)		, BM_GETCHECK, 0, 0);
+
+				//CSNES - turning on/off sound involves more than APUEnabled
+				/*
+				Settings.NextAPUEnabled			= Settings.APUEnabled;
+				Settings.DisableSampleCaching	= !(Settings.APUEnabled);
+				Settings.DisableMasterVolume	= !(Settings.APUEnabled);
+				Settings.ThreadSound			= FALSE;
+				Settings.Mute					= !(Settings.APUEnabled);
+				*/
+                EndDialog(hDlg, LOWORD(wParam));
+				return TRUE;
+			}
+			break;
+
+        case WM_NOTIFY:
+            if ((int) wParam == IDC_SPIN_FRAMESKIP)
+            {
+                LPNMUPDOWN lpnmud = (LPNMUPDOWN) lParam;
+
+                if ((lpnmud->iPos + lpnmud->iDelta) > 20)
+                    return TRUE;
+
+                return FALSE;
+            }
+            break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,0));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(LTGRAY_BRUSH));
+				SelectObject(hDC, CreatePen(PS_NULL,2,RGB(50,50,50)));
+
+				Rectangle(hDC, 5, 20, 235, 21);
+				
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+// Message handler for the System dialog
+LRESULT CALLBACK SystemDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+                //SendMessage(GetDlgItem(hDlg, IDC_TRANSPARENCY), BM_SETCHECK, (WPARAM) (Settings.Transparency == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                //SendMessage(GetDlgItem(hDlg, IDC_LANDSCAPE), BM_SETCHECK, (WPARAM) (g_bLandscape)?BST_CHECKED:BST_UNCHECKED, 0);
+                //SendMessage(GetDlgItem(hDlg, IDC_LEFT), BM_SETCHECK, (WPARAM) (g_bLandLeft)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_COMPAT), BM_SETCHECK, (WPARAM) (g_bCompat)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_AUTO), BM_SETCHECK, (WPARAM) (g_bAutoSkip)?BST_CHECKED:BST_UNCHECKED, 0);
+                //SendMessage(GetDlgItem(hDlg, IDC_SMOOTHSTRETCH), BM_SETCHECK, (WPARAM) (g_bSmoothStretch)?BST_CHECKED:BST_UNCHECKED, 0);
+                SetDlgItemInt(hDlg, IDC_FRAMESKIP, g_iFrameSkip, false);
+                SetDlgItemInt(hDlg, IDC_CYCLES, g_iCycles, false);
+				SendMessage(GetDlgItem(hDlg, IDC_FRAMESKIP), UDM_SETRANGE32, (WPARAM) 1, (LPARAM) 20);
+                SendMessage(GetDlgItem(hDlg, IDC_CYCLES), UDM_SETRANGE32, (WPARAM) 1, (LPARAM) 20);
+                SendMessage(GetDlgItem(hDlg, IDC_SOUND), BM_SETCHECK, (WPARAM) (Settings.APUEnabled == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SIXTEENBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == TRUE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_EIGHTBIT), BM_SETCHECK, (WPARAM) (Settings.SixteenBitSound == FALSE)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETRANGE, (WPARAM)(BOOL) TRUE, (LPARAM) MAKELONG(1,3));
+                SendMessage(GetDlgItem(hDlg, IDC_SOUNDQUALITY), TBM_SETPOS, (WPARAM)(BOOL) TRUE, (LPARAM) Settings.SoundPlaybackRate);
+
+				//CSNES
+				SendMessage(GetDlgItem(hDlg, IDC_RESUMEAFTERLOADSTATE), BM_SETCHECK, (WPARAM) (g_bResumeAfterLoadState)?BST_CHECKED:BST_UNCHECKED, 0);
+                SendMessage(GetDlgItem(hDlg, IDC_RESUMEAFTERSAVESTATE), BM_SETCHECK, (WPARAM) (g_bResumeAfterSaveState)?BST_CHECKED:BST_UNCHECKED, 0);
+				SendMessage(GetDlgItem(hDlg, IDC_DISPLAYFRAMERATE), BM_SETCHECK, (WPARAM) (Settings.DisplayFrameRate)?BST_CHECKED:BST_UNCHECKED, 0);
+
+                SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+			if (LOWORD(wParam) == IDOK)
+            {
+				g_iCycles				   = GetDlgItemInt(hDlg, IDC_CYCLES, NULL, false);
+				Settings.CyclesPercentage  = g_iCycles;
+				
+				//CSNES
+				g_bResumeAfterLoadState = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_RESUMEAFTERLOADSTATE), BM_GETCHECK, 0, 0))?true:false;
+				g_bResumeAfterSaveState = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_RESUMEAFTERSAVESTATE), BM_GETCHECK, 0, 0))?true:false;
+				Settings.DisplayFrameRate = (BST_CHECKED == SendMessage(GetDlgItem(hDlg, IDC_DISPLAYFRAMERATE), BM_GETCHECK, 0, 0))?true:false;
+
+                EndDialog(hDlg, LOWORD(wParam));
+				return TRUE;
+			}
+			break;
+
+        case WM_NOTIFY:
+            if ((int) wParam == IDC_SPIN_FRAMESKIP)
+            {
+                LPNMUPDOWN lpnmud = (LPNMUPDOWN) lParam;
+
+                if ((lpnmud->iPos + lpnmud->iDelta) > 20)
+                    return TRUE;
+
+                return FALSE;
+            }
+            break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,0));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(LTGRAY_BRUSH));
+				SelectObject(hDC, CreatePen(PS_NULL,2,RGB(50,50,50)));
+
+				Rectangle(hDC, 5, 20, 235, 21);
+				
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+
+
+// Message handler for the options dialog
+LRESULT CALLBACK SkinsDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+            	SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+            {
+                static RECT rtPaint = { 0, 28, 240, 240 };
+
+                switch (LOWORD(wParam))
+                {
+                    case IDOK:
+	    			    EndDialog(hDlg, LOWORD(wParam));
+		    		    return TRUE;
+
+                    case IDC_BUTTON_PREVIOUS:
+                        g_iSelectedSkin--;
+                        if (g_iSelectedSkin < 0)
+                            g_iSelectedSkin = g_iSkinCount - 1;
+                        g_pSkins[g_iSelectedSkin].LoadBitmap(g_hbmSkin, g_hSkinDC, g_hInstance, g_hWnd);
+                        InvalidateRect(hDlg, &rtPaint, TRUE);
+                        break;
+
+                    case IDC_BUTTON_NEXT:
+                        g_iSelectedSkin = (g_iSelectedSkin + 1) % g_iSkinCount;
+                        g_pSkins[g_iSelectedSkin].LoadBitmap(g_hbmSkin, g_hSkinDC, g_hInstance, g_hWnd);
+                        InvalidateRect(hDlg, &rtPaint, TRUE);
+                        break;
+			    }
+            }
+			break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,153));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+                RECT        rtName   = { 0, 28, 240, 48 };
+                RECT        rtAuthor = { 0, 160, 240, 180 };
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(BLACK_BRUSH));
+				Rectangle(hDC, 0, 24, 240, 25);
+
+				Rectangle(hDC, 0, 51, 240, 52);
+                if (g_pSkins[g_iSelectedSkin].bLandscape)
+                {
+                    BitBlt(hDC, 0, 52, 240, 64, g_hSkinDC, 0, 0, SRCCOPY);
+				    Rectangle(hDC, 0, 52 + 96, 240, 52 + 64 + 1);
+                }
+                else
+                {
+                    BitBlt(hDC, 0, 52, 240, 96, g_hSkinDC, 0, 0, SRCCOPY);
+				    Rectangle(hDC, 0, 52 + 96, 240, 52 + 96 + 1);
+                }
+
+                SelectObject(hDC, g_hFontPaused);
+                SetTextColor(hDC, COLORREF(0x00000000));
+                DrawText(hDC, g_pSkins[g_iSelectedSkin].pszName, _tcslen(g_pSkins[g_iSelectedSkin].pszName), &rtName, DT_CENTER|DT_SINGLELINE|DT_VCENTER);
+                SelectObject(hDC, g_hFontNormal);
+                SetTextColor(hDC, COLORREF(0x0000000));
+                DrawText(hDC, g_pSkins[g_iSelectedSkin].pszAuthor, _tcslen(g_pSkins[g_iSelectedSkin].pszAuthor), &rtAuthor, DT_CENTER|DT_SINGLELINE|DT_VCENTER);
+
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        case WM_DRAWITEM:
+            {
+                DRAWITEMSTRUCT *psDrawItem = (LPDRAWITEMSTRUCT) lParam;
+
+                if (psDrawItem->CtlID == IDC_BUTTON_PREVIOUS)
+                    DrawIcon(psDrawItem->hDC, 0, 0, g_hiLeftArrow);
+                else
+                    DrawIcon(psDrawItem->hDC, 0, 0, g_hiRightArrow);
+            }
+            return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+#define SETBUTTON(a,b) \
+    { \
+        DWORD dwCurrentMask = g_kmCurrent.dwKeyMask[vkKey]; \
+        if (dwCurrentMask != 0) \
+            SendMessage(GetDlgItem(GetParent(hWnd), g_kmCurrent.GetStaticIDFromMask(dwCurrentMask)), WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(0)); \
+        g_kmCurrent.dwKeyMask[g_kmCurrent.GetKeyFromMask(a)] = 0; \
+        g_kmCurrent.dwKeyMask[vkKey] = a; \
+        SendMessage(GetDlgItem(GetParent(hWnd), b), WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(a)); \
+    }
+
+DWORD   g_pOriginalWndProc = NULL;
+
+LRESULT CALLBACK ButtonProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+    switch (message)
+    {
+        case WM_GETDLGCODE:
+            return DLGC_WANTARROWS|DLGC_WANTALLKEYS;
+
+        case WM_KEYDOWN:
+            if (g_bSetButtonMode)
+            {
+                short vkKey = (short) wParam;
+
+                if (vkKey == VK_LWIN)
+                    return TRUE;
+
+                switch (g_iSetButton)
+                {
+                    case IDC_BUTTON_UP:
+                        SETBUTTON(SNES_UP_MASK, IDC_STATIC_UP);
+                        break;
+
+                    case IDC_BUTTON_DOWN:
+                        SETBUTTON(SNES_DOWN_MASK, IDC_STATIC_DOWN);
+                        break;
+
+                    case IDC_BUTTON_LEFT:
+                        SETBUTTON(SNES_LEFT_MASK, IDC_STATIC_LEFT);
+                        break;
+
+                    case IDC_BUTTON_RIGHT:
+                        SETBUTTON(SNES_RIGHT_MASK, IDC_STATIC_RIGHT);
+                        break;
+
+                    case IDC_BUTTON_A:
+                        SETBUTTON(SNES_A_MASK, IDC_STATIC_A);
+                        break;
+
+                    case IDC_BUTTON_B:
+                        SETBUTTON(SNES_B_MASK, IDC_STATIC_B);
+                        break;
+
+                    case IDC_BUTTON_X:
+                        SETBUTTON(SNES_X_MASK, IDC_STATIC_X);
+                        break;
+
+                    case IDC_BUTTON_Y:
+                        SETBUTTON(SNES_Y_MASK, IDC_STATIC_Y);
+                        break;
+
+                    case IDC_BUTTON_START:
+                        SETBUTTON(SNES_START_MASK, IDC_STATIC_START);
+                        break;
+
+                    case IDC_BUTTON_SELECT:
+                        SETBUTTON(SNES_SELECT_MASK, IDC_STATIC_SELECT);
+                        break;
+
+                    case IDC_BUTTON_L:
+                        SETBUTTON(SNES_TL_MASK, IDC_STATIC_L);
+                        break;
+
+                    case IDC_BUTTON_R:
+                        SETBUTTON(SNES_TR_MASK, IDC_STATIC_R);
+                        break;
+                }
+
+                g_bSetButtonMode = false;
+
+                GXCloseInput();
+
+                return TRUE;
+            }
+            break;
+
+        default:
+            break;
+    }
+
+    return CallWindowProc((WNDPROC) g_pOriginalWndProc, hWnd, message, wParam, lParam);
+}
+
+// Message handler for the keys dialog
+LRESULT CALLBACK KeysDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_UP),     WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_UP_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_DOWN),   WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_DOWN_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_LEFT),   WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_LEFT_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_RIGHT),  WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_RIGHT_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_B),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_B_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_A),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_A_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_Y),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_Y_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_X),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_X_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_START),  WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_START_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_SELECT), WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_SELECT_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_L),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_TL_MASK));
+                SendMessage(GetDlgItem(hDlg, IDC_STATIC_R),      WM_SETTEXT, 0, (LPARAM)(LPCTSTR) g_kmCurrent.GetKeyDisplayFromMask(SNES_TR_MASK));
+
+                g_bSetButtonMode = false;
+
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_UP),     GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_DOWN),   GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_LEFT),   GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_RIGHT),  GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_A),      GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_B),      GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_X),      GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_Y),      GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_START),  GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_SELECT), GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_L),      GWL_WNDPROC, (DWORD) ButtonProc);
+                g_pOriginalWndProc = SetWindowLong(GetDlgItem(hDlg, IDC_BUTTON_R),      GWL_WNDPROC, (DWORD) ButtonProc);
+
+            	SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+            {
+                switch (LOWORD(wParam))
+                {
+                    case IDOK:
+	    			    EndDialog(hDlg, LOWORD(wParam));
+		    		    return TRUE;
+
+                    case IDC_BUTTON_UP:
+                    case IDC_BUTTON_DOWN:
+                    case IDC_BUTTON_LEFT:
+                    case IDC_BUTTON_RIGHT:
+                    case IDC_BUTTON_A:
+                    case IDC_BUTTON_B:
+                    case IDC_BUTTON_X:
+                    case IDC_BUTTON_Y:
+                    case IDC_BUTTON_START:
+                    case IDC_BUTTON_SELECT:
+                    case IDC_BUTTON_L:
+                    case IDC_BUTTON_R:
+                        if (!g_bSetButtonMode)
+                        {
+                            if (GXOpenInput() != 0)
+                            {
+                                g_bSetButtonMode = true;
+                                g_iSetButton     = LOWORD(wParam);
+                            }
+                        }
+                        else
+                        {
+                            // g_bSetButtonMode = false;
+                        }
+                        return TRUE;
+
+                    default:
+                        break;
+			    }
+            }
+			break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if ((GetDlgCtrlID(hctl) != IDC_STATIC_TITLE) &&
+                    (GetDlgCtrlID(hctl) != IDC_STATIC_INFO))
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+                if (GetDlgCtrlID(hctl) == IDC_STATIC_TITLE)
+				    SetTextColor(hDC, RGB(0,0,153));
+                else
+				    SetTextColor(hDC, RGB(0,0,0));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(BLACK_BRUSH));
+				Rectangle(hDC, 0, 24, 240, 25);
+
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+#define CREDITS_LENGTH  4000
+
+// Message handler for the credits dialog
+LRESULT CALLBACK CreditsDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+		case WM_INITDIALOG:
+            {
+                TCHAR   szCredits[CREDITS_LENGTH];
+                int     iLength;
+
+                LoadString(g_hInstance, IDS_CREDITS0, szCredits, CREDITS_LENGTH);
+                iLength = _tcslen(szCredits);
+                LoadString(g_hInstance, IDS_CREDITS1, &(szCredits[iLength]), CREDITS_LENGTH - iLength);
+                iLength = _tcslen(szCredits);
+                LoadString(g_hInstance, IDS_CREDITS2, &(szCredits[iLength]), CREDITS_LENGTH - iLength);
+
+                SendMessage(GetDlgItem(hDlg, IDC_CREDITS), WM_SETTEXT, (WPARAM) 0, (LPARAM)(LPCTSTR) szCredits);
+                SendMessage(GetDlgItem(hDlg, IDC_CREDITS), EM_SETSEL, (WPARAM)(INT) -1, (LPARAM) 0);
+
+                SHINITDLGINFO shidi;
+
+				// Create a Done button and size it.
+				shidi.dwMask  = SHIDIM_FLAGS;
+				shidi.dwFlags = SHIDIF_DONEBUTTON | SHIDIF_SIZEDLGFULLSCREEN;
+				shidi.hDlg    = hDlg;
+				
+				//initialzes the dialog based on the dwFlags parameter
+				SHInitDialog(&shidi);
+
+        		RECT  rc;
+                HWND  hDlgItem = GetDlgItem(hDlg, IDC_CREDITS);
+
+                rc.top    = 25;
+                rc.left   = 0;
+                rc.right  = 240;
+                rc.bottom = 320 - 26 - 25;
+		        MoveWindow(hDlgItem, rc.left, rc.top, rc.right, rc.bottom - rc.top, TRUE);
+            }
+            return TRUE; 
+
+		case WM_COMMAND:
+			if (LOWORD(wParam) == IDOK)
+            {
+				EndDialog(hDlg, LOWORD(wParam));
+				return TRUE;
+			}
+			break;
+
+        case WM_CTLCOLORSTATIC:
+			{
+				HDC		hDC  = (HDC) wParam;
+				HWND	hctl = (HWND) lParam;
+				LOGFONT lf;
+
+				if (GetDlgCtrlID(hctl) != IDC_STATIC_TITLE)
+					return DefWindowProc(hDlg, message, wParam, lParam);
+
+				lf.lfWeight			= FW_BOLD;
+				lf.lfEscapement		= 0;
+				lf.lfOrientation	= 0;
+				lf.lfHeight			= 13;
+				lf.lfWidth			= 0;
+				lf.lfCharSet		= DEFAULT_CHARSET;
+				lf.lfClipPrecision	= CLIP_DEFAULT_PRECIS;
+				lf.lfItalic			= FALSE;
+				lf.lfUnderline		= FALSE;
+				lf.lfStrikeOut      = FALSE;
+				lf.lfQuality        = DEFAULT_QUALITY;
+				lf.lfOutPrecision   = OUT_DEFAULT_PRECIS;
+				lf.lfPitchAndFamily = FF_SWISS | DEFAULT_PITCH;
+
+				_tcscpy(lf.lfFaceName, _T("Tahoma"));
+
+				SelectObject(hDC, CreateFontIndirect(&lf));
+				SetTextColor(hDC, RGB(0,0,153));
+
+				return (BOOL) GetSysColorBrush(COLOR_STATIC);
+			}
+
+        case WM_PAINT:
+			{
+				HDC         hDC;
+				PAINTSTRUCT ps;
+
+				hDC = BeginPaint(hDlg, &ps); // begin painting for window
+				
+				SelectObject(hDC, GetStockObject(BLACK_BRUSH));
+				Rectangle(hDC, 0, 24, 240, 25);
+
+				EndPaint(hDlg, &ps);
+			}
+			return TRUE;
+
+        default:
+			return DefWindowProc(hDlg, message, wParam, lParam);
+	}
+
+    return 0;
+}
+
+//      Eight directions
+//      Eight buttons - start, select, A, B, X, Y, L, R
+
+bool CheckKeyPad(int _iX, int _iY, bool _bDown)
+{
+    if (g_bLandscape || (g_pKeypad == NULL) || (_iY < 224))
+        return false;
+
+    DWORD dwColor = *(g_pKeypad + _iX + ((96 - (_iY - 224)) * 240));
+
+    for (int i = 0; i < g_pSkins[g_iSelectedSkin].iNumberOfColors; i++)
+    {
+        if (dwColor == g_pSkins[g_iSelectedSkin].iColor[i])
+        {
+            if (_bDown)
+                g_iJoypadState |= g_pSkins[g_iSelectedSkin].iMask[i];
+            else
+                g_iJoypadState &= ~(g_pSkins[g_iSelectedSkin].iMask[i]);
+
+            return true;
+        }
+    }
+
+    return false;
+}
+

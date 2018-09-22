@@ -1,0 +1,136 @@
+172
+3, 5, 6, 7, 8, 8, 8, 9, 9, 9, 13, 16, 17, 18, 19, 19, 19, 20, 20, 20, 22, 22, 22, 24, 25, 26, 27, 27, 27, 28, 28, 28, 29, 29, 29, 30, 31, 32, 36, 37, 38, 40, 43, 44, 45, 45, 46, 46, 46, 47, 48, 49, 51, 51, 54, 55, 56, 56, 56, 57, 57, 57, 60, 61, 62, 62, 63, 64, 64, 64, 65, 66, 67, 69, 70, 71, 71, 71, 71, 72, 72, 73, 73, 73, 73, 75, 76, 77, 77, 77, 78, 78, 78, 79, 79, 79, 80, 81, 81, 81, 82, 82, 82, 83, 83, 83, 84, 85, 86, 86, 86, 86, 87, 87, 87, 87, 88, 89, 89, 89, 90, 91, 93, 94, 94, 94, 95, 96, 98, 98, 98, 99, 99, 99, 100, 100, 100, 101, 101, 101, 102, 102, 102, 104, 104, 104, 105, 106, 106, 107, 107, 107, 108, 108, 109, 111, 114, 115, 116, 117, 117, 117, 118, 122, 123, 127, 128, 131, 132, 133, 133, 133
+#include "Game.h"
+#include "Log.h"
+#include "2dpq.h"
+
+CGame::CGame( C2dpq* in2dpq )
+{
+	m_2dpq = in2dpq;
+	m_Console.SetGame( this );
+	m_Client.SetGame( this );
+}
+
+CGame::~CGame()
+{
+}
+
+void CGame::Update( HWND inHWND )
+{
+	TTimeUnit theTime = m_Timer.GetTimeMilliSecs();
+	m_Server.Update( theTime );
+	m_Client.Update( theTime, inHWND );
+
+	m_Console.Update( theTime );
+
+	m_InputSyncPrimitive.Grab();
+		char* theString = 0;
+		while( theString = m_InputCommandQueue.TakeFromFront( ) )
+		{
+			CLog::Print( "Game processing input: %s\n", theString );
+			ParseCommand( theString );
+			delete[] theString;
+		}
+	m_InputSyncPrimitive.Drop();
+}
+
+void CGame::Render()
+{
+	m_Client.Render();
+	m_Console.Render();
+
+	glFlush();
+}
+
+bool CGame::Keyboard( unsigned int inMessage, bool inKeyDownFlag )
+{
+	if( 192 == inMessage && inKeyDownFlag ) // '~'
+	{
+		m_Console.Toggle();
+		return false;
+	}
+
+	return m_Client.Keyboard( inMessage, inKeyDownFlag ) && m_Console.Keyboard( inMessage, inKeyDownFlag );
+}
+
+void CGame::HandleChar( char inChar )
+{
+	m_Client.HandleChar( inChar );
+	m_Console.HandleChar( inChar );
+}
+
+void CGame::ParseCommand( char* inString )
+{
+	int theInputLength = (int)strlen(inString);
+	if( theInputLength == 0 )
+	{
+		// Empty input
+		return;
+	}
+
+	// Copy string because tokenization apparently damages the original pointer.
+	char* theString = new char[ theInputLength+1 ];
+	strcpy( theString, inString );
+	
+	char* theToken = strtok( theString, " " );
+
+	// Check for commands
+	if( 0 == strcmp( theToken, "StartServer" ) ||
+		0 == strcmp( theToken, "SS" ) )
+	{
+		m_Server.StartServer( );
+	}
+	else if( 0 == strcmp( theToken, "ConnectToServer" ) ||
+			 0 == strcmp( theToken, "CTS" ) )
+	{
+		char* theHost;
+		char* thePort;
+		theHost = strtok( 0, " " );
+		thePort = strtok( 0, " " );
+		if( theHost == 0 )
+		{
+			theHost = "localhost";
+		}
+
+		if( thePort == 0 )
+		{
+			thePort = "42000";
+		}
+
+		CLog::Print( "Connecting to Server...\n - Host: " );
+		CLog::Print( theHost );
+		CLog::Print( "\n - Port: " );
+		CLog::Print( thePort );
+		CLog::Print( "\n" );
+
+		m_Client.ConnectToServer( theHost, thePort );
+	}
+	else
+	{
+        m_Client.Write( inString );
+	}
+
+	delete[] theString;
+}
+
+void CGame::SendInput( char* inString )
+{
+	m_InputSyncPrimitive.Grab();
+		m_InputCommandQueue.AddToBack( inString );
+	m_InputSyncPrimitive.Drop();
+}
+
+int CGame::GetScreenWidth()
+{
+	return m_2dpq->m_Window.m_Width;
+}
+
+int CGame::GetScreenHeight()
+{
+	return m_2dpq->m_Window.m_Height;
+}
+
+void CGame::MouseWheel( int inDistance )
+{
+	m_Client.MouseWheel( inDistance );
+}

@@ -1,0 +1,919 @@
+1029
+6, 16, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 30, 30, 31, 32, 34, 35, 35, 35, 36, 37, 38, 39, 41, 42, 42, 42, 43, 44, 44, 45, 46, 46, 47, 48, 49, 50, 51, 53, 54, 54, 54, 55, 56, 57, 57, 57, 58, 59, 61, 62, 62, 62, 63, 64, 66, 67, 69, 70, 70, 70, 71, 73, 74, 74, 74, 75, 76, 76, 76, 77, 78, 79, 80, 82, 83, 83, 83, 84, 85, 86, 87, 88, 88, 89, 89, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99, 101, 102, 102, 102, 103, 104, 106, 107, 107, 107, 108, 109, 109, 109, 110, 111, 112, 113, 115, 116, 116, 116, 117, 118, 120, 121, 121, 121, 122, 123, 124, 124, 124, 125, 126, 127, 127, 127, 128, 128, 128, 129, 130, 130, 130, 131, 132, 133, 134, 135, 136, 137, 137, 138, 138, 138, 139, 140, 141, 142, 142, 143, 143, 143, 144, 145, 145, 145, 146, 147, 148, 148, 149, 149, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 158, 159, 159, 159, 160, 161, 162, 163, 164, 164, 164, 165, 166, 167, 167, 167, 168, 169, 170, 170, 170, 171, 171, 171, 172, 173, 173, 173, 174, 175, 176, 177, 178, 179, 180, 180, 181, 181, 181, 182, 183, 184, 185, 185, 186, 186, 186, 187, 188, 188, 188, 189, 190, 191, 191, 192, 192, 192, 193, 194, 195, 196, 197, 198, 198, 199, 200, 201, 202, 203, 204, 205, 207, 208, 208, 209, 211, 212, 212, 212, 213, 214, 215, 216, 218, 219, 219, 219, 220, 221, 222, 223, 223, 224, 224, 224, 225, 226, 227, 228, 230, 231, 232, 239, 256, 276, 280, 281, 282, 283, 284, 285, 286, 289, 290, 291, 291, 291, 292, 293, 294, 295, 297, 297, 298, 299, 300, 301, 302, 302, 302, 303, 305, 305, 306, 306, 306, 307, 308, 310, 311, 311, 311, 312, 313, 315, 316, 316, 316, 317, 317, 318, 318, 319, 320, 321, 321, 321, 322, 323, 323, 323, 324, 325, 325, 326, 326, 326, 327, 328, 329, 330, 331, 333, 334, 334, 334, 335, 336, 336, 336, 337, 338, 338, 338, 339, 340, 340, 340, 340, 341, 342, 343, 344, 345, 346, 348, 349, 350, 351, 351, 351, 352, 352, 352, 353, 354, 355, 355, 355, 356, 357, 357, 357, 357, 358, 359, 360, 362, 363, 363, 364, 365, 365, 365, 366, 367, 368, 369, 370, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 390, 391, 391, 392, 392, 392, 393, 394, 395, 396, 398, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 407, 407, 408, 410, 410, 411, 411, 411, 412, 413, 415, 416, 416, 416, 417, 418, 420, 421, 421, 421, 422, 423, 423, 423, 424, 425, 426, 426, 426, 427, 427, 427, 428, 429, 430, 430, 431, 431, 431, 432, 433, 434, 435, 436, 438, 439, 439, 439, 440, 441, 442, 444, 445, 445, 445, 446, 447, 447, 447, 448, 449, 449, 450, 450, 451, 451, 452, 453, 454, 455, 457, 458, 458, 459, 460, 461, 462, 463, 464, 465, 466, 468, 469, 469, 470, 471, 471, 471, 472, 473, 474, 475, 476, 477, 478, 478, 478, 479, 479, 479, 480, 481, 482, 483, 484, 485, 486, 486, 486, 487, 487, 487, 488, 489, 491, 492, 492, 492, 493, 494, 495, 495, 495, 496, 497, 498, 498, 498, 499, 499, 499, 500, 501, 501, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 511, 512, 512, 512, 513, 514, 515, 516, 516, 517, 517, 517, 518, 519, 519, 519, 520, 521, 522, 522, 523, 523, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 537, 538, 538, 538, 539, 540, 541, 542, 543, 543, 543, 544, 545, 546, 546, 546, 547, 548, 549, 549, 549, 550, 550, 550, 551, 552, 552, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 561, 562, 562, 562, 563, 564, 565, 566, 566, 567, 567, 567, 568, 569, 569, 569, 570, 571, 572, 572, 573, 573, 573, 574, 575, 576, 577, 578, 579, 579, 580, 581, 582, 583, 585, 586, 587, 588, 589, 590, 592, 593, 593, 594, 595, 596, 597, 598, 600, 601, 601, 602, 603, 608, 611, 612, 613, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 632, 633, 634, 635, 636, 637, 642, 643, 643, 644, 654, 659, 659, 662, 662, 665, 666, 666, 667, 668, 668, 668, 669, 670, 671, 672, 673, 674, 675, 676, 679, 680, 680, 681, 681, 684, 685, 685, 689, 689, 690, 690, 690, 694, 694, 695, 697, 697, 701, 701, 702, 702, 702, 706, 706, 707, 709, 709, 713, 714, 714, 714, 718, 719, 719, 721, 721, 725, 725, 726, 727, 727, 728, 728, 729, 729, 730, 730, 730, 734, 735, 736, 736, 736, 737, 738, 739, 740, 741, 741, 742, 743, 743, 743, 743, 744, 745, 746, 746, 750, 751, 752, 752, 752, 753, 754, 755, 756, 757, 757, 761, 762, 762, 763, 764, 764, 764, 764, 765, 766, 767, 767, 771, 772, 773, 773, 773, 774, 775, 777, 778, 779, 779, 780, 781, 781, 782, 783, 783, 787, 788, 788, 789, 790, 790, 790, 790, 791, 792, 793, 793, 793, 794, 795, 796, 796, 800, 801, 802, 802, 802, 806, 807, 807, 807, 811, 811, 812, 813, 813, 813, 814, 815, 816, 817, 818, 818, 818, 819, 820, 821, 822, 823, 823, 827, 827, 828, 828, 829, 829, 830, 831, 832, 833, 833, 834, 835, 836, 837, 837, 837, 838, 838, 838, 839, 841, 841, 845, 845, 846, 846, 847, 847, 848, 849, 850, 850, 851, 852, 853, 855, 856, 856, 857, 858, 859, 860, 861, 861, 861, 862, 862, 862, 863, 865, 865, 869, 869, 870, 871, 871, 872, 873, 873, 874, 875, 876, 877, 877, 877, 878, 878, 878, 879, 881, 881, 882, 883, 887, 887, 888, 889, 889, 890, 891, 891, 891, 892, 893, 894, 895, 896, 896, 897, 898, 898, 899, 900, 901, 901, 901, 901, 902, 903, 904, 904, 904, 905, 906, 907, 907, 908, 913, 915, 539
+#include <e32base.h>
+#include <f32file.h>
+#include <in_sock.h>
+
+extern "C"
+{
+#include "IoState.h"
+#include "IoNIL.h"
+#include "IoMessage.h"
+#include "IoNumber.h"
+}
+
+#include "SymbianMain.h"
+#include "SymbianSockets.h"
+
+#define min(a,b) ((a) < (b) ? (a) : (b))
+#define SOCKET_BUFFER_SIZE 2048
+
+class InternalSocket
+{
+public:
+	RSocket socket;
+	char buffer[SOCKET_BUFFER_SIZE];
+	int bufferTop;
+	int bufferBottom;
+
+	InternalSocket() :
+		bufferTop(0),
+		bufferBottom(0)
+	{
+		memset(buffer, 0, sizeof(buffer));
+	}
+
+	void ResetBuffer()
+	{
+		bufferTop = 0;
+		bufferBottom = 0;
+		memset(buffer, 0, sizeof(buffer));
+	}
+
+	TInt ReadIntoBuffer()
+	{
+		TRequestStatus status;
+		TPtr8 ptr8((TUint8*)buffer, sizeof(buffer), sizeof(buffer));
+		TSockXfrLength tlen;
+		socket.RecvOneOrMore(ptr8, 0, status, tlen);	
+		User::WaitForRequest(status);
+		bufferTop = tlen();
+		bufferBottom = 0;
+		return status.Int();
+	}
+
+	TInt ReadChar(char* ch)
+	{
+		TInt status = KErrNone;
+		if(bufferTop == bufferBottom)
+		{
+			status = ReadIntoBuffer();
+		}
+
+		if(status == KErrNone)
+		{
+			*ch = buffer[bufferBottom++];
+		}
+
+		return status;
+	}
+
+	TInt ReadAllChars(char* ch, int length)
+	{
+		TInt status = KErrNone;
+
+		while(length > 0)
+		{
+			if(bufferTop == bufferBottom)
+			{
+				status = ReadIntoBuffer();
+				if(status != KErrNone)
+					break;
+			}
+
+			if(bufferTop - bufferBottom >= length)
+			{
+				memcpy(ch, buffer + bufferBottom, length);
+				bufferBottom += length;
+				length = 0;
+			}
+			else
+			{
+				int l = min(length, bufferTop - bufferBottom);
+				memcpy(ch, buffer + bufferBottom, l);
+				length -= l;
+				ch += l;
+				bufferBottom += l;
+			}
+		}
+
+		return status;
+	}
+
+	TInt ReadLine(char* ch, int length)
+	{
+		TInt status = KErrNone;
+		int state = 0;
+
+		while(length > 0)
+		{
+			if(bufferTop == bufferBottom)
+			{
+				status = ReadIntoBuffer();
+				if(status != KErrNone)
+					break;
+			}
+
+			if(bufferTop - bufferBottom >= length)
+			{
+				char* start = buffer + bufferBottom;
+				char* end = buffer + length;
+
+				while(start != end)
+				{
+					char c = *start++;
+					if(c == 13)
+					{
+						state = 1;
+					}
+					else if(c == 10)
+					{
+						if(state == 1)
+						{
+							state = 2;
+							bufferBottom = start - buffer;
+							length = 0;
+							return status;
+							break;
+						}
+						else
+						{
+							*ch++ = c;
+						}
+					}
+					else
+					{
+						if(state == 1)
+						{
+							*ch++ = 13;
+						}
+						else
+						{
+							*ch++ = c;
+						}
+						state = 0;
+					}
+				}
+				bufferBottom += length;
+				length = 0;
+			}
+			else
+			{
+				int l = min(length, bufferTop - bufferBottom);
+				char* start = buffer + bufferBottom;
+				char* end = buffer + l;
+				while(state != 2 && start != end)
+				{
+					char c = *start++;
+					if(c == 13)
+					{
+						state = 1;
+					}
+					else if(c == 10)
+					{
+						if(state == 1)
+						{
+							state = 2;
+							bufferBottom = start - buffer;
+							length = 0;
+							return status;
+							break;
+						}
+						else
+						{
+							*ch++ = c;
+						}
+					}
+					else
+					{
+						if(state == 1)
+						{
+							*ch++ = 13;
+						}
+						else
+						{
+							*ch++ = c;
+						}
+						state = 0;
+					}
+				}
+				
+				length -= l;
+				ch += l;
+				bufferBottom += l;
+			}
+		}
+		return status;
+	}
+
+	TInt ReadOneOrMore(char* ch, int length)
+	{
+		TInt status = KErrNone;
+
+		if(bufferTop == bufferBottom)
+		{
+			status = ReadIntoBuffer();
+			if(status != KErrNone)
+				return status;
+		}
+
+		if(bufferTop - bufferBottom >= length)
+		{
+			memcpy(ch, buffer + bufferBottom, length);
+			bufferBottom += length;
+		}
+		else
+		{
+			int l = min(length, bufferTop - bufferBottom);
+			memcpy(ch, buffer + bufferBottom, l);
+			bufferBottom += l;
+		}
+
+		return status;
+	}
+
+};
+
+class CConnectingSocket;
+class CReadLineSocket;
+
+struct IoSocket
+{
+  unsigned char color;
+  IoValue *previous;
+  IoValue *next;
+  IoTag *tag;
+  InternalSocket* socket;
+  char* host;
+  int port;
+  bool isConnected;
+  char* lineRead;
+
+  CConnectingSocket *activeConnect;
+  CReadLineSocket* activeReadLine;
+};
+
+IoValue *IoSocket_clone(IoSocket *self, IoValue *locals, IoMessage *m);
+void IoSocket_free(IoSocket *self);
+char *IoSocket_name(IoSocket *self); 
+void IoSocket_mark(IoSocket *self);
+IoValue *IoSocket_host(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_host_(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_port(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_port_(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_open(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_connect(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_asyncConnect(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_waitForConnect(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_isConnected(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_isConnected_(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_write(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_writeLine(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_read(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_readLine(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_close(IoSocket *self, IoValue *locals, IoMessage *m);
+
+IoValue *IoSocket_isLineRead(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_asyncReadLine(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_waitForReadLine(IoSocket *self, IoValue *locals, IoMessage *m);
+IoValue *IoSocket_getLineRead(IoSocket *self, IoValue *locals, IoMessage *m);
+
+class CConnectingSocket : public CActive
+{
+private:
+	InternalSocket* socket;
+	IoSocket* ioSocket;
+	int state;
+	RHostResolver resolver;
+	TNameEntry entry;
+
+
+public:
+	static CConnectingSocket* NewL(InternalSocket* s, IoSocket* ios)
+	{
+		CConnectingSocket* self = new (ELeave) CConnectingSocket(s, ios);
+		self->ConstructL();
+		return self;
+	}
+
+	CConnectingSocket(InternalSocket* s, IoSocket* ios) : 
+		CActive(CActive::EPriorityStandard),
+		socket(s),
+		ioSocket(ios),
+		state(0)
+	{
+	}
+
+	~CConnectingSocket() 
+	{
+		Cancel();
+	}
+
+	void ConstructL()
+	{
+		CActiveScheduler::Add(this);
+	}
+
+	void StartConnectL()
+	{
+		IoState* state = (IoState*)ioSocket->tag->state;
+		CConsoleControl* control = (CConsoleControl*)IoState_userData(state);
+		TInt result = resolver.Open(control->socketServer, 2048, 17);
+		if(result != 0)
+		{
+			Cancel();
+			IoState_error_description_(state, "IoSocket.connect", "Could not open resolver: '%d'\n", result); 
+		}
+		else
+		{
+			TPtr16 ptr16 = stringToPtr16(ioSocket->host);
+			resolver.GetByName(ptr16, entry, iStatus);
+			SetActive();
+		}
+	}
+
+	void RunL()
+	{
+		if(state == 0)
+		{
+			if(iStatus.Int() != 0)
+			{
+				Cancel();
+				IoState_error_description_((IoState*)ioSocket->tag->state, "IoSocket.connect", "resolver.GetByName: '%d'\n", iStatus.Int()); 
+			}
+			state = 1;
+			TNameRecord record(entry());
+			TSockAddr addr(record.iAddr);
+			addr.SetPort(ioSocket->port);
+			resolver.Close();
+
+			socket->socket.Connect(addr, iStatus);
+			SetActive();
+		}
+		else if(state == 1)
+		{
+			ioSocket->isConnected = 1;
+			if(iStatus.Int() != 0)
+			{
+				Cancel();
+				IoState_error_description_((IoState*)ioSocket->tag->state, "IoSocket.connect", "socket.connect: '%d'\n", iStatus.Int()); 
+			}
+		}
+	}
+
+	void DoCancel()
+	{
+		if(state == 0)
+		{
+			resolver.Close();
+		}
+		socket->socket.CancelAll();
+		socket->socket.Close();
+	}
+};
+
+#define READ_STATE_BUFFER_UNDERFLOW 1
+#define READ_STATE_BUFFER_READ 2
+#define READ_STATE_BUFFER_POST_UNDERFLOW 3
+#define READ_STATE_BUFFER_COMPLETE 4
+
+class CReadLineSocket : public CActive
+{
+private:
+	InternalSocket* socket;
+	IoSocket* ioSocket;
+	char* originalBuffer;
+	char* buffer;
+	int length;
+	int state;
+	int lineState;
+	TSockXfrLength tlen;
+
+public:
+	static CReadLineSocket* NewL(InternalSocket* s, IoSocket* ios, char* buffer, int length)
+	{
+		CReadLineSocket* self = new (ELeave) CReadLineSocket(s, ios, buffer, length);
+		self->ConstructL();
+		return self;
+	}
+
+	CReadLineSocket(InternalSocket* s, IoSocket* ios, char* b, int len) : 
+		CActive(CActive::EPriorityStandard),
+		socket(s),
+		ioSocket(ios),
+		state(0),
+		lineState(0),
+		buffer(b),
+		originalBuffer(b),
+		length(len)
+	{
+	}
+
+	~CReadLineSocket() 
+	{
+		Cancel();
+	}
+
+	void ConstructL()
+	{
+		CActiveScheduler::Add(this);
+	}
+
+	void CheckBuffer()
+	{
+		if(length <= 0)
+		{
+			state = READ_STATE_BUFFER_COMPLETE;
+		}
+		else if(socket->bufferTop == socket->bufferBottom)
+		{
+			state = READ_STATE_BUFFER_UNDERFLOW;
+		}
+		else
+		{
+			state = READ_STATE_BUFFER_READ;
+		}
+		TRequestStatus* tempStatus = &iStatus;
+		User::RequestComplete(tempStatus, KErrNone);
+	}
+
+	void StartReadLineL()
+	{
+		SetActive();
+		CheckBuffer();
+	}
+
+	void RunL()
+	{
+		switch(state)
+		{
+			case READ_STATE_BUFFER_UNDERFLOW:
+			{
+				TPtr8 ptr8((TUint8*)socket->buffer, SOCKET_BUFFER_SIZE, SOCKET_BUFFER_SIZE);
+				socket->socket.RecvOneOrMore(ptr8, 0, iStatus, tlen);	
+				state = READ_STATE_BUFFER_POST_UNDERFLOW;
+				SetActive();
+				break;
+			}
+
+			case READ_STATE_BUFFER_POST_UNDERFLOW:
+			{
+				socket->bufferTop = tlen();
+				socket->bufferBottom = 0;
+				state = READ_STATE_BUFFER_READ;
+				SetActive();
+				TRequestStatus* tempStatus = &iStatus;
+				User::RequestComplete(tempStatus, KErrNone);
+				break;
+			}
+
+			case READ_STATE_BUFFER_READ:
+			{
+				if(length == 0)
+				{
+					state = READ_STATE_BUFFER_COMPLETE;
+					SetActive();
+					TRequestStatus* tempStatus = &iStatus;
+					User::RequestComplete(tempStatus, KErrNone);
+					break;
+				}
+				else if(socket->bufferTop == socket->bufferBottom)
+				{
+					state = READ_STATE_BUFFER_UNDERFLOW;
+					SetActive();
+					TRequestStatus* tempStatus = &iStatus;
+					User::RequestComplete(tempStatus, KErrNone);
+					break;
+				}
+				else if(socket->bufferTop - socket->bufferBottom >= length)
+				{
+					char* start = socket->buffer + socket->bufferBottom;
+					char* end = socket->buffer + length;
+
+					while(start != end)
+					{
+						char c = *start++;
+						if(c == 13)
+						{
+							lineState = 1;
+						}
+						else if(c == 10)
+						{
+							if(lineState == 1)
+							{
+								lineState = 2;
+								socket->bufferBottom = start - socket->buffer;
+								length = 0;
+								state = READ_STATE_BUFFER_COMPLETE;
+								SetActive();
+								TRequestStatus* tempStatus = &iStatus;
+								User::RequestComplete(tempStatus, KErrNone);
+								return;
+							}
+							else
+							{
+								*buffer++ = c;
+							}
+						}
+						else
+						{
+							if(lineState == 1)
+							{
+								*buffer++ = 13;
+							}
+							else
+							{
+								*buffer++ = c;
+							}
+							state = 0;
+						}
+					}
+					socket->bufferBottom += length;
+					length = 0;
+					state = READ_STATE_BUFFER_COMPLETE;
+					SetActive();
+					TRequestStatus* tempStatus = &iStatus;
+					User::RequestComplete(tempStatus, KErrNone);
+					return;
+				}
+				else
+				{
+					int l = min(length, socket->bufferTop - socket->bufferBottom);
+					char* start = socket->buffer + socket->bufferBottom;
+					char* end = socket->buffer + l;
+					while(lineState != 2 && start != end)
+					{
+						char c = *start++;
+						if(c == 13)
+						{
+							lineState = 1;
+						}
+						else if(c == 10)
+						{
+							if(lineState == 1)
+							{
+								lineState = 2;
+								socket->bufferBottom = start - socket->buffer;
+								state = READ_STATE_BUFFER_COMPLETE;
+								SetActive();
+								TRequestStatus* tempStatus = &iStatus;
+								User::RequestComplete(tempStatus, KErrNone);
+								return;
+							}
+							else
+							{
+								*buffer++ = c;
+							}
+						}
+						else
+						{
+							if(lineState == 1)
+							{
+								*buffer++ = 13;
+							}
+							else
+							{
+								*buffer++ = c;
+							}
+							lineState = 0;
+						}
+					}
+				
+					length -= l;
+					buffer += l;
+					socket->bufferBottom += l;
+				}
+
+				state = READ_STATE_BUFFER_READ;
+				SetActive();
+				TRequestStatus* tempStatus = &iStatus;
+				User::RequestComplete(tempStatus, KErrNone);
+				break;
+			}
+
+			case READ_STATE_BUFFER_COMPLETE:
+			{
+				ioSocket->lineRead = originalBuffer;
+				break;
+			}
+		}
+	}
+
+	void DoCancel()
+	{
+		socket->socket.CancelAll();
+	}
+};
+
+
+IoTag *IoSocket_initTagWithId_(void *ioState, int tagId)
+{
+  IoTag *tag = IoTag_new();
+  tag->state = ioState;
+  tag->freeCallback = (TagFreeCallback *)IoSocket_free;
+  tag->nameCallback = (TagNameCallback *)IoSocket_name;
+  tag->markCallback = (TagMarkCallback *)IoSocket_mark;
+
+  Tag_addMethod(tag, "clone", (void*)IoSocket_clone);
+  Tag_addMethod(tag, "setHost", (void*)IoSocket_host_);
+  Tag_addMethod(tag, "host", (void*)IoSocket_host);
+  Tag_addMethod(tag, "setPort", (void*)IoSocket_port_);
+  Tag_addMethod(tag, "port", (void*)IoSocket_port);
+  Tag_addMethod(tag, "open", (void*)IoSocket_open);
+  Tag_addMethod(tag, "connect", (void*)IoSocket_connect);
+  Tag_addMethod(tag, "asyncConnect", (void*)IoSocket_asyncConnect);
+  Tag_addMethod(tag, "waitForConnect", (void*)IoSocket_waitForConnect);
+  Tag_addMethod(tag, "isConnected", (void*)IoSocket_isConnected);
+  Tag_addMethod(tag, "setIsConnected", (void*)IoSocket_isConnected_);
+  Tag_addMethod(tag, "write", (void*)IoSocket_write);
+  Tag_addMethod(tag, "writeLine", (void*)IoSocket_writeLine);
+  Tag_addMethod(tag, "read", (void*)IoSocket_read);
+  Tag_addMethod(tag, "readLine", (void*)IoSocket_readLine);
+  Tag_addMethod(tag, "close", (void*)IoSocket_close);
+
+  
+  Tag_addMethod(tag, "isLineRead", (void*)IoSocket_isLineRead);
+  Tag_addMethod(tag, "asyncReadLine", (void*)IoSocket_asyncReadLine);
+  Tag_addMethod(tag, "waitForReadLine", (void*)IoSocket_waitForReadLine);
+  Tag_addMethod(tag, "getLineRead", (void*)IoSocket_getLineRead);
+  
+  return tag;
+}
+
+IoSocket *IoSocket_new(void *state)
+{
+  IoTag *tag = IoState_tagWithInitFunction_((IoState*)state, IoSocket_initTagWithId_);
+  IoSocket *self = (IoSocket *)malloc(sizeof(IoSocket));
+  memset(self, 0x0, sizeof(IoSocket));
+  self->tag = tag;
+  self->color = IOVALUE_WHITE();
+  self->socket = new InternalSocket();
+  self->host = strdup("localhost");
+  self->isConnected = false;
+  self->lineRead = 0;
+  self->activeConnect = 0;
+  self->activeReadLine = 0;
+  IoState_addValue_((IoState*)self->tag->state, (IoValue *)self);
+  return self;
+}
+
+IoValue *IoSocket_clone(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+  IoSocket *newSocket = IoSocket_new(self->tag->state);
+  newSocket->host = strdup(self->host);
+  return (IoValue *)newSocket; 
+}
+
+void IoSocket_free(IoSocket *self) 
+{ 
+	if(self->activeConnect)
+	{
+		delete self->activeConnect;
+		self->activeConnect = 0;
+	}
+	self->socket->socket.Close();
+	delete self->socket;
+	self->socket = 0;
+	free(self->host);
+	free(self);
+}
+
+char *IoSocket_name(IoSocket *self) 
+{ 
+	return "Socket"; 
+}
+
+void IoSocket_mark(IoSocket *self) 
+{ 
+}
+
+IoValue *IoSocket_host(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	return (IoValue *)USTRING(self->host); 
+}
+
+IoValue *IoSocket_host_(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+  IoString *host = (IoString*)IoMessage_locals_stringArgAt_(m, locals, 0);
+  self->host = strdup(CSTRING(host));
+  return (IoValue *)self; 
+}
+
+IoValue *IoSocket_port(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	return (IoValue *)IONUMBER(self->port); 
+}
+
+IoValue *IoSocket_port_(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+  IoNumber *port = (IoNumber*)IoMessage_locals_numberArgAt_(m, locals, 0);
+  self->port = IoNumber_asInt(port);
+  return (IoValue *)self; 
+}
+
+IoValue *IoSocket_isConnected(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	return (IoValue *)IONUMBER(self->isConnected); 
+}
+
+IoValue *IoSocket_isConnected_(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+  IoNumber *isConnected = (IoNumber*)IoMessage_locals_numberArgAt_(m, locals, 0);
+  self->isConnected = IoNumber_asInt(isConnected);
+  return (IoValue *)self; 
+}
+
+IoValue *IoSocket_open(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	self->socket->ResetBuffer();
+	IoState* state = (IoState*)self->tag->state;
+	CConsoleControl* control = (CConsoleControl*)IoState_userData(state);
+	
+	return (IoValue *)IONUMBER(self->socket->socket.Open(control->socketServer, KAfInet, KSockStream, KProtocolInetTcp));
+}
+
+IoValue *IoSocket_connect(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	if(self->activeConnect)
+	{
+		delete self->activeConnect;
+	}
+	self->activeConnect = CConnectingSocket::NewL(self->socket, self);
+	self->activeConnect->StartConnectL();
+	IoState* state = (IoState*)self->tag->state;
+	while(!self->isConnected)
+	{	
+		IoState_yield(state);
+	}
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_asyncConnect(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	if(self->activeConnect)
+	{
+		delete self->activeConnect;
+	}
+	self->activeConnect = CConnectingSocket::NewL(self->socket, self);
+	self->activeConnect->StartConnectL();
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_waitForConnect(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	IoState* state = (IoState*)self->tag->state;
+	while(!self->isConnected)
+	{	
+		IoState_yield(state);
+	}
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_asyncReadLine(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	if(self->activeReadLine)
+	{
+		delete self->activeReadLine;
+	}
+
+    IoNumber *size = (IoNumber*)IoMessage_locals_numberArgAt_(m, locals, 0);
+	int trueSize = IoNumber_asInt(size);
+	char* buffer = (char*)malloc(trueSize + 1);
+	memset(buffer, 0, trueSize + 1);
+	self->activeReadLine = CReadLineSocket::NewL(self->socket, self, buffer, trueSize);
+	self->activeReadLine->StartReadLineL();
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_waitForReadLine(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	IoState* state = (IoState*)self->tag->state;
+	while(!self->lineRead)
+	{	
+		IoState_yield(state);
+	}
+	IoValue* value = (IoValue*)USTRING(self->lineRead); 
+	free(self->lineRead);
+	self->lineRead = 0;
+	return (IoValue*)value;
+}
+
+IoValue *IoSocket_isLineRead(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	bool value = self->lineRead != 0;
+	return (IoValue *)IONUMBER(value); 
+}
+
+IoValue *IoSocket_getLineRead(IoSocket *self, IoValue *locals, IoMessage *m)
+{
+	return (IoValue*)USTRING(self->lineRead); 
+}
+
+IoValue *IoSocket_close(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	if(self->activeConnect)
+	{
+		delete self->activeConnect;
+		self->activeConnect = 0;
+	}
+	if(self->activeReadLine)
+	{
+		delete self->activeReadLine;
+		self->activeReadLine = 0;
+	}
+	self->socket->socket.Close();
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_write(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	IoState* state = (IoState*)self->tag->state;
+	IoString *ioText = (IoString*)IoMessage_locals_stringArgAt_(m, locals, 0);
+	char* text = CSTRING(ioText);
+	int len = strlen(text);
+	TRequestStatus status;
+	TPtr8 ptr8((TUint8*)text, len, len);
+	self->socket->socket.Write(ptr8, status);
+	User::WaitForRequest(status);
+	if(status.Int() != 0)
+	{
+		IoState_error_description_(state, "IoSocket.write", "RSocket.Write: '%d'\n", status.Int()); 
+	}
+
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_writeLine(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+	IoState* state = (IoState*)self->tag->state;
+	IoString *ioText = (IoString*)IoMessage_locals_stringArgAt_(m, locals, 0);
+	char* text = strdup(CSTRING(ioText));
+	int len = strlen(text);
+	text = (char*)realloc(text, len + 3);
+	text[len] = 13;
+	text[len + 1] = 10;
+	text[len + 2] = 0;
+
+	TRequestStatus status;
+	TPtr8 ptr8((TUint8*)text, len + 2, len + 3);
+	self->socket->socket.Write(ptr8, status);
+	free(text);
+	User::WaitForRequest(status);
+	if(status.Int() != 0)
+	{
+		IoState_error_description_(state, "IoSocket.write", "RSocket.Write: '%d'\n", status.Int()); 
+	}
+
+	return (IoValue*)self;
+}
+
+IoValue *IoSocket_read(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+    IoNumber *size = (IoNumber*)IoMessage_locals_numberArgAt_(m, locals, 0);
+	IoState* state = (IoState*)self->tag->state;
+	int trueSize = IoNumber_asInt(size);
+	char* buffer = (char*)malloc(trueSize + 1);
+	memset(buffer, 0, trueSize + 1);
+	TInt status = self->socket->ReadOneOrMore(buffer, trueSize);
+	if(status != 0)
+	{
+		IoState_error_description_(state, "IoSocket.read", "RSocket.Read: '%d'\n", status); 
+	}
+
+	IoValue* result = (IoValue*)USTRING(buffer);
+	free(buffer);
+	return result;
+}
+
+IoValue *IoSocket_readLine(IoSocket *self, IoValue *locals, IoMessage *m)
+{ 
+    IoNumber *size = (IoNumber*)IoMessage_locals_numberArgAt_(m, locals, 0);
+	IoState* state = (IoState*)self->tag->state;
+	if(self->activeReadLine)
+	{
+		delete self->activeReadLine;
+		self->activeReadLine = 0;
+	}
+	int trueSize = IoNumber_asInt(size);
+	char* buffer = (char*)malloc(trueSize + 1);
+	memset(buffer, 0, trueSize + 1);
+	self->activeReadLine = CReadLineSocket::NewL(self->socket, self, buffer, trueSize);
+	self->activeReadLine->StartReadLineL();
+	while(!self->lineRead)
+	{	
+		IoState_yield(state);
+	}
+	IoValue* value = (IoValue*)USTRING(self->lineRead); 
+	free(self->lineRead);
+	self->lineRead = 0;
+	return (IoValue*)value;
+
+}
+
+
+void initSocketAddons(IoState* state)
+{
+  IoState_addTagWithInitFunc_(state, IoSocket_initTagWithId_);
+  IoObject_setSlot_to_(state->lobby, IoState_stringWithCString_(state, "Socket"), IoSocket_new(state));
+}
+

@@ -1,0 +1,755 @@
+867
+17, 18, 19, 20, 21, 22, 24, 24, 25, 26, 27, 27, 31, 32, 36, 37, 41, 41, 42, 44, 46, 47, 51, 54, 55, 55, 55, 56, 57, 58, 59, 62, 63, 63, 64, 65, 66, 69, 70, 71, 73, 74, 75, 77, 78, 78, 79, 79, 80, 80, 81, 82, 83, 84, 85, 85, 86, 86, 86, 87, 87, 88, 88, 89, 90, 90, 91, 93, 94, 95, 95, 95, 96, 97, 98, 98, 99, 104, 104, 105, 105, 105, 106, 110, 112, 113, 114, 114, 116, 116, 117, 118, 118, 119, 121, 122, 122, 123, 123, 124, 125, 126, 126, 126, 127, 128, 132, 133, 134, 136, 137, 138, 141, 142, 143, 144, 145, 145, 145, 145, 147, 147, 148, 148, 149, 149, 149, 150, 151, 152, 153, 153, 153, 154, 155, 156, 156, 156, 158, 159, 159, 159, 160, 161, 162, 162, 162, 163, 164, 164, 165, 166, 167, 168, 169, 171, 172, 173, 174, 174, 174, 175, 175, 175, 176, 177, 178, 178, 178, 179, 180, 183, 184, 185, 187, 188, 189, 191, 192, 192, 192, 196, 196, 197, 202, 202, 203, 204, 208, 208, 209, 210, 212, 213, 215, 215, 215, 216, 217, 219, 221, 221, 221, 222, 222, 223, 224, 225, 225, 225, 226, 227, 228, 229, 233, 234, 234, 239, 240, 241, 244, 245, 246, 246, 246, 247, 248, 250, 251, 253, 254, 256, 257, 257, 257, 258, 259, 260, 260, 261, 261, 262, 262, 263, 265, 266, 267, 267, 268, 270, 270, 271, 272, 273, 274, 275, 276, 277, 277, 278, 279, 279, 279, 280, 281, 282, 283, 284, 284, 284, 285, 286, 287, 289, 290, 291, 291, 292, 293, 294, 296, 297, 297, 298, 299, 301, 302, 302, 302, 303, 305, 306, 307, 309, 310, 310, 311, 312, 314, 314, 316, 317, 317, 317, 318, 319, 319, 320, 320, 321, 322, 323, 324, 326, 326, 327, 328, 329, 329, 330, 331, 332, 332, 333, 333, 334, 335, 336, 336, 337, 337, 338, 339, 340, 340, 341, 343, 345, 347, 347, 348, 349, 350, 351, 352, 352, 352, 353, 353, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 364, 364, 365, 365, 365, 366, 367, 368, 369, 369, 369, 370, 370, 370, 371, 372, 373, 374, 376, 377, 378, 378, 379, 379, 379, 380, 380, 381, 383, 384, 385, 386, 387, 389, 390, 391, 393, 393, 394, 394, 395, 396, 397, 398, 400, 401, 402, 402, 402, 403, 403, 404, 405, 407, 407, 408, 409, 410, 411, 413, 413, 413, 415, 416, 417, 417, 418, 419, 419, 419, 420, 421, 422, 423, 423, 424, 426, 427, 428, 429, 432, 432, 434, 434, 435, 435, 436, 437, 439, 441, 442, 443, 443, 443, 445, 446, 447, 447, 448, 448, 448, 449, 450, 451, 452, 453, 453, 454, 455, 457, 458, 460, 461, 462, 462, 463, 464, 464, 474, 475, 476, 477, 478, 480, 480, 481, 481, 482, 482, 482, 483, 484, 486, 487, 487, 488, 488, 488, 489, 490, 491, 491, 492, 493, 493, 494, 494, 495, 496, 497, 498, 498, 499, 500, 501, 501, 502, 502, 502, 503, 504, 504, 505, 505, 506, 506, 507, 507, 507, 507, 508, 509, 510, 512, 514, 515, 515, 516, 516, 517, 517, 518, 519, 520, 521, 522, 523, 524, 524, 525, 525, 526, 527, 527, 527, 528, 528, 528, 529, 530, 531, 532, 532, 532, 533, 534, 535, 536, 536, 537, 537, 538, 539, 539, 540, 540, 541, 542, 543, 544, 545, 546, 546, 547, 547, 547, 548, 549, 549, 550, 550, 552, 553, 553, 554, 554, 556, 557, 558, 559, 559, 560, 561, 562, 562, 563, 563, 564, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 574, 574, 575, 575, 575, 576, 577, 578, 579, 583, 584, 584, 585, 586, 586, 590, 590, 590, 592, 593, 596, 597, 597, 598, 599, 600, 601, 601, 602, 602, 603, 603, 604, 605, 605, 606, 606, 606, 607, 608, 609, 609, 610, 613, 613, 614, 615, 615, 616, 617, 617, 618, 618, 619, 619, 621, 622, 623, 623, 624, 625, 625, 625, 626, 626, 627, 627, 628, 629, 629, 629, 630, 631, 631, 631, 632, 633, 634, 635, 635, 635, 636, 636, 637, 638, 639, 640, 640, 640, 640, 640, 641, 642, 642, 643, 645, 647, 648, 648, 648, 649, 650, 650, 650, 651, 652, 653, 653, 653, 654, 654, 655, 656, 657, 657, 657, 657, 657, 658, 658, 659, 659, 659, 660, 661, 662, 662, 662, 663, 663, 664, 665, 666, 666, 666, 667, 668, 670, 671, 672, 672, 672, 673, 674, 677, 678, 679, 680, 680, 681, 681, 682, 683, 684, 684, 685, 686, 686, 686, 687, 688, 689, 690, 691, 691, 691, 691, 691, 692, 693, 694, 695, 695, 695, 695, 695, 696, 696, 696, 697, 698, 698, 698, 699, 699, 700, 702, 703, 704, 704, 704, 705, 706, 709, 711, 711, 712, 713, 713, 714, 716, 717, 717, 718, 718, 719, 719, 719, 720, 720, 720, 721, 721, 722, 723, 724, 724, 725, 725, 725, 726, 727, 727, 728, 729, 730, 732, 733, 735, 736, 737, 738, 742, 742, 743, 743, 744, 744, 745, 749, 749, 750, 753, 192, 253, 192, 221
+#include <dnet/dist.hpp>
+#include <dnet/server.hpp>
+#include <dnet/client.hpp>
+#include <stdio.h>
+#include <assert.h>
+#include <dnet/common.hpp>
+#include <math.h>
+
+#include <list>
+#include <functional>
+#include <algorithm>
+
+namespace dnet {
+
+// FIXME NetClasses is never destructed!
+
+uint32_t 							DistManager::id							= 0;
+DistManager::ClassMap*				DistManager::NetClasses					= NULL;
+DistManager::ObjectMap				DistManager::NetObjects;
+DistManager::LOIMap					DistManager::NetObjectsLOI;
+Interface* 							DistManager::interface					= 0L;
+bool 								DistManager::isServer					= false;
+
+DNET_ClassDescription::DNET_ClassDescription(char const* n, int min_interval, int max_interval, CreatorFunc theCreator, DeleterFunc theDeleter ) : min(min_interval), max(max_interval), name(n), creator(theCreator), deleter(theDeleter) {
+	LOG_DIST("DNET_ClassDescription(%s)\n", n);
+	assert(this->min <= this->max);
+	DistManager::RegisterClass(n,creator,deleter);
+}
+
+void DistManager::SetOwner(Server& s) {
+	DistManager::interface = &s;
+	DistManager::isServer = true;
+}
+
+void DistManager::SetOwner(Client& c) {
+	DistManager::interface = &c;
+	DistManager::isServer = false;
+}
+
+uint32_t DistManager::GenId() {
+	// TODO Use the Interface class
+	uint32_t p = DistManager::interface->getId();
+
+	p = p << 24;
+
+	p |= (++DistManager::id & 0x00ffff);
+	return p;
+}
+
+bool DistManager::CheckClientId(uint32_t _id, uint8_t owner) {
+	return ( (_id>>24) == owner );
+}
+
+void DistManager::SendCreationPacket(uint32_t objectId, const DNET_ClassDescription& desc) {
+	LOG_DIST("Sending NetObjectCreatePacket -> CreateObject(%s#%x)\n", desc.getName(), objectId );
+	NetObjectCreatePacket	create;
+	create.setClass(desc.getName());
+	create.setObjectId(objectId);
+	DistManager::interface->sendReliable(&create);
+}
+
+void DistManager::SendDeletionPacket(uint32_t objectId, const DNET_ClassDescription& desc) {
+	LOG_DIST("DeleteObject(%s#%x)\n", desc.getName(), objectId );
+	NetObjectDeletePacket	die;
+	die.setObjectId(objectId);
+	DistManager::interface->sendReliable(&die);
+}
+
+NetObject* DistManager::CreateObject(const char* name, uint32_t objectId, bool local) {
+	assert(DistManager::NetClasses);
+	ClassMap::iterator i = DistManager::NetClasses->find(name);
+
+	if( i != NetClasses->end() ) {
+		DNET_ClassDescription* desc;
+		DNET_ClassDescription::CreatorFunc creator = i->second.creator;
+
+		NetObject* nObj = creator();
+		
+		LOG_DIST("CreateObject(%s#%x) created : %x\n", name, objectId, (unsigned int)nObj);
+		
+		desc = nObj->DNET_GetClassDescription();
+		nObj->dynamicAllocated = true;
+		nObj->objectId = objectId;
+		nObj->local = local;
+		
+		NetObjects.insert( std::make_pair( objectId, nObj ));
+		
+		//if(! CheckClientId( objectId, interface->getId() ) )
+		// FIXME This CreateObject() function is only called for remote objects
+		if(! local )
+			nObj->onRemotelyCreated();
+
+		return nObj;
+	}
+	else {
+		LOG_DIST("CreateObject(%s#%x) UNKNOWN\n", name, objectId);
+	}
+	
+	return 0L;
+}
+
+// Add a new object. We dont perform allocation/removal
+NetObject*  DistManager::CreateObject(NetObject* nObj) {
+	LOG_DIST("CreateNetObject(%s#%x) [static]  created : %x\n", nObj->DNET_GetClassDescription()->getName(), nObj->objectId, (unsigned int)nObj);
+	NetObjects.insert( std::make_pair( nObj->objectId, nObj ));
+	return nObj;
+}
+
+void DistManager::DeleteObject(uint32_t _id) {
+	ObjectMap::iterator i = NetObjects.find(_id);
+
+	if( i != NetObjects.end() ) {
+		NetObject* nObj = i->second;
+		LOG_DIST("DeleteNetObject(%x) deleting: %x\n", _id, (unsigned int)nObj );
+
+		if(! nObj->isLocal() )
+			nObj->onRemotelyDeleted();
+		
+		NetObjects.erase(i);
+
+		if( nObj->dynamicAllocated ) {
+			DNET_ClassDescription::DeleterFunc deleter = nObj->DNET_GetClassDescription()->deleter;
+			deleter(i->second); // Not sure this is working properly
+		}
+	}
+	else {
+		LOG_DIST("DeleteObject - object %x not found\n", _id);
+	}
+}
+
+struct AttributeFinderByID {
+	typedef Attribute	first_argument_type;
+	typedef uint8_t		second_argument_type;
+	typedef bool			result_type;
+
+	bool operator()(const Attribute& attr, uint8_t id) const {
+		return attr.getID() == id;
+	}
+};
+
+void DistManager::UpdateObject(uint32_t _id, uint32_t timestamp, Buffer* buffer) {
+	ObjectMap::iterator i = NetObjects.find(_id);
+	if( i != NetObjects.end() ) {
+		// We should never receive updates from server of our own objects
+		assert( ! CheckClientId( i->second->objectId, DistManager::interface->getId() ) );
+
+		LOG_SYNC("UpdateObject(%x) timestamp = %d\n", _id, timestamp );
+		
+		if( i->second->lastTimestamp <= timestamp || 1 ) { // FIXME this disables the check!!  Should be it here at all?
+			Attributes* attr = i->second->DNET_GetAttributes();
+			Attributes::iterator foundAttr;
+			uint8_t	attrId;
+ 			
+			do {
+				*buffer >> attrId;
+				foundAttr = std::find_if(attr->begin(), attr->end(), std::bind2nd(AttributeFinderByID(),attrId));
+
+				if( foundAttr != attr->end() ) {
+					//LOG_SYNC("Found attribtue - updating it: %s #%d\n", foundAttr->getName(), foundAttr->getID());
+					foundAttr->unpack(buffer);
+				}
+				else {
+					LOG_SYNC("Attribute not found. Dumping available attributes:\n");
+					for(foundAttr = attr->begin(); foundAttr != attr->end(); ++foundAttr ) {
+						LOG_SYNC("  %s #%d\n", foundAttr->getName(), foundAttr->getID());
+					}
+					assert(0 && "Attribute not found");		// FIXME
+				}
+			}while( buffer->size() && foundAttr != attr->end() );
+
+			assert(i->second);
+			i->second->onRemotelyUpdated();
+		}
+		else {
+			LOG_DIST("UpdateObject() - object %x OOO updated ignored (updated contained %d, we got %d\n", _id, timestamp, i->second->lastTimestamp  );
+		}
+	}
+	else {
+		LOG_DIST("UpdateObject() - object %x not found\n", _id);
+	}
+}
+
+void DistManager::RegisterClass(const char* name, DNET_ClassDescription::CreatorFunc creator, DNET_ClassDescription::DeleterFunc deleter) {
+	if( DistManager::NetClasses == NULL )
+		DistManager::NetClasses = new DistManager::ClassMap;
+
+	ClassFunc func;
+	func.creator = creator;
+	func.deleter = deleter;
+
+	LOG_DIST("RegisterClass(%s)\n", name);
+	DistManager::NetClasses->insert(std::make_pair( std::string(name), func ));
+}
+
+void DistManager::Synchronize() {
+	//SynchronizeSimple();
+	SynchronizeASBS();
+}
+
+
+struct SynchronizeASBSSorter {
+	bool operator() ( Server::ClientCon* const &a, Server::ClientCon* const &b  ) {
+		return a->bw < b->bw;
+	}
+};
+
+void DistManager::SynchronizeASBS() {
+	if(! DistManager::interface ) return;
+	if( isServer ) {
+		Server* s = reinterpret_cast<Server*>(DistManager::interface);
+
+		// Convert out idClients to a vector, sort it by bw-usage and then iterate it
+		std::vector<Server::ClientCon*>		clientOrder;
+
+		for(Server::IdToClientMap::iterator	 j = s->idClients.begin(); j != s->idClients.end(); ++j ) {
+			clientOrder.push_back(&j->second);
+		}
+
+		std::sort(clientOrder.begin(), clientOrder.end(), SynchronizeASBSSorter() );
+
+		for(std::vector<Server::ClientCon*>::iterator j = clientOrder.begin(); j!= clientOrder.end(); ++j ) {
+			SynchronizeASBSFor((*j)->id, s->getENetHost(),(*j)->peer);
+		}
+	}
+	else {
+		Client* c = reinterpret_cast<Client*>(DistManager::interface);
+		assert(c);
+		SynchronizeASBSFor(0, c->getENetHost(), c->getENetPeer() );
+	}
+}
+
+bool DistManager::DoSync(uint32_t _id, uint8_t forClientId) {
+	return ((isServer && !CheckClientId( _id, forClientId)) ||
+				(!isServer && CheckClientId( _id, DistManager::interface->getId())));
+}
+
+// Helper for SynchronizeASBSFor()
+struct AttributesOwner {
+		int				pri;
+		Attributes	attrs;
+		NetObject*	owner;
+};
+
+void DistManager::SynchronizeASBSFor(uint32_t forId, ENetHost* enetHost, ENetPeer* enetPeer) {
+	float			loisum		= 0;												// Used for normalizing LOI
+	int				sparebw		= enetPeer->packetThrottle;		// TODO Reserve some bw for reliable
+	uint32_t		ticks		= dnettime();								// Get time
+	int				usedbw = 0;
+
+	typedef std::map<uint32_t, int> AvailBWMap;
+	AvailBWMap	availbw;
+
+	typedef std::map<uint32_t, NetObjectDataPacket>	DataPackets;
+	DataPackets		dataPackets;
+
+	// Synchronize objects that needs fullsync
+	for(ObjectMap::iterator i = DistManager::NetObjects.begin(); i != DistManager::NetObjects.end(); ++i ) {
+		NetObject*							nObj		= i->second;
+		DNET_ClassDescription*	desc		= nObj->DNET_GetClassDescription();
+		
+		if( DoSync( nObj->objectId, forId) ) {
+			if( (ticks - nObj->lastFullSynch) >= desc->getMaxInterval()) {
+				nObj->lastFullSynch = nObj->lastSynch = ticks;
+
+				NetObjectDataPacket			data;
+				data.setObjectId(nObj->objectId);
+				
+				Attributes* attr = nObj->DNET_GetAttributes();
+
+				for(Attributes::iterator a  = attr->begin(); a != attr->end(); ++a ) {
+					uint8_t attrId = a->getID();
+					data.buffer << attrId;
+					a->pack(&data.buffer);
+				}
+				if( isServer ) {
+					Server* s = reinterpret_cast<Server*>(DistManager::interface);
+					usedbw += s->send(forId,&data);
+				}
+				else {
+					assert(forId == 0);
+					Client* c = reinterpret_cast<Client*>(DistManager::interface);
+					c->send(&data);
+				}
+				LOG_SYNC("Send Full NetObjectDataPacket (%x) with timestamp = %d to client-%d\n", data.getObjectId(), data.getTimestamp(), forId );
+			}
+		}
+	}
+
+	// Check bandwidth
+	uint32_t elapsed = ticks - enetHost->bandwidthThrottleEpoch;
+	if( elapsed == 0 )	{
+		// FIXME Perhaps we should just use the last calculated inbw/outbw
+		return;
+	}
+
+	uint32_t outbw	= enetPeer->outgoingDataTotal / elapsed;
+		
+	sparebw = enetPeer->packetThrottle - outbw;			// KBytes
+	sparebw *= 1024;									// Bytes..
+
+	// Normalize Level Of Interest
+	for(ObjectMap::iterator i = DistManager::NetObjects.begin(); i != DistManager::NetObjects.end(); ++i ) {
+		NetObject*	nObj = i->second;
+
+		if( DoSync( nObj->objectId, forId) )
+			loisum += GetLOI(forId, nObj->objectId);
+	}
+
+	if( loisum == 0 ) {
+		//LOG_SYNC("LOISUM is zero, stopping sync\n");
+		return;
+	}
+
+	LOG_SYNC("loisum = %f\n", loisum );
+
+	// Distribute the bandwidth
+	for(ObjectMap::iterator i = DistManager::NetObjects.begin(); i != DistManager::NetObjects.end(); ++i ) {
+		NetObject*	nObj = i->second;
+		
+		if( DoSync( nObj->objectId, forId) ) {
+			double v = sparebw *  GetLOI(forId, nObj->objectId) / loisum;
+			availbw[nObj->objectId] = static_cast<uint32_t>(floor(v));
+		}
+	}
+
+	// Collect all Attributes (that needs to be considered for a partial update) into a subgke list, sorted by priority
+	typedef std::list<AttributesOwner> AOList;
+	AOList list;
+	{
+		int pri;
+		AttributesOwner	ao;
+		
+		for(ObjectMap::iterator i = NetObjects.begin(); i != NetObjects.end(); ++i ) {
+			NetObject*							nObj		= i->second;
+			DNET_ClassDescription*	desc		= nObj->DNET_GetClassDescription();
+				
+			if( DoSync( nObj->objectId, forId) ) {
+				if( (ticks - nObj->lastSynch) >= desc->getMinInterval() ) {
+					nObj->lastSynch = ticks;
+					
+					Attributes* attr = nObj->DNET_GetAttributes();
+
+					ao.owner = nObj;
+
+					pri = -1;
+
+					for(Attributes::iterator a  = attr->begin(); a != attr->end(); ++a ) {
+						if( a->getPriority() != pri ) {
+							if( pri != -1 ) {
+								ao.pri = pri;
+								list.push_back(ao);
+								//LOG_SYNC("dump: Adding Attribute Unit: id = %x, pri = %d, owner = %x, attrs = %d\n",
+								//	ao.owner->getObjectId(), ao.pri, (unsigned int)ao.owner, ao.attrs.size() );
+								ao.attrs.clear();
+							}
+							pri = a->getPriority();
+						}
+						ao.attrs.push_back(*a);
+					}
+					// The attribute in the loop isnt added, so do it manually here
+					if( attr->size() ) {
+						ao.pri = pri;
+						list.push_back(ao);
+						//LOG_SYNC("dump: Adding Attribute Unit: id = %x, pri = %d, owner = %x, attrs = %d\n",
+						//	ao.owner->getObjectId(), ao.pri, (unsigned int)ao.owner, ao.attrs.size() );
+						ao.attrs.clear();
+					}
+				}
+				else {
+					//LOG_SYNC("Synchronize is less than min interval. Need to wait. (%d < %d)\n", (ticks - nObj->lastSynch), desc->getMinInterval() );
+				}
+			}
+		}
+	}
+
+	// .. Begin packing
+	DataPackets::iterator		dPacket;
+	for(AOList::iterator a  = list.begin(); a != list.end(); ++a ) {
+		//LOG_SYNC("dump: AttributeUnit Owner = %x, Priority = %d\n", (unsigned int)a->owner, a->pri );
+		NetObject*		nObj= a->owner;
+		dPacket = 		dataPackets.find(nObj->objectId);
+
+		if( dPacket == dataPackets.end() ) {
+			// Not found - add it
+			NetObjectDataPacket	data;
+			data.setObjectId(nObj->objectId);
+			dataPackets[nObj->objectId] = data;
+
+			dPacket = dataPackets.find(nObj->objectId);
+			assert(dPacket != dataPackets.end());
+		}
+
+ 		Buffer	attrBuf;
+		for(Attributes::iterator b  = a->attrs.begin(); b != a->attrs.end(); ++b ) {
+			uint8_t attrId = b->getID();
+			attrBuf<< attrId;
+			b->pack(&attrBuf);
+		}
+
+		if( attrBuf.size() <= availbw[nObj->objectId] ) {
+			availbw[nObj->objectId] -= attrBuf.size();
+			dPacket->second.buffer.moveFrom( attrBuf );
+			LOG_SYNC("  Added AttributeUnit for NetObject-%x pri %d  datapacket size %d\n", nObj->objectId, a->pri, dPacket->second.buffer.size() );
+		}
+	}
+
+	for( DataPackets::iterator it = dataPackets.begin(); it != dataPackets.end(); ++it ) {
+		// No reason to send nothing
+		if( it->second.buffer.size() == 0 ) {
+			continue;
+		}
+
+		LOG_SYNC("Send Partial NetObjectDataPacket %x with timestamp = %d for client %d\n", it->second.getObjectId(), it->second.getTimestamp(), forId );
+
+		if( isServer ) {
+			Server* s = reinterpret_cast<Server*>(DistManager::interface);
+			usedbw += s->send(forId,&it->second);
+		}
+		else {
+			assert(forId == 0);
+			Client* c = reinterpret_cast<Client*>(DistManager::interface);
+			c->send(&it->second);
+		}	
+	}
+
+	if( isServer ) {
+		Server* s = reinterpret_cast<Server*>(DistManager::interface);
+		s->idClients[forId].bw = usedbw;
+	}
+}
+
+#include <stdlib.h> // Only for rand() below
+void DistManager::SynchronizeSimple() {
+	if(! DistManager::interface ) return;
+	
+	DNET_ClassDescription*	desc;
+	NetObject* nObj;
+
+	LOG_DIST("Got %d NetObjects\n", NetObjects.size());
+
+	struct timeval now;
+	gettimeofday(&now, NULL);
+	uint32_t ticks=(now.tv_sec-DistManager::interface->startTime.tv_sec)*1000+(now.tv_usec-DistManager::interface->startTime.tv_usec)/1000;
+
+	bool fullSync			= false;
+	bool partialSync		= false;
+	
+	for(ObjectMap::iterator i = DistManager::NetObjects.begin(); i != DistManager::NetObjects.end(); ++i ) {
+		fullSync			= false;
+		partialSync		= false;
+		ENetHost	*		enetHost;
+		ENetPeer*		enetPeer;
+	
+		nObj = i->second;
+		desc = nObj->DNET_GetClassDescription();
+
+		fullSync		= (ticks - nObj->lastFullSynch) >= desc->getMaxInterval();
+		partialSync	= (ticks - nObj->lastSynch) >= desc->getMinInterval();
+
+		if( fullSync || partialSync ) {
+			nObj->lastSynch = ticks;
+			if( fullSync ) 
+				nObj->lastFullSynch = ticks;
+			
+			/*
+			if( fullSync ) {
+				LOG_SYNC("Full Synchronization\n");
+			}
+			else {
+				LOG_SYNC("Partial Synchronization\n");
+			}
+			*/
+
+			if( isServer ) {
+				// Foreach client, but do not send object back to client
+				Server* s = reinterpret_cast<Server*>(DistManager::interface);
+				if( fullSync )
+					s->updateLOI();
+
+				uint32_t time_now = enet_time_get ();
+				
+				for(Server::IdToClientMap::iterator	 j = s->idClients.begin(); j != s->idClients.end(); ++j ) {
+					enetHost = s->getENetHost();
+					enetPeer = j->second.peer;
+
+					// Silly LOI use
+					if( (GetLOI(j->first, nObj->objectId) * 10)  > rand()%10 ) {
+ 						LOG_SYNC("Skipping object - LOI too low %f\n", GetLOI(j->first, nObj->objectId) );
+						continue;
+					}
+					
+					uint32_t elapsed = time_now - enetHost->bandwidthThrottleEpoch;
+					
+					if( elapsed == 0 )	{
+						// FIXME Perhaps we should just use the last calculated inbw/outbw
+						continue;
+					}
+					
+					uint32_t inbw		= enetPeer->outgoingDataTotal / elapsed;
+					uint32_t outbw	= enetPeer->incomingDataTotal / elapsed;
+					
+					LOG_SYNC("BW client %d: in = %d, out = %d. Total: in = %d, out = %d, time = %d\n",j->first, inbw, outbw,
+						enetPeer->incomingDataTotal, enetPeer->outgoingDataTotal, elapsed);
+					LOG_SYNC("BW: packetThrottle =%d, packetThrottleLimit = %d, windowSize = %d\n", enetPeer->packetThrottle, enetPeer->packetThrottleLimit,
+						enetPeer->windowSize );
+					
+					if(! CheckClientId( nObj->objectId, j->first ) )  {
+
+						NetObjectDataPacket	data;
+						data.setObjectId(nObj->objectId);
+
+						Attributes* attr = nObj->DNET_GetAttributes();
+
+						int lastPri = -1;
+						for(Attributes::iterator a  = attr->begin(); a != attr->end(); ++a ) {
+							if( fullSync || lastPri == -1 || (lastPri != -1 && a->getPriority() == lastPri ) ) {
+								LOG_SYNC(" packing %x  '%s' with priority %d\n", nObj->objectId, a->getName(), a->getPriority());
+								uint8_t attrId = a->getID();
+								data.buffer << attrId;
+								a->pack(&data.buffer);
+								lastPri = a->getPriority();
+							}
+						}
+						LOG_SYNC(" Sync client %d with %s#%x - it had %d bytes of buffer\n", j->first, desc->getName(), nObj->objectId, data.buffer.size() );
+						s->send(j->first,&data);
+					}
+					else {
+						LOG_SYNC(" Client %d owns %s#%x it. No sync\n", j->first, desc->getName(), nObj->objectId );
+					}
+				}
+			}
+			else {
+				Client* c = reinterpret_cast<Client*>(DistManager::interface);
+				enetHost = c->getENetHost();
+				enetPeer = c->getENetPeer();
+				
+				uint32_t time_now = enet_time_get ();
+				uint32_t elapsed = time_now - enetHost->bandwidthThrottleEpoch;
+				
+				if( elapsed == 0 )	{
+					// FIXME Perhaps we should just use the last calculated inbw/outbw
+					continue;
+				}
+				uint32_t inbw = enetPeer->outgoingDataTotal / elapsed;
+				uint32_t outbw = enetPeer->incomingDataTotal / elapsed;
+				
+				LOG_SYNC("BW server: in = %d, out = %d. Total: in = %d, out = %d, time = %d\n",inbw, outbw,
+					enetPeer->incomingDataTotal, enetPeer->outgoingDataTotal, elapsed);
+				LOG_SYNC("BW: packetThrottle =%d, packetThrottleLimit = %d, windowSize = %d\n", enetPeer->packetThrottle, enetPeer->packetThrottleLimit,
+					enetPeer->windowSize );
+
+				// Only synchronize own objects
+				if( CheckClientId( nObj->objectId, DistManager::interface->getId() ) )  {
+					LOG_SYNC(" Sync %s#%x to server\n", desc->getName(), nObj->objectId );
+
+					NetObjectDataPacket	data;
+					data.setObjectId(nObj->objectId);
+					Attributes* attr = nObj->DNET_GetAttributes();
+	
+					LOG_SYNC("DNET_GetAttributes = %x\n", (unsigned int)attr);
+					int lastPri = -1;
+					for(Attributes::iterator a  = attr->begin(); a != attr->end(); ++a ) {
+						if( fullSync || lastPri == -1 || (lastPri != -1 && a->getPriority() == lastPri) ) {
+							LOG_SYNC("  Synching(pack) (%x) attribute '%s' (attrid = %d ~ %d) with priority %d\n", nObj->objectId, a->getName(), a->getID(), 1 << a->getID(), a->getPriority() );
+							uint8_t attrId = a->getID();
+							data.buffer << attrId;
+							a->pack(&data.buffer);
+							lastPri = a->getPriority();
+						}
+					}
+					LOG_SYNC(" NetObjectDataPacket payload: %d bytes\n", data.buffer.size() );
+					DistManager::interface->send(&data);
+				}
+				else {
+					LOG_SYNC("No sync. I am client-%d and object got id %x\n", DistManager::interface->getId(), nObj->objectId );
+				}
+			}
+		}
+	}
+}
+
+void DistManager::Add(NetObject& t) {
+	t.objectId = GenId();
+	LOG_DIST("Adding: %s#%x\n", t.DNET_GetClassDescription()->getName(), t.objectId);
+	CreateObject(&t);
+	SendCreationPacket(t.objectId,*t.DNET_GetClassDescription());
+}
+
+void DistManager::Remove(NetObject& t) {
+//	LOG_DIST("Removing: %s#%x\n", t.DNET_GetClassDescription()->getName(), t.objectId );
+
+	SendDeletionPacket(t.objectId, *t.DNET_GetClassDescription());
+	DeleteObject(t.objectId);
+}
+
+void DistManager::SendAllNetObjects(Server* s,uint8_t clientId) {
+	LOG_DIST("SendAllNetObjects() to client %d\n", clientId );
+	DNET_ClassDescription*	desc;
+	NetObjectCreatePacket	create;
+	NetObject* nObj;
+	
+	for(ObjectMap::iterator i = NetObjects.begin(); i != NetObjects.end(); ++i ) {
+		nObj = i->second; 
+		desc = nObj->DNET_GetClassDescription();
+		
+		LOG_DIST("CreateObject(%s#%x) [brining client up to speed]\n", desc->getName(), nObj->objectId );
+		create.setClass(desc->getName());
+		create.setObjectId(nObj->objectId);
+		s->sendReliable(clientId,&create);
+	}
+}
+
+bool DistManager::HandleServerPacket(Server* s,Packet *packet, uint8_t senderId) {
+	if( PacketParser::InternalPacket(packet) ) {
+		if( NetObjectCreatePacket* pcreate = dynamic_cast<NetObjectCreatePacket*>(packet) ) {
+			// Validating ID
+			if( DistManager::CheckClientId(pcreate->getObjectId(),senderId) ) {
+				LOG_DIST("Creating object: '%s' %x\n", pcreate->getClass(), pcreate->getObjectId());
+				NetObject* nObj = dnet::DistManager::CreateObject(pcreate->getClass(), pcreate->getObjectId(), false);
+
+				if( nObj == 0L ) {
+					// FIXME What to do?
+					LOG_DIST("** WARNING, Unknown NetObject: %s#%d\n", pcreate->getClass(), pcreate->getObjectId());
+				}
+				else {
+					// FIXME dnet::DistManager::UpdateObject(pcreate->getObjectId(), 0,  &pcreate->buffer );
+					
+					// Distribute the NetObjectCreatePacket to everybody except c.id
+					for(Server::IdToClientMap::iterator	 i = s->idClients.begin(); i != s->idClients.end(); ++i ) {
+						if( i->first != senderId )
+							s->sendReliable(  i->first, pcreate );
+					}
+				}
+			}
+			else {
+				LOG_DIST("** BOGUS ID (%s#%x) (HandleServerPacket got NetObjectCreatePacket) Sender is %x**\n", pcreate->getClass(), pcreate->getObjectId(), senderId);
+			}
+			return true;
+		}
+		else if( NetObjectDeletePacket* pdelete = dynamic_cast<NetObjectDeletePacket*>(packet) ) {
+			// Validating ID
+			if( DistManager::CheckClientId(pdelete->getObjectId(),senderId) ) {
+				LOG_DIST("Deleting object: %x\n", pdelete->getObjectId());
+
+				dnet::DistManager::DeleteObject(pdelete->getObjectId());
+
+				// Distribute the NetObjectCreatePacket to everybody except c.id
+				for(Server::IdToClientMap::iterator	 i = s->idClients.begin(); i != s->idClients.end(); ++i ) {
+					if( i->first != senderId )
+						s->sendReliable(  i->first, pdelete );
+				}
+			}
+			else {
+				LOG_DIST("** BOGUS ID (%x) (HandleServerPacket got NetObjectDeletePacket) Sender is %d **\n", pdelete->getObjectId(), senderId);
+			}
+		}
+		else if( NetObjectDataPacket* pdata = dynamic_cast<NetObjectDataPacket*>(packet) ) {
+			if( DistManager::CheckClientId(pdata->getObjectId(),senderId) ) {
+				dnet::DistManager::UpdateObject(pdata->getObjectId(), pdata->getTimestamp(), &pdata->buffer );
+				// No, we dont distribute it here - this will be done in Synchronize()
+			}
+			else {
+				LOG_DIST("** BOGUS ID (%x)  (HandleServerPacket got NetObjectDataPacket) Sender is %d**\n", pdata->getObjectId(), senderId);
+			}
+		}
+		else {
+			assert(0 && "Unknown internal packet");
+		}
+
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool DistManager::HandleClientPacket(Client*,Packet *packet) {
+	if( PacketParser::InternalPacket(packet) ) {
+		// Create NetObject
+		if( NetObjectCreatePacket* pcreate = dynamic_cast<NetObjectCreatePacket*>(packet) ) {
+			NetObject* nObj = dnet::DistManager::CreateObject(pcreate->getClass(), pcreate->getObjectId(), false);
+			if( nObj == 0L ) {
+				// FIXME What to do?
+				LOG_DIST("** WARNING, Unknown NetObject: %s#%d\n", pcreate->getClass(), pcreate->getObjectId());
+			}
+			else {
+				// FIXME dnet::DistManager::UpdateObject(p->getObjectId(), 0,  &p->buffer );
+			}
+		}
+		// Delete NetObject
+		else if( NetObjectDeletePacket* pdelete = dynamic_cast<NetObjectDeletePacket*>(packet) ) {
+			dnet::DistManager::DeleteObject(pdelete->getObjectId());
+		}
+		// Update NetObject
+		else if( NetObjectDataPacket* pdata = dynamic_cast<NetObjectDataPacket*>(packet) ) {
+			dnet::DistManager::UpdateObject(pdata->getObjectId(), pdata->getTimestamp(), &pdata->buffer );
+		}
+		else {
+			assert( 0 && "Handle internal packet here");
+		}
+
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+// Bad name really, Should be called reaper/garbage collector, as clientId is already gone.
+void DistManager::ClientDisconnected(uint8_t clientId) {
+	if(! DistManager::interface ) return;
+	assert(isServer);
+	
+	NetObjectDeletePacket	die;
+
+	LOG_DIST("Checking %d NetObjects.\n", NetObjects.size() );
+	
+	for(ObjectMap::iterator i = NetObjects.begin(); i != NetObjects.end(); ++i ) {
+		LOG_DIST("Check if %x needs to be removed, as %d is gone\n", i->first, clientId );
+		if(! i->second ) {
+			LOG_DIST("**HACK** i->second == NULL - ignored\n" );
+			continue;
+		}
+		if( CheckClientId(i->second->objectId,clientId) ) {
+		
+			uint32_t objectId = i->second->objectId;
+			
+			// Make sure everyone else gets the message
+			die.setObjectId(objectId);
+			DistManager::interface->sendReliable(&die);
+
+			// Perform the operation
+			DeleteObject(objectId);
+
+			// Now, iterators are broken - restart
+			i = NetObjects.begin();
+		}
+	}
+}
+
+void DistManager::SetLOI(uint8_t clientId, uint32_t objectId, float value) {
+	if( CheckClientId(objectId,clientId) ) return;
+	assert(value >= 0 );
+	assert(value <= 1 );
+	NetObjectsLOI[clientId][objectId] = value;
+}
+
+float DistManager::GetLOI(uint8_t /*clientId*/, uint32_t /*objectId*/) {
+	//return isServer ? NetObjectsLOI[clientId][objectId] : 1 ;
+	return 1;
+}
+
+} // namespace dnet

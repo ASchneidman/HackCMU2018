@@ -1,0 +1,432 @@
+447
+8, 11, 13, 15, 17, 20, 26, 26, 27, 28, 29, 29, 30, 31, 31, 32, 32, 33, 34, 35, 36, 37, 37, 38, 38, 40, 41, 44, 44, 45, 46, 46, 47, 48, 50, 50, 51, 51, 54, 56, 58, 58, 59, 59, 61, 63, 66, 66, 67, 68, 68, 69, 69, 70, 71, 73, 74, 74, 75, 75, 77, 80, 82, 82, 83, 83, 85, 87, 88, 91, 91, 92, 93, 94, 94, 95, 97, 97, 98, 99, 100, 100, 103, 105, 106, 107, 108, 110, 110, 111, 116, 117, 118, 120, 121, 121, 122, 123, 123, 124, 124, 125, 125, 125, 129, 130, 131, 133, 134, 134, 135, 136, 137, 138, 139, 139, 140, 141, 141, 141, 142, 142, 142, 143, 143, 144, 144, 145, 146, 146, 146, 150, 151, 152, 154, 155, 155, 156, 157, 158, 159, 159, 160, 160, 160, 164, 165, 166, 168, 169, 169, 170, 170, 171, 172, 172, 173, 173, 173, 177, 178, 179, 181, 182, 182, 183, 184, 185, 185, 185, 186, 187, 188, 188, 189, 189, 192, 193, 194, 195, 195, 196, 197, 198, 198, 199, 199, 200, 200, 200, 204, 205, 206, 208, 209, 209, 210, 211, 212, 212, 212, 213, 214, 215, 215, 216, 216, 219, 220, 221, 222, 222, 223, 224, 225, 225, 226, 226, 227, 227, 227, 231, 232, 233, 235, 236, 237, 237, 239, 240, 240, 240, 241, 242, 242, 243, 244, 245, 245, 246, 247, 248, 248, 249, 249, 250, 250, 250, 256, 257, 258, 260, 261, 261, 263, 264, 264, 264, 265, 265, 266, 267, 267, 268, 269, 270, 270, 271, 272, 273, 273, 274, 274, 275, 275, 275, 279, 280, 281, 283, 284, 284, 286, 286, 287, 288, 288, 289, 289, 289, 293, 294, 295, 297, 297, 298, 298, 299, 299, 300, 301, 302, 302, 303, 303, 303, 304, 305, 305, 306, 306, 306, 306, 313, 314, 315, 317, 318, 319, 320, 320, 323, 324, 326, 327, 328, 329, 330, 330, 331, 331, 332, 332, 332, 335, 336, 336, 337, 337, 338, 338, 339, 341, 342, 342, 343, 343, 345, 346, 346, 347, 347, 348, 348, 350, 351, 351, 353, 354, 354, 355, 355, 356, 356, 358, 359, 359, 360, 360, 361, 361, 363, 364, 364, 366, 367, 367, 367, 368, 368, 368, 370, 370, 371, 372, 374, 375, 375, 378, 379, 381, 382, 383, 384, 385, 385, 386, 386, 387, 387, 387, 390, 391, 391, 392, 392, 393, 393, 394, 396, 397, 397, 398, 398, 400, 401, 401, 402, 402, 403, 403, 405, 406, 406, 408, 409, 409, 410, 410, 411, 411, 413, 414, 414, 415, 415, 416, 416, 418, 419, 419, 420, 420, 421, 422, 424, 427
+/// \ingroup newmat
+///@{
+
+/// \file tmtf.cpp
+/// Part of matrix library test program.
+
+
+//#define WANT_STREAM
+#define WANT_MATH
+
+#include "include.h"
+
+#include "newmatap.h"
+
+//#include "newmatio.h"
+
+#include "tmt.h"
+
+#ifdef use_namespace
+using namespace NEWMAT;
+#endif
+
+
+
+static void SlowFT(const ColumnVector& a, const ColumnVector&b,
+   ColumnVector& x, ColumnVector& y)
+{
+   int n = a.Nrows();
+   x.ReSize(n); y.ReSize(n);
+   Real f = 6.2831853071795864769/n;
+   for (int j=1; j<=n; j++)
+   {
+      Real sumx = 0.0; Real sumy = 0.0;
+      for (int k=1; k<=n; k++)
+      {
+	 Real theta = - (j-1) * (k-1) * f;
+	 Real c = cos(theta); Real s = sin(theta);
+	 sumx += c * a(k) - s * b(k); sumy += s * a(k) + c * b(k);
+      }
+      x(j) = sumx; y(j) = sumy;
+   }
+}
+
+static void SlowDTT_II(const ColumnVector& a, ColumnVector& c, ColumnVector& s)
+{
+   int n = a.Nrows(); c.ReSize(n); s.ReSize(n);
+   Real f = 6.2831853071795864769 / (4*n);
+   int k;
+
+   for (k=1; k<=n; k++)
+   {
+      Real sum = 0.0;
+      const int k1 = k-1;              // otherwise Visual C++ 5 fails
+      for (int j=1; j<=n; j++) sum += cos(k1 * (2*j-1) * f) * a(j);
+      c(k) = sum;
+   }
+
+   for (k=1; k<=n; k++)
+   {
+      Real sum = 0.0;
+      for (int j=1; j<=n; j++) sum += sin(k * (2*j-1) * f) * a(j);
+      s(k) = sum;
+   }
+}
+
+static void SlowDTT(const ColumnVector& a, ColumnVector& c, ColumnVector& s)
+{
+   int n1 = a.Nrows(); int n = n1 - 1;
+   c.ReSize(n1); s.ReSize(n1);
+   Real f = 6.2831853071795864769 / (2*n);
+   int k;
+
+   int sign = 1;
+   for (k=1; k<=n1; k++)
+   {
+      Real sum = 0.0;
+      for (int j=2; j<=n; j++) sum += cos((j-1) * (k-1) * f) * a(j);
+      c(k) = sum + (a(1) + sign * a(n1)) / 2.0;
+      sign = -sign;
+   }
+
+   for (k=2; k<=n; k++)
+   {
+      Real sum = 0.0;
+      for (int j=2; j<=n; j++) sum += sin((j-1) * (k-1) * f) * a(j);
+      s(k) = sum;
+   }
+   s(1) = s(n1) = 0;
+}
+
+void SlowFT2(const Matrix& U, const Matrix& V, Matrix& X, Matrix& Y)
+{
+   Tracer trace("SlowFT2");
+   int m = U.Nrows(); int n = U.Ncols();
+   if (m != V.Nrows() || n != V.Ncols() || m == 0 || n == 0)
+      Throw(ProgramException("Matrix dimensions unequal or zero", U, V));
+   X.ReSize(U); Y.ReSize(V);
+   const Real pi2 = atan(1.0) * 8.0;
+   for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j)
+   {
+      Real sumr = 0.0, sumi = 0.0;
+      for (int k = 0; k < m; ++k) for (int l = 0; l < n; ++l)
+      {
+         Real a = -pi2 * ( (Real)k * (Real)i / (Real)m
+            + (Real)j * (Real)l / (Real)n );
+         Real cs = cos(a); Real sn = sin(a);
+         sumr += cs * U(k+1,l+1) - sn * V(k+1,l+1);
+         sumi += cs * V(k+1,l+1) + sn * U(k+1,l+1);
+      }
+      X(i+1,j+1) = sumr; Y(i+1,j+1) = sumi;
+   }
+}
+
+
+static void test(int n)
+{
+   Tracer et("Test FFT");
+   MultWithCarry mwc;
+
+   ColumnVector A(n), B(n), X, Y;
+   for (int i=0; i<n; i++)
+      { A.element(i) = mwc.Next(); B.element(i) = mwc.Next(); }
+   FFT(A, B, X, Y); FFTI(X, Y, X, Y);
+   X = X - A; Y = Y - B;
+   Clean(X,0.000000001); Clean(Y,0.000000001); Print(X); Print(Y);
+}
+
+static void test1(int n)
+{
+   Tracer et("Test RealFFT");
+   MultWithCarry mwc;
+
+   ColumnVector A(n), B(n), X, Y;
+   for (int i=0; i<n; i++) A.element(i) = mwc.Next();
+   B = 0.0;
+   FFT(A, B, X, Y);
+   B.CleanUp();                 // release some space
+   int n2 = n/2+1;
+   ColumnVector X1,Y1,X2,Y2;
+   RealFFT(A, X1, Y1);
+   X2 = X1 - X.Rows(1,n2); Y2 = Y1 - Y.Rows(1,n2);
+   Clean(X2,0.000000001); Clean(Y2,0.000000001); Print(X2); Print(Y2);
+   X2.CleanUp(); Y2.CleanUp();  // release some more space
+   RealFFTI(X1,Y1,B);
+   B = A - B;
+   Clean(B,0.000000001); Print(B);
+}
+
+static void test2(int n)
+{
+   Tracer et("cf FFT and slow FT");
+   MultWithCarry mwc;
+
+   ColumnVector A(n), B(n), X, Y, X1, Y1;
+   for (int i=0; i<n; i++)
+      { A.element(i) = mwc.Next(); B.element(i) = mwc.Next(); }
+   FFT(A, B, X, Y);
+   SlowFT(A, B, X1, Y1);
+   X = X - X1; Y = Y - Y1;
+   Clean(X,0.000000001); Clean(Y,0.000000001); Print(X); Print(Y);
+}
+
+static void test3(int n)
+{
+   Tracer et("cf slow and fast DCT_II and DST_II");
+   MultWithCarry mwc;
+
+   ColumnVector A(n), X, Y, X1, Y1;
+   for (int i=0; i<n; i++) A.element(i) = mwc.Next();
+   DCT_II(A, X); DST_II(A, Y);
+   SlowDTT_II(A, X1, Y1);
+   X -= X1; Y -= Y1;
+   Clean(X,0.000000001); Clean(Y,0.000000001); Print(X); Print(Y);
+}
+
+static void test4(int n)
+{
+   Tracer et("Test DCT_II");
+   MultWithCarry mwc;
+
+   ColumnVector A1(n);
+   for (int i=0; i<n; i++) A1.element(i) = mwc.Next();
+   // do DCT II by ordinary FFT
+   ColumnVector P(2*n), Q(2*n);
+   P = 0.0; Q = 0.0; P.Rows(1,n) = A1;
+   FFT(P, Q, P, Q);
+   ColumnVector B1(n);
+   for (int k=0; k<n; k++)
+   {
+      Real arg = k * 6.2831853071795864769 / (4 * n);
+      B1(k+1) = P(k+1) * cos(arg) + Q(k+1) * sin(arg);
+   }
+   // use DCT_II routine
+   ColumnVector B2;
+   DCT_II(A1,B2);
+   // test inverse
+   ColumnVector A2;
+   DCT_II_inverse(B2,A2);
+   A1 -= A2; B1 -= B2;
+   Clean(A1,0.000000001); Clean(B1,0.000000001); Print(A1); Print(B1);
+}
+
+static void test5(int n)
+{
+   Tracer et("Test DST_II");
+   MultWithCarry mwc;
+
+   ColumnVector A1(n);
+   for (int i=0; i<n; i++) A1.element(i) = mwc.Next();
+   // do DST II by ordinary FFT
+   ColumnVector P(2*n), Q(2*n);
+   P = 0.0; Q = 0.0; P.Rows(1,n) = A1;
+   FFT(P, Q, P, Q);
+   ColumnVector B1(n);
+   for (int k=1; k<=n; k++)
+   {
+      Real arg = k * 6.2831853071795864769 / (4 * n);
+      B1(k) = P(k+1) * sin(arg) - Q(k+1) * cos(arg);
+   }
+   // use DST_II routine
+   ColumnVector B2;
+   DST_II(A1,B2);
+   // test inverse
+   ColumnVector A2;
+   DST_II_inverse(B2,A2);
+   A1 -= A2; B1 -= B2;
+   Clean(A1,0.000000001); Clean(B1,0.000000001); Print(A1); Print(B1);
+}
+
+static void test6(int n)
+{
+   Tracer et("Test DST");
+   MultWithCarry mwc;
+
+   ColumnVector A1(n+1);
+   A1(1) = A1(n+1) = 0;
+   for (int i=1; i<n; i++) A1.element(i) = mwc.Next();
+
+   // do DST by ordinary FFT
+   ColumnVector P(2*n), Q(2*n); P = 0.0; Q = 0.0; P.Rows(1,n+1) = A1;
+   FFT(P, Q, P, Q);
+   ColumnVector B1 = -Q.Rows(1,n+1);
+   // use DST routine
+   ColumnVector B2;
+   DST(A1,B2);
+   // test inverse
+   ColumnVector A2;
+   DST_inverse(B2,A2);
+   A1 -= A2; B1 -= B2;
+   Clean(A1,0.000000001); Clean(B1,0.000000001); Print(A1); Print(B1);
+}
+
+
+
+static void test7(int n)
+{
+   Tracer et("Test DCT");
+   MultWithCarry mwc;
+
+   ColumnVector A1(n+1);
+   for (int i=0; i<=n; i++) A1.element(i) = mwc.Next();
+
+   // do DCT by ordinary FFT
+   ColumnVector P(2*n), Q(2*n); P = 0.0; Q = 0.0; P.Rows(1,n+1) = A1;
+   P(1) /= 2.0; P(n+1) /= 2.0;
+   FFT(P, Q, P, Q);
+   ColumnVector B1 = P.Rows(1,n+1);
+   // use DCT routine
+   ColumnVector B2;
+   DCT(A1,B2);
+   // test inverse
+   ColumnVector A2;
+   DCT_inverse(B2,A2);
+   A1 -= A2; B1 -= B2;
+   Clean(A1,0.000000001); Clean(B1,0.000000001); Print(A1); Print(B1);
+}
+
+static void test8(int n)
+{
+   Tracer et("cf slow and fast DCT and DST");
+   MultWithCarry mwc;
+
+   ColumnVector A(n+1), X, Y, X1, Y1;
+   for (int i=0; i<=n; i++) A.element(i) = mwc.Next();
+
+   DCT(A, X); DST(A, Y);
+   SlowDTT(A, X1, Y1);
+   X -= X1; Y -= Y1;
+   Clean(X,0.000000001); Clean(Y,0.000000001); Print(X); Print(Y);
+}
+
+static void test9(int m, int n)
+{
+   Tracer et("cf FFT2 and slow FT2");
+   MultWithCarry mwc;
+
+   Matrix A(m,n), B(m,n), X, Y, X1, Y1;
+   for (int i=0; i<m; i++) for (int j=0; j<n; j++)
+      { A.element(i,j) = mwc.Next(); B.element(i,j) = mwc.Next(); }
+   FFT2(A, B, X, Y);
+   SlowFT2(A, B, X1, Y1);
+   X = X - X1; Y = Y - Y1;
+   Clean(X,0.000000001); Clean(Y,0.000000001); Print(X); Print(Y);
+   FFT2I(X1, Y1, X1, Y1);
+   X1 -= A; Y1 -= B;
+   Clean(X1,0.000000001); Clean(Y1,0.000000001); Print(X1); Print(Y1);   
+}
+
+
+
+
+void trymatf()
+{
+   Tracer et("Fifteenth test of Matrix package");
+   Tracer::PrintTrace();
+
+   int i;
+   ColumnVector A(12), B(12);
+   for (i = 1; i <=12; i++)
+   {
+      Real i1 = i - 1;
+      A(i) = .7
+	   + .2 * cos(6.2831853071795864769 * 4.0 * i1 / 12)
+	   + .3 * sin(6.2831853071795864769 * 3.0 * i1 / 12);
+      B(i) = .9
+	   + .5 * sin(6.2831853071795864769 * 2.0 * i1 / 12)
+	   + .4 * cos(6.2831853071795864769 * 1.0 * i1 / 12);
+   }
+   FFT(A, B, A, B);
+   A(1) -= 8.4; A(3) -= 3.0; A(5) -= 1.2; A(9) -= 1.2; A(11) += 3.0;
+   B(1) -= 10.8; B(2) -= 2.4; B(4) += 1.8; B(10) -= 1.8; B(12) -= 2.4;
+   Clean(A,0.000000001); Clean(B,0.000000001); Print(A); Print(B);
+
+
+   // test FFT
+   test(2048); test(2000); test(27*81); test(2310); test(49*49);
+   test(13*13*13); test(43*47);
+   test(16*16*3); test(16*16*5); test(16*16*7);
+   test(8*8*5);
+
+   // test realFFT
+   test1(2); test1(98); test1(22); test1(100);
+   test1(2048); test1(2000); test1(35*35*2);
+
+   // compare FFT and slowFFT
+   test2(1); test2(13); test2(12); test2(9); test2(16); test2(30); test2(42);
+   test2(24); test2(8); test2(40); test2(48); test2(4); test2(3); test2(5);
+   test2(32); test2(2);
+
+   // compare DCT_II, DST_II and slow versions
+   test3(2); test3(26); test3(32); test3(18);
+
+   // test DCT_II and DST_II
+   test4(2); test5(2);
+   test4(202); test5(202);
+   test4(1000); test5(1000);
+
+   // test DST and DCT
+   test6(2); test7(2);
+   test6(274); test7(274);
+   test6(1000); test7(1000);
+
+   // compare DCT, DST and slow versions
+   test8(2); test8(26); test8(32); test8(18);
+
+   // compare FFT2 with slow version
+   test9(1,16); test9(16,1);
+   test9(4,3); test9(4,4); test9(4,5); test9(5,3);
+
+   
+   // now do the same thing all over again forcing use of old FFT
+   FFT_Controller::OnlyOldFFT = true;
+
+   for (i = 1; i <=12; i++)
+   {
+      Real i1 = i - 1;
+      A(i) = .7
+	   + .2 * cos(6.2831853071795864769 * 4.0 * i1 / 12)
+	   + .3 * sin(6.2831853071795864769 * 3.0 * i1 / 12);
+      B(i) = .9
+	   + .5 * sin(6.2831853071795864769 * 2.0 * i1 / 12)
+	   + .4 * cos(6.2831853071795864769 * 1.0 * i1 / 12);
+   }
+   FFT(A, B, A, B);
+   A(1) -= 8.4; A(3) -= 3.0; A(5) -= 1.2; A(9) -= 1.2; A(11) += 3.0;
+   B(1) -= 10.8; B(2) -= 2.4; B(4) += 1.8; B(10) -= 1.8; B(12) -= 2.4;
+   Clean(A,0.000000001); Clean(B,0.000000001); Print(A); Print(B);
+
+
+   // test FFT
+   test(2048); test(2000); test(27*81); test(2310); test(49*49);
+   test(13*13*13); test(43*47);
+   test(16*16*3); test(16*16*5); test(16*16*7);
+   test(8*8*5);
+
+   // test realFFT
+   test1(2); test1(98); test1(22); test1(100);
+   test1(2048); test1(2000); test1(35*35*2);
+
+   // compare FFT and slowFFT
+   test2(1); test2(13); test2(12); test2(9); test2(16); test2(30); test2(42);
+   test2(24); test2(8); test2(40); test2(48); test2(4); test2(3); test2(5);
+   test2(32); test2(2);
+
+   // compare DCT_II, DST_II and slow versions
+   test3(2); test3(26); test3(32); test3(18);
+
+   // test DCT_II and DST_II
+   test4(2); test5(2);
+   test4(202); test5(202);
+   test4(1000); test5(1000);
+
+   // test DST and DCT
+   test6(2); test7(2);
+   test6(274); test7(274);
+   test6(1000); test7(1000);
+
+   // compare DCT, DST and slow versions
+   test8(2); test8(26); test8(32); test8(18);
+   
+   // compare FFT2 with slow version
+   // don't redo these
+
+   FFT_Controller::OnlyOldFFT = false;
+
+
+
+}
+
+///@}

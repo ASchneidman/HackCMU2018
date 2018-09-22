@@ -1,0 +1,106 @@
+98
+9, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 16, 17, 18, 19, 20, 20, 21, 28, 29, 30, 31, 32, 34, 36, 38, 38, 39, 40, 40, 41, 42, 44, 44, 45, 45, 45, 46, 47, 48, 49, 50, 51, 51, 52, 52, 52, 53, 53, 53, 54, 55, 56, 57, 58, 59, 59, 60, 61, 62, 63, 64, 65, 66, 67, 67, 68, 69, 70, 71, 72, 73, 74, 74, 75, 75, 76, 76, 81, 82, 84, 85, 86, 87, 88, 89, 90, 92, 93, 93, 94, 95, 97, 99, 101, 103
+#include <kos.h>
+#include <modplug/stdafx.h>
+#include <modplug/sndfile.h>
+
+uint16 sound_buffer[65536] = {0};
+CSoundFile *soundfile;
+
+void *mod_callback(snd_stream_hnd_t hnd, int len, int * actual)
+{
+	int res;
+	
+	res=soundfile->Read(sound_buffer, len)*4/*samplesize*/;
+	//printf("res: %i, len: %i\n",res,len);
+	if (res<len)
+	{
+		soundfile->SetCurrentPos(0);
+		soundfile->Read(&sound_buffer[res], len-res);
+	}
+	*actual = len;
+	
+	return sound_buffer;
+}
+
+extern uint8 romdisk[];
+KOS_INIT_ROMDISK(romdisk);
+
+int main(int argc, char **argv) {
+	cont_cond_t cond;
+	uint8	c;
+	uint8 *mod_buffer;
+	uint32 hnd;
+	char filename[]="/rd/test.s3m";
+
+	printf("modplug_test beginning\n");
+
+	snd_stream_init();
+
+	hnd=fs_open(filename, O_RDONLY);
+	if (!hnd) {
+		printf("Error reading %s\n",filename);
+		return 0;
+	}
+
+	printf("Filesize: %i\n",fs_total(hnd));
+	mod_buffer=(uint8 *)malloc(fs_total(hnd));
+	if (!mod_buffer) {
+		printf("Not enough memory\n");
+		return 0;
+	}
+	printf("Memory allocated\n");
+	
+	if (fs_read(hnd,mod_buffer,fs_total(hnd))!=fs_total(hnd))
+	{
+		printf("Read error\n");
+		free(mod_buffer);
+		return 0;
+	}
+	printf("File read\n");
+	
+	soundfile = new CSoundFile;
+	if (!soundfile) {
+		printf("Not enough memory\n");
+		free(mod_buffer);
+		return 0;
+	}
+	printf("CSoundFile created\n");
+	if (!soundfile->Create(mod_buffer,fs_total(hnd))) {
+		printf("Mod not loaded\n");
+		free(mod_buffer);
+		delete soundfile;
+		return 0;
+	}
+	printf("Mod loaded\n");
+	soundfile->SetWaveConfig(44100,16,2);
+	printf("Type: %i\n",soundfile->GetType());
+	printf("Title: %s\n",soundfile->GetTitle());
+
+	/*fs_close(hnd);
+	free(mod_buffer);*/
+
+	snd_stream_hnd_t shnd = snd_stream_alloc(mod_callback, SND_STREAM_BUFFER_MAX);
+	snd_stream_start(shnd, 44100, 1);
+
+	while(1) {
+		/* Check key status */
+		c = maple_first_controller();
+		if (cont_get_cond(c, &cond) >= 0) {
+			if (!(cond.buttons & CONT_START))
+				break;
+		}
+
+		snd_stream_poll(shnd);
+		
+		timer_spin_sleep(10);
+	}
+
+	delete soundfile;
+
+	snd_stream_destroy(shnd);
+
+	snd_stream_shutdown();
+
+	return 0;
+}

@@ -1,0 +1,527 @@
+529
+6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 17, 18, 18, 19, 19, 20, 21, 21, 22, 22, 23, 24, 25, 26, 27, 28, 28, 29, 29, 30, 30, 31, 32, 32, 33, 33, 34, 37, 38, 39, 43, 44, 46, 47, 47, 47, 48, 49, 50, 54, 55, 56, 56, 56, 57, 58, 59, 61, 62, 63, 63, 63, 64, 65, 66, 67, 68, 68, 68, 69, 70, 70, 70, 71, 71, 72, 72, 73, 73, 74, 74, 74, 75, 76, 76, 77, 77, 78, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89, 89, 89, 90, 91, 91, 92, 92, 93, 94, 95, 96, 96, 97, 97, 97, 98, 98, 99, 100, 100, 101, 102, 102, 102, 103, 104, 104, 105, 107, 108, 108, 109, 109, 110, 110, 110, 111, 112, 114, 115, 115, 116, 117, 118, 119, 119, 119, 120, 120, 121, 121, 122, 123, 124, 124, 125, 125, 125, 126, 127, 128, 129, 130, 130, 131, 132, 134, 135, 135, 136, 137, 137, 138, 138, 139, 139, 139, 140, 141, 143, 144, 145, 146, 146, 146, 147, 147, 148, 148, 149, 149, 150, 150, 151, 152, 153, 154, 155, 156, 156, 156, 157, 157, 158, 159, 159, 160, 160, 160, 161, 161, 162, 163, 164, 165, 166, 166, 167, 167, 168, 168, 168, 169, 170, 172, 173, 174, 175, 175, 175, 176, 177, 178, 180, 181, 182, 183, 205, 206, 207, 208, 208, 209, 209, 210, 210, 210, 212, 213, 215, 216, 217, 219, 221, 222, 223, 225, 226, 227, 228, 228, 229, 229, 230, 230, 230, 231, 231, 232, 232, 234, 235, 235, 235, 236, 237, 238, 239, 240, 241, 243, 244, 244, 245, 246, 247, 247, 248, 249, 250, 251, 252, 252, 252, 253, 254, 255, 256, 256, 257, 257, 258, 259, 259, 260, 261, 262, 263, 264, 265, 267, 268, 268, 269, 269, 270, 270, 271, 273, 274, 275, 277, 278, 280, 282, 282, 283, 283, 285, 286, 287, 288, 289, 289, 289, 290, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 301, 301, 302, 302, 303, 304, 305, 306, 307, 308, 308, 309, 309, 310, 310, 311, 311, 312, 312, 313, 314, 318, 319, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 329, 330, 330, 331, 331, 332, 333, 333, 334, 334, 335, 335, 335, 339, 340, 341, 342, 343, 344, 348, 349, 349, 350, 350, 351, 351, 352, 352, 353, 354, 356, 356, 357, 358, 359, 360, 360, 361, 361, 362, 362, 363, 370, 371, 372, 374, 375, 376, 378, 379, 383, 384, 385, 388, 389, 390, 391, 392, 393, 401, 402, 402, 403, 403, 404, 404, 405, 407, 407, 408, 409, 409, 411, 412, 413, 414, 414, 415, 416, 416, 418, 418, 419, 419, 420, 422, 426, 426, 426, 427, 435, 436, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 446, 447, 447, 448, 448, 449, 453, 454, 454, 455, 455, 455, 456, 457, 458, 460, 464, 465, 469, 478, 479, 481, 483, 484, 485, 486, 487, 488, 489, 490, 492, 496, 497, 498, 498, 499, 503, 504, 506, 510, 511, 515, 516, 520, 521
+
+#include "SNAP.h"
+#include "WConstants.h"
+
+SNAP::SNAP()
+{
+	//init our rx values
+	this->rxState = SNAP_idle;
+	this->rxFlags = 0;
+	this->rxHDB1 = 0;
+	this->rxHDB2 = 0;
+	this->rxLength = 0;
+	this->rxDestAddress = 0;
+	this->rxSourceAddress = 0;
+	this->rxCRC = 0;
+	this->rxBufferIndex = 0;
+	
+	//clear our rx buffer.
+	for (byte i=0; i<RX_BUFFER_SIZE; i++)
+		this->rxBuffer[i] = 0;
+		
+	//init our tx values
+	this->txDestAddress = 0;
+	this->txSourceAddress = 0;
+	this->txLength = 0;
+	this->txHDB2 = 0;
+	this->txCRC = 0;
+	
+	//clear our tx buffer.
+	for (byte i=0; i<TX_BUFFER_SIZE; i++)
+		this->txBuffer[i] = 0;
+	
+	//init our device count.
+	this->deviceCount = 0;
+}
+
+void SNAP::begin(long baud)
+{
+	Serial.begin(baud);
+}
+
+void SNAP::receivePacket()
+{
+	byte cmd;
+
+	while (Serial.available() > 0 && !this->packetReady())
+	{
+		cmd = Serial.read();
+		this->receiveByte(cmd);
+	}
+}
+
+void SNAP::receiveByte(byte c)
+{
+	if (this->rxFlags & serialErrorBit)
+	{
+		this->receiveError();
+		return;
+	}
+
+  
+	switch (this->rxState)
+	{
+		case SNAP_idle:
+			// In the idle state, we wait for a sync byte.  If none is
+			// received, we remain in this state.
+			if (c == SNAP_SYNC)
+			{
+				this->rxState = SNAP_haveSync;
+				this->rxFlags &= ~msgAbortedBit; //clear
+				
+				//this->debug();
+				//Serial.println("sync");
+				
+			}
+			//pass it along anyway.
+			else
+				this->transmit(c);
+		break;
+
+  		case SNAP_haveSync:
+			// In this state we are waiting for header definition bytes. First
+			// HDB2.  We currently insist that all packets meet our expected
+			// format which is 1 byte destination address, 1 byte source
+			// address, and no protocol specific bytes.  The ACK/NAK bits may
+			// be anything.
+			this->rxHDB2 = c;
+			if ((c & B11111100) != B01010000)
+			{
+				// Unsupported header.  Drop it an reset
+				this->rxFlags |= serialErrorBit;  //set serialError
+				this->rxFlags |= wrongByteErrorBit; 
+				this->receiveError();
+			}
+			// All is well
+			else
+			{
+				//do we want ack?
+				if ((c & B00000011) == B00000001)
+					this->rxFlags |= ackRequestedBit;  //set ackRequested-Bit
+				else
+					this->rxFlags &= ~ackRequestedBit; //clear
+				this->rxCRC = 0;
+				
+				this->computeRxCRC(c);
+
+				this->rxState = SNAP_haveHDB2;
+				
+				//this->debug();
+				//Serial.println("hdb2");	
+			}
+		break;
+
+		case SNAP_haveHDB2:
+			// For HDB1, we insist on high bits are 0011 and low bits are the length 
+			// of the payload.
+			this->rxHDB1 = c;
+			if ((c & B11110000) != B00110000)
+			{
+				this->rxFlags |= serialErrorBit;  //set serialError
+				this->rxFlags |= wrongByteErrorBit; 
+				this->receiveError();
+			}
+			else
+			{
+				// FIXME: This doesn't correspond to the SNAP specs since the length
+				// should become non-linear after 8 bytes. The original reprap code
+				// does the same thing though. kintel 20071120.
+				this->rxLength = c & 0x0f;
+				
+				if (this->rxLength > RX_BUFFER_SIZE)
+					this->rxLength = RX_BUFFER_SIZE;
+
+				this->computeRxCRC(c);
+				
+				this->rxState = SNAP_haveHDB1;
+				
+				//this->debug();
+				//Serial.println("hdb1");	
+			}
+		break;
+
+		case SNAP_haveHDB1:
+			// We should be reading the destination address now
+			if (!this->hasDevice(c))
+			{
+				//this->debug();
+				//Serial.print("no device:");
+				//Serial.println(c);
+				
+				this->transmit(SNAP_SYNC);
+				this->transmit(this->rxHDB2);
+				this->transmit(this->rxHDB1);
+				this->transmit(c);
+				this->rxState = SNAP_haveDABPass;
+				this->rxFlags &= ~ackRequestedBit; //clear
+				this->rxFlags |= inTransmitMsgBit; 
+			}
+			else
+			{
+				//save our address, as we may have multiple addresses on one arduino.
+				this->rxDestAddress = c;
+                       
+				this->computeRxCRC(c);
+				this->rxState = SNAP_haveDAB;
+				
+				//this->debug();
+				//Serial.println("got dest");	
+			}
+		break;
+
+		case SNAP_haveDAB:
+			// We should be reading the source address now
+			if (this->hasDevice(c))
+			{
+				// If we receive a packet from ourselves, that means it went
+				// around the ring and was never picked up, ie the device we
+				// sent to is off-line or unavailable.
+
+				// FIXME: Deal with this situation
+				this->receiveError();
+			}
+          
+	    	/*
+			// this may not be required.... we check this flag before accepting new packets...
+			if (this->rxFlags & processingLockBit)
+			{
+				this->rxCRC = 0;
+
+				//we have not finished the last order, reject (send a NAK)
+				this->transmit(SNAP_SYNC);     
+				this->transmit(computeRxCRC(B01010011));        //HDB2: NAK
+				this->transmit(computeRxCRC(B00110000));        // HDB1: 0 bytes, with 8 bit CRC
+				this->transmit(computeRxCRC(this->rxSourceAddress));        // Return to sender
+				this->transmit(computeRxCRC(this->rxDestAddress));        // From us
+				this->transmit(this->rxCRC);  // CRC
+
+				this->rxFlags &= ~ackRequestedBit; //clear
+				this->rxFlags |= msgAbortedBit; //set
+
+				this->rxState = SNAP_idle;
+			}
+			*/
+
+			this->rxSourceAddress = c;
+			this->rxBufferIndex = 0;
+			this->computeRxCRC(c);
+			
+			//this->debug();
+			//Serial.println("got source");	
+
+			this->rxState = SNAP_readingData;
+		break;
+
+		case SNAP_readingData:
+			rxBuffer[rxBufferIndex] = c;
+			rxBufferIndex++;
+
+			this->computeRxCRC(c);
+
+			if (rxBufferIndex == this->rxLength)
+				this->rxState = SNAP_dataComplete;
+		break;
+
+		case SNAP_dataComplete:
+			// We should be receiving a CRC after data, and it
+			// should match what we have already computed
+			{
+				//this->debug();
+				//Serial.println("data done");	
+				
+				byte hdb2 = B01010000; // 1 byte addresses
+
+				if (c == this->rxCRC)
+				{
+					// All is good, so process the command.  Rather than calling the
+					// appropriate function directly, we just set a flag to say
+					// something is ready for processing.  Then in the main loop we
+					// detect this and process the command.  This allows further
+					// comms processing (such as passing other tokens around the
+					// ring) while we're actioning the command.
+
+					hdb2 |= B00000010;
+					this->rxFlags |= processingLockBit;  //set processingLockBit
+				}
+				// CRC mismatch, so we will NAK the packet
+				else
+					hdb2 |= B00000011;
+                 
+				// Send ACK or NAK back to source
+				if (this->rxFlags & ackRequestedBit)
+				{
+					this->transmit(SNAP_SYNC);
+					this->rxCRC = 0;
+					this->transmit(this->computeRxCRC(hdb2));
+					this->transmit(this->computeRxCRC(B00110000));        // HDB1: 0 bytes, with 8 bit CRC
+					this->transmit(this->computeRxCRC(this->rxSourceAddress));        // Return to sender
+					this->transmit(this->computeRxCRC(this->rxDestAddress));        // From us
+					this->transmit(this->rxCRC);                                          // CRC
+					this->rxFlags &= ~ackRequestedBit;                        // clear
+				}
+			}
+         
+			this->rxState = SNAP_idle;
+		break;
+
+		case SNAP_haveDABPass:
+			//this->debug();
+			//Serial.println("dab pass");
+		
+			this->transmit(c);  // We will be reading source addr; pass it on
+
+			// Increment data length by 1 so that we just copy the CRC
+			// at the end as well.
+			this->rxLength++;
+
+			this->rxState = SNAP_readingDataPass;
+		break;
+
+		case SNAP_readingDataPass:
+
+//			this->debug();
+//			Serial.println("data pass");
+
+			this->transmit(c);  // This is a data byte; pass it on
+			if (this->rxLength > 1)
+				this->rxLength--;
+			else
+			{
+				//init our rx values
+				this->rxState = SNAP_idle;
+				this->rxFlags = 0;
+				this->rxHDB1 = 0;
+				this->rxHDB2 = 0;
+				this->rxLength = 0;
+				this->rxDestAddress = 0;
+				this->rxSourceAddress = 0;
+				this->rxCRC = 0;
+				this->rxBufferIndex = 0;
+
+				//clear our rx buffer.
+				for (byte i=0; i<RX_BUFFER_SIZE; i++)
+					this->rxBuffer[i] = 0;
+			}
+		break;
+                        
+		default:
+			//this->debug();
+			//Serial.println("no state!");
+		
+			this->rxFlags |= serialErrorBit;  //set serialError
+			this->rxFlags |= wrongStateErrorBit;  
+			this->receiveError();
+	}
+}
+
+void SNAP::receiveError()
+{
+	//init our rx values
+	this->rxState = SNAP_idle;
+	this->rxFlags = 0;
+	this->rxHDB1 = 0;
+	this->rxHDB2 = 0;
+	this->rxLength = 0;
+	this->rxDestAddress = 0;
+	this->rxSourceAddress = 0;
+	this->rxCRC = 0;
+	this->rxBufferIndex = 0;
+	
+	//clear our rx buffer.
+	for (byte i=0; i<RX_BUFFER_SIZE; i++)
+		this->rxBuffer[i] = 0;
+		
+	//this->debug();
+	//Serial.println("error");	
+}
+
+void SNAP::addDevice(byte c)
+{
+	if (this->deviceCount >= MAX_DEVICE_COUNT)
+		return;
+            
+	this->deviceAddresses[this->deviceCount] = c;
+	this->deviceCount++;
+}
+
+void SNAP::startMessage(byte to, byte from)
+{
+	//this->debug();
+	//Serial.println("msg start");
+	
+	//initialize our addresses.
+	this->txDestAddress = to;
+	this->txSourceAddress = from;
+
+	//initalize our variables.
+	this->txLength = 0;
+	this->txHDB2 = 0;
+	this->txCRC = 0;
+	
+	//clear our buffer.
+	for (byte i=0; i<TX_BUFFER_SIZE; i++)
+		this->txBuffer[i] = 0;
+}
+
+/*!
+  High level routine that queues a byte during construction of a packet.
+*/
+void SNAP::sendDataByte(byte c)
+{
+	// Put byte into packet sending buffer.  Don't calculated CRCs
+	// yet as we don't have complete information.
+
+	// Drop if trying to send too much
+	if (this->txLength >= TX_BUFFER_SIZE)
+		return;
+
+	this->txBuffer[this->txLength] = c;
+	this->txLength++;
+}
+
+void SNAP::sendDataInt(int i)
+{
+	this->sendDataByte(i & 0xff);
+	this->sendDataByte(i >> 8);
+}
+
+void SNAP::sendDataLong(long i)
+{
+	this->sendDataByte(i & 0xff);
+	this->sendDataByte(i >> 8);
+	this->sendDataByte(i >> 16);
+	this->sendDataByte(i >> 24);
+}
+
+
+/*!
+  Create headers and synchronously transmit the message.
+*/
+void SNAP::sendMessage()
+{
+	//this->debug();
+	//Serial.println("sendmsg");
+	
+	this->txCRC = 0;
+
+	//here is our header.
+	this->transmit(SNAP_SYNC);
+	this->transmit(this->computeTxCRC(B01010001));                   // HDB2 - Request ACK
+
+	// FIXME: This doesn't correspond to the SNAP specs since the length
+	// should become non-linear after 8 bytes. The original reprap code
+	// does the same thing though. kintel 20071120.
+	this->transmit(this->computeTxCRC(B00110000 | this->txLength));  // HDB1 
+	this->transmit(this->computeTxCRC(this->txDestAddress));         // Destination
+	this->transmit(this->computeTxCRC(this->txSourceAddress));           // Source (us)
+
+	//payload.
+	for (byte i=0; i<this->txLength; i++)
+		this->transmit(this->computeTxCRC(this->txBuffer[i]));
+
+	this->transmit(this->txCRC);
+}
+
+bool SNAP::packetReady()
+{	
+	return (this->rxFlags & processingLockBit);
+}
+
+/*!
+  Must be manually called by the main loop when the message payload
+  has been consumed.
+*/
+void SNAP::releaseLock()
+{
+	//init our rx values
+	this->rxState = SNAP_idle;
+	this->rxFlags = 0;
+	this->rxHDB1 = 0;
+	this->rxHDB2 = 0;
+	this->rxLength = 0;
+	this->rxDestAddress = 0;
+	this->rxSourceAddress = 0;
+	this->rxCRC = 0;
+	this->rxBufferIndex = 0;
+	
+	//clear our rx buffer.
+	for (byte i=0; i<RX_BUFFER_SIZE; i++)
+		this->rxBuffer[i] = 0;
+}
+
+bool SNAP::hasDevice(byte c)
+{
+	for (int i=0; i<this->deviceCount; i++)
+	{
+		if (this->deviceAddresses[i] == c)
+			return true;
+	}
+
+	return false;
+}
+
+void SNAP::debug()
+{
+	Serial.print('d');
+}
+
+void SNAP::transmit(byte c)
+{
+  Serial.print(c, BYTE);
+}
+
+/*!
+  Incrementally adds b to crc computation and updates crc.
+  returns \c.
+*/
+byte SNAP::computeCRC(byte b, byte crc)
+{
+	byte i = b ^ crc;
+
+	crc = 0;
+
+	if (i & 1) crc ^= 0x5e;
+	if (i & 2) crc ^= 0xbc;
+	if (i & 4) crc ^= 0x61;
+	if (i & 8) crc ^= 0xc2;
+	if (i & 0x10) crc ^= 0x9d;
+	if (i & 0x20) crc ^= 0x23;
+	if (i & 0x40) crc ^= 0x46;
+	if (i & 0x80) crc ^= 0x8c;
+
+	return crc;
+}
+
+byte SNAP::computeRxCRC(byte b)
+{
+	this->rxCRC = this->computeCRC(b, this->rxCRC);
+	
+	return b;
+}
+
+byte SNAP::computeTxCRC(byte b)
+{
+	this->txCRC = this->computeCRC(b, this->txCRC);
+
+	return b;
+}
+
+byte SNAP::getDestination()
+{
+	return this->rxDestAddress;
+}
+
+byte SNAP::getByte(byte index)
+{
+	return this->rxBuffer[index];
+}
+
+int SNAP::getInt(byte index)
+{
+	return (this->rxBuffer[index+1] << 8) + this->rxBuffer[index];
+}
+
+// Preinstantiate Objects
+SNAP snap = SNAP();

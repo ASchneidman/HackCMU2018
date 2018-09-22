@@ -1,0 +1,223 @@
+160
+4, 5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17, 18, 27, 28, 28, 29, 32, 33, 35, 36, 37, 38, 39, 41, 42, 43, 44, 45, 46, 52, 54, 55, 56, 57, 59, 60, 61, 62, 63, 64, 64, 66, 68, 69, 70, 71, 72, 73, 75, 76, 77, 78, 79, 84, 85, 90, 91, 93, 95, 96, 97, 98, 98, 99, 99, 100, 101, 102, 103, 104, 106, 107, 108, 110, 111, 112, 113, 114, 115, 116, 116, 117, 118, 119, 124, 125, 126, 128, 129, 130, 132, 133, 133, 134, 135, 136, 137, 138, 139, 144, 145, 146, 148, 149, 150, 151, 152, 153, 154, 155, 157, 162, 164, 165, 166, 167, 167, 168, 168, 169, 170, 171, 172, 173, 174, 175, 179, 180, 181, 182, 183, 184, 185, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 200, 201, 202, 203, 205, 206, 207, 208, 209, 210, 211, 216, 217, 218, 219, 220
+#include "window.moc"
+
+// Qt
+#include <qaccel.h>
+#include <qevent.h>
+#include <qheader.h>
+#include <qlabel.h>
+#include <qlayout.h>
+#include <qtimer.h>
+
+// KDE
+#include <kdebug.h>
+#include <klistview.h>
+#include <klistviewsearchline.h>
+#include <klocale.h>
+#include <krun.h>
+#include <kurifilter.h>
+#include <kwinmodule.h>
+
+const int ERROR_TIMEOUT = 5000;
+
+/**
+ * Subclass KListViewSearchLine to select the first visible item if the
+ * previous selected item gets filtered out
+ */
+class ListViewSearchLine : public KListViewSearchLine {
+public:
+	ListViewSearchLine(QWidget* parent)
+	: KListViewSearchLine(parent) {}
+
+
+	void updateSearch(const QString& text) {
+		KListViewSearchLine::updateSearch(text);
+
+		KListView* view = listView();
+		QListViewItem* item = view->selectedItem();
+		if (item && item->isVisible()) {
+			return;
+		}
+
+		QListViewItemIterator iterator(view, QListViewItemIterator::Visible);
+		item = iterator.current();
+		if (item) {
+			view->setSelected(item, true);
+		}
+	}
+};
+
+
+Window::Window()
+: QWidget(0) {
+	setCaption(i18n("Switcha"));
+
+	// Line edit
+	mLineEdit = new ListViewSearchLine(this);
+	connect(mLineEdit, SIGNAL(returnPressed()), SLOT(slotReturnPressed()) );
+	mLineEdit->installEventFilter(this);
+
+	// View
+	mView = new KListView(this);
+	mView->header()->hide();
+	mView->addColumn("");
+	mView->setResizeMode(QListView::LastColumn);
+	connect(mView, SIGNAL(clicked(QListViewItem*)), SLOT(switchToWindow(QListViewItem*)) );
+
+	mLineEdit->setListView(mView);
+
+	// Layout
+	QVBoxLayout* layout = new QVBoxLayout(this);
+	layout->setMargin(6);
+	layout->setSpacing(6);
+	layout->addWidget(mLineEdit);
+	layout->addWidget(mView);
+
+	// Hide with esc
+	QAccel* accel = new QAccel(this);
+	accel->connectItem(
+		accel->insertItem(Key_Escape),
+		this, SLOT(hide()) );
+}
+
+
+void Window::closeEvent(QCloseEvent* event) {
+	hide();
+	event->ignore();
+}
+
+
+void Window::showAgain() {
+	mLineEdit->clear();
+	mView->clear();
+
+	updateWindowInfoList();
+
+	WindowInfoList::ConstIterator
+		it = mWindowInfoList.begin(),
+		end = mWindowInfoList.end();
+	
+	for (; it!=end; ++it) {
+		KWin::WindowInfo info = *it;
+		QListViewItem* item = new QListViewItem(mView, info.visibleName());
+		QPixmap pix = KWin::icon(info.win(), 16, 16, true);
+		item->setPixmap(0, pix);
+	}
+
+	if (!mWindowInfoList.empty()) {
+		mView->setSelected(mView->firstChild(), true);
+	}
+
+	QRect rect = QApplication::desktop()->availableGeometry();
+	int width = mView->columnWidth(0) + 30;
+	int height = 300;
+	move(
+		rect.left() + (rect.width() - width) / 2,
+		rect.top() + (rect.height() - height) / 2
+		);
+	resize(width, height);
+	show();
+	KWin::forceActiveWindow(winId());
+}
+
+
+void Window::updateWindowInfoList() {
+	KWinModule kwinModule;
+	typedef QValueList<WId> WIdList;
+	const WIdList & list = kwinModule.windows();
+
+	WIdList::ConstIterator
+		it = list.begin(),
+		end = list.end();
+
+	mWindowInfoList.clear();
+	for (; it!=end; ++it) {
+		KWin::WindowInfo info = KWin::windowInfo(*it);
+		NET::WindowType type = info.windowType(NET::AllTypesMask);
+		if (type != NET::Desktop && type != NET::Dock && type != NET::Menu) {
+			mWindowInfoList << info;
+		}
+	}
+}
+
+
+bool Window::eventFilter(QObject*, QEvent* event) {
+	if (event->type() != QEvent::KeyPress) {
+		return false;
+	}
+
+	QKeyEvent* keyEvent = static_cast<QKeyEvent*>(event);
+	if (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) {
+		QKeyEvent* newEvent = new QKeyEvent(
+			keyEvent->type(), keyEvent->key(), keyEvent->ascii(),
+			keyEvent->state(), keyEvent->text());
+		QApplication::postEvent(mView, newEvent);
+		return true;
+	}
+
+	return false;
+}
+
+
+void Window::switchToWindow(QListViewItem* item) {
+	QString itemName = item->text(0);
+
+	WindowInfoList::ConstIterator
+		it = mWindowInfoList.begin(),
+		end = mWindowInfoList.end();
+	
+	for (; it!=end; ++it) {
+		KWin::WindowInfo info = *it;
+		if (info.visibleName() == itemName) {
+			hide();
+			KWin::forceActiveWindow(info.win());
+			return;
+		}
+	}
+}
+
+void Window::slotReturnPressed() {
+	QListViewItem* item = mView->selectedItem();
+	if (item && item->isVisible()) {
+		switchToWindow(item);
+	} else {
+		QString cmd = mLineEdit->text();
+		run(cmd);
+	}
+}
+
+void Window::run(const QString& cmd) {
+	KURIFilterData filterData(cmd);
+	KURIFilter::self()->filterURI(filterData);
+	kdDebug() << "filterData.uriType" << filterData.uriType() << endl;
+	switch (filterData.uriType()) {
+	case KURIFilterData::LOCAL_FILE:
+	case KURIFilterData::LOCAL_DIR:
+	case KURIFilterData::NET_PROTOCOL:
+	case KURIFilterData::HELP:
+		new KRun(filterData.uri(), this);
+		break;
+
+	case KURIFilterData::EXECUTABLE:
+	case KURIFilterData::SHELL:
+		KRun::runCommand(cmd);
+		break;
+
+	case KURIFilterData::BLOCKED:
+	case KURIFilterData::UNKNOWN:
+	case KURIFilterData::ERROR:
+		showErrorMessage("Could not start this command");
+		return;
+	}
+	hide();
+}
+
+
+void Window::showErrorMessage(const QString& msg) {
+	QLabel* label = new QLabel(this);
+	label->setText(QString("<font color='red'>%1</font>").arg(msg));
+	label->show();
+	layout()->add(label);
+	QTimer::singleShot(ERROR_TIMEOUT, label, SLOT(deleteLater()) );
+}

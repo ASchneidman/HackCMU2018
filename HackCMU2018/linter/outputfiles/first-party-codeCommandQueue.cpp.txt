@@ -1,0 +1,72 @@
+62
+1, 6, 7, 8, 12, 13, 14, 15, 15, 15, 16, 17, 20, 21, 22, 24, 25, 26, 26, 26, 27, 28, 29, 30, 30, 30, 30, 32, 33, 35, 36, 37, 38, 38, 38, 39, 40, 42, 43, 44, 45, 45, 45, 45, 46, 50, 51, 53, 54, 55, 55, 55, 56, 57, 59, 60, 61, 62, 64, 68, 69, 70
+#include <string.h> // For strlen, strcpy
+
+#include "CommandQueue.h"
+
+CCommandQueue::CCommandQueue()
+{
+	m_Head = 0;
+	m_Length = 0;
+}
+
+CCommandQueue::~CCommandQueue()
+{
+	char* theString = 0;
+	while( theString = TakeFromFront() )
+	{
+		delete[] theString;
+	}
+}
+
+void CCommandQueue::AddToBack( char* inString )
+{
+	m_Length++;
+
+	// Empty list case:
+	if( m_Head == 0 )
+	{
+		m_Head = new SNode;
+		m_Head->m_Next = 0;
+		m_Head->m_Data = new char[ strlen( inString ) + 1];
+		strcpy( m_Head->m_Data, inString );
+
+		return;
+	}
+
+	// Seek to the end
+	SNode* theNode = m_Head;
+	while( theNode->m_Next != 0 )
+	{
+		theNode = theNode->m_Next;
+	}
+
+	theNode->m_Next = new SNode;
+	theNode->m_Next->m_Next = 0;
+	theNode->m_Next->m_Data = new char[ strlen( inString ) + 1];
+	strcpy( theNode->m_Next->m_Data, inString );
+
+}
+
+char* CCommandQueue::TakeFromFront()
+{
+	m_Length--;
+
+	// Empty list case:
+	if( m_Head == 0 )
+	{
+		return 0;
+	}
+
+	char* theOutAddress = m_Head->m_Data;
+	SNode* theDropped = m_Head;
+	m_Head = m_Head->m_Next;
+	delete theDropped;
+
+	return theOutAddress;
+}
+
+int CCommandQueue::GetLength()
+{
+	return m_Length;
+}
