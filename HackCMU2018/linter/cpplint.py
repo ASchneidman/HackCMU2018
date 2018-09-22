@@ -1753,19 +1753,6 @@ def ReverseCloseExpression(clean_lines, linenum, pos):
   return (line, 0, -1)
 
 
-def CheckForCopyright(filename, lines, error):
-  """Logs an error if no Copyright message appears at the top of the file."""
-
-  # We'll say it should occur by line 10. Don't forget there's a
-  # dummy line at the front.
-  for line in xrange(1, min(len(lines), 11)):
-    if re.search(r'Copyright', lines[line], re.I): break
-  else:                       # means no copyright line was found
-    error(filename, 0, 'legal/copyright', 5,
-          'No copyright message found.  '
-          'You should have a line: "Copyright [year] <Copyright Owner>"')
-
-
 def GetIndentLevel(line):
   """Return the number of leading spaces in line.
 
@@ -5916,7 +5903,6 @@ def ProcessFileData(filename, file_extension, lines, error,
 
   ResetNolintSuppressions()
 
-  CheckForCopyright(filename, lines, error)
   ProcessGlobalSuppresions(lines)
   RemoveMultiLineComments(filename, lines, error)
   clean_lines = CleansedLines(lines)
@@ -6028,6 +6014,18 @@ def ProcessConfigOverrides(filename):
   return True
 
 
+
+def shortening(filename, length):
+  fin = open(filename, "r")
+  contents = fin.readlines()
+  fin.close()
+  cont_len = len(contents)
+  if cont_len > length:
+    del contents[length+1:cont_len]
+  fout = open("in.cpp", "w")
+  fout.writelines(contents)
+  fout.close()
+
 def ProcessFile(filename, vlevel, extra_check_functions=[]):
   """Does google-lint on a single file.
 
@@ -6049,7 +6047,7 @@ def ProcessFile(filename, vlevel, extra_check_functions=[]):
   if not ProcessConfigOverrides(filename):
     _RestoreFilters()
     return
-
+  
   lf_lines = []
   crlf_lines = []
   try:
@@ -6232,11 +6230,23 @@ def main():
 
   _cpplint_state.ResetErrorCounts()
   for filename in filenames:
-    ProcessFile(filename, _cpplint_state.verbose_level)
+    shortening(filename, 100)
+    ProcessFile("in.cpp", _cpplint_state.verbose_level)
   # If --quiet is passed, suppress printing error count unless there are errors.
   if not _cpplint_state.quiet or _cpplint_state.error_count > 0:
     _cpplint_state.PrintErrorCounts()
+  
+  fin = open("in.cpp", "r")
+  contents = fin.readlines()
+  fin.close()
+  
+  
+  fout = open("out.txt", "w")
+  write = special.append(contents)
+  fout.writelines(write)
+  fout.close()
 
+  print(_cpplint_state.error_count) 
   sys.exit(_cpplint_state.error_count > 0)
 
 
