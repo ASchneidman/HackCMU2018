@@ -37,31 +37,35 @@ class Agent:
     def run_model(self, data, epochs, save=False):
         print ("Got called")
         num_of_files = len(data)
+        shaped_input = [0 for i in range(num_of_files)]
+        shaped_output = [0 for i in range(num_of_files)]
         for file_num in range(num_of_files):
             num_of_errors = data[file_num][0]
             lines = tf.reshape(np.asarray(data[file_num][2]), [1, 2500])
             lines = tf.strings.to_hash_bucket(lines, num_buckets=98317)
             errors = data[file_num][1]
             line_errors = [0 for i in range(2500)]
-            for i in range(len(errors)):
-                line_errors[errors[i]] = 1
+            for i in errors:
+                line_errors[i] = 1
 
             line_errors = tf.reshape(line_errors, [1, 2500])
             
+            shaped_input[file_num] = lines
+            shaped_output[file_num] = errors
         
-            self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.5), 
-                                loss="mse", 
-                                metrics=["mae"])
+        self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.5), 
+                           loss="mse", 
+                           metrics=["mae"])
         
-            self.model.fit(lines,
-                           line_errors,
-                           epochs=epochs,
-                           steps_per_epoch=50)
+        self.model.fit(shaped_input,
+                       shaped_output,
+                       epochs=25,
+                       steps_per_epoch=25)
             
-            if save:
-                self.save_model()
+        if save:
+            self.save_model()
     
-            print ("File " + str(file_num))
+        #print ("File " + str(file_num))
         
         return 1
     
