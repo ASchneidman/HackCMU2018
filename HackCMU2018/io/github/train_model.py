@@ -1,8 +1,9 @@
 from sys import argv
 from functools import reduce
+from ml import agent
 
 def runML(agent_src, data = '../../res/data'):
-    agent = Agent (agent_src, init_data)
+    agent = agent.Agent (agent_src, init_data)
     data = parse_data (data)
     fitness = []
     for i in range(100):
