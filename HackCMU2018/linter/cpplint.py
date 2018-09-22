@@ -865,6 +865,7 @@ class _CppLintState(object):
   def __init__(self):
     self.verbose_level = 1  # global setting.
     self.error_count = 0    # global count of reported errors
+    self.error_lines = []
     # filters to apply when emitting error messages
     self.filters = _DEFAULT_FILTERS[:]
     # backup of filter list. Used to restore the state after each file.
@@ -881,6 +882,9 @@ class _CppLintState(object):
   def SetOutputFormat(self, output_format):
     """Sets the output format for errors."""
     self.output_format = output_format
+
+  def AddErrorLine(self, line):
+      self.error_lines.add(line)
 
   def SetQuiet(self, quiet):
     """Sets the module's quiet settings, and returns the previous setting."""
@@ -1237,6 +1241,7 @@ def Error(filename, linenum, category, confidence, message):
   """
   if _ShouldPrintError(category, confidence, linenum):
     _cpplint_state.IncrementErrorCount(category)
+    _cpplint_state.AddErrorLine(linenum)
     if _cpplint_state.output_format == 'vs7':
       sys.stderr.write('%s(%s): error cpplint: [%s] %s [%d]\n' % (
           filename, linenum, category, message, confidence))
@@ -4288,7 +4293,7 @@ def GetLineWidth(line):
           is_low_surrogate = 0xDC00 <= ord(uc) <= 0xDFFF
           if not is_wide_build and is_low_surrogate:
             width -= 1
-          
+
         width += 1
     return width
   else:
@@ -4585,7 +4590,7 @@ def CheckIncludeLine(filename, clean_lines, linenum, include_state, error):
 
 
 def _GetTextInside(text, start_pattern):
-  r"""Retrieves all the text between matching open and close parentheses.
+  """Retrieves all the text between matching open and close parentheses.
 
   Given a string of lines and a regular expression string, retrieve all the text
   following the expression and between opening punctuation symbols like
@@ -6047,7 +6052,7 @@ def ProcessFile(filename, vlevel, extra_check_functions=[]):
   if not ProcessConfigOverrides(filename):
     _RestoreFilters()
     return
-  
+
   lf_lines = []
   crlf_lines = []
   try:
@@ -6235,18 +6240,18 @@ def main():
   # If --quiet is passed, suppress printing error count unless there are errors.
   if not _cpplint_state.quiet or _cpplint_state.error_count > 0:
     _cpplint_state.PrintErrorCounts()
-  
+
   fin = open("in.cpp", "r")
   contents = fin.readlines()
   fin.close()
-  
-  
+  special = [_cpplint_state.error_count].append(_cpplint_state.error_lines)
+
   fout = open("out.txt", "w")
   write = special.append(contents)
   fout.writelines(write)
   fout.close()
 
-  print(_cpplint_state.error_count) 
+  print(_cpplint_state.error_count)
   sys.exit(_cpplint_state.error_count > 0)
 
 
