@@ -6,9 +6,20 @@
         <div class="col s6">
             <h3> What is going on? </h3>
             When you upload a file to our site, we run your file against our ML model.  The model attempts to identify where there are stylistic errors in the code.  So why is this better and why shouldn't you just use a traditional linter?  Traditional linters are designed to read code line by line to determine if code has good or bad style through raw computation.  The model hopes to indentify heuristics that can highlight characteristics of poor style.
+            <h3> Stages in the Process</h3>
+            <h5> Crawler</h5>
+            To build our dataset of C++ files, we used a python wrapper for the Github API to get a stream of all repos sorted by date published (most recent). We then took ones that were in c++ and recursively downloaded all c++ files. Since we only had 5000 requests per hour, we had to take steps to limit our API usage.
+
+            <h5>ML Magic </h5>
+            We use Tensorflow to implement a gradient descent machine learning algorithm.  We parse the data by line and identify code tokens before feeding into the neural net.
+
         </div>
         <div class="col s6">
-            
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+          <h5> Linter</h5>
+          Linters are the traditional way to identify stylistic errors in code.  In this project, we use Google's C++ linter which, supposedly, they run on all of their code.  We make some minor edits to their linter to better suit our purposes.  With this linter in hand, we are able to create the training set of the ML to come by identifying the lines in each file which this linter believes has mistakes.
+
 
         </div>
       </div>
