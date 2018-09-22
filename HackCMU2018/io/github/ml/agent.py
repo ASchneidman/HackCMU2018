@@ -35,12 +35,11 @@ class Agent:
             self.model = keras.models.load_model(self.src)
         
     def run_model(self, data, epochs, save=False):
-        print ("Got called")
         num_of_files = len(data)
         for file_num in range(num_of_files):
             num_of_errors = data[file_num][0]
             lines = tf.reshape(np.asarray(data[file_num][2]), [1, 2500])
-            lines = tf.strings.to_hash_bucket(lines, num_buckets=98317)
+            lines = tf.strings.to_number(lines, out_type=tf.float64)
             errors = data[file_num][1]
             line_errors = [0 for i in range(2500)]
             for i in range(len(errors)):
@@ -49,7 +48,7 @@ class Agent:
             line_errors = tf.reshape(line_errors, [1, 2500])
             
         
-            self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.5), 
+            self.model.compile(optimizer=tf.train.GradientDescentOptimizer(0.2), 
                                 loss="mse", 
                                 metrics=["mae"])
         
@@ -77,4 +76,39 @@ class Agent:
             for inner_weight in outer_weights:
                 inner_weight = inner_weight * (1 + (2 * (.5- .5) * mutation))
             
-            
+    def run_prediction(self, data):
+        print ("Predicting")
+        num_of_errors = data[0][0]
+        lines = tf.reshape(np.asarray(data[0][2]), [1, 2500])
+        lines = tf.strings.to_hash_bucket(lines, num_buckets=98317)
+        errors = data[0][1]
+        line_errors = [0 for i in range(2500)]
+        for i in range(len(errors)):
+            line_errors[errors[i]] = 1
+        
+        outputs = self.model.predict(lines, steps=50).tolist()
+        sum = 0
+        correct_counter = 0
+        incorrect_counter = 0
+        no_op_counter = 0
+        for i in range(2500):
+            #print ("Line " + str(i) + ": " + str(line_errors[i]) 
+            # + "; result: " + str(outputs[49][i]))
+            actual_res = line_errors[i]
+            pred_res = outputs[49][i]
+            if pred_res < 0.2 and actual_res == 0:
+                correct_counter += 1
+            elif pred_res < 0.2:
+                incorrect_counter += 1
+            elif pred_res > 0.8 and actual_res == 1:
+                correct_counter += 1
+            elif pred_res > 0.8:
+                incorrect_counter += 1
+            else:
+                no_op_counter += 1
+            sum = sum + outputs[49][i] if outputs[49][i] > .1 else sum
+                
+        print ("Correct: " + str(correct_counter))
+        print ("Incorrect: " + str(incorrect_counter))
+        print ("No operation: " + str(no_op_counter))
+        print ("sum: " + str(sum))
