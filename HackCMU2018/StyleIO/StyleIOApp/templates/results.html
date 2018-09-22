@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
-<body>
-  <nav>
-    <div class="nav-wrapper teal">
-      <a href="{% url 'index' %}" class="brand-logo">StyleIO</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down" </ul>
-        <li><a href="{% url 'index' %}">Home</a></li>
-        <li><a href="{% url 'upload' %}">Upload</a></li>
-      </ul>
-    </div>
-  </nav>
+{% extends 'base.html' %}{% block content %}
+<main>
   <center>
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text">Results</h1>
+        <h1 class="header center red-text">Results</h1>
         <br><br>
       </div>
     </div>
@@ -43,8 +22,5 @@
       </form>
     </div>
   </center>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-
-</html>
+</main>
+{% endblock %}
