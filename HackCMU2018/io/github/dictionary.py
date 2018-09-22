@@ -1,6 +1,6 @@
 from sys import argv
 from glob import glob
-from parse_input import parse_tokens
+from ml import parse_input
 
 def make_dictionary(source=None):
     counter = 0
@@ -14,7 +14,7 @@ def make_dictionary(source=None):
         f_stream = open(f, "r", encoding = "ISO-8859-1")
         f_stream.readline().readline()
         for line in f_stream.readlines():
-            tokens = parse_tokens(line)
+            tokens = parse_input.parse_tokens(line)
             for token in tokens:
                 if not (token in dict):
                     dict[token] = counter

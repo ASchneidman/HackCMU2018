@@ -2,9 +2,9 @@ from glob import glob
 import code
 import re
 
-def parse_tokens (str):
+def parse_tokens (input_str):
     regex = re.compile(r"[\w\.]+|.")
-    tokens = re.findall(regex, str)
+    tokens = re.findall(regex, input_str)
     padded = tokens.extend(['' for i in range(80 - len(tokens))])
     word_adjusted = re.sub(r"[\w\.]+", r"\0", padded)
     return word_adjusted
@@ -38,6 +38,6 @@ class ParseInput:
             error_lines = [int(n) for n in error_lines_str]
             code = f_stream.readlines()
             code.extend(['' for i in range(self.lines_max - len(code))])
-            token_code = [parse_tokens (str) for str in code]
-            parsed_files.append((num_errors, error_lines, code))
+            token_code = [parse_tokens (line_str) for line_str in code]
+            parsed_files.append((num_errors, error_lines, token_code))
         return parsed_files
