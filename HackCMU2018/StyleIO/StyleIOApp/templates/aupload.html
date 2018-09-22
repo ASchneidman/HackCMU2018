@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<main>
+  <center>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text">Upload a file</h1>
+        <br><br>
+      </div>
+    </div>
+    <div class="container">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form }}
+        <br /><br /><br />
+        <button class="btn-large waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+      </form>
+    </div>
+  </center>
+</main>
+{% endblock %}

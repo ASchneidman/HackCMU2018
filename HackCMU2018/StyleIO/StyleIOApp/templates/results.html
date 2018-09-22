@@ -12,11 +12,37 @@
 </head>
 
 <body>
+  <nav>
+    <div class="nav-wrapper teal">
+      <a href="{% url 'index' %}" class="brand-logo">StyleIO</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" </ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'upload' %}">Upload</a></li>
+      </ul>
+    </div>
+  </nav>
   <center>
-    {% for line in errors %}
-    <p>Error on line {{ line }}</p>
-    {% endfor %}
-  <center>
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text">Results</h1>
+        <br><br>
+      </div>
+    </div>
+    <div class="container">
+
+      <table>
+        {% for error in errors %}
+        <tr>
+          <th>Line</th>
+          <th>{{ error }}</th>
+        </tr>
+        {% endfor %}
+      </table>
+
+      </form>
+    </div>
+  </center>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

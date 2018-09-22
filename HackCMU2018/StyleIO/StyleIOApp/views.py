@@ -21,8 +21,11 @@ def results(request):
     }
     return render(request,'results.html',context)
 
-
 def index(request):
+    return render(request, 'aindex.html')
+
+
+def upload(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         print(request.FILES)
@@ -32,4 +35,4 @@ def index(request):
             return render(request,'results.html',{'errors': error_lines})
     else:
         form = UploadFileForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'aupload.html', {'form': form})
