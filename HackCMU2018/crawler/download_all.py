@@ -4,10 +4,9 @@ import os, requests
 from datetime import datetime
 def download():
     cwd = os.getcwd()
-    g = Github("hackcmucrawler",'''%uAbPPe^@7U9''',per_page=100)
     sum_lines = 0
-    num_files = 778
-    repos = g.get_repos()
+    g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
+    repos = g.get_repos()[500:]
     for repo in repos:
         print(g.rate_limiting)
         try:
@@ -49,7 +48,30 @@ def download():
     print("Average file line number: " + str(sum_lines / num_files))
 
 if __name__ == "__main__":
+
     download()
+
+def download_from_repo(repo_str):
+    g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
+    repo = g.get_repo(repo_str)
+    sha = repo.get_branch("master").commit.sha
+    tree = repo.get_git_tree(tree,recursive=True)
+    cpp_files = [c for c in total_tree if ".cpp" in c.path or ".cc" in c.path]
+    if (len(cpp_files) > 0):
+        for file in cpp_files:
+            file_name = str(file.path).replace("/","")
+            url = "https://raw.githubusercontent.com/" + str(repo.owner.login) + "/" + str(repo.name) + "/master/" + str(file.path)
+            output_path = os.path.join(cwd,os.path.join("cpp_files",file_name))
+            #If already downloaded, dont download
+            if (os.path.exists(output_path)):
+                print("Already downloaded")
+                    continue
+            print(url)
+            r = requests.get(url,stream=True)
+            file_length = len([l for l in r.iter_lines()])
+            if (file_length < 50 or file_length > 2500):
+                break
+            wget.download(url, out=output_path)
 
 def test():
     g = Github("hackcmucrawler",'''%uAbPPe^@7U9''')
