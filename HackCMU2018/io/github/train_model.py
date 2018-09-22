@@ -5,22 +5,22 @@ from ml import parse_input
 
 MAX = 2500
 
-def runML(agent_src, data = '../../res/data'):
-    init_data = [MAX, []]
+def runML(agent_src, data = '../../linter/outputfiles'):
+    init_data = [MAX, [0, 0, 0, 0, 0]]
     for i in range(4):
-        init_data[1][i] = 50
+        init_data[1][i] = 1000
     init_data[1][4] = MAX
-    agent = agent.Agent (agent_src, init_data)
-    parser = parse_input(MAX)
+    ml_agent = agent.Agent (agent_src, init_data)
+    parser = parse_input.ParseInput(MAX)
     data = parser.parse_data (data)
     fitness = []
-    for i in range(100):
-        agent.load_model()
-        agent.mutate_model((i % 10) / 100.0)
-        fitness.append((agent.get_model(), agent.run_model(data, 100)))
-    (model, score) = reduce (lambda t1, t2: t1[0] if t1[1] >= t2[1] else t2[1], fitness)
-    agent.set_model(model)
-    agent.save_model
+    #for i in range(100):
+    #    ml_agent.load_model()
+    #    ml_agent.mutate_model((i % 10) / 100.0)
+        #fitness.append((ml_agent.get_model(), ml_agent.run_model(data, 100)))
+    #(model, score) = reduce (lambda t1, t2: t1[0] if t1[1] >= t2[1] else t2[1], fitness)
+    #ml_agent.set_model(model)
+    ml_agent.run_model(data, 100, True)
 
 
 
