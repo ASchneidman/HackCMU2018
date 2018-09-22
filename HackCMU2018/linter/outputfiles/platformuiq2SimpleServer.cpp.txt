@@ -1,0 +1,432 @@
+355
+9, 11, 27, 28, 28, 33, 38, 39, 45, 46, 46, 47, 47, 47, 48, 54, 55, 56, 56, 57, 57, 58, 59, 60, 61, 61, 66, 73, 74, 74, 77, 78, 79, 79, 84, 85, 85, 86, 93, 94, 95, 95, 96, 96, 97, 98, 99, 101, 102, 103, 104, 105, 107, 108, 109, 110, 110, 111, 112, 113, 115, 115, 116, 117, 118, 119, 120, 121, 123, 124, 125, 127, 128, 129, 131, 132, 133, 134, 136, 137, 137, 138, 139, 141, 141, 142, 143, 145, 145, 146, 147, 149, 150, 151, 152, 153, 154, 159, 160, 162, 162, 164, 166, 167, 168, 169, 170, 172, 173, 174, 175, 176, 178, 179, 180, 180, 181, 181, 182, 183, 184, 186, 187, 188, 189, 190, 190, 190, 190, 191, 191, 192, 193, 194, 196, 196, 197, 198, 199, 200, 201, 204, 205, 206, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 223, 223, 224, 224, 225, 225, 225, 225, 225, 226, 227, 228, 228, 229, 231, 232, 233, 234, 235, 237, 239, 240, 242, 243, 244, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 261, 262, 264, 265, 265, 266, 266, 267, 267, 268, 268, 269, 270, 271, 273, 274, 274, 275, 276, 276, 277, 277, 278, 278, 279, 280, 281, 281, 282, 283, 283, 284, 285, 286, 288, 289, 290, 291, 292, 292, 293, 293, 294, 294, 295, 295, 296, 298, 299, 300, 301, 302, 303, 304, 305, 306, 308, 309, 310, 310, 311, 312, 312, 317, 318, 319, 320, 320, 321, 329, 331, 332, 333, 334, 334, 335, 341, 342, 343, 344, 345, 350, 351, 352, 352, 353, 353, 354, 360, 366, 367, 368, 370, 371, 371, 373, 374, 374, 375, 375, 375, 376, 377, 377, 377, 378, 379, 380, 380, 381, 382, 383, 384, 389, 389, 391, 392, 392, 397, 398, 400, 401, 401, 402, 403, 404, 405, 405, 407, 408, 408, 409, 409, 409, 410, 410, 411, 411, 412, 413, 414, 415, 415, 416, 417, 417, 419, 419, 419, 420, 421, 421, 422, 422, 423, 423, 424, 426, 426
+// SimpleServer.cpp
+
+#include <e32svr.h>
+#include <e32math.h>
+#include <e32uid.h>
+
+#include <string.h>
+
+#include "debug.h"
+
+#include "version.h"
+#include "ClientServer.h"
+#include "SimpleServer.h"
+#include "pico\picoInt.h"
+
+extern TInt machineUid;
+extern int gamestate, gamestate_prev;
+extern TPicoConfig currentConfig;
+extern TPicoKeyConfigEntry keyConfigMotA[];
+extern const char *actionNames[];
+const char *RomFileName = 0;
+int pico_was_reset = 0;
+
+
+// utility
+unsigned int bigend(unsigned int l)
+{
+	return (l>>24)|((l>>8)&0xff00)|((l<<8)&0xff0000)|(l<<24);
+}
+
+
+//**********************************
+//CPicoServServer
+//**********************************
+
+
+CPicoServServer::CPicoServServer(TInt aPriority)
+	: CServer(aPriority)
+{
+}
+
+
+// Create and start a new count server.
+void CPicoServServer::New()
+{
+	CPicoServServer *pS=new CPicoServServer(EPriority);
+	__ASSERT_ALWAYS(pS!=NULL,PanicServer(ESvrCreateServer));
+	pS->StartL(KServerName);
+}
+
+
+// Create a new server session.
+CSharableSession *CPicoServServer::NewSessionL(const TVersion &aVersion) const
+{
+	// check we're the right version
+	TVersion v(KPicoMajorVersionNumber,KPicoMinorVersionNumber,0);
+	if (!User::QueryVersionSupported(v,aVersion))
+		User::Leave(KErrNotSupported);
+	// make new session
+	RThread aClient = Message().Client();
+	return CPicoServSession::NewL(aClient, (CPicoServServer*)this);
+}
+
+
+//**********************************
+//CPicoServSession
+//**********************************
+
+
+// constructor - must pass client to CSession
+CPicoServSession::CPicoServSession(RThread &aClient, CPicoServServer *aServer)
+: CSession(aClient), rom_data(0)
+{
+//	iPicoSvr=aServer;
+}
+
+CPicoServSession* CPicoServSession::NewL(RThread &aClient, CPicoServServer * aServer)
+{
+	return new(ELeave) CPicoServSession(aClient,aServer);
+}
+
+
+void CPicoServSession::ServiceL(const RMessage& aMessage)
+{
+	TRAPD(err,DispatchMessageL(aMessage));
+	aMessage.Complete(err);
+}
+
+
+
+// service a client request; test the opcode and then do appropriate servicing
+void CPicoServSession::DispatchMessageL(const RMessage &aMessage)
+{
+	switch (aMessage.Function()) {
+		case PicoMsgLoadState: 
+			if(!rom_data) User::Leave(-1); // no ROM
+			User::LeaveIfError(saveLoadGame(1));
+			gamestate = PGS_Running;
+			return;
+
+		case PicoMsgSaveState:
+			if(!rom_data) User::Leave(-1);
+			User::LeaveIfError(saveLoadGame(0));
+			gamestate = PGS_Running;
+			return;
+
+		case PicoMsgLoadROM:
+			loadROM();
+			return;
+		
+		case PicoMsgResume:
+			if(rom_data) gamestate = PGS_Running;
+			return;
+
+		case PicoMsgReset: 
+			if(rom_data) {
+				PicoReset(0);
+				pico_was_reset = 1;
+				gamestate = PGS_Running;
+			}
+			return;
+
+		case PicoMsgKeys:
+			gamestate = PGS_KeyConfig;
+			return;
+
+		case PicoMsgPause:
+			gamestate = PGS_Paused;
+			return;
+
+		case PicoMsgQuit:
+			DEBUGPRINT(_L("got quit msg."));
+			gamestate = PGS_Quit;
+			return;
+
+		// config change
+		case PicoMsgConfigChange: // launcher -> emu
+			changeConfig();
+			return;
+
+		case PicoMsgRetrieveConfig: // emu -> launcher
+			sendConfig();
+			return;
+
+		case PicoMsgRetrieveDebugStr: // emu -> launcher
+			sendDebug();
+			return;
+
+		// requests we don't understand at all are a different thing,
+		// so panic the client here, this function also completes the message
+		default:
+			PanicClient(EBadRequest);
+			return;
+	}
+}
+
+
+void CPicoServSession::loadROM()
+{
+	TInt res;
+
+	const TAny* pD=Message().Ptr0();
+
+	// TInt desLen=Message().Client().GetDesLength(pD);
+
+	if(rom_data) {
+		// save SRAM for previous ROM
+		if(currentConfig.iFlags & 1)
+			saveLoadGame(0, 1);
+	}
+
+	RomFileName = 0;
+	if(rom_data) {
+		free(rom_data);
+		rom_data = 0;
+	}
+
+	// read the contents of the client pointer into a TPtr.
+	static TBuf8<KMaxFileName> writeBuf;
+	TRAP(res,Message().ReadL(pD,writeBuf));
+	if (res!=KErrNone) {
+		PanicClient(EBadDescriptor);
+		return;
+	}
+
+	// detect wrong extensions (.srm and .mds)
+	TBuf8<5> ext;
+	ext.Copy(writeBuf.Right(4));
+	ext.LowerCase();
+	if(!strcmp((char *)ext.PtrZ(), ".srm") || !strcmp((char *)ext.PtrZ(), "s.gz") || // .mds.gz
+	   !strcmp((char *)ext.PtrZ(), ".mds")) {
+		User::Leave(3);
+		return;
+	}
+
+	FILE *rom = fopen((char *) writeBuf.PtrZ(), "rb");
+	if(!rom) {
+		DEBUGPRINT(_L("failed to open rom."));
+		User::Leave(1);
+		return;
+	}
+
+
+	unsigned int rom_size = 0;
+	// zipfile support
+	if(!strcmp((char *)ext.PtrZ(), ".zip")) {
+		fclose(rom);
+		res = CartLoadZip((const char *) writeBuf.PtrZ(), &rom_data, &rom_size);
+		if(res) {
+			User::Leave(res);
+			return;
+		}
+	} else {
+		if( (res = PicoCartLoad(rom, &rom_data, &rom_size)) ) {
+			DEBUGPRINT(_L("PicoCartLoad() failed."));
+			fclose(rom);
+			User::Leave(2);
+			return;
+		}
+		fclose(rom);
+	}
+
+	// detect wrong files (Pico crashes on very small files), also see if ROM EP is good
+	if(rom_size <= 0x200 || strncmp((char *)rom_data, "Pico", 4) == 0 ||
+	  ((*(TUint16 *)(rom_data+4)<<16)|(*(TUint16 *)(rom_data+6))) >= (int)rom_size) {
+		free(rom_data);
+		rom_data = 0;
+		User::Leave(3); // not a ROM
+	}
+
+	DEBUGPRINT(_L("PicoCartInsert(0x%08X, %d);"), rom_data, rom_size);
+	if(PicoCartInsert(rom_data, rom_size)) {
+		User::Leave(2);
+		return;
+	}
+
+	pico_was_reset = 1;
+
+	// global ROM file name for later use
+	RomFileName = (const char *) writeBuf.PtrZ();
+
+	// load SRAM for this ROM
+	if(currentConfig.iFlags & 1)
+		saveLoadGame(1, 1);
+
+	// debug
+	#ifdef __DEBUG_PRINT
+	TInt cells = User::CountAllocCells();
+	TInt mem;
+	User::AllocSize(mem);
+	DEBUGPRINT(_L("comm:   cels=%d, size=%d KB"), cells, mem/1024);
+	gamestate = PGS_DebugHeap;
+	gamestate_prev = PGS_Running;
+	#else
+	gamestate = PGS_Running;
+	#endif
+}
+
+
+void CPicoServSession::changeConfig()
+{
+	DEBUGPRINT(_L("got new config."));
+
+	// receve it
+	const TAny* pD=Message().Ptr0();
+	TPtr8 descr((TUint8*) &currentConfig, sizeof(currentConfig));
+	TRAPD(res,Message().ReadL(pD, descr));
+	if (res!=KErrNone) {
+		PanicClient(EBadDescriptor);
+		return;
+	}
+
+	// Motorola: enable experimental volume control
+	if((machineUid&0xfffffff0) == 0x101f6b20) { // Motorolas
+		if(currentConfig.iFlags & 0x40) {
+			currentConfig.iKeyBinds[11]  =  0x00100000; // vol up
+			currentConfig.iKeyBinds[12]  =  0x00200000; // vol down
+			keyConfigMotA[11].flags |=  0x40; // add "not configurable" flag
+			keyConfigMotA[12].flags |=  0x40;
+		} else {
+			currentConfig.iKeyBinds[11] &= ~0x00100000; // remove vol actions
+			currentConfig.iKeyBinds[12] &= ~0x00200000;
+			keyConfigMotA[11].flags &= ~0x40; // remove "not configurable" flag
+			keyConfigMotA[12].flags &= ~0x40;
+		}
+	}
+
+	// set region, PicoOpt and rate
+	PicoRegionOverride = currentConfig.PicoRegion;
+	PicoOpt = currentConfig.iPicoOpt;
+	switch((currentConfig.iFlags>>3)&3) {
+		case 1:  PsndRate=11025; break;
+		case 2:  PsndRate=16000; break;
+		case 3:  PsndRate=22050; break;
+		default: PsndRate= 8000; break;
+	}
+
+	// 6 button pad, enable XYZM config if needed
+	if(PicoOpt & 0x20) {
+		actionNames[8]  = "Z";
+		actionNames[9]  = "Y";
+		actionNames[10] = "X";
+		actionNames[11] = "MODE";
+	} else {
+		actionNames[8] = actionNames[9] = actionNames[10] = actionNames[11] = 0;
+	}
+
+	// if we are in center 90||270 modes, we can bind renderer switcher
+	if(currentConfig.iScreenMode == TPicoConfig::PMCenter &&
+		(currentConfig.iScreenRotation == TPicoConfig::PRot90 || currentConfig.iScreenRotation == TPicoConfig::PRot270))
+				 actionNames[25] = "RENDERER";
+			else actionNames[25] = 0;
+}
+
+
+void CPicoServSession::sendConfig()
+{
+	// send current config to client
+	currentConfig.iPicoOpt = PicoOpt;
+	TPtrC8 descr((TUint8*) &currentConfig, sizeof(currentConfig));
+	Write(Message().Ptr0(), descr);
+}
+
+#ifdef __DEBUG_PRINT
+extern "C" char *debugString();
+#endif
+
+void CPicoServSession::sendDebug()
+{
+#ifdef __DEBUG_PRINT
+	char *str = debugString();
+	// send current config to client
+	currentConfig.iPicoOpt = PicoOpt;
+	TPtrC8 descr((TUint8*) str, 1024);
+	Write(Message().Ptr0(), descr);
+#endif
+}
+
+// panic the client
+void CPicoServSession::PanicClient(TInt aPanic) const
+{
+	Panic(_L("PicoN client"), aPanic);
+	// client screwed up - there is nothing for us to do now
+	RProcess me;
+	me.Terminate(1);
+}
+
+
+// write to the client thread; if unsuccessful, panic the client
+void CPicoServSession::Write(const TAny* aPtr,const TDesC8& aDes,TInt anOffset)
+{
+	TRAPD(ret,WriteL(aPtr,aDes,anOffset);)
+	if (ret!=KErrNone)
+		PanicClient(EBadDescriptor);
+}
+
+
+
+//**********************************
+//Global functions
+//**********************************
+
+
+// The server thread.
+TInt CPicoServServer::ThreadFunction(TAny* anArg)
+{
+	// install our exception hanler first
+	RThread().SetExceptionHandler(&ExceptionHandler, -1);
+
+	// convert argument into semaphore reference
+//	RSemaphore& semaphore=*(RSemaphore *)anArg;
+
+	// start scheduler and server
+	CActiveScheduler *pA=new CActiveScheduler;
+	__ASSERT_ALWAYS(pA!=NULL,PanicServer(EMainSchedulerError));
+	CActiveScheduler::Install(pA);
+	//CTrapCleanup::New(); // docs say this is created automatically, but I somehow got E32USER-CBase 69 panic
+	CPicoServServer::New();
+	// signal that we've started
+//	semaphore.Signal();
+	// start fielding requests from clients
+	CActiveScheduler::Start();
+	// finished
+	return(KErrNone);
+}
+
+
+// Panic the server
+//GLDEF_C 
+void PanicServer(TPicoServPanic aPanic)
+{
+	User::Panic(_L("PicoN server"),aPanic);
+}
+
+
+// Create the server thread
+// This function is exported from the DLL and called from the client 
+//EXPORT_C
+TInt StartThread()
+{
+	TInt res=KErrNone;
+	// create server - if one of this name does not already exist
+	TFindServer findPicoServer(KServerName);
+	TFullName name;
+	if(findPicoServer.Next(name) == KErrNone) return -1; // we already exist
+
+	RThread thread;
+//	RSemaphore semaphore;
+//	semaphore.CreateLocal(0); // create a semaphore so we know when thread finished
+	res=thread.Create(KServerName,   // create new server thread
+		CPicoServServer::ThreadFunction, // thread's main function
+		KDefaultStackSize,
+		KMinHeapSize,
+		KPicoMaxHeapSize,
+//		&semaphore // passed as TAny* argument to thread function
+		0
+		);
+
+	if(res==KErrNone) { // thread created ok - now start it going
+		thread.SetPriority(EPriorityNormal);
+		thread.Resume(); // start it going
+//		semaphore.Wait(); // wait until it's initialized
+		thread.Close(); // we're no longer interested in the other thread
+	}
+
+//	semaphore.Close();
+
+    return res;
+}
+

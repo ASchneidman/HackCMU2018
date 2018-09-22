@@ -1,0 +1,215 @@
+165
+35, 36, 40, 41, 41, 45, 46, 49, 50, 51, 51, 55, 56, 56, 60, 61, 65, 66, 66, 71, 72, 73, 76, 77, 78, 79, 83, 84, 84, 85, 89, 90, 91, 95, 96, 96, 97, 102, 103, 104, 104, 104, 105, 105, 106, 106, 107, 107, 108, 109, 110, 111, 112, 112, 112, 113, 114, 115, 119, 120, 121, 121, 121, 122, 122, 123, 124, 125, 126, 127, 127, 127, 128, 129, 130, 134, 135, 136, 136, 136, 137, 137, 138, 138, 139, 139, 140, 141, 142, 143, 144, 144, 144, 145, 146, 147, 151, 152, 153, 153, 153, 154, 154, 155, 156, 157, 158, 159, 159, 159, 160, 161, 162, 166, 167, 171, 172, 176, 177, 181, 182, 183, 183, 184, 184, 184, 185, 185, 185, 186, 186, 186, 187, 187, 187, 187, 188, 190, 190, 192, 193, 194, 195, 196, 196, 197, 198, 198, 199, 200, 201, 202, 202, 203, 203, 204, 204, 204, 205, 206, 207, 211, 212, 193, 182
+/***************************************************************************
+ *   Copyright (C) 2008 by Sverre Rabbelier                                *
+ *   sverre@rabbelier.nl                                                   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 3 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+
+#include "UBSocket.h"
+#include "Command.h"
+#include "Global.h"
+#include "GrantGroup.h"
+#include "GrantGroupManager.h"
+#include "PermissionManager.h"
+#include "Account.h"
+#include "Exceptions.h"
+#include "Permission.h"
+
+using mud::Command;
+
+Command::Command(SavableManagerPtr Command) :
+m_command(Command)
+{
+	Assert(Command);
+}
+
+Command::~Command(void)
+{
+
+}
+
+const std::string& Command::getName() const
+{
+	return m_command->getfield(db::CommandsFields::Get()->NAME)->getStringValue();
+}
+
+long Command::getGrantGroup() const
+{
+	return m_command->getfield(db::CommandsFields::Get()->GRANTGROUP)->getIntegerValue();
+}
+
+bool Command::canHighForce() const
+{
+	return m_command->getfield(db::CommandsFields::Get()->HIGHFORCE)->getBoolValue();
+}
+
+bool Command::canForce() const
+{
+	return m_command->getfield(db::CommandsFields::Get()->FORCE)->getBoolValue();
+}
+
+bool Command::canLowForce() const
+{
+	return m_command->getfield(db::CommandsFields::Get()->LOWFORCE)->getBoolValue();
+}
+
+
+void Command::setName(const std::string& name)
+{
+	ValuePtr value(new Value(db::CommandsFields::Get()->NAME, name));
+	m_command->setvalue(value);
+}
+
+void Command::setGrantGroup(long grantgroup)
+{
+	ValuePtr value(new Value(db::CommandsFields::Get()->GRANTGROUP, grantgroup));
+	m_command->setvalue(value);
+}
+
+void Command::setHighForce(bool highforce)
+{
+	ValuePtr value(new Value(db::CommandsFields::Get()->HIGHFORCE, highforce ? 0 : 1));
+	m_command->setvalue(value);
+}
+
+void Command::setForce(bool force)
+{
+	ValuePtr value(new Value(db::CommandsFields::Get()->FORCE, force ? 0 : 1));
+	m_command->setvalue(value);
+}
+
+void Command::setLowForce(bool lowforce)
+{
+	ValuePtr value(new Value(db::CommandsFields::Get()->LOWFORCE, lowforce ? 0 : 1));
+	m_command->setvalue(value);
+}
+
+
+bool Command::getGrant(UBSocket* sock)
+{
+	try
+	{
+		long gid = getGrantGroup();
+		long aid = sock->GetAccount()->getID();
+		
+		PermissionPtr prm = mud::PermissionManager::Get()->GetByKeys(aid, gid);
+		return prm->hasGrant();
+	}
+	catch(RowNotFoundException& e)
+	{
+		Global::Get()->bug(e.what());
+		return getDefaultGrant();
+	}
+}
+
+bool Command::getDefaultGrant()
+{
+	try
+	{
+		long id = getGrantGroup();
+		GrantGroupPtr grp = mud::GrantGroupManager::Get()->GetByKey(id);
+		return grp->getDefaultGrant();
+	}
+	catch(RowNotFoundException& e)
+	{
+		Global::Get()->bug(e.what());
+		return mud::PermissionManager::Get()->defaultGrant;
+	}
+}
+
+bool Command::getLog(UBSocket* sock)
+{
+	try
+	{
+		long gid = getGrantGroup();
+		long aid = sock->GetAccount()->getID();
+		
+		PermissionPtr prm = mud::PermissionManager::Get()->GetByKeys(aid, gid);
+		return prm->hasLog();
+	}
+	catch(RowNotFoundException& e)
+	{
+		Global::Get()->bug(e.what());
+		return getDefaultLog();
+	}
+}
+
+bool Command::getDefaultLog()
+{
+	try
+	{
+		long id = getGrantGroup();
+		GrantGroupPtr grp = mud::GrantGroupManager::Get()->GetByKey(id);
+		return grp->getDefaultLog();
+	}
+	catch(RowNotFoundException& e)
+	{
+		Global::Get()->bug(e.what());
+		return mud::PermissionManager::Get()->defaultLog;
+	}
+}
+
+void Command::Delete()
+{
+	m_command->erase();
+}
+
+void Command::Save()
+{
+	m_command->save();
+}
+
+bool Command::Exists()
+{
+	return m_command->exists();
+}
+
+std::vector<std::string> Command::Show()
+{
+	std::vector<std::string> result;
+	result.push_back(Global::Get()->sprintf("Name: '%s'.\n", getName().c_str()));
+	result.push_back(Global::Get()->sprintf("GrantGroup: '%d'.\n", getGrantGroup()));
+	result.push_back(Global::Get()->sprintf("HighForce: %s.\n", canHighForce() ? "ON" : "OFF"));
+	result.push_back(Global::Get()->sprintf("Force: %s.\n", canForce() ? "ON" : "OFF"));
+	result.push_back(Global::Get()->sprintf("LowForce: %s.\n", canLowForce() ? "ON" : "OFF")); 
+	return result;
+}
+	
+std::string Command::ShowShort()
+{
+	std::string forcelevel;
+	if(canLowForce())
+		forcelevel = "LOW";
+	else if(canForce())
+		forcelevel = "NORMAL";
+	else if(canHighForce())
+		forcelevel = "HIGH";
+	else
+		forcelevel = "NONE";
+		
+		
+	return Global::Get()->sprintf("%s: %d (Force: %s)\n", 
+			getName().c_str(),
+			getGrantGroup(),
+			forcelevel.c_str());
+}
+
+TableImplPtr Command::getTable() const
+{
+	return m_command->getTable();
+}

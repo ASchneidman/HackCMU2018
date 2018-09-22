@@ -1,0 +1,216 @@
+135
+8, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 25, 27, 27, 28, 29, 30, 34, 35, 36, 40, 41, 42, 43, 47, 53, 54, 55, 59, 60, 61, 63, 65, 66, 68, 68, 69, 73, 74, 75, 77, 79, 80, 82, 82, 83, 87, 88, 89, 90, 92, 94, 95, 97, 97, 98, 99, 103, 104, 105, 106, 108, 110, 111, 113, 113, 114, 115, 120, 121, 122, 123, 125, 127, 128, 130, 130, 131, 132, 136, 137, 138, 139, 141, 143, 144, 146, 146, 147, 148, 152, 153, 154, 155, 157, 159, 160, 161, 162, 164, 165, 165, 166, 170, 171, 172, 173, 175, 177, 178, 179, 180, 182, 183, 185, 185, 186, 188, 189, 193, 194, 195, 196, 198, 200, 201, 202, 203, 205, 206, 208, 208, 209, 211, 212
+/*
+ * gui_toplevel.cpp
+ *
+ *  Created on: Nov 4, 2008
+ *      Author: gheckler
+ */
+
+#include "gui.h"
+
+DECLARE_APP(GUI_App)
+
+/*----------------------------------------------------------------------------------------------*/
+BEGIN_EVENT_TABLE(GUI_Commands, wxFrame)
+	EVT_BUTTON(ID_NULL,				GUI_Commands::onNull)
+	EVT_BUTTON(ID_RESET_ALL,		GUI_Commands::onAll)
+    EVT_BUTTON(ID_RESET_PVT,		GUI_Commands::onPVT)
+    EVT_BUTTON(ID_RESET_CHANNEL,	GUI_Commands::onChannel)
+	EVT_BUTTON(ID_RESET_EPHEMERIS,	GUI_Commands::onEphemeris)
+	EVT_BUTTON(ID_RESET_ALMANAC,	GUI_Commands::onAlmanac)
+	EVT_BUTTON(ID_RESET_PPS,		GUI_Commands::onPPS)
+	EVT_BUTTON(ID_RESET_EKF,		GUI_Commands::onEKF)
+	EVT_BUTTON(ID_RESET_WATCHDOG,	GUI_Commands::onWatchdog)
+    EVT_CLOSE(GUI_Commands::onClose)
+END_EVENT_TABLE()
+/*----------------------------------------------------------------------------------------------*/
+
+GUI_Commands::GUI_Commands():iGUI_Commands(NULL, wxID_ANY, wxT("Commands"), wxDefaultPosition, wxSize(400,600), wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL)
+{
+
+
+}
+
+GUI_Commands::~GUI_Commands()
+{
+
+
+}
+
+void GUI_Commands::onClose(wxCloseEvent& evt)
+{
+	wxCommandEvent cevt;
+	evt.Veto();
+	pToplevel->onCommands(cevt);
+}
+
+void GUI_Commands::paintNow()
+{
+    wxClientDC dc(this);
+    render(dc);
+}
+
+void GUI_Commands::render(wxDC& dc)
+{
+
+
+}
+
+void GUI_Commands::onNull(wxCommandEvent& event)
+{
+	wxString str;
+	int32 val;
+
+	val = 1;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(NULL_C_ID, &val);
+
+	str.Printf(wxT("Null Cmd:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+}
+
+void GUI_Commands::onAll(wxCommandEvent& event)
+{
+	wxString str;
+	int32 val;
+
+	val = 1;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_ALL_C_ID, &val);
+
+	str.Printf(wxT("Reset All:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+}
+
+void GUI_Commands::onPVT(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = 0;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_PVT_C_ID, &val);
+
+	str.Printf(wxT("Reset PVT:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+
+}
+
+void GUI_Commands::onEKF(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = 0;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_EKF_C_ID, &val);
+
+	str.Printf(wxT("Reset EKF:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+
+}
+
+
+void GUI_Commands::onWatchdog(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = 0;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_WATCHDOG_C_ID, &val);
+
+	str.Printf(wxT("Reset Watchdog:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+
+}
+
+void GUI_Commands::onPPS(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = 0;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_PPS_C_ID, &val);
+
+	str.Printf(wxT("Reset PPS:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+
+}
+
+void GUI_Commands::onChannel(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = mReset_Channel->GetCurrentSelection();
+
+	if(val == 0)
+		val = MAX_CHANNELS;
+	else
+		val = val-1;
+
+	pSerial->formCommand(RESET_CHANNEL_C_ID, &val);
+	str.Printf(wxT("Reset Channel:\t\t%d\n"),val);
+	tCommand_Ack->AppendText(str);
+}
+
+void GUI_Commands::onEphemeris(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = mReset_Ephemeris->GetCurrentSelection();
+
+	if(val == 0)
+		val = MAX_SV;
+	else
+		val = val-1;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_EPHEMERIS_C_ID, &val);
+
+	str.Printf(wxT("Reset Ephemeris:\t%d\n"),val+1);
+	tCommand_Ack->AppendText(str);
+
+	pSerial->pendCommand();
+	pSerial->formCommand(GET_EPHEMERIS_STATUS_C_ID, &val);
+}
+
+void GUI_Commands::onAlmanac(wxCommandEvent& event)
+{
+
+	wxString str;
+	int32 val;
+
+	val = mReset_Almanac->GetCurrentSelection();
+
+	if(val == 0)
+		val = MAX_SV;
+	else
+		val = val-1;
+
+	pSerial->pendCommand();
+	pSerial->formCommand(RESET_ALMANAC_C_ID, &val);
+
+	str.Printf(wxT("Reset Almanac:\t\t%d\n"),val+1);
+	tCommand_Ack->AppendText(str);
+
+	pSerial->pendCommand();
+	pSerial->formCommand(GET_EPHEMERIS_STATUS_C_ID, &val);
+}
+

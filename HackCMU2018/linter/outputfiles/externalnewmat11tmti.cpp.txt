@@ -1,0 +1,242 @@
+217
+9, 11, 13, 14, 16, 19, 24, 25, 25, 26, 29, 31, 34, 36, 37, 37, 37, 38, 40, 40, 42, 43, 44, 45, 48, 48, 48, 49, 50, 51, 52, 53, 56, 56, 56, 57, 58, 59, 60, 61, 63, 63, 63, 64, 65, 66, 67, 68, 69, 70, 72, 72, 72, 73, 74, 75, 76, 77, 79, 80, 80, 81, 83, 84, 85, 86, 87, 88, 89, 90, 92, 92, 92, 93, 94, 95, 96, 97, 99, 100, 100, 101, 103, 104, 105, 106, 107, 108, 109, 110, 112, 112, 112, 113, 114, 115, 116, 117, 118, 119, 121, 121, 122, 123, 124, 125, 126, 127, 129, 130, 130, 131, 133, 134, 135, 136, 137, 138, 139, 141, 141, 142, 143, 144, 145, 146, 148, 148, 149, 150, 151, 152, 153, 156, 156, 157, 158, 159, 160, 161, 163, 163, 164, 165, 166, 167, 168, 170, 170, 171, 172, 173, 174, 175, 177, 178, 178, 179, 180, 182, 183, 184, 185, 186, 187, 189, 189, 189, 189, 190, 191, 192, 193, 194, 196, 196, 196, 197, 198, 199, 200, 201, 203, 204, 204, 205, 205, 207, 208, 209, 210, 211, 213, 213, 214, 215, 216, 217, 219, 219, 220, 221, 222, 223, 225, 225, 225, 226, 227, 228, 230, 231, 231, 231, 232, 233, 235
+/// \ingroup newmat
+///@{
+
+/// \file tmti.cpp
+/// Part of matrix library test program.
+/// Test exceptions
+
+
+//#define WANT_STREAM
+
+#include "include.h"
+
+#include "newmatap.h"
+//#include "newmatio.h"
+
+#include "tmt.h"
+
+#ifdef use_namespace
+using namespace NEWMAT;
+#endif
+
+
+void WillNotConverge()
+{
+   Matrix A(10,10);
+   Throw(ConvergenceException(A));
+}
+
+void ReSizeMatrix(Matrix& A)
+// for seeing if we can redimension a vector as a matrix
+{ A.ReSize(4,5); }
+
+void trymati()
+{
+#ifndef DisableExceptions
+   Tracer et("Eighteenth test of Matrix package");
+   Matrix RUStillThere(10,20); RUStillThere = 1553;
+   Tracer::PrintTrace();
+
+   ColumnVector checks(23); checks = 1.0; checks(1) = 0.0;
+
+   Try { WillNotConverge(); }
+   Catch(ConvergenceException) { checks(2) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+
+   Try { Matrix M(10,10); SymmetricMatrix S = M; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(3) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+
+   Try { Matrix M(10,10); M(10,11) = 2.0; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(IndexException) { checks(4) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+   Try { Matrix M(10,10); M = 0.0; M = M.i(); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(1) = 1; }
+   Catch(SingularException) { checks(5) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { ColumnVector A(30), B(50);  A = 5; B = 3; FFT(A,B,A,B); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(6) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+   Try
+   {
+      ColumnVector A(30); A = 5; Matrix At = A.t();
+      DiagonalMatrix D;
+      SVD(At,D);
+   }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(Logic_error) { checks(6) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { BandMatrix X(10,3,4); X(1,10) = 4.0; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(IndexException) { checks(7) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+   Try
+   {
+      SymmetricMatrix S(10); S = 5;
+      LowerTriangularMatrix L = Cholesky(S);
+   }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(1) = 1; }
+   Catch(NPDException) { checks(8) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { BandMatrix M(10,3,5); M = 0.0; Matrix XM = M.i(); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(1) = 1; }
+   Catch(SingularException) { checks(9) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { ColumnVector X(10); ColumnVector Y; X = 5; X = X - Y; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(IncompatibleDimensionsException) { checks(10) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try
+   {
+      UpperTriangularMatrix U(3); RowVector RV(3); RV = 10;
+      U.Row(2) = RV;
+   }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(11) = 0; }
+   Catch(Bad_alloc) { checks(1) = 1; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { DiagonalMatrix D(3); D << 12 << 13 << 14 << 15; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(12) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { ColumnVector D(3); D << 12 << 13; D << 1 << 2 << 3; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(13) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+
+   Try {  { ColumnVector D(3); D << 12 << 13; }  }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(14) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { ColumnVector CV; ReSizeMatrix(CV); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(VectorException) { checks(15) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { RowVector RV(20); ReSizeMatrix(RV); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(VectorException) { checks(16) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try
+   {
+      UpperTriangularMatrix U(10); U = 5;
+      DiagonalMatrix D(10); D = 2;
+      D += U;                 // illegal conversion
+   }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(17) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { Matrix A(2,3), B(2,3); if (A < B) A = B; }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(NotDefinedException) { checks(18) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { SymmetricBandMatrix A(3,1); A = 1; A = A.Reverse(); }
+   Catch(ConvergenceException) { checks(1) = 1; }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(NotDefinedException) { checks(19) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try
+   {
+      Matrix A(5,5); A = 1.0;
+      UpperTriangularMatrix B(10);
+      B.SubMatrix(3,7,3,7) = A;
+   }
+   Catch(ProgramException) { checks(20) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try {  { RowVector D(1); D << 12 << 13; }  }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(21) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try {  { RowVector D(0); D << 12; }  }
+   Catch(InternalException) { checks(1) = 1; }
+   Catch(ProgramException) { checks(22) = 0; }
+   CatchAndThrow;
+   BaseException::clear();
+
+   Try { Matrix M(10,10); Matrix XM(3,3); M = 0.0; XM = M.i(); }
+   Catch(SingularException) { checks(23) = 0; }
+   CatchAll { checks(1) = 1; }
+   BaseException::clear();
+
+   Print(checks);
+   Matrix RUStillThere1(10,20); RUStillThere1 = 1553;
+   RUStillThere = RUStillThere - RUStillThere1;
+   Print(RUStillThere);
+#endif
+
+}
+
+
+///@}
+

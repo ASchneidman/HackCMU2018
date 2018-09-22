@@ -1,0 +1,116 @@
+58
+1, 7, 8, 12, 13, 14, 18, 19, 20, 21, 22, 26, 27, 28, 32, 33, 34, 36, 37, 38, 42, 44, 45, 46, 48, 56, 57, 58, 59, 60, 61, 62, 62, 63, 67, 68, 69, 70, 71, 72, 76, 77, 78, 87, 88, 89, 90, 94, 95, 96, 100, 101, 102, 103, 107, 108, 112, 113
+#include"safedelete.h"
+
+//----------------------------------------------------------------------------
+// SafeDelete
+//----------------------------------------------------------------------------
+SafeDelete::SafeDelete()
+{
+	lock = 0;
+}
+
+SafeDelete::~SafeDelete()
+{
+	if(lock)
+		lock->dying();
+}
+
+void SafeDelete::deleteLater(QObject *o)
+{
+	if(!lock)
+		deleteSingle(o);
+	else
+		list.append(o);
+}
+
+void SafeDelete::unlock()
+{
+	lock = 0;
+	deleteAll();
+}
+
+void SafeDelete::deleteAll()
+{
+	if(list.isEmpty())
+		return;
+
+	for(int n = 0; n < list.size(); ++n)
+		deleteSingle(list[n]);
+	list.clear();
+}
+
+void SafeDelete::deleteSingle(QObject *o)
+{
+#if QT_VERSION < 0x030000
+	// roll our own QObject::deleteLater()
+	SafeDeleteLater *sdl = SafeDeleteLater::ensureExists();
+	sdl->deleteItLater(o);
+#else
+	o->deleteLater();
+#endif
+}
+
+//----------------------------------------------------------------------------
+// SafeDeleteLock
+//----------------------------------------------------------------------------
+SafeDeleteLock::SafeDeleteLock(SafeDelete *sd)
+{
+	own = false;
+	if(!sd->lock) {
+		_sd = sd;
+		_sd->lock = this;
+	}
+	else
+		_sd = 0;
+}
+
+SafeDeleteLock::~SafeDeleteLock()
+{
+	if(_sd) {
+		_sd->unlock();
+		if(own)
+			delete _sd;
+	}
+}
+
+void SafeDeleteLock::dying()
+{
+	_sd = new SafeDelete(*_sd);
+	own = true;
+}
+
+//----------------------------------------------------------------------------
+// SafeDeleteLater
+//----------------------------------------------------------------------------
+SafeDeleteLater *SafeDeleteLater::self = 0;
+
+SafeDeleteLater *SafeDeleteLater::ensureExists()
+{
+	if(!self)
+		new SafeDeleteLater();
+	return self;
+}
+
+SafeDeleteLater::SafeDeleteLater()
+{
+	self = this;
+	QTimer::singleShot(0, this, SLOT(explode()));
+}
+
+SafeDeleteLater::~SafeDeleteLater()
+{
+	qDeleteAll(list);
+	list.clear();
+	self = 0;
+}
+
+void SafeDeleteLater::deleteItLater(QObject *o)
+{
+	list.append(o);
+}
+
+void SafeDeleteLater::explode()
+{
+	delete this;
+}

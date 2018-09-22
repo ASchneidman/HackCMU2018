@@ -1,0 +1,561 @@
+453
+10, 12, 14, 17, 26, 27, 28, 29, 30, 30, 31, 32, 43, 44, 45, 46, 47, 48, 48, 49, 49, 49, 50, 50, 51, 51, 52, 52, 54, 55, 55, 59, 60, 61, 62, 63, 64, 64, 65, 65, 65, 66, 66, 67, 67, 69, 70, 70, 72, 73, 73, 77, 78, 79, 80, 81, 82, 82, 83, 83, 83, 84, 84, 85, 85, 86, 87, 87, 89, 90, 90, 94, 95, 96, 97, 98, 99, 99, 100, 100, 100, 101, 101, 102, 102, 104, 104, 105, 105, 107, 108, 108, 112, 113, 114, 115, 116, 117, 117, 118, 118, 119, 119, 120, 120, 121, 121, 123, 124, 124, 128, 129, 130, 130, 131, 131, 132, 132, 133, 134, 134, 134, 135, 138, 139, 140, 141, 141, 142, 142, 142, 142, 146, 147, 148, 149, 157, 158, 158, 160, 160, 161, 168, 169, 169, 170, 170, 171, 171, 173, 173, 174, 174, 176, 176, 177, 177, 179, 180, 180, 181, 183, 184, 187, 187, 187, 190, 190, 191, 192, 193, 194, 194, 195, 197, 197, 198, 198, 199, 200, 201, 201, 202, 204, 204, 205, 205, 206, 207, 208, 208, 209, 211, 211, 212, 212, 213, 214, 215, 216, 219, 219, 220, 221, 222, 222, 223, 225, 225, 226, 226, 229, 230, 245, 246, 247, 247, 248, 249, 250, 252, 253, 254, 256, 258, 258, 258, 259, 259, 259, 260, 263, 267, 267, 272, 273, 274, 275, 302, 307, 308, 310, 310, 310, 311, 312, 313, 314, 315, 315, 315, 315, 316, 316, 316, 317, 318, 319, 319, 319, 319, 321, 322, 322, 323, 323, 326, 329, 330, 331, 332, 334, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 364, 365, 366, 366, 367, 368, 368, 369, 369, 369, 370, 371, 374, 375, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 395, 396, 397, 397, 399, 400, 400, 401, 401, 402, 403, 406, 407, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 427, 428, 429, 429, 431, 432, 432, 433, 433, 434, 435, 438, 439, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 459, 460, 461, 461, 462, 463, 464, 464, 465, 465, 466, 467, 470, 471, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 491, 492, 493, 493, 494, 495, 496, 496, 497, 497, 498, 499, 502, 503, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 523, 524, 525, 525, 527, 528, 528, 529, 529, 531, 532, 532, 534, 535, 542, 543, 543, 547, 548, 548, 549, 549, 550
+/// \ingroup newmat
+///@{
+
+/// \file tmt.cpp
+/// Main file for matrix library test program.
+
+#define WANT_STREAM
+#define WANT_TIME
+
+#include "include.h"
+
+#include "newmat.h"
+
+#include "tmt.h"
+
+#ifdef use_namespace
+//using namespace NEWMAT;
+namespace NEWMAT {
+#endif
+
+
+/**************************** test program ******************************/
+
+
+class PrintCounter
+{
+   int count;
+   const char* s;
+public:
+   PrintCounter(const char * sx) : count(0), s(sx) {}
+   void operator++() { count++; }
+   void report();
+};
+
+PrintCounter PCZ("Number of non-zero matrices (should be 1) = ");
+PrintCounter PCN("Number of matrices tested                 = ");
+
+void PrintCounter::report()
+{ cout << s << count << "\n"; }
+
+
+void Print(const Matrix& X)
+{
+   ++PCN;
+   cout << "\nMatrix type: " << X.Type().Value() << " (";
+   cout << X.Nrows() << ", ";
+   cout << X.Ncols() << ")\n\n";
+   if (X.IsZero()) { cout << "All elements are zero\n" << flush; return; }
+   int nr=X.Nrows(); int nc=X.Ncols();
+   for (int i=1; i<=nr; i++)
+   {
+      for (int j=1; j<=nc; j++)  cout << X(i,j) << "\t";
+      cout << "\n";
+   }
+   cout << flush; ++PCZ;
+}
+
+void Print(const UpperTriangularMatrix& X)
+{
+   ++PCN;
+   cout << "\nMatrix type: " << X.Type().Value() << " (";
+   cout << X.Nrows() << ", ";
+   cout << X.Ncols() << ")\n\n";
+   if (X.IsZero()) { cout << "All elements are zero\n" << flush; return; }
+   int nr=X.Nrows(); int nc=X.Ncols();
+   for (int i=1; i<=nr; i++)
+   {
+      int j;
+      for (j=1; j<i; j++) cout << "\t";
+      for (j=i; j<=nc; j++)  cout << X(i,j) << "\t";
+      cout << "\n";
+   }
+   cout << flush; ++PCZ;
+}
+
+void Print(const DiagonalMatrix& X)
+{
+   ++PCN;
+   cout << "\nMatrix type: " << X.Type().Value() << " (";
+   cout << X.Nrows() << ", ";
+   cout << X.Ncols() << ")\n\n";
+   if (X.IsZero()) { cout << "All elements are zero\n" << flush; return; }
+   int nr=X.Nrows(); int nc=X.Ncols();
+   for (int i=1; i<=nr; i++)
+   {
+      for (int j=1; j<i; j++) cout << "\t";
+      if (i<=nc) cout << X(i,i) << "\t";
+      cout << "\n";
+   }
+   cout << flush; ++PCZ;
+}
+
+void Print(const SymmetricMatrix& X)
+{
+   ++PCN;
+   cout << "\nMatrix type: " << X.Type().Value() << " (";
+   cout << X.Nrows() << ", ";
+   cout << X.Ncols() << ")\n\n";
+   if (X.IsZero()) { cout << "All elements are zero\n" << flush; return; }
+   int nr=X.Nrows(); int nc=X.Ncols();
+   for (int i=1; i<=nr; i++)
+   {
+      int j;
+      for (j=1; j<i; j++) cout << X(j,i) << "\t";
+      for (j=i; j<=nc; j++)  cout << X(i,j) << "\t";
+      cout << "\n";
+   }
+   cout << flush; ++PCZ;
+}
+
+void Print(const LowerTriangularMatrix& X)
+{
+   ++PCN;
+   cout << "\nMatrix type: " << X.Type().Value() << " (";
+   cout << X.Nrows() << ", ";
+   cout << X.Ncols() << ")\n\n";
+   if (X.IsZero()) { cout << "All elements are zero\n" << flush; return; }
+   int nr=X.Nrows();
+   for (int i=1; i<=nr; i++)
+   {
+      for (int j=1; j<=i; j++) cout << X(i,j) << "\t";
+      cout << "\n";
+   }
+   cout << flush; ++PCZ;
+}
+
+
+void Clean(Matrix& A, Real c)
+{
+   int nr = A.Nrows(); int nc = A.Ncols();
+   for (int i=1; i<=nr; i++)
+   {
+      for (int j=1; j<=nc; j++)
+      { Real a = A(i,j); if ((a < c) && (a > -c)) A(i,j) = 0.0; }
+   }
+}
+
+void Clean(DiagonalMatrix& A, Real c)
+{
+   int nr = A.Nrows();
+   for (int i=1; i<=nr; i++)
+   { Real a = A(i,i); if ((a < c) && (a > -c)) A(i,i) = 0.0; }
+}
+
+void PentiumCheck(Real N, Real D)
+{
+   Real R = N / D;
+   R = R * D - N;
+   if ( R > 1 || R < -1)
+      cout << "Pentium error detected: % error = " << 100 * R / N << "\n";
+}
+
+// random number generator class
+// See newran03 documentation for details
+
+MultWithCarry::MultWithCarry(double s)
+{
+   if (s>=1.0 || s<=0.0)
+      Throw(Logic_error("MultWithCarry: seed out of range"));
+   x = (unsigned long)(s * 4294967296.0);
+   crry = 1234567;
+}
+
+
+// carry out 32bit * 32bit multiply in software
+
+void MultWithCarry::NextValue()
+{
+   unsigned long  mult = 2083801278;
+   unsigned long  m_hi = mult >> 16;
+   unsigned long  m_lo = mult & 0xFFFF;
+
+   unsigned long  x_hi = x >> 16;
+   unsigned long  x_lo = x & 0xFFFF;
+
+   unsigned long  c_hi = crry >> 16;
+   unsigned long  c_lo = crry & 0xFFFF;
+
+   x = x_lo * m_lo + c_lo;
+   unsigned long axc = x_lo * m_hi + x_hi * m_lo + c_hi + (x >> 16);
+   crry = x_hi * m_hi + (axc >> 16);
+
+   x = (x & 0xFFFF) + ((axc << 16) & 0xFFFFFFFF);
+
+}
+
+Real MultWithCarry::Next() { NextValue(); return ((double)x + 0.5) / 4294967296.0; }
+
+// fill a matrix with values from the MultWithCarry random number generator
+void FillWithValues(MultWithCarry&MWC, Matrix& M)
+{
+   int nr = M.nrows();
+   int nc = M.ncols();
+   for (int i = 1; i <= nr; ++i) for (int j = 1; j <= nc; ++ j)
+   M(i, j) = MWC.Next();
+}
+   
+void FillWithValues(MultWithCarry&MWC, UpperTriangularMatrix& M)
+{
+   int nr = M.nrows();
+   for (int i = 1; i <= nr; ++i) for (int j = i; j <= nr; ++ j)
+   M(i, j) = MWC.Next();
+}
+   
+void FillWithValues(MultWithCarry&MWC, LowerTriangularMatrix& M)
+{
+   int nr = M.nrows();
+   for (int i = 1; i <= nr; ++i) for (int j = 1; j <= i; ++ j)
+   M(i, j) = MWC.Next();
+}
+   
+void FillWithValues(MultWithCarry&MWC, DiagonalMatrix& M)
+{
+   int nr = M.nrows();
+   for (int i = 1; i <= nr; ++i)
+   M(i) = MWC.Next();
+}
+
+void FillWithValues(MultWithCarry&MWC, SymmetricMatrix& M)
+{
+   int nr = M.nrows();
+   for (int i = 1; i <= nr; ++i) for (int j = 1; j <= i; ++ j)
+   M(i, j) = MWC.Next();
+}
+   
+   
+
+#ifdef use_namespace
+}
+using namespace NEWMAT;
+#endif
+
+
+//*************************** main program **********************************
+
+void TestTypeAdd();                            // test +
+void TestTypeMult();                           // test *
+void TestTypeConcat();                         // test |
+void TestTypeSP();                             // test SP
+void TestTypeKP();                             // test KP
+void TestTypeOrder();                          // test >=
+
+
+int main()
+{
+   time_lapse tl;      // measure program run time
+   Real* s1; Real* s2; Real* s3; Real* s4;
+   cout << "\nBegin test\n";   // Forces cout to allocate memory at beginning
+   cout << "Now print a real number: " << 3.14159265 << endl;
+   // Throw exception to set up exception buffer
+#ifndef DisableExceptions
+   Try { Throw(BaseException("Just a dummy\n")); }
+   CatchAll {}
+   BaseException::clear();
+#else
+   cout << "Not doing exceptions\n";
+#endif
+   { Matrix A1(40,200); s1 = A1.Store(); }
+   { Matrix A1(1,1); s3 = A1.Store(); }
+   {
+      Tracer et("Matrix test program");
+
+      Matrix A(25,150);
+      {
+         int i;
+         RowVector A(8);
+         for (i=1;i<=7;i++) A(i)=0.0; A(8)=1.0;
+         Print(A);
+      }
+      cout << "\n";
+
+      TestTypeAdd(); TestTypeMult(); TestTypeConcat();
+      TestTypeSP(); TestTypeKP(); TestTypeOrder();
+      
+      Try { 
+         trymat1();
+         trymat2();
+         trymat3();
+         trymat4();
+         trymat5();
+         trymat6();
+         trymat7();
+         trymat8();
+         trymat9();
+         trymata();
+         trymatb();
+         trymatc();
+         trymatd();
+         trymate();
+         trymatf();
+         trymatg();
+         trymath();
+         trymati();
+         trymatj();
+         trymatk();
+         trymatl();
+         trymatm();
+
+         cout << "\nEnd of tests\n";
+      }
+      CatchAll
+      {
+         cout << "\nTest program fails - exception generated\n\n";
+         cout << BaseException::what();
+      }
+
+
+   }
+
+   { Matrix A1(40,200); s2 = A1.Store(); }
+   cout << "\n(The following memory checks are probably not valid with all\n";
+   cout << "compilers - see documentation)\n";
+   cout << "\nChecking for lost memory (large block): "
+      << (unsigned long)s1 << " " << (unsigned long)s2 << " ";
+   if (s1 != s2) cout << " - see section 2.8\n\n"; else cout << " - ok\n\n";
+   { Matrix A1(1,1); s4 = A1.Store(); }
+   cout << "\nChecking for lost memory (small block): "
+      << (unsigned long)s3 << " " << (unsigned long)s4 << " ";
+   if (s3 != s4) cout << " - see section 2.8\n\n"; else cout << " - ok\n\n";
+
+   // check for Pentium bug
+   PentiumCheck(4195835L,3145727L);
+   PentiumCheck(5244795L,3932159L);
+
+#ifdef DO_FREE_CHECK
+   FreeCheck::Status();
+#endif
+
+   // print matrix print count
+   PCN.report();
+   PCZ.report();
+   cout << endl;
+
+   return 0;
+}
+
+
+
+
+//************************ test type manipulation **************************/
+
+
+// These functions may cause problems for Glockenspiel 2.0c; they are used
+// only for testing so you can delete them
+
+
+void TestTypeAdd()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << "+     ";
+   int i;
+   for (i=0; i<MatrixType::nTypes(); i++) cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+	{
+		cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+         cout << (list[j]+list[i]).Value() << " ";
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+void TestTypeMult()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << "*     ";
+   int i;
+   for (i=0; i<MatrixType::nTypes(); i++)
+      cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+   {
+		cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+         cout << (list[j]*list[i]).Value() << " ";
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+void TestTypeConcat()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << "|     ";
+   int i;
+   for (i=0; i<MatrixType::nTypes(); i++)
+      cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+   {
+		cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+         cout << (list[j] | list[i]).Value() << " ";
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+void TestTypeSP()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << "SP    ";
+   int i;
+   for (i=0; i<MatrixType::nTypes(); i++)
+		cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+   {
+		cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+         cout << (list[j].SP(list[i])).Value() << " ";
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+void TestTypeKP()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << "KP    ";
+   int i;
+   for (i=0; i<MatrixType::nTypes(); i++)
+		cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+   {
+		cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+         cout << (list[j].KP(list[i])).Value() << " ";
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+void TestTypeOrder()
+{
+   MatrixType list[13];
+   list[0] = MatrixType::UT;
+   list[1] = MatrixType::LT;
+   list[2] = MatrixType::Rt;
+   list[3] = MatrixType::Sq;
+   list[4] = MatrixType::Sm;
+   list[5] = MatrixType::Sk;
+   list[6] = MatrixType::Dg;
+   list[7] = MatrixType::Id;
+   list[8] = MatrixType::BM;
+   list[9] = MatrixType::UB;
+   list[10] = MatrixType::LB;
+   list[11] = MatrixType::SB;
+   list[12] = MatrixType::KB;
+
+   cout << ">=    ";
+   int i;
+   for (i = 0; i<MatrixType::nTypes(); i++)
+      cout << list[i].Value() << " ";
+   cout << "\n";
+   for (i=0; i<MatrixType::nTypes(); i++)
+   {
+      cout << list[i].Value() << " ";
+      for (int j=0; j<MatrixType::nTypes(); j++)
+	 cout << ((list[j]>=list[i]) ? "Yes   " : "No    ");
+      cout << "\n";
+   }
+   cout << "\n";
+}
+
+
+//************** elapsed time class ****************
+
+time_lapse::time_lapse()
+{
+   start_time = ((double)clock())/(double)CLOCKS_PER_SEC;
+}
+
+time_lapse::~time_lapse()
+{
+   double time = ((double)clock())/(double)CLOCKS_PER_SEC - start_time;
+   cout << "Elapsed (processor) time = " << setprecision(2) << time << " seconds" << endl;
+   cout << endl;
+}
+
+
+
+
+///@}
+
+
+

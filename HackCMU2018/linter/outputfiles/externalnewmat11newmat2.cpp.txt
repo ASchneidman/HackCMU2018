@@ -1,0 +1,660 @@
+604
+14, 16, 17, 25, 25, 30, 30, 32, 37, 38, 39, 40, 40, 41, 41, 41, 42, 42, 43, 43, 43, 44, 48, 49, 50, 51, 51, 52, 52, 52, 53, 53, 54, 54, 54, 55, 59, 60, 61, 62, 62, 63, 63, 63, 64, 64, 65, 65, 65, 66, 71, 72, 73, 73, 74, 74, 74, 75, 75, 76, 76, 76, 77, 81, 82, 83, 83, 84, 84, 85, 85, 85, 86, 86, 88, 88, 88, 89, 90, 91, 95, 96, 97, 97, 98, 98, 99, 99, 99, 99, 99, 100, 100, 101, 101, 101, 101, 101, 102, 103, 103, 104, 104, 105, 105, 106, 107, 108, 110, 111, 112, 113, 115, 116, 117, 118, 119, 121, 122, 123, 125, 126, 128, 129, 130, 133, 134, 134, 135, 135, 136, 137, 138, 140, 141, 142, 143, 145, 146, 147, 148, 149, 151, 152, 153, 155, 156, 158, 159, 160, 163, 167, 168, 169, 169, 170, 170, 171, 171, 171, 171, 171, 172, 172, 173, 173, 173, 173, 173, 174, 175, 175, 176, 176, 177, 177, 178, 179, 180, 182, 183, 184, 185, 187, 188, 189, 190, 191, 193, 194, 195, 197, 198, 200, 201, 202, 205, 206, 206, 207, 207, 208, 209, 210, 212, 213, 214, 215, 217, 218, 219, 220, 221, 223, 224, 225, 227, 228, 230, 231, 232, 235, 240, 241, 242, 243, 244, 244, 245, 245, 246, 246, 248, 248, 250, 250, 251, 252, 256, 257, 258, 259, 260, 260, 261, 261, 262, 262, 264, 264, 266, 266, 267, 268, 272, 273, 274, 275, 276, 276, 277, 277, 278, 278, 280, 280, 282, 282, 283, 284, 288, 289, 290, 291, 291, 292, 292, 293, 293, 295, 297, 297, 298, 299, 300, 302, 302, 303, 303, 303, 304, 304, 305, 305, 307, 307, 308, 309, 310, 311, 311, 316, 317, 318, 319, 319, 320, 320, 321, 321, 323, 323, 325, 325, 326, 327, 332, 333, 333, 334, 334, 335, 335, 335, 335, 335, 336, 336, 337, 337, 337, 337, 337, 338, 338, 339, 339, 339, 339, 339, 340, 340, 340, 341, 342, 342, 346, 347, 348, 349, 354, 355, 355, 357, 358, 359, 359, 360, 360, 360, 363, 364, 364, 366, 366, 367, 367, 368, 369, 370, 371, 371, 372, 374, 375, 376, 377, 379, 381, 384, 385, 385, 385, 388, 392, 393, 393, 393, 396, 400, 401, 401, 401, 404, 408, 410, 411, 412, 412, 413, 413, 415, 420, 421, 422, 423, 424, 424, 425, 425, 426, 426, 428, 428, 430, 432, 432, 433, 434, 439, 440, 441, 442, 442, 443, 445, 445, 447, 447, 448, 449, 454, 455, 456, 456, 457, 464, 465, 466, 466, 471, 472, 473, 474, 475, 475, 476, 476, 477, 477, 479, 479, 481, 481, 482, 483, 487, 488, 489, 490, 491, 491, 492, 492, 493, 493, 495, 495, 497, 497, 498, 499, 503, 504, 505, 506, 506, 507, 507, 508, 508, 509, 509, 511, 511, 513, 513, 514, 515, 516, 520, 521, 522, 523, 523, 524, 524, 525, 525, 526, 526, 528, 528, 530, 530, 531, 532, 533, 537, 538, 539, 540, 540, 541, 541, 545, 546, 547, 548, 548, 549, 549, 553, 554, 555, 556, 556, 557, 557, 561, 562, 563, 563, 567, 568, 569, 569, 573, 574, 575, 575, 579, 580, 581, 582, 582, 586, 587, 588, 588, 589, 590, 597, 598, 599, 599, 600, 600, 601, 602, 607, 608, 609, 609, 610, 610, 611, 612, 617, 618, 619, 619, 620, 620, 621, 622, 627, 628, 629, 629, 630, 630, 631, 632, 636, 637, 638, 638, 639, 640, 644, 645, 645, 646, 646, 646, 647, 647, 647, 648, 649, 649, 650, 654
+/// \ingroup newmat
+///@{
+
+/// \file newmat2.cpp
+/// Matrix row and column operations.
+/// The operations on individual rows and columns used to carry out matrix
+/// add, multiply etc.
+
+
+// Copyright (C) 1991,2,3,4: R B Davies
+
+#define WANT_MATH
+
+#include "include.h"
+
+#include "newmat.h"
+#include "newmatrc.h"
+
+#ifdef use_namespace
+namespace NEWMAT {
+#endif
+
+
+#ifdef DO_REPORT
+#define REPORT { static ExeCounter ExeCount(__LINE__,2); ++ExeCount; }
+#else
+#define REPORT {}
+#endif
+
+//#define MONITOR(what,storage,store) { cout << what << " " << storage << " at " << (long)store << "\n"; }
+
+#define MONITOR(what,store,storage) {}
+
+/************************** Matrix Row/Col functions ************************/
+
+void MatrixRowCol::Add(const MatrixRowCol& mrc)
+{
+   // THIS += mrc
+   REPORT
+   int f = mrc.skip; int l = f + mrc.storage; int lx = skip + storage;
+   if (f < skip) f = skip; if (l > lx) l = lx; l -= f;
+   if (l<=0) return;
+   Real* elx=data+(f-skip); Real* el=mrc.data+(f-mrc.skip);
+   while (l--) *elx++ += *el++;
+}
+
+void MatrixRowCol::AddScaled(const MatrixRowCol& mrc, Real x)
+{
+   REPORT
+   // THIS += (mrc * x)
+   int f = mrc.skip; int l = f + mrc.storage; int lx = skip + storage;
+   if (f < skip) f = skip; if (l > lx) l = lx; l -= f;
+   if (l<=0) return;
+   Real* elx=data+(f-skip); Real* el=mrc.data+(f-mrc.skip);
+   while (l--) *elx++ += *el++ * x;
+}
+
+void MatrixRowCol::Sub(const MatrixRowCol& mrc)
+{
+   REPORT
+   // THIS -= mrc
+   int f = mrc.skip; int l = f + mrc.storage; int lx = skip + storage;
+   if (f < skip) f = skip; if (l > lx) l = lx; l -= f;
+   if (l<=0) return;
+   Real* elx=data+(f-skip); Real* el=mrc.data+(f-mrc.skip);
+   while (l--) *elx++ -= *el++;
+}
+
+void MatrixRowCol::Inject(const MatrixRowCol& mrc)
+// copy stored elements only
+{
+   REPORT
+   int f = mrc.skip; int l = f + mrc.storage; int lx = skip + storage;
+   if (f < skip) f = skip; if (l > lx) l = lx; l -= f;
+   if (l<=0) return;
+   Real* elx=data+(f-skip); Real* ely=mrc.data+(f-mrc.skip);
+   while (l--) *elx++ = *ely++;
+}
+
+Real DotProd(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+{
+   REPORT                                         // not accessed
+   int f = mrc1.skip; int f2 = mrc2.skip;
+   int l = f + mrc1.storage; int l2 = f2 + mrc2.storage;
+   if (f < f2) f = f2; if (l > l2) l = l2; l -= f;
+   if (l<=0) return 0.0;
+
+   Real* el1=mrc1.data+(f-mrc1.skip); Real* el2=mrc2.data+(f-mrc2.skip);
+   Real sum = 0.0;
+   while (l--) sum += *el1++ * *el2++;
+   return sum;
+}
+
+void MatrixRowCol::Add(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+{
+   // THIS = mrc1 + mrc2
+   int f = skip; int l = skip + storage;
+   int f1 = mrc1.skip; int l1 = f1 + mrc1.storage;
+   if (f1<f) f1=f; if (l1>l) l1=l;
+   int f2 = mrc2.skip; int l2 = f2 + mrc2.storage;
+   if (f2<f) f2=f; if (l2>l) l2=l;
+   Real* el = data + (f-skip);
+   Real* el1 = mrc1.data+(f1-mrc1.skip); Real* el2 = mrc2.data+(f2-mrc2.skip);
+   if (f1<f2)
+   {
+      int i = f1-f; while (i--) *el++ = 0.0;
+      if (l1<=f2)                              // disjoint
+      {
+         REPORT                                // not accessed
+         i = l1-f1;     while (i--) *el++ = *el1++;
+         i = f2-l1;     while (i--) *el++ = 0.0;
+         i = l2-f2;     while (i--) *el++ = *el2++;
+         i = l-l2;      while (i--) *el++ = 0.0;
+      }
+      else
+      {
+         i = f2-f1;    while (i--) *el++ = *el1++;
+         if (l1<=l2)
+         {
+            REPORT
+            i = l1-f2; while (i--) *el++ = *el1++ + *el2++;
+            i = l2-l1; while (i--) *el++ = *el2++;
+            i = l-l2;  while (i--) *el++ = 0.0;
+         }
+         else
+         {
+            REPORT
+            i = l2-f2; while (i--) *el++ = *el1++ + *el2++;
+            i = l1-l2; while (i--) *el++ = *el1++;
+            i = l-l1;  while (i--) *el++ = 0.0;
+         }
+      }
+   }
+   else
+   {
+      int i = f2-f; while (i--) *el++ = 0.0;
+      if (l2<=f1)                              // disjoint
+      {
+         REPORT                                // not accessed
+         i = l2-f2;     while (i--) *el++ = *el2++;
+         i = f1-l2;     while (i--) *el++ = 0.0;
+         i = l1-f1;     while (i--) *el++ = *el1++;
+         i = l-l1;      while (i--) *el++ = 0.0;
+      }
+      else
+      {
+         i = f1-f2;    while (i--) *el++ = *el2++;
+         if (l2<=l1)
+         {
+            REPORT
+            i = l2-f1; while (i--) *el++ = *el1++ + *el2++;
+            i = l1-l2; while (i--) *el++ = *el1++;
+            i = l-l1;  while (i--) *el++ = 0.0;
+         }
+         else
+         {
+            REPORT
+            i = l1-f1; while (i--) *el++ = *el1++ + *el2++;
+            i = l2-l1; while (i--) *el++ = *el2++;
+            i = l-l2;  while (i--) *el++ = 0.0;
+         }
+      }
+   }
+}
+
+void MatrixRowCol::Sub(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+{
+   // THIS = mrc1 - mrc2
+   int f = skip; int l = skip + storage;
+   int f1 = mrc1.skip; int l1 = f1 + mrc1.storage;
+   if (f1<f) f1=f; if (l1>l) l1=l;
+   int f2 = mrc2.skip; int l2 = f2 + mrc2.storage;
+   if (f2<f) f2=f; if (l2>l) l2=l;
+   Real* el = data + (f-skip);
+   Real* el1 = mrc1.data+(f1-mrc1.skip); Real* el2 = mrc2.data+(f2-mrc2.skip);
+   if (f1<f2)
+   {
+      int i = f1-f; while (i--) *el++ = 0.0;
+      if (l1<=f2)                              // disjoint
+      {
+         REPORT                                // not accessed
+         i = l1-f1;     while (i--) *el++ = *el1++;
+         i = f2-l1;     while (i--) *el++ = 0.0;
+         i = l2-f2;     while (i--) *el++ = - *el2++;
+         i = l-l2;      while (i--) *el++ = 0.0;
+      }
+      else
+      {
+         i = f2-f1;    while (i--) *el++ = *el1++;
+         if (l1<=l2)
+         {
+            REPORT
+            i = l1-f2; while (i--) *el++ = *el1++ - *el2++;
+            i = l2-l1; while (i--) *el++ = - *el2++;
+            i = l-l2;  while (i--) *el++ = 0.0;
+         }
+         else
+         {
+            REPORT
+            i = l2-f2; while (i--) *el++ = *el1++ - *el2++;
+            i = l1-l2; while (i--) *el++ = *el1++;
+            i = l-l1;  while (i--) *el++ = 0.0;
+         }
+      }
+   }
+   else
+   {
+      int i = f2-f; while (i--) *el++ = 0.0;
+      if (l2<=f1)                              // disjoint
+      {
+         REPORT                                // not accessed
+         i = l2-f2;     while (i--) *el++ = - *el2++;
+         i = f1-l2;     while (i--) *el++ = 0.0;
+         i = l1-f1;     while (i--) *el++ = *el1++;
+         i = l-l1;      while (i--) *el++ = 0.0;
+      }
+      else
+      {
+         i = f1-f2;    while (i--) *el++ = - *el2++;
+         if (l2<=l1)
+         {
+            REPORT
+            i = l2-f1; while (i--) *el++ = *el1++ - *el2++;
+            i = l1-l2; while (i--) *el++ = *el1++;
+            i = l-l1;  while (i--) *el++ = 0.0;
+         }
+         else
+         {
+            REPORT
+            i = l1-f1; while (i--) *el++ = *el1++ - *el2++;
+            i = l2-l1; while (i--) *el++ = - *el2++;
+            i = l-l2;  while (i--) *el++ = 0.0;
+         }
+      }
+   }
+}
+
+
+void MatrixRowCol::Add(const MatrixRowCol& mrc1, Real x)
+{
+   // THIS = mrc1 + x
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = x;
+       l1 = l-f;     while (l1--) *elx++ = *ely++ + x;
+       lx -= l;      while (lx--) *elx++ = x;
+}
+
+void MatrixRowCol::NegAdd(const MatrixRowCol& mrc1, Real x)
+{
+   // THIS = x - mrc1
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = x;
+       l1 = l-f;     while (l1--) *elx++ = x - *ely++;
+       lx -= l;      while (lx--) *elx++ = x;
+}
+
+void MatrixRowCol::RevSub(const MatrixRowCol& mrc1)
+{
+   // THIS = mrc - THIS
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) { *elx = - *elx; elx++; }
+       l1 = l-f;     while (l1--) { *elx = *ely++ - *elx; elx++; }
+       lx -= l;      while (lx--) { *elx = - *elx; elx++; }
+}
+
+void MatrixRowCol::ConCat(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+{
+   // THIS = mrc1 | mrc2
+   REPORT
+   int f1 = mrc1.skip; int l1 = f1 + mrc1.storage; int lx = skip + storage;
+   if (f1 < skip) { f1 = skip; if (l1 < f1) l1 = f1; }
+   if (l1 > lx) { l1 = lx; if (f1 > lx) f1 = lx; }
+
+   Real* elx = data;
+
+   int i = f1-skip;  while (i--) *elx++ =0.0;
+   i = l1-f1;
+   if (i)                       // in case f1 would take ely out of range
+      { Real* ely = mrc1.data+(f1-mrc1.skip);  while (i--) *elx++ = *ely++; }
+
+   int f2 = mrc2.skip; int l2 = f2 + mrc2.storage; i = mrc1.length;
+   int skipx = l1 - i; lx -= i; // addresses rel to second seg, maybe -ve
+   if (f2 < skipx) { f2 = skipx; if (l2 < f2) l2 = f2; }
+   if (l2 > lx) { l2 = lx; if (f2 > lx) f2 = lx; }
+
+   i = f2-skipx; while (i--) *elx++ = 0.0;
+   i = l2-f2;
+   if (i)                       // in case f2 would take ely out of range
+      { Real* ely = mrc2.data+(f2-mrc2.skip); while (i--) *elx++ = *ely++; }
+   lx -= l2;     while (lx--) *elx++ = 0.0;
+}
+
+void MatrixRowCol::Multiply(const MatrixRowCol& mrc1)
+// element by element multiply into
+{
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = 0;
+       l1 = l-f;     while (l1--) *elx++ *= *ely++;
+       lx -= l;      while (lx--) *elx++ = 0;
+}
+
+void MatrixRowCol::Multiply(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+// element by element multiply
+{
+   int f = skip; int l = skip + storage;
+   int f1 = mrc1.skip; int l1 = f1 + mrc1.storage;
+   if (f1<f) f1=f; if (l1>l) l1=l;
+   int f2 = mrc2.skip; int l2 = f2 + mrc2.storage;
+   if (f2<f) f2=f; if (l2>l) l2=l;
+   Real* el = data + (f-skip); int i;
+   if (f1<f2) f1 = f2; if (l1>l2) l1 = l2;
+   if (l1<=f1) { REPORT i = l-f; while (i--) *el++ = 0.0; }  // disjoint
+   else
+   {
+      REPORT
+      Real* el1 = mrc1.data+(f1-mrc1.skip);
+      Real* el2 = mrc2.data+(f1-mrc2.skip);
+      i = f1-f ;    while (i--) *el++ = 0.0;
+      i = l1-f1;    while (i--) *el++ = *el1++ * *el2++;
+      i = l-l1;     while (i--) *el++ = 0.0;
+   }
+}
+
+void MatrixRowCol::KP(const MatrixRowCol& mrc1, const MatrixRowCol& mrc2)
+// row for Kronecker product
+{
+   int f = skip; int s = storage; Real* el = data; int i;
+
+   i = mrc1.skip * mrc2.length;
+   if (i > f)
+   {
+      i -= f; f = 0; if (i > s) { i = s; s = 0; }  else s -= i;
+      while (i--) *el++ = 0.0;
+      if (s == 0) return;
+   }
+   else f -= i;
+
+   i = mrc1.storage; Real* el1 = mrc1.data;
+   int mrc2_skip = mrc2.skip; int mrc2_storage = mrc2.storage;
+   int mrc2_length = mrc2.length;
+   int mrc2_remain = mrc2_length - mrc2_skip - mrc2_storage;
+   while (i--)
+   {
+      int j; Real* el2 = mrc2.data; Real vel1 = *el1;
+      if (f == 0 && mrc2_length <= s)
+      {
+         j = mrc2_skip; s -= j;    while (j--) *el++ = 0.0;
+         j = mrc2_storage; s -= j; while (j--) *el++ = vel1 * *el2++;
+         j = mrc2_remain; s -= j;  while (j--) *el++ = 0.0;
+      }
+      else if (f >= mrc2_length) f -= mrc2_length;
+      else
+      {
+         j = mrc2_skip;
+         if (j > f)
+         {
+            j -= f; f = 0; if (j > s) { j = s; s = 0; } else s -= j;
+            while (j--) *el++ = 0.0;
+         }
+         else f -= j;
+
+         j = mrc2_storage;
+         if (j > f)
+         {
+            j -= f; el2 += f; f = 0; if (j > s) { j = s; s = 0; } else s -= j;
+            while (j--) *el++ = vel1 * *el2++;
+         }
+         else f -= j;
+
+         j = mrc2_remain;
+         if (j > f)
+         {
+            j -= f; f = 0; if (j > s) { j = s; s = 0; } else s -= j;
+            while (j--) *el++ = 0.0;
+         }
+         else f -= j;
+      }
+      if (s == 0) return;
+      ++el1;
+   }
+
+   i = (mrc1.length - mrc1.skip - mrc1.storage) * mrc2.length;
+   if (i > f)
+   {
+      i -= f; if (i > s) i = s;
+      while (i--) *el++ = 0.0;
+   }
+}
+
+
+void MatrixRowCol::Copy(const MatrixRowCol& mrc1)
+{
+   // THIS = mrc1
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = 0;
+
+   if (l-f) ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ = *ely++;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+}
+
+void MatrixRowCol::CopyCheck(const MatrixRowCol& mrc1)
+// Throw an exception if this would lead to a loss of data
+{
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip || l > lx) Throw(ProgramException("Illegal Conversion"));
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ = *ely++;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+}
+
+void MatrixRowCol::Check(const MatrixRowCol& mrc1)
+// Throw an exception if +=, -=, copy etc would lead to a loss of data
+{
+   REPORT
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip || l > lx) Throw(ProgramException("Illegal Conversion"));
+}
+
+void MatrixRowCol::Check()
+// Throw an exception if +=, -= of constant would lead to a loss of data
+// that is: check full row is present
+// may not be appropriate for symmetric matrices
+{
+   REPORT
+   if (skip!=0 || storage!=length)
+      Throw(ProgramException("Illegal Conversion"));
+}
+
+void MatrixRowCol::Negate(const MatrixRowCol& mrc1)
+{
+   // THIS = -mrc1
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ = - *ely++;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+}
+
+void MatrixRowCol::Multiply(const MatrixRowCol& mrc1, Real s)
+{
+   // THIS = mrc1 * s
+   REPORT
+   if (!storage) return;
+   int f = mrc1.skip; int l = f + mrc1.storage; int lx = skip + storage;
+   if (f < skip) { f = skip; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = data; Real* ely = mrc1.data+(f-mrc1.skip);
+
+   int l1 = f-skip;  while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ = *ely++ * s;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+}
+
+void DiagonalMatrix::Solver(MatrixColX& mrc, const MatrixColX& mrc1)
+{
+   // mrc = mrc / mrc1   (elementwise)
+   REPORT
+   int f = mrc1.skip; int f0 = mrc.skip;
+   int l = f + mrc1.storage; int lx = f0 + mrc.storage;
+   if (f < f0) { f = f0; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = mrc.data; Real* eld = store+f;
+
+   int l1 = f-f0;    while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ /= *eld++;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+   // Solver makes sure input and output point to same memory
+}
+
+void IdentityMatrix::Solver(MatrixColX& mrc, const MatrixColX& mrc1)
+{
+   // mrc = mrc / mrc1   (elementwise)
+   REPORT
+   int f = mrc1.skip; int f0 = mrc.skip;
+   int l = f + mrc1.storage; int lx = f0 + mrc.storage;
+   if (f < f0) { f = f0; if (l < f) l = f; }
+   if (l > lx) { l = lx; if (f > lx) f = lx; }
+
+   Real* elx = mrc.data; Real eldv = *store;
+
+   int l1 = f-f0;    while (l1--) *elx++ = 0.0;
+       l1 = l-f;     while (l1--) *elx++ /= eldv;
+       lx -= l;      while (lx--) *elx++ = 0.0;
+   // Solver makes sure input and output point to same memory
+}
+
+void MatrixRowCol::Copy(const double*& r)
+{
+   // THIS = *r
+   REPORT
+   Real* elx = data; const double* ely = r+skip; r += length;
+   int l = storage; while (l--) *elx++ = (Real)*ely++;
+}
+
+void MatrixRowCol::Copy(const float*& r)
+{
+   // THIS = *r
+   REPORT
+   Real* elx = data; const float* ely = r+skip; r += length;
+   int l = storage; while (l--) *elx++ = (Real)*ely++;
+}
+
+void MatrixRowCol::Copy(const int*& r)
+{
+   // THIS = *r
+   REPORT
+   Real* elx = data; const int* ely = r+skip; r += length;
+   int l = storage; while (l--) *elx++ = (Real)*ely++;
+}
+
+void MatrixRowCol::Copy(Real r)
+{
+   // THIS = r
+   REPORT  Real* elx = data; int l = storage; while (l--) *elx++ = r;
+}
+
+void MatrixRowCol::Zero()
+{
+   // THIS = 0
+   REPORT  Real* elx = data; int l = storage; while (l--) *elx++ = 0;
+}
+
+void MatrixRowCol::Multiply(Real r)
+{
+   // THIS *= r
+   REPORT  Real* elx = data; int l = storage; while (l--) *elx++ *= r;
+}
+
+void MatrixRowCol::Add(Real r)
+{
+   // THIS += r
+   REPORT
+   Real* elx = data; int l = storage; while (l--) *elx++ += r;
+}
+
+Real MatrixRowCol::SumAbsoluteValue()
+{
+   REPORT
+   Real sum = 0.0; Real* elx = data; int l = storage;
+   while (l--) sum += fabs(*elx++);
+   return sum;
+}
+
+// max absolute value of r and elements of row/col
+// we use <= or >= in all of these so we are sure of getting
+// r reset at least once.
+Real MatrixRowCol::MaximumAbsoluteValue1(Real r, int& i)
+{
+   REPORT
+   Real* elx = data; int l = storage; int li = -1;
+   while (l--) { Real f = fabs(*elx++); if (r <= f) { r = f; li = l; } }
+   i = (li >= 0) ? storage - li + skip : 0;
+   return r;
+}
+
+// min absolute value of r and elements of row/col
+Real MatrixRowCol::MinimumAbsoluteValue1(Real r, int& i)
+{
+   REPORT
+   Real* elx = data; int l = storage; int li = -1;
+   while (l--) { Real f = fabs(*elx++); if (r >= f) { r = f; li = l; } }
+   i = (li >= 0) ? storage - li + skip : 0;
+   return r;
+}
+
+// max value of r and elements of row/col
+Real MatrixRowCol::Maximum1(Real r, int& i)
+{
+   REPORT
+   Real* elx = data; int l = storage; int li = -1;
+   while (l--) { Real f = *elx++; if (r <= f) { r = f; li = l; } }
+   i = (li >= 0) ? storage - li + skip : 0;
+   return r;
+}
+
+// min value of r and elements of row/col
+Real MatrixRowCol::Minimum1(Real r, int& i)
+{
+   REPORT
+   Real* elx = data; int l = storage; int li = -1;
+   while (l--) { Real f = *elx++; if (r >= f) { r = f; li = l; } }
+   i = (li >= 0) ? storage - li + skip : 0;
+   return r;
+}
+
+Real MatrixRowCol::Sum()
+{
+   REPORT
+   Real sum = 0.0; Real* elx = data; int l = storage;
+   while (l--) sum += *elx++;
+   return sum;
+}
+
+void MatrixRowCol::SubRowCol(MatrixRowCol& mrc, int skip1, int l1) const
+{
+   mrc.length = l1;  int d = skip - skip1;
+   if (d<0) { mrc.skip = 0; mrc.data = data - d; }
+   else  { mrc.skip = d; mrc.data = data; }
+   d = skip + storage - skip1;
+   d = ((l1 < d) ? l1 : d) - mrc.skip;  mrc.storage = (d < 0) ? 0 : d;
+   mrc.cw = 0;
+}
+
+#ifdef use_namespace
+}
+#endif
+
+
+///@}

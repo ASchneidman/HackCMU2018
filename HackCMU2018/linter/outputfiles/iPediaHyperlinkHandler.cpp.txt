@@ -1,0 +1,98 @@
+97
+1, 2, 3, 4, 7, 30, 63, 64, 65, 69, 69, 70, 71, 71, 72, 73, 73, 73, 74, 75, 76, 76, 76, 77, 78, 79, 80, 81, 88, 89, 90, 91, 91, 91, 92, 93, 94, 94, 95, 1, 2, 3, 4, 6, 8, 9, 11, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 32, 57, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96
+#include "sm_ipedia.h"
+#include <WinSysUtils.hpp>
+#include <LookupManager.hpp>
+#include <TextElement.hpp>
+#include "iPediaHyperlinkHandler.hpp"
+#include "iPediaApplication.hpp"
+#include <LangNames.hpp>
+
+/*
+bool iPediaHyperlinkHandler::handleExternalHyperlink(const ArsLexis::String& url)
+{
+    return GotoURL(url.c_str());
+    
+}
+
+bool iPediaHyperlinkHandler::handleTermHyperlink(const ArsLexis::String& term)
+{
+    iPediaApplication& app=GetApp();
+    if (app.fLookupInProgress())
+        return false;
+
+    LookupManager* lookupManager=app.lookupManager;  
+    lookupManager->lookupIfDifferent(term);
+    SetUIState(false);
+    return true;
+}
+*/
+
+iPediaHyperlinkHandler::iPediaHyperlinkHandler()
+{
+}
+
+/*
+void iPediaHyperlinkHandler::handleHyperlink(Definition& definition, DefinitionElement& element)
+{
+    assert(element.isTextElement());
+    TextElement& textElement=static_cast<TextElement&>(element);
+    assert(textElement.isHyperlink());
+    const TextElement::HyperlinkProperties* props=textElement.hyperlinkProperties();
+    assert(props!=0);
+    bool makeClicked=false;
+    switch (props->type) 
+    {
+        //case hyperlinkBookmark:
+        //    definition.goToBookmark(props->resource);
+        //    break;
+    
+        case hyperlinkExternal:
+            makeClicked=handleExternalHyperlink(props->resource);
+            break;
+            
+        case hyperlinkTerm:            
+            makeClicked=handleTermHyperlink(props->resource);
+            break;
+
+        default:
+            assert(false);
+       
+    }  
+}
+*/
+
+bool iPediaHyperlinkHandler::handleTermHyperlink(const char_t* term, ulong_t len, const Point*)
+{
+    iPediaApplication& app=GetApp();
+    if (app.fLookupInProgress())
+        return false;
+
+    LookupManager* lookupManager=app.lookupManager;  
+	String lang;
+	long pos = StrFind(term, len, _T(':'));
+	if (-1 != pos)
+	{
+		const char_t* langName = GetLangNameByLangCode(term, pos);
+		if (NULL != langName)
+		{
+			lang.assign(term, pos);
+			term += (pos + 1);
+			len -= (pos + 1);
+		}
+	}
+    lookupManager->lookupIfDifferent(term, lang);
+    SetUIState(false);
+    return true;
+}
+
+
+void iPediaHyperlinkHandler::handleHyperlink(const char_t* link, ulong_t len, const Point* p)
+{
+	if (StrStartsWith(link, len, _T("http://"), -1))
+	{
+		GotoURL(link);
+	}
+	else
+		handleTermHyperlink(link, len, p);
+}

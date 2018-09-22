@@ -1,0 +1,243 @@
+221
+2, 3, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 43, 44, 45, 46, 47, 48, 50, 51, 53, 54, 55, 55, 56, 57, 58, 58, 59, 59, 60, 61, 62, 63, 64, 74, 75, 76, 77, 77, 77, 78, 80, 81, 83, 84, 86, 87, 88, 89, 89, 91, 92, 93, 93, 93, 95, 96, 97, 98, 98, 100, 101, 102, 103, 103, 105, 105, 107, 107, 107, 110, 111, 112, 114, 115, 115, 116, 117, 117, 118, 119, 120, 120, 120, 120, 120, 121, 122, 122, 123, 124, 125, 125, 126, 127, 128, 129, 130, 132, 135, 137, 138, 139, 139, 140, 141, 142, 143, 144, 147, 147, 148, 148, 149, 149, 150, 150, 152, 153, 154, 157, 163, 164, 165, 166, 166, 166, 167, 167, 168, 169, 170, 174, 174, 175, 177, 178, 179, 179, 179, 180, 181, 183, 183, 184, 184, 185, 187, 188, 192, 194, 195, 196, 196, 196, 197, 198, 199, 200, 201, 201, 202, 203, 203, 204, 205, 205, 206, 206, 207, 208, 210, 211, 212, 212, 212, 213, 214, 214, 215, 215, 217, 217, 218, 219, 220, 222, 222, 222, 222, 224, 225, 226, 228, 229, 230, 231, 232, 233, 235, 236, 237
+
+#include <e32svr.h> // RDebug
+#include "debug.h"
+
+#ifdef __WINS__
+
+void ExceptionHandler(TExcType exc) {}
+
+#else
+
+static const wchar_t * const exception_names[] = {
+	L"General",
+	L"IntegerDivideByZero",
+	L"SingleStep",
+	L"BreakPoint",
+	L"IntegerOverflow",
+	L"BoundsCheck",
+	L"InvalidOpCode",
+	L"DoubleFault",
+	L"StackFault",
+	L"AccessViolation",
+	L"PrivInstruction",
+	L"Alignment",
+	L"PageFault",
+	L"FloatDenormal",
+	L"FloatDivideByZero",
+	L"FloatInexactResult",
+	L"FloatInvalidOperation",
+	L"FloatOverflow",
+	L"FloatStackCheck",
+	L"FloatUnderflow",
+	L"Abort",
+	L"Kill",
+	L"DataAbort",
+	L"CodeAbort",
+	L"MaxNumber",
+	L"InvalidVector",
+	L"UserInterrupt",
+	L"Unknown"
+};
+
+
+static void getASpace(TUint *code_start, TUint *code_end, TUint *stack_start, TUint *stack_end)
+{
+	TUint pc, sp;
+	RChunk chunk;
+	TFullName chunkname;
+	TFindChunk findChunk(_L("*"));
+
+	asm volatile ("str pc, %0" : "=m" (pc) );
+	asm volatile ("str sp, %0" : "=m" (sp) );
+
+	while( findChunk.Next(chunkname) != KErrNotFound ) {
+		chunk.Open(findChunk);
+		if((TUint)chunk.Base()+chunk.Bottom() < pc && pc < (TUint)chunk.Base()+chunk.Top()) {
+			if(code_start) *code_start = (TUint)chunk.Base()+chunk.Bottom();
+			if(code_end)   *code_end   = (TUint)chunk.Base()+chunk.Top();
+		} else
+		if((TUint)chunk.Base()+chunk.Bottom() < sp && sp < (TUint)chunk.Base()+chunk.Top()) {
+			if(stack_start) *stack_start = (TUint)chunk.Base()+chunk.Bottom();
+			if(stack_end)   *stack_end   = (TUint)chunk.Base()+chunk.Top();
+		}
+		chunk.Close();
+	}
+}
+
+// tmp
+#if defined(__DEBUG_PRINT)
+extern "C" char *debugString();
+#endif
+
+// our very own exception handler
+void ExceptionHandler(TExcType exc)
+{
+	TUint lr, sp, i;
+	TUint stack_end	= 0;				// ending address of our stack chunk
+	TUint code_start = 0, code_end = 0; // starting and ending addresses of our code chunk
+	TUint guessed_address = 0;
+
+	asm volatile ("str lr, %0" : "=m" (lr) );
+	asm volatile ("str sp, %0" : "=m" (sp) );
+
+	// first get some info about the chunks we live in
+	getASpace(&code_start, &code_end, 0, &stack_end);
+
+	// now we begin some black magic tricks
+	// we go up our stack until we pass our caller address
+	for(; sp < stack_end; sp += 4)
+		if(*(TUint *)sp == lr) break;
+
+	// there might be mirored caller address
+	for(i = sp + 4; i < sp + 0x300 && i < stack_end; i += 4)
+		if(*(TUint *)i == lr) { sp = i; break; }
+
+	// aah, it is always 0x9c bytes away from the caller address in my firmware,
+	// don't know how to detect it in any other way
+	sp += 0x9c;
+	guessed_address = *(TUint *)sp;
+
+	// output the info
+	TUint exec_show = exc;
+	if(exec_show > 27) exec_show = 27;
+	TPtrC ptrExc((TUint16 *) exception_names[exec_show]);
+
+	RDebug::Print(_L("!!!Exception %i (%S) @ 0x%08x (guessed; relative=0x%08x)"), exc, &ptrExc, guessed_address, guessed_address - code_start);
+#ifdef __DEBUG_PRINT_FILE
+	DEBUGPRINT(   _L("!!!Exception %i (%S) @ 0x%08x (guessed; relative=0x%08x)"), exc, &ptrExc, guessed_address, guessed_address - code_start);
+#endif
+
+	TBuf<148> buff1;
+	TBuf<10>  buff2;
+	buff1.Copy(_L("  guessed stack: "));
+
+	for(sp += 4, i = 0; i < 5 && sp < stack_end; sp += 4) {
+		if((*(TUint *)sp >> 28) == 5) {
+			if(i++) buff1.Append(_L(", "));
+			buff2.Format(_L("0x%08x"), *(TUint *)sp);
+			buff1.Append(buff2);
+		}
+		else if(code_start < *(TUint *)sp && *(TUint *)sp < code_end) {
+			if(i++) buff1.Append(_L(", "));
+			buff2.Format(_L("0x%08x"), *(TUint *)sp);
+			buff1.Append(buff2);
+			buff1.Append(_L(" ("));
+			buff2.Format(_L("0x%08x"), *(TUint *)sp - code_start);
+			buff1.Append(buff2);
+			buff1.Append(_L(")"));
+		}
+	}
+	RDebug::Print(_L("%S"), &buff1);
+#ifdef __DEBUG_PRINT_FILE
+	DEBUGPRINT(_L("%S"), &buff1);
+#endif
+
+	// tmp
+#if defined(__DEBUG_PRINT)
+	char *ps, *cstr = debugString();
+	for(ps = cstr; *ps; ps++) {
+	  if(*ps == '\n') {
+	    *ps = 0;
+	    dprintf(cstr);
+		cstr = ps+1;
+	  }
+	}
+#endif
+
+//	RDebug::Print(_L("Stack dump:"));
+//	asm volatile ("str sp, %0" : "=m" (sp) );
+//	for(TUint i = sp+0x400; i >= sp-16; i-=4)
+//		RDebug::Print(_L("%08x: %08x"), i, *(int *)i);
+
+	// more descriptive replacement of "KERN-EXEC 3" panic
+	buff1.Format(_L("K-EX3: %S"), &ptrExc);
+	User::Panic(buff1, exc);
+}
+
+#endif // ifdef __WINS__
+
+
+#if defined(__DEBUG_PRINT) || defined(__WINS__)
+
+#ifndef __DLL__
+	// c string dumper for RDebug::Print()
+	static	TBuf<1024> sTextBuffer;
+	TDesC* DO_CONV(const char* s)
+	{
+		TPtrC8	text8((TUint8*) (s));
+		sTextBuffer.Copy(text8);
+		return &sTextBuffer;
+	}
+#endif
+
+#ifdef __DEBUG_PRINT_C
+	#include <stdarg.h> // va_*
+	#include <stdio.h>  // vsprintf
+
+	// debug print from c code
+	extern "C" void dprintf(char *format, ...)
+	{
+		va_list args;
+		char    buffer[512];
+
+		va_start(args,format);
+		vsprintf(buffer,format,args);
+		va_end(args);
+
+		DEBUGPRINT(_L("%S"), DO_CONV(buffer));
+	}
+#endif
+
+#ifdef __DEBUG_PRINT_FILE
+	#include <f32file.h>
+
+	// note: uses tls, leaks some mem
+	void debugPrintFileInit()
+	{
+		RFs *fs = new(ELeave) RFs;
+		fs->Connect();
+		RFile *file = new(ELeave) RFile;
+		// try to open
+		TInt    res = file->Open(*fs, _L("C:\\documents\\Media files\\other\\snes9x.log"), EFileWrite|EFileShareAny);
+		if(res) res = file->Open(*fs, _L("C:\\snes9x.log"), EFileWrite|EFileShareAny);
+		if(!res) { TInt size; file->Size(size); file->Seek(ESeekStart, size); }
+		// try to create
+		if(res) res = file->Create(*fs, _L("C:\\documents\\Media files\\other\\snes9x.log"), EFileWrite|EFileShareAny);
+		if(res) res = file->Create(*fs, _L("C:\\snes9x.log"), EFileWrite|EFileShareAny);
+		Dll::SetTls(res ? 0 : file);
+	}
+
+	// debug print to file
+	void debugPrintFile(TRefByValue<const TDesC> aFmt, ...)
+	{
+		// get RFile
+		RFile *file = (RFile *) Dll::Tls();
+		if(!file) return; // shit!
+
+		TTime now; now.UniversalTime();
+		TBuf<512>  tmpBuff;
+		TBuf8<512> tmpBuff8;
+		TInt size;
+
+		file->Size(size); file->Seek(ESeekStart, size); // something else could have written to the file
+
+		now.FormatL(tmpBuff, _L("%H:%T:%S.%C: "));
+		tmpBuff8.Copy(tmpBuff);
+		file->Write(tmpBuff8);
+
+		VA_LIST args;
+		VA_START(args, aFmt);
+		tmpBuff.FormatList(aFmt, args);
+		VA_END(args);
+		tmpBuff8.Copy(tmpBuff);
+		file->Write(tmpBuff8);
+
+		file->Write(TPtrC8((TUint8 const *) "\r\n"));
+		file->Flush();
+	}
+#endif
+
+#endif
+

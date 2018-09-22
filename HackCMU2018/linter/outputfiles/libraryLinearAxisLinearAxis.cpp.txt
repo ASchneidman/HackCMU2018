@@ -1,0 +1,124 @@
+98
+4, 5, 6, 7, 8, 9, 10, 11, 13, 15, 19, 20, 20, 21, 22, 23, 23, 23, 24, 25, 26, 26, 27, 28, 29, 29, 30, 31, 35, 36, 40, 41, 48, 49, 50, 51, 52, 56, 57, 58, 59, 59, 59, 60, 61, 62, 63, 64, 68, 69, 70, 71, 71, 72, 76, 76, 76, 77, 78, 79, 79, 80, 83, 84, 85, 86, 86, 87, 87, 88, 91, 92, 93, 94, 94, 95, 96, 97, 98, 99, 99, 100, 103, 104, 105, 108, 109, 110, 113, 114, 115, 117, 118, 118, 118, 119, 120, 121
+#include "LinearAxis.h"
+#include "WConstants.h"
+
+LinearAxis::LinearAxis(char id, int steps, byte dir_pin, byte step_pin, byte min_pin, byte max_pin, byte enable_pin) : stepper(steps, dir_pin, step_pin, enable_pin)
+{
+	this->id = id;
+	this->current = 0;
+	this->target = 0;
+	this->max = 0;
+	this->min_pin = min_pin;
+	this->max_pin = max_pin;
+
+	this->stepper.setDirection(RS_FORWARD);
+
+	this->readState();
+}
+
+void LinearAxis::readState()
+{
+	//stop us if we're on target
+	if (this->atTarget())
+		this->can_step = false;
+	//stop us if we're at home and still going 
+	else if (this->atMin() && (this->stepper.direction == RS_REVERSE))
+		this->can_step = false;
+	//stop us if we're at max and still going
+	else if (this->atMax() && (this->stepper.direction == RS_FORWARD))
+		this->can_step = false;
+	//default to being able to step
+	else
+		this->can_step = true;
+}
+
+bool LinearAxis::atMin()
+{
+	return this->current <= 0;
+}
+
+bool LinearAxis::atMax()
+{
+	return this->current >= this->max;
+}
+
+/*
+* Used for all axis, depending on stepper direction
+*/
+bool LinearAxis::atTarget()
+{
+	if (this->stepper.direction == RS_FORWARD)
+		return this->current >= this->target || this->atMax();
+	else
+		return this->current <= this->target || this->atMin();
+}
+
+void LinearAxis::doStep()
+{
+	this->readState();
+	if (this->can_step)
+	{
+		if (this->stepper.direction == RS_FORWARD)
+			this->forward1();
+		else
+			this->reverse1();
+	}
+}
+
+void LinearAxis::forward1()
+{
+	stepper.setDirection(RS_FORWARD);
+	stepper.pulse();
+	
+	this->current++;
+}
+
+void LinearAxis::reverse1()
+{	
+	stepper.setDirection(RS_REVERSE);
+	stepper.pulse();
+	
+	this->current--;
+}
+
+void LinearAxis::setPosition(long p)
+{
+	this->current = p;
+	
+	//recalculate stuff.
+	this->setTarget(this->target);
+}
+
+void LinearAxis::setTarget(long t)
+{
+	this->target = t;
+	
+	if (this->target >= this->current)
+		stepper.setDirection(RS_FORWARD);
+	else
+		stepper.setDirection(RS_REVERSE);
+		
+	this->delta = abs(this->target - this->current);
+}
+
+void LinearAxis::setMax(long v)
+{
+	this->max = v;
+}
+
+void LinearAxis::initDDA(long max_delta)
+{
+	this->counter = -max_delta/2;
+}
+
+void LinearAxis::ddaStep(long max_delta)
+{
+	this->counter += this->delta;
+
+	if (this->counter > 0)
+	{
+		this->doStep();
+		this->counter -= max_delta;
+	}
+}

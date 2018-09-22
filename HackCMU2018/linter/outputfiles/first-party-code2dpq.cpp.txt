@@ -1,0 +1,76 @@
+82
+1, 4, 5, 6, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 17, 17, 17, 19, 20, 21, 21, 21, 22, 23, 24, 25, 26, 28, 28, 28, 30, 33, 34, 35, 38, 39, 40, 40, 40, 43, 44, 45, 48, 49, 50, 53, 54, 55, 55, 55, 58, 59, 60, 60, 60, 63, 64, 65, 65, 65, 67, 68, 68, 69, 69, 72, 73, 74
+#include "2dpq.h"
+#include "Log.h"
+
+bool C2dpq::Initialize( )
+{
+	m_Game = new CGame( this );
+
+	// Start Of User Initialization
+	glClearColor( 0, 0, 0, 1.0f );
+	glClearDepth( 1.0f );
+	glDepthFunc( GL_LEQUAL );
+	glEnable( GL_DEPTH_TEST );
+	glShadeModel( GL_SMOOTH );
+	glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
+	glLineWidth( 2.0f );
+	glEnable (GL_BLEND);
+	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+
+	GLenum err = glewInit();
+	if(GLEW_OK != err)
+	{
+		/* Problem: glewInit failed, something is seriously wrong. */
+		CLog::Print("Error: %s\n", glewGetErrorString(err));
+		return false;
+	}
+	CLog::Print("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
+
+	wglSwapIntervalEXT( 2 );
+
+	return true;
+}
+
+void C2dpq::Deinitialize( )
+{
+	delete m_Game;
+}
+
+void C2dpq::Update( DWORD milliseconds, HWND inHWND )
+{
+	m_Game->Update( inHWND );
+}
+
+void C2dpq::Draw( HWND inHWND )
+{
+	m_Game->Render();
+}
+
+bool C2dpq::Keyboard( unsigned int inMessage, bool inKeyDownFlag )
+{
+	return m_Game->Keyboard( inMessage, inKeyDownFlag );
+}
+
+void C2dpq::HandleChar( char inChar )
+{
+	m_Game->HandleChar( inChar );
+}
+
+void C2dpq::MouseWheel( int inDistance )
+{
+	m_Game->MouseWheel( inDistance );
+}
+
+void C2dpq::LeftMouseDown( HWND inHWND )
+{
+	glLoadIdentity( );
+
+	POINT theCursor;
+    GetCursorPos( &theCursor );
+    ScreenToClient( inHWND, &theCursor );
+}
+
+void C2dpq::LeftMouseUp( HWND inHWND )
+{
+}

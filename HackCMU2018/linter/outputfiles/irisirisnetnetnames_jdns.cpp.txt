@@ -1,0 +1,1145 @@
+1144
+20, 22, 23, 28, 29, 30, 31, 31, 31, 32, 33, 34, 35, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 51, 52, 53, 54, 54, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 121, 122, 123, 124, 125, 126, 128, 129, 129, 129, 130, 131, 132, 134, 135, 137, 138, 138, 138, 139, 140, 141, 142, 143, 144, 145, 147, 148, 150, 151, 152, 154, 155, 155, 155, 156, 157, 157, 157, 158, 159, 160, 161, 162, 163, 163, 163, 164, 165, 166, 167, 168, 169, 171, 172, 172, 172, 173, 174, 174, 174, 175, 176, 177, 178, 179, 180, 180, 180, 181, 182, 183, 184, 185, 186, 188, 189, 189, 189, 190, 191, 191, 191, 192, 193, 195, 196, 197, 198, 200, 201, 203, 204, 204, 205, 206, 206, 206, 207, 208, 210, 211, 211, 211, 212, 213, 214, 215, 216, 216, 216, 217, 218, 219, 220, 222, 223, 223, 223, 224, 225, 226, 227, 228, 228, 228, 229, 230, 231, 232, 233, 235, 236, 237, 237, 238, 239, 240, 240, 241, 241, 242, 242, 243, 251, 252, 253, 254, 255, 257, 259, 260, 261, 261, 262, 263, 264, 265, 266, 267, 269, 270, 270, 270, 271, 272, 274, 275, 275, 276, 277, 278, 279, 281, 281, 282, 282, 282, 283, 284, 284, 284, 285, 286, 287, 288, 288, 289, 289, 289, 290, 291, 292, 294, 295, 297, 297, 298, 298, 298, 299, 300, 301, 303, 304, 304, 304, 305, 307, 308, 308, 308, 309, 310, 310, 310, 311, 312, 312, 312, 313, 314, 315, 316, 317, 318, 318, 319, 320, 322, 323, 323, 323, 324, 325, 326, 327, 327, 328, 329, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 340, 341, 341, 341, 342, 343, 344, 344, 344, 345, 346, 346, 346, 347, 348, 349, 350, 350, 351, 352, 354, 355, 356, 357, 357, 358, 358, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 370, 371, 371, 371, 372, 373, 374, 374, 374, 375, 376, 376, 376, 377, 378, 379, 380, 381, 382, 384, 386, 387, 388, 390, 390, 391, 391, 391, 392, 393, 394, 394, 394, 395, 396, 396, 396, 397, 398, 399, 400, 401, 402, 404, 405, 406, 408, 409, 410, 412, 413, 413, 413, 414, 415, 416, 416, 416, 417, 418, 418, 418, 419, 420, 421, 422, 423, 424, 426, 427, 429, 430, 431, 433, 434, 435, 435, 435, 436, 436, 438, 439, 440, 440, 440, 441, 442, 442, 442, 443, 444, 445, 446, 447, 448, 450, 452, 453, 453, 453, 454, 455, 456, 457, 458, 459, 459, 459, 460, 461, 462, 463, 464, 465, 465, 466, 466, 466, 467, 468, 469, 471, 472, 473, 474, 474, 475, 476, 476, 477, 478, 479, 480, 482, 483, 483, 483, 484, 485, 486, 486, 486, 487, 488, 488, 488, 489, 490, 491, 492, 493, 494, 496, 497, 497, 498, 498, 498, 499, 500, 501, 503, 504, 506, 507, 507, 507, 508, 509, 510, 510, 510, 511, 512, 512, 512, 513, 514, 515, 516, 517, 518, 520, 521, 523, 524, 526, 527, 527, 528, 529, 530, 530, 530, 531, 532, 532, 532, 533, 534, 535, 536, 537, 538, 540, 541, 543, 544, 551, 552, 553, 554, 555, 557, 557, 557, 558, 559, 560, 561, 562, 563, 564, 565, 567, 567, 568, 568, 568, 569, 570, 571, 573, 574, 574, 574, 575, 576, 578, 579, 579, 579, 580, 581, 582, 583, 585, 586, 587, 588, 590, 591, 591, 591, 592, 593, 594, 595, 597, 598, 599, 600, 602, 603, 605, 606, 607, 607, 608, 609, 609, 609, 610, 612, 613, 614, 616, 616, 617, 619, 620, 620, 620, 621, 622, 623, 624, 624, 625, 625, 626, 627, 627, 627, 628, 630, 632, 633, 635, 635, 636, 637, 638, 640, 642, 643, 644, 644, 644, 645, 646, 647, 660, 661, 663, 663, 664, 665, 666, 670, 671, 672, 673, 674, 675, 676, 680, 681, 682, 683, 685, 686, 687, 688, 690, 690, 691, 691, 691, 692, 693, 694, 696, 697, 697, 697, 698, 699, 700, 702, 703, 703, 703, 704, 705, 706, 707, 708, 710, 711, 712, 714, 715, 716, 716, 716, 717, 718, 720, 721, 722, 724, 725, 725, 725, 726, 727, 728, 729, 729, 729, 730, 731, 731, 731, 732, 733, 734, 735, 736, 737, 737, 737, 738, 739, 740, 742, 742, 743, 744, 745, 747, 747, 749, 749, 750, 751, 752, 753, 754, 755, 757, 758, 758, 759, 759, 761, 762, 763, 764, 765, 766, 768, 769, 771, 771, 772, 773, 810, 811, 812, 813, 815, 816, 816, 818, 819, 821, 822, 822, 822, 823, 824, 825, 827, 827, 827, 828, 828, 828, 829, 830, 832, 833, 833, 833, 834, 835, 837, 838, 838, 838, 839, 840, 840, 841, 841, 841, 842, 842, 843, 845, 846, 846, 846, 847, 847, 848, 850, 851, 851, 852, 852, 853, 855, 856, 858, 859, 859, 859, 860, 860, 861, 862, 864, 865, 865, 865, 866, 867, 867, 867, 868, 868, 869, 871, 872, 873, 875, 876, 878, 879, 879, 879, 880, 880, 881, 882, 884, 884, 884, 885, 885, 885, 886, 887, 887, 887, 888, 888, 889, 891, 892, 892, 893, 894, 896, 897, 898, 899, 900, 901, 902, 902, 903, 904, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 929, 930, 931, 932, 933, 934, 935, 935, 936, 937, 937, 937, 938, 939, 940, 941, 942, 943, 944, 946, 947, 948, 949, 950, 951, 952, 953, 954, 956, 958, 958, 960, 961, 963, 963, 964, 964, 964, 965, 965, 966, 967, 968, 970, 971, 971, 971, 972, 972, 973, 974, 976, 977, 977, 977, 978, 978, 979, 981, 982, 983, 984, 985, 986, 987, 988, 990, 990, 992, 993, 995, 996, 996, 996, 997, 997, 998, 999, 1000, 1001, 1003, 1004, 1004, 1004, 1005, 1005, 1006, 1007, 1009, 1010, 1011, 1011, 1011, 1012, 1012, 1013, 1013, 1014, 1014, 1015, 1016, 1016, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1022, 1022, 1023, 1024, 1025, 1026, 1026, 1027, 1027, 1027, 1028, 1029, 1031, 1032, 1033, 1033, 1034, 1035, 1036, 1038, 1039, 1039, 1039, 1040, 1040, 1041, 1041, 1042, 1043, 1044, 1046, 1047, 1048, 1049, 1051, 1052, 1052, 1052, 1053, 1053, 1054, 1055, 1056, 1057, 1058, 1060, 1060, 1087, 1087, 1088, 1088, 1090, 1090, 1091, 1091, 1098, 1099, 1100, 1101, 1102, 1104, 1105, 1105, 1105, 1106, 1107, 1109, 1110, 1110, 1110, 1111, 1112, 1114, 1115, 1115, 1115, 1116, 1117, 1118, 1119, 1121, 1122, 1122, 1122, 1123, 1124, 1125, 1126, 1128, 1129, 1129, 1130, 1131, 1132, 1133, 1137, 1141
+/*
+ * Copyright (C) 2005  Justin Karneges
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ */
+
+#include "irisnetplugin.h"
+
+#include "jdnsshared.h"
+#include "netinterface.h"
+
+namespace XMPP {
+
+NameRecord importJDNSRecord(const QJDns::Record &in)
+{
+	NameRecord out;
+	switch(in.type)
+	{
+		case QJDns::A:     out.setAddress(in.address); break;
+		case QJDns::Aaaa:  out.setAddress(in.address); break;
+		case QJDns::Mx:    out.setMx(in.name, in.priority); break;
+		case QJDns::Srv:   out.setSrv(in.name, in.port, in.priority, in.weight); break;
+		case QJDns::Cname: out.setCname(in.name); break;
+		case QJDns::Ptr:   out.setPtr(in.name); break;
+		case QJDns::Txt:   out.setTxt(in.texts); break;
+		case QJDns::Hinfo: out.setHinfo(in.cpu, in.os); break;
+		case QJDns::Ns:    out.setNs(in.name); break;
+		case 10:           out.setNull(in.rdata); break;
+		default:
+			return out;
+	}
+	out.setOwner(in.owner);
+	out.setTTL(in.ttl);
+	return out;
+}
+
+QJDns::Record exportJDNSRecord(const NameRecord &in)
+{
+	QJDns::Record out;
+	switch(in.type())
+	{
+		case NameRecord::A:
+			out.type = QJDns::A;
+			out.haveKnown = true;
+			out.address = in.address();
+			break;
+		case NameRecord::Aaaa:
+			out.type = QJDns::Aaaa;
+			out.haveKnown = true;
+			out.address = in.address();
+			break;
+		case NameRecord::Mx:
+			out.type = QJDns::Mx;
+			out.haveKnown = true;
+			out.name = in.name();
+			out.priority = in.priority();
+			break;
+		case NameRecord::Srv:
+			out.type = QJDns::Srv;
+			out.haveKnown = true;
+			out.name = in.name();
+			out.port = in.port();
+			out.priority = in.priority();
+			out.weight = in.weight();
+			break;
+		case NameRecord::Cname:
+			out.type = QJDns::Cname;
+			out.haveKnown = true;
+			out.name = in.name();
+			break;
+		case NameRecord::Ptr:
+			out.type = QJDns::Ptr;
+			out.haveKnown = true;
+			out.name = in.name();
+			break;
+		case NameRecord::Txt:
+			out.type = QJDns::Txt;
+			out.haveKnown = true;
+			out.texts = in.texts();
+			break;
+		case NameRecord::Hinfo:
+			out.type = QJDns::Hinfo;
+			out.haveKnown = true;
+			out.cpu = in.cpu();
+			out.os = in.os();
+			break;
+		case NameRecord::Ns:
+			out.type = QJDns::Ns;
+			out.haveKnown = true;
+			out.name = in.name();
+			break;
+		case NameRecord::Null:
+			out.type = 10;
+			out.rdata = in.rawData();
+			break;
+		default:
+			return out;
+	}
+	out.owner = in.owner();
+	out.ttl = in.ttl();
+	return out;
+}
+
+//----------------------------------------------------------------------------
+// JDnsGlobal
+//----------------------------------------------------------------------------
+class JDnsGlobal : public QObject
+{
+	Q_OBJECT
+public:
+	JDnsSharedDebug db;
+	JDnsShared *uni_net, *uni_local, *mul;
+	QHostAddress mul_addr4, mul_addr6;
+
+	JDnsGlobal()
+	{
+		uni_net = 0;
+		uni_local = 0;
+		mul = 0;
+
+		connect(&db, SIGNAL(readyRead()), SLOT(jdns_debugReady()));
+	}
+
+	~JDnsGlobal()
+	{
+		QList<JDnsShared*> list;
+		if(uni_net)
+			list += uni_net;
+		if(uni_local)
+			list += uni_local;
+		if(mul)
+			list += mul;
+
+		// calls shutdown on the list, waits for shutdownFinished, deletes
+		JDnsShared::waitForShutdown(list);
+
+		// get final debug
+		jdns_debugReady();
+	}
+
+	JDnsShared *ensure_uni_net()
+	{
+		if(!uni_net)
+		{
+			uni_net = new JDnsShared(JDnsShared::UnicastInternet, this);
+			uni_net->setDebug(&db, "U");
+			bool ok4 = uni_net->addInterface(QHostAddress::Any);
+			bool ok6 = uni_net->addInterface(QHostAddress::AnyIPv6);
+			if(!ok4 && !ok6)
+			{
+				delete uni_net;
+				uni_net = 0;
+			}
+		}
+		return uni_net;
+	}
+
+	JDnsShared *ensure_uni_local()
+	{
+		if(!uni_local)
+		{
+			uni_local = new JDnsShared(JDnsShared::UnicastLocal, this);
+			uni_local->setDebug(&db, "L");
+			bool ok4 = uni_local->addInterface(QHostAddress::Any);
+			bool ok6 = uni_local->addInterface(QHostAddress::AnyIPv6);
+			if(!ok4 && !ok6)
+			{
+				delete uni_local;
+				uni_local = 0;
+			}
+		}
+		return uni_local;
+	}
+
+	JDnsShared *ensure_mul()
+	{
+		if(!mul)
+		{
+			mul = new JDnsShared(JDnsShared::Multicast, this);
+			mul->setDebug(&db, "M");
+
+			updateMulticastInterfaces();
+		}
+		return mul;
+	}
+
+signals:
+	void debug(const QStringList &lines);
+
+public slots:
+	// TODO: call this when the network changes
+	void updateMulticastInterfaces()
+	{
+		QHostAddress addr4 = QJDns::detectPrimaryMulticast(QHostAddress::Any);
+		QHostAddress addr6 = QJDns::detectPrimaryMulticast(QHostAddress::AnyIPv6);
+
+		if(!(addr4 == mul_addr4))
+		{
+			if(!mul_addr4.isNull())
+				mul->removeInterface(mul_addr4);
+			mul_addr4 = addr4;
+			if(!mul_addr4.isNull())
+			{
+				if(!mul->addInterface(mul_addr4))
+					mul_addr4 = QHostAddress();
+			}
+		}
+
+		if(!(addr6 == mul_addr6))
+		{
+			if(!mul_addr6.isNull())
+				mul->removeInterface(mul_addr6);
+			mul_addr6 = addr6;
+			if(!mul_addr6.isNull())
+			{
+				if(!mul->addInterface(mul_addr6))
+					mul_addr6 = QHostAddress();
+			}
+		}
+	}
+
+private slots:
+	void jdns_debugReady()
+	{
+		QStringList lines = db.readDebugLines();
+		Q_UNUSED(lines);
+		//for(int n = 0; n < lines.count(); ++n)
+		//	printf("jdns: %s\n", qPrintable(lines[n]));
+		//emit debug(lines);
+	}
+};
+
+//----------------------------------------------------------------------------
+// JDnsNameProvider
+//----------------------------------------------------------------------------
+static int next_id = 1;
+class JDnsNameProvider : public NameProvider
+{
+	Q_OBJECT
+	Q_INTERFACES(XMPP::NameProvider);
+public:
+	enum Mode { Internet, Local };
+
+	JDnsGlobal *global;
+
+	Mode mode;
+	class Item
+	{
+	public:
+		JDnsSharedRequest *req;
+		QByteArray name;
+		int type;
+		bool longLived;
+		int id;
+
+		Item()
+		{
+			req = 0;
+		}
+
+		~Item()
+		{
+			delete req;
+		}
+	};
+	QList<Item*> items;
+
+	static JDnsNameProvider *create(JDnsGlobal *global, Mode mode, QObject *parent = 0)
+	{
+		if(mode == Internet)
+		{
+			if(!global->ensure_uni_net())
+				return 0;
+		}
+		else
+		{
+			if(!global->ensure_uni_local())
+				return 0;
+		}
+
+		return new JDnsNameProvider(global, mode, parent);
+	}
+
+	JDnsNameProvider(JDnsGlobal *_global, Mode _mode, QObject *parent = 0) : NameProvider(parent)
+	{
+		global = _global;
+		mode = _mode;
+	}
+
+	~JDnsNameProvider()
+	{
+	}
+
+	virtual int resolve_start(const QByteArray &name, int qType, bool longLived)
+	{
+		if(mode == Internet)
+		{
+			if(name.right(6) == ".local" || name.right(7) == ".local.")
+			{
+				Item *i = new Item;
+				i->id = next_id++;
+				i->name = name;
+				i->longLived = longLived;
+				items += i;
+				QMetaObject::invokeMethod(this, "do_local", Qt::QueuedConnection, Q_ARG(int, i->id));
+				return i->id;
+			}
+
+			if(longLived)
+			{
+				Item *i = new Item;
+				i->id = next_id++;
+				items += i;
+				QMetaObject::invokeMethod(this, "do_error", Qt::QueuedConnection, Q_ARG(int, i->id));
+				return i->id;
+			}
+
+			Item *i = new Item;
+			i->req = new JDnsSharedRequest(global->uni_net);
+			connect(i->req, SIGNAL(resultsReady()), SLOT(req_resultsReady()));
+			i->longLived = false;
+			i->id = next_id++;
+			items += i;
+			i->req->query(name, qType);
+			return i->id;
+		}
+		else
+		{
+			Item *i = new Item;
+			if(longLived)
+			{
+				if(!global->ensure_mul())
+				{
+					Item *i = new Item;
+					i->id = next_id++;
+					items += i;
+					QMetaObject::invokeMethod(this, "do_nolocal", Qt::QueuedConnection, Q_ARG(int, i->id));
+					return i->id;
+				}
+
+				i->req = new JDnsSharedRequest(global->mul);
+				i->longLived = true;
+			}
+			else
+			{
+				i->req = new JDnsSharedRequest(global->uni_local);
+				i->longLived = false;
+			}
+			connect(i->req, SIGNAL(resultsReady()), SLOT(req_resultsReady()));
+			i->id = next_id++;
+			items += i;
+			i->req->query(name, qType);
+			return i->id;
+		}
+	}
+
+	virtual void resolve_stop(int id)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		i->req->cancel();
+
+		items.removeAll(i);
+		delete i;
+	}
+
+	virtual void resolve_localResultsReady(int id, const QList<XMPP::NameRecord> &results)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		// not long-lived, so delete it (long-lived doesn't get looped through here)
+		items.removeAll(i);
+		delete i;
+
+		QMetaObject::invokeMethod(this, "resolve_resultsReady", Qt::QueuedConnection,
+			Q_ARG(int, id), Q_ARG(QList<XMPP::NameRecord>, results));
+	}
+
+	virtual void resolve_localError(int id, XMPP::NameResolver::Error e)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		items.removeAll(i);
+		delete i;
+
+		QMetaObject::invokeMethod(this, "resolve_error", Qt::QueuedConnection,
+			Q_ARG(int, id), Q_ARG(XMPP::NameResolver::Error, e));
+	}
+
+private slots:
+	void req_resultsReady()
+	{
+		JDnsSharedRequest *req = (JDnsSharedRequest *)sender();
+
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->req == req)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		int id = i->id;
+
+		if(req->success())
+		{
+			QList<NameRecord> out;
+			QList<QJDns::Record> results = req->results();
+			for(int n = 0; n < results.count(); ++n)
+				out += importJDNSRecord(results[n]);
+			if(!i->longLived)
+			{
+				items.removeAll(i);
+				delete i;
+			}
+			emit resolve_resultsReady(id, out);
+		}
+		else
+		{
+			JDnsSharedRequest::Error e = req->error();
+			items.removeAll(i);
+			delete i;
+
+			NameResolver::Error error = NameResolver::ErrorGeneric;
+			if(e == JDnsSharedRequest::ErrorNXDomain)
+				error = NameResolver::ErrorNoName;
+			else if(e == JDnsSharedRequest::ErrorTimeout)
+				error = NameResolver::ErrorTimeout;
+			else // ErrorGeneric or ErrorNoNet
+				error = NameResolver::ErrorGeneric;
+			emit resolve_error(id, error);
+		}
+	}
+
+	void do_local(int id)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		QByteArray name = i->name;
+		if(i->longLived) // longlived is a handoff, so delete our instance
+		{
+			items.removeAll(i);
+			delete i;
+		}
+
+		emit resolve_useLocal(id, name);
+	}
+
+	void do_error(int id)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		items.removeAll(i);
+		delete i;
+
+		emit resolve_error(id, NameResolver::ErrorNoLongLived);
+	}
+
+	void do_nolocal(int id)
+	{
+		Item *i = 0;
+		for(int n = 0; n < items.count(); ++n)
+		{
+			if(items[n]->id == id)
+			{
+				i = items[n];
+				break;
+			}
+		}
+		if(!i)
+			return;
+
+		items.removeAll(i);
+		delete i;
+
+		emit resolve_error(id, NameResolver::ErrorNoLocal);
+	}
+};
+
+//----------------------------------------------------------------------------
+// JDnsServiceProvider
+//----------------------------------------------------------------------------
+class JDnsBrowseLookup : public QObject
+{
+	Q_OBJECT
+public:
+	JDnsShared *jdns;
+	JDnsSharedRequest *req;
+
+	bool success; // TODO: use this variable
+	bool mode2;
+	QByteArray name;
+	QByteArray instance;
+	bool haveSrv;
+	QByteArray srvhost;
+	int srvport;
+	QList<QByteArray> attribs;
+	QHostAddress addr;
+
+	JDnsBrowseLookup(JDnsShared *_jdns)
+	{
+		req = 0;
+		jdns = _jdns;
+	}
+
+	~JDnsBrowseLookup()
+	{
+		delete req;
+	}
+
+	void start(const QByteArray &_name)
+	{
+		success = false;
+		mode2 = false;
+		name = _name;
+		haveSrv = false;
+
+		req = new JDnsSharedRequest(jdns);
+		connect(req, SIGNAL(resultsReady()), SLOT(jdns_resultsReady()));
+		req->query(name, QJDns::Srv);
+	}
+
+	void start2(const QByteArray &_name)
+	{
+		success = false;
+		mode2 = true;
+		name = _name;
+		haveSrv = false;
+
+		req = new JDnsSharedRequest(jdns);
+		connect(req, SIGNAL(resultsReady()), SLOT(jdns_resultsReady()));
+		req->query(name, QJDns::Srv);
+	}
+
+signals:
+	void finished();
+
+private slots:
+	void jdns_resultsReady()
+	{
+		if(!haveSrv)
+		{
+			QJDns::Record rec = req->results().first();
+
+			haveSrv = true;
+			srvhost = rec.name;
+			srvport = rec.port;
+
+			//printf("  Server: [%s] port=%d\n", srvhost.data(), srvport);
+			req->cancel();
+
+			if(mode2)
+				req->query(srvhost, QJDns::A); // TODO: ipv6?
+			else
+				req->query(name, QJDns::Txt);
+		}
+		else
+		{
+			if(mode2)
+			{
+				QJDns::Record rec = req->results().first();
+
+				addr = rec.address;
+
+				delete req;
+				req = 0;
+
+				//printf("resolve done\n");
+				emit finished();
+				return;
+			}
+
+			QJDns::Record rec = req->results().first();
+
+			attribs.clear();
+			if(!rec.texts.isEmpty())
+			{
+				if(rec.texts.count() != 1 || !rec.texts[0].isEmpty())
+					attribs = rec.texts;
+			}
+
+			/*if(attribs.isEmpty())
+			{
+				printf("  No attributes\n");
+			}
+			else
+			{
+				printf("  Attributes:\n", attribs.count());
+				for(int n = 0; n < attribs.count(); ++n)
+					printf("    [%s]\n", attribs[n].data());
+			}*/
+
+			delete req;
+			req = 0;
+
+			//printf("Instance Available!\n");
+			emit finished();
+		}
+	}
+};
+
+class JDnsBrowseInfo
+{
+public:
+	QByteArray name;
+	QByteArray instance;
+	QByteArray srvhost;
+	int srvport;
+	QList<QByteArray> attribs;
+};
+
+class JDnsBrowse : public QObject
+{
+	Q_OBJECT
+public:
+	int id;
+
+	JDnsShared *jdns;
+	JDnsSharedRequest *req;
+	QByteArray type;
+	QList<JDnsBrowseLookup*> lookups;
+
+	JDnsBrowse(JDnsShared *_jdns)
+	{
+		req = 0;
+		jdns = _jdns;
+	}
+
+	~JDnsBrowse()
+	{
+		qDeleteAll(lookups);
+		delete req;
+	}
+
+	void start(const QByteArray &_type)
+	{
+		type = _type;
+		req = new JDnsSharedRequest(jdns);
+		connect(req, SIGNAL(resultsReady()), SLOT(jdns_resultsReady()));
+		req->query(type + ".local.", QJDns::Ptr);
+	}
+
+signals:
+	void available(const JDnsBrowseInfo &i);
+	void unavailable(const QByteArray &instance);
+
+private slots:
+	void jdns_resultsReady()
+	{
+		QJDns::Record rec = req->results().first();
+		QByteArray name = rec.name;
+
+		// FIXME: this is wrong, it should search backwards
+		int x = name.indexOf('.');
+		QByteArray instance = name.mid(0, x);
+
+		if(rec.ttl == 0)
+		{
+			// stop any lookups
+			JDnsBrowseLookup *bl = 0;
+			for(int n = 0; n < lookups.count(); ++n)
+			{
+				if(lookups[n]->name == name)
+				{
+					bl = lookups[n];
+					break;
+				}
+			}
+			if(bl)
+			{
+				lookups.removeAll(bl);
+				delete bl;
+			}
+
+			//printf("Instance Gone: [%s]\n", instance.data());
+			emit unavailable(instance);
+			return;
+		}
+
+		//printf("Instance Found: [%s]\n", instance.data());
+
+		//printf("Lookup starting\n");
+		JDnsBrowseLookup *bl = new JDnsBrowseLookup(jdns);
+		connect(bl, SIGNAL(resultsReady()), SLOT(bl_resultsReady()));
+		lookups += bl;
+		bl->instance = instance;
+		bl->start(name);
+	}
+
+	void bl_resultsReady()
+	{
+		JDnsBrowseLookup *bl = (JDnsBrowseLookup *)sender();
+
+		JDnsBrowseInfo i;
+		i.name = bl->name;
+		i.instance = bl->instance;
+		i.srvhost = bl->srvhost;
+		i.srvport = bl->srvport;
+		i.attribs = bl->attribs;
+
+		lookups.removeAll(bl);
+		delete bl;
+
+		//printf("Lookup finished\n");
+		emit available(i);
+	}
+};
+
+/*void JDnsShared::net_available(const QString &id)
+{
+	NetInterface *iface = new NetInterface(id);
+	connect(iface, SIGNAL(unavailable()), SLOT(net_unavailable()));
+	ifaces += iface;
+
+	QList<QHostAddress> addrlist = iface->addresses();
+
+	if(!instances.isEmpty())
+		return;
+
+	// prefer using just ipv4
+	QHostAddress addr;
+	for(int n = 0; n < addrlist.count(); ++n)
+	{
+		if(addrlist[n].protocol() == QAbstractSocket::IPv4Protocol)
+		{
+			addr = addrlist[n];
+			break;
+		}
+	}
+
+	if(addr.isNull())
+		return;
+
+	addr = QHostAddress("192.168.1.150");
+}
+
+void JDnsShared::net_unavailable()
+{
+	// TODO
+}*/
+
+class JDnsServiceProvider : public ServiceProvider
+{
+	Q_OBJECT
+public:
+	JDnsGlobal *global;
+
+	QList<JDnsBrowse*> list;
+	QHash<QByteArray,ServiceInstance> items;
+
+	QList<JDnsSharedRequest*> pubitems;
+	QByteArray _servname;
+
+	static JDnsServiceProvider *create(JDnsGlobal *global, QObject *parent = 0)
+	{
+		JDnsServiceProvider *p = new JDnsServiceProvider(global, parent);
+		return p;
+	}
+
+	JDnsServiceProvider(JDnsGlobal *_global, QObject *parent = 0) : ServiceProvider(parent)
+	{
+		global = _global;
+	}
+
+	~JDnsServiceProvider()
+	{
+		qDeleteAll(pubitems);
+	}
+
+	virtual int browse_start(const QString &type, const QString &domain)
+	{
+		// no support for non-local domains
+		if(!domain.isEmpty() && (domain != ".local." && domain != ".local" && domain != "."))
+		{
+			// TODO
+		}
+
+		if(!global->ensure_mul())
+		{
+			// TODO
+		}
+
+		JDnsBrowse *b = new JDnsBrowse(global->mul);
+		connect(b, SIGNAL(available(const JDnsBrowseInfo &)), SLOT(jb_available(const JDnsBrowseInfo &)));
+		connect(b, SIGNAL(unavailable(const QByteArray &)), SLOT(jb_unavailable(const QByteArray &)));
+		b->start(type.toLatin1());
+
+		return 1;
+	}
+
+	virtual void browse_stop(int id)
+	{
+		// TODO
+		Q_UNUSED(id);
+	}
+
+	virtual int resolve_start(const QByteArray &name)
+	{
+		if(!global->ensure_mul())
+		{
+			// TODO
+		}
+
+		JDnsBrowseLookup *bl = new JDnsBrowseLookup(global->mul);
+		connect(bl, SIGNAL(finished()), SLOT(bl_finished()));
+		bl->start2(name);
+
+		return 1;
+	}
+
+	virtual void resolve_stop(int id)
+	{
+		// TODO
+		Q_UNUSED(id);
+	}
+
+	virtual int publish_start(const QString &instance, const QString &type, int port, const QMap<QString,QByteArray> &attributes)
+	{
+		if(!global->ensure_mul())
+		{
+			// TODO
+		}
+
+		QString me = QHostInfo::localHostName();
+		//QHostInfo hi = QHostInfo::fromName(me);
+		QByteArray melocal = me.toLatin1() + ".local.";
+		QByteArray servname = instance.toLatin1() + '.' + type.toLatin1() + ".local.";
+
+		JDnsSharedRequest *req = new JDnsSharedRequest(global->mul);
+		QJDns::Record rec;
+		rec.type = QJDns::A;
+		rec.owner = melocal;
+		rec.ttl = 120;
+		rec.haveKnown = true;
+		rec.address = QHostAddress(); // null address, will be filled in
+		req->publish(QJDns::Unique, rec);
+		pubitems += req;
+
+		/*JDnsSharedRequest *req = new JDnsSharedRequest(global->mul);
+		QJDns::Record rec;
+		rec.type = QJDns::Aaaa;
+		rec.owner = melocal;
+		rec.ttl = 120;
+		rec.haveKnown = true;
+		rec.address = QHostAddress(); // null address, will be filled in
+		req->publish(QJDns::Unique, rec);
+		pubitems += req;*/
+
+		req = new JDnsSharedRequest(global->mul);
+		rec = QJDns::Record();
+		rec.type = QJDns::Srv;
+		rec.owner = servname;
+		rec.ttl = 120;
+		rec.haveKnown = true;
+		rec.name = melocal;
+		rec.port = port;
+		rec.priority = 0;
+		rec.weight = 0;
+		req->publish(QJDns::Unique, rec);
+		pubitems += req;
+
+		req = new JDnsSharedRequest(global->mul);
+		rec = QJDns::Record();
+		rec.type = QJDns::Txt;
+		rec.owner = servname;
+		rec.ttl = 4500;
+		rec.haveKnown = true;
+		QMapIterator<QString,QByteArray> it(attributes);
+		while(it.hasNext())
+		{
+			it.next();
+			rec.texts += it.key().toLatin1() + '=' + it.value();
+		}
+		if(rec.texts.isEmpty())
+			rec.texts += QByteArray();
+		req->publish(QJDns::Unique, rec);
+		pubitems += req;
+
+		req = new JDnsSharedRequest(global->mul);
+		rec = QJDns::Record();
+		rec.type = QJDns::Ptr;
+		rec.owner = type.toLatin1() + ".local.";
+		rec.ttl = 4500;
+		rec.haveKnown = true;
+		rec.name = servname;
+		req->publish(QJDns::Shared, rec);
+		pubitems += req;
+
+		_servname = servname;
+
+		QMetaObject::invokeMethod(this, "publish_published", Qt::QueuedConnection, Q_ARG(int, 1));
+
+		return 1;
+	}
+
+	virtual int publish_update(const QMap<QString,QByteArray> &attributes)
+	{
+		// TODO
+		Q_UNUSED(attributes);
+		return 0;
+	}
+
+	virtual void publish_cancel(int id)
+	{
+		// TODO
+		Q_UNUSED(id);
+	}
+
+	virtual int publish_extra_start(int pub_id, const NameRecord &name)
+	{
+		// TODO
+		Q_UNUSED(pub_id);
+
+		JDnsSharedRequest *req = new JDnsSharedRequest(global->mul);
+		QJDns::Record rec;
+		rec.type = 10;
+		rec.owner = _servname;
+		rec.ttl = 4500;
+		rec.rdata = name.rawData();
+		req->publish(QJDns::Unique, rec);
+		pubitems += req;
+
+		QMetaObject::invokeMethod(this, "publish_extra_published", Qt::QueuedConnection, Q_ARG(int, 2));
+
+		return 2;
+	}
+
+	virtual int publish_extra_update(int id, const NameRecord &name)
+	{
+		// TODO
+		Q_UNUSED(id);
+		Q_UNUSED(name);
+		return 0;
+	}
+
+	virtual void publish_extra_cancel(int id)
+	{
+		// TODO
+		Q_UNUSED(id);
+	}
+
+private slots:
+	void jb_available(const JDnsBrowseInfo &i)
+	{
+		//printf("jb_available: [%s]\n", i.instance.data());
+		JDnsBrowse *b = (JDnsBrowse *)sender();
+		QMap<QString,QByteArray> map;
+		for(int n = 0; n < i.attribs.count(); ++n)
+		{
+			const QByteArray &a = i.attribs[n];
+			QString key;
+			QByteArray value;
+			int x = a.indexOf('=');
+			if(x != -1)
+			{
+				key = QString::fromLatin1(a.mid(0, x));
+				value = a.mid(x + 1);
+			}
+			else
+			{
+				key = QString::fromLatin1(a);
+			}
+
+			map.insert(key, value);
+		}
+		ServiceInstance si(QString::fromLatin1(i.instance), QString::fromLatin1(b->type), "local.", map);
+		items.insert(i.name, si);
+		emit browse_instanceAvailable(1, si);
+	}
+
+	void jb_unavailable(const QByteArray &instance)
+	{
+		//printf("jb_unavailable: [%s]\n", instance.data());
+		JDnsBrowse *b = (JDnsBrowse *)sender();
+		QByteArray name = instance + '.' + b->type + ".local.";
+		if(!items.contains(name))
+			return;
+
+		ServiceInstance si = items.value(name);
+		items.remove(name);
+		emit browse_instanceUnavailable(1, si);
+	}
+
+	void bl_finished()
+	{
+		JDnsBrowseLookup *bl = (JDnsBrowseLookup *)sender();
+		QHostAddress addr = bl->addr;
+		int port = bl->srvport;
+		delete bl;
+		emit resolve_resultsReady(1, addr, port);
+	}
+
+		//connect(&jdns, SIGNAL(published(int)), SLOT(jdns_published(int)));
+
+	/*virtual int publish_start(NameLocalPublisher::Mode pmode, const NameRecord &name)
+	{
+		if(mode == Unicast)
+			return -1;
+
+		QJDns::Response response;
+		QJDns::Record record = exportJDNSRecord(name);
+		response.answerRecords += record;
+		QJDns::PublishMode m = (pmode == NameLocalPublisher::Unique ? QJDns::Unique : QJDns::Shared);
+		return jdns.publishStart(m, record.owner, record.type, response);
+	}
+
+	virtual void publish_update(int id, const NameRecord &name)
+	{
+		QJDns::Response response;
+		QJDns::Record record = exportJDNSRecord(name);
+		response.answerRecords += record;
+		return jdns.publishUpdate(id, response);
+	}
+
+	virtual void publish_stop(int id)
+	{
+		jdns.publishCancel(id);
+	}*/
+
+		//else if(e == QJDns::ErrorConflict)
+		//	error = NameResolver::ErrorConflict;
+
+		//if(mode == Multicast)
+		//	jdns.queryCancel(id);
+};
+
+//----------------------------------------------------------------------------
+// JDnsProvider
+//----------------------------------------------------------------------------
+class JDnsProvider : public IrisNetProvider
+{
+	Q_OBJECT
+	Q_INTERFACES(XMPP::IrisNetProvider);
+public:
+	JDnsGlobal *global;
+
+	JDnsProvider()
+	{
+		global = 0;
+	}
+
+	~JDnsProvider()
+	{
+		delete global;
+	}
+
+	virtual NameProvider *createNameProviderInternet()
+	{
+		if(!global)
+			global = new JDnsGlobal;
+		return JDnsNameProvider::create(global, JDnsNameProvider::Internet);
+	}
+
+	virtual NameProvider *createNameProviderLocal()
+	{
+		if(!global)
+			global = new JDnsGlobal;
+		return JDnsNameProvider::create(global, JDnsNameProvider::Local);
+	}
+
+	virtual ServiceProvider *createServiceProvider()
+	{
+		if(!global)
+			global = new JDnsGlobal;
+		return JDnsServiceProvider::create(global);
+	}
+};
+
+IrisNetProvider *irisnet_createJDnsProvider()
+{
+        return new JDnsProvider;
+}
+
+}
+
+#include "netnames_jdns.moc"
